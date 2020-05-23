@@ -1,0 +1,23 @@
+
+// Copyright 2020 Furqan Software Ltd. All Rights Reserved.
+
+@require './color'
+
+.label
+	padding 3px 6px 3px 6px
+	font-size 1em
+	font-weight normal
+	color white
+
+h1 .label,
+h2 .label,
+h3 .label,
+h4 .label,
+h5 .label,
+h6 .label
+	font-size 75%
+
+.badge
+	font-weight normal
+	background-color alpha($dark, 10%)
+	color lighten($dark, 25%)

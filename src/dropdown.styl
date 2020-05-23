@@ -1,0 +1,109 @@
+// Copyright 2020 Furqan Software Ltd. All Rights Reserved.
+
+@require './func'
+@require './color'
+
+.dropdown-toggle .caret
+	margin-left 4px
+
+.dropdown-menu,
+.navbar-nav > li > .dropdown-menu
+	border-color darken($silver, 5%)
+	border-radius 2px
+
+.dropdown-menu
+	margin-top 5px
+	padding 0
+	box-shadow 0 3px 5px alpha($dark, 0.05)
+	overflow hidden
+	
+	> li
+		> a
+			padding 10px 15px
+			transition background-color 0.25s ease-in-out
+
+			&:hover,
+			&:focus,
+			&:active
+				background-color lighten($silver, 75%)
+			
+			.icon
+				font-size 16px
+		
+		.dropdown
+			margin -25px 0 0 95%
+	
+		&.active a
+			background-color $blue
+
+			&:hover,
+			&:focus,
+			&:active
+				background-color $blue
+	
+	.dropdown-header
+		padding 10px 15px
+		font-size inherit
+		font-weight 500
+
+	.divider
+		margin 0
+		background-color lighten($silver, 20%)
+
+		&:first-child,
+		&:last-child
+			display none
+
+.btn-group.open .dropdown-toggle
+	box-shadow none
+
+.navbar-nav > li > .dropdown-menu
+	margin-top 5px
+
+.dropdown.notifications
+	> .dropdown-menu
+		width 300px
+
+		ul
+			padding-left 0
+			list-style none
+
+			> li
+				> a
+					display block
+					border-bottom 1px solid lighten($silver, 75%)
+					padding 10px 15px
+					color $muted
+
+					&:hover,
+					&:focus,
+					&:active
+						background-color lighten($silver, 75%)
+
+					.time
+						margin-top 2px
+						font-size 0.95em
+
+				&.unseen a
+					padding-left 12px
+					border-left 3px solid $blue
+			
+		.dropdown-header
+			background-color lighten($silver, 75%)
+
+@media (max-width: 767px)
+	.navbar-nav .open .dropdown-menu
+		position fixed
+		width 80%
+		max-height 70vh
+		top 15%
+		left 10%
+		overflow-y auto
+		border 1px solid lighten($dark, 50%)
+		border-radius 2px
+		background white
+		box-shadow 0 5px 5px alpha($dark, 0.25)
+	
+		> li > a,
+		.dropdown-header
+			padding 10px 15px

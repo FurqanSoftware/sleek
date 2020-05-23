@@ -1,0 +1,6 @@
+{
+  "name": "sleek",
+  "version": "1.0.0",
+  "description": "Toph's base stylesheets",
+  "main": "src/index.styl"
+}

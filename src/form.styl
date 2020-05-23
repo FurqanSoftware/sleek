@@ -1,0 +1,37 @@
+// Copyright 2020 Furqan Software Ltd. All Rights Reserved.
+
+@require './func'
+@require './color'
+
+fieldset
+	margin-bottom 25px
+
+	h5
+		margin-bottom 15px
+		text-decoration underline
+
+.form-control
+	border-color $silver
+	border-radius 2px
+
+	&:focus
+		box-shadow inset 0 1px 1px alpha($dark, .075), 0 0 3px alpha($blue, 0.6)
+
+.form-horizontal .control-label
+	text-align left
+
+.bracket
+	position relative
+
+	.icon
+		position absolute
+		top 10px
+		left 10px
+		
+	.form-control
+		padding-left 30px
+
+.indicator
+	position absolute
+	top 10px
+	right 10px

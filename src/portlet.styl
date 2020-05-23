@@ -1,0 +1,95 @@
+// Copyright 2020 Furqan Software Ltd. All Rights Reserved.
+
+@require './func'
+@require './color'
+
+.portlet
+	margin 0 0 25px
+	padding 20px
+	border 1px solid $silver
+	border-radius 2px
+	background-color white
+	box-shadow 0 1px 3px alpha($dark, 0.0325)
+
+	> .header
+		min-height 50px
+		margin -10px 0 10px
+
+		> .caption
+			display inline-block
+			float left
+			padding 10px 0
+
+			h1, h2, h3, h4, h5, h6
+				margin 0
+				font-size 1.3em
+		
+			> .note
+				margin-top 10px
+				font-size 1.1em
+				color $muted
+			
+			.icon
+				margin -2px 5px 0 0
+				font-size 24px
+		
+		> .actions
+			padding 6px 0
+
+	> .header > .actions,
+	> .content > .actions
+		display inline-block
+		float right
+
+		> .btn-group
+			margin-left 10px
+
+	> .utility
+		padding 15px 0 0
+		border-top 1px solid #f2f5f8
+		border-bottom 1px solid #f2f5f8
+
+	> .content
+		> .actions
+			margin-top -4px
+		
+		.progress
+			margin-bottom 0
+	
+	&.fit
+		padding 0
+
+	&.collapsible > .content
+		overflow hidden
+
+		&.collapsed
+			max-height 190px
+			mask-image linear-gradient(to top, transparent 1%, white 50%)
+
+.modal-content .portlet
+	padding 10px
+	border none
+	border-bottom 1px solid lighten($silver, 75%)
+	border-radius 0
+	box-shadow none
+
+a > .portlet
+	transition border-color 0.25s ease-in-out
+
+a > .portlet:hover
+	border-color lighten($blue, 50%)
+
+section
+	> .caption
+		margin 0 0 25px
+		padding 25px 0
+		text-align center
+		color $muted
+
+		h1, h2, h3, h4, h5, h6
+			margin 0
+
+@media (max-width: 767px)
+	.portlet .actions .btn
+		.icon + .text
+			display none

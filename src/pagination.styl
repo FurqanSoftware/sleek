@@ -1,0 +1,31 @@
+// Copyright 2020 Furqan Software Ltd. All rights reserved.
+
+@require './color'
+
+.pagination
+	margin 0
+	
+	> li
+		> a,
+		> span
+			margin 0 2px
+			border none
+			transition background-color 0.25s ease-in-out
+	
+	> li,
+	> li:first-child,
+	> li:last-child,
+	> li:hover
+		> a,
+		> span
+			border-radius 2px
+
+	> li:hover
+		> a,
+		> span
+			background-color alpha($blue, 10%)
+	
+	> .active
+		> a,
+		> span
+			background-color $blue !important

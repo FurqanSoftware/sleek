@@ -1,0 +1,113 @@
+// Copyright 2020 Furqan Software Ltd. All rights reserved.
+
+@require './func'
+@require './color'
+
+.artifact
+	font-size 16px
+	line-height 1.6em
+
+	h1
+		margin 20px 0
+		font-size 30px
+
+	h2,
+	h3,
+	h4,
+	h5,
+	h6
+		margin 40px 0 15px
+
+	h2
+		font-size 22px
+
+	h3
+		font-size 19px
+
+	h4
+		font-size 16px
+
+	h5
+		font-size 13px
+		
+	h6
+		font-size 10px
+
+	p > img
+		display block
+		margin 0 auto 8px
+		max-width 100%
+	
+	pre[class*="language-"]
+		margin 20px 0
+	
+	table
+		width 100%
+		max-width 100%
+	
+	.caption
+		h1, h2, h3, h4, h5, h6
+			margin-top 10px
+	
+	a.caption,
+	a.caption:hover,
+	a.caption:active,
+	a.caption:focus
+		color $dark
+
+	
+	.cover
+		position relative
+		min-height 160px
+		margin -20px -20px 20px
+		border-bottom 1px solid #e7ecf1
+		border-radius 2px 2px 0 0
+		overflow hidden
+
+		&.modest
+			height 160px
+			background-position 50% 50%
+			background-size cover
+			background-color #e7ecf1
+			background-repeat no-repeat
+			opacity 0.5
+			transition opacity 0.25s ease-in-out
+		
+		&.placeholder
+			background-size auto
+			background-repeat repeat
+		
+		img
+			margin 0 auto
+	
+	&:hover
+		.cover
+			opacity 1
+
+	.header
+		position relative
+
+		.flairs
+			position absolute
+			bottom 10px
+
+	table.samples
+		> thead > tr > th
+			font-size 0.95em
+	
+		> tbody > tr > td
+			vertical-align top
+
+		pre
+			padding 0
+			margin 0
+			border none
+			background-color transparent
+
+	.limits
+		border-bottom 1px dashed #999
+		cursor pointer
+
+	.avatars img
+		margin-right 2px
+		margin-bottom 2px

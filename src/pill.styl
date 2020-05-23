@@ -1,0 +1,36 @@
+// Copyright 2020 Furqan Software Ltd. All Rights Reserved.
+
+.nav.nav-pills > li
+	&.divider
+		height 16px
+		margin 12px 10px 12px 12px
+		border-right 1px solid $silver
+
+	> a
+		border-radius 2px
+		transition background-color 0.25s ease-in-out
+
+		&:focus,
+		&:hover
+			background-color alpha($blue, 10%)
+
+		&:active
+			background-color alpha($blue, 25%)
+
+		> .badge
+			margin-top -1px
+
+		> .icon + .text
+			margin-left 10px
+	
+		img.icon
+			margin-top -2px
+
+			+ .text
+				margin-left 5px
+
+	&.active
+		> a,
+		> a:hover,
+		> a:focus
+			background-color $blue

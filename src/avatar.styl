@@ -1,0 +1,31 @@
+// Copyright 2020 Furqan Software Ltd. All rights reserved.
+
+@require './color'
+
+.avatars,
+.avatar
+	img 
+		background-color darken($silver, 5%)
+	
+.avatar
+	position relative
+
+	&.mini
+		display inline-block
+		width 40px
+		margin-right 8px
+		text-align center
+
+	.emblem
+		position absolute
+		right -2px
+		bottom -4px
+		width 24px
+		height 18px
+		margin 0
+		transition opacity 0.25s ease, bottom 0.25s ease
+
+	&:hover
+		.emblem
+			bottom -8px
+			opacity 0

@@ -1,0 +1,24 @@
+// Copyright 2020 Furqan Software Ltd. All Rights Reserved.
+
+@require './func'
+@require './color'
+
+.modal-content
+	border lighten($dark, 50%)
+	border-radius 2px
+	box-shadow 0 5px 5px alpha($dark, 0.25)
+
+.modal-header
+	border-color lighten($silver, 75%)
+
+	.close
+		float right
+		padding 2px 5px
+		font-size 16px
+		opacity 1
+
+.modal.fade .modal-dialog
+	transition none
+
+.modal-backdrop
+	background: rgba($dark, 0.5)

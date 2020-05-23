@@ -1,0 +1,105 @@
+// Copyright 2020 Furqan Software Ltd. All Rights Reserved.
+
+@require './func'
+@require './color'
+
+body 
+	margin 0 !important
+	padding 0 !important
+
+hr
+	margin 20px 0
+	border none
+	border-top 1px solid lighten($silver, 20%)
+
+a
+	text-decoration none
+	color $blue
+
+	&:hover,
+	&:active,
+	&:focus
+		text-decoration none
+
+	&:hover,
+	&:focus
+		color darken($blue, 20%)
+
+label
+	font-weight normal
+
+pre,
+pre[class*="language-"],
+.pre,
+code,
+code[class*="language-"]
+	font-family 'Ubuntu Mono', monospace
+	font-size 1.05em
+
+pre
+	border-radius 2px
+
+code
+	border none
+	box-shadow none
+
+pre[class*="language-"] code
+	display block
+
+	.line-numbers
+		padding-left 3.8em !important
+
+
+dl
+	dt
+		margin-bottom 4px
+		font-weight 500
+
+		.icon
+			margin-top -4px
+			font-size 16px
+
+	dd .item
+		margin-bottom 5px
+
+small,
+.small
+	font-size 0.95em
+
+.hidden
+	display none
+
+.dotted
+	border-bottom 1px dotted $dark
+	cursor pointer
+
+.scroller
+	overflow-y auto
+
+// Bootstrap
+
+.text-muted
+	color $muted
+
+.img-rounded
+	border-radius 2px
+
+.progress
+	border-radius 2px
+
+.navbar-toggle
+	margin 0
+	border-radius 2px
+
+.navbar-nav > li > a > .badge
+	position absolute
+	bottom 2px
+	right -1px
+	color white
+
+// Firefox
+
+// Remove dotted ring from around links in Firefox.
+a:focus,
+a::-moz-focus-inner
+	outline none

@@ -1,0 +1,52 @@
+// Copyright 2020 Furqan Software Ltd. All Rights Reserved.
+
+@require './func'
+@require './color'
+
+.btn
+	border-radius 2px
+	outline none !important
+	transition border-color 0.25s ease-in-out, background-color 0.25s ease-in-out
+
+	.icon
+		margin-top -2px
+		font-size 16px
+
+		+ .text
+			margin-left 5px
+
+	.text + .icon
+		margin-left 5px
+
+.btn-lg .icon
+	font-size 24px
+	
+_button(name, codemain, codetext)
+	.btn.{name}
+		color codetext
+		border-color codemain
+		background-color codemain
+
+	.btn.{name}:hover
+		border-color darken(codemain, 25%)
+		background-color darken(codemain, 5%)
+		box-shadow none
+
+	.btn.{name}:active,
+	.btn.{name}.active,
+	.open .btn.{name}.dropdown-toggle
+		border-color darken(codemain, 25%)
+		background-color darken(codemain, 25%)
+		box-shadow none
+
+_button('default', #e1e5ec, $muted)
+_button('blue', $blue, white)
+_button('red', $red, white)
+_button('white', white, $muted)
+
+.btn.subtle
+	border-color lighten($silver, 25%)
+
+	&:hover,
+	&:active
+		box-shadow none
