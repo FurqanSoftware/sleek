@@ -20,6 +20,7 @@
 	> li
 		> a
 			padding 10px 15px
+			color $dark
 			transition background-color 0.25s ease-in-out
 
 			&:hover,
@@ -34,12 +35,15 @@
 			margin -25px 0 0 95%
 	
 		&.active a
-			background-color $blue
+			padding-left 10px
+			border-left 5px solid $blue
+			background-color transparent
+			color $dark
 
 			&:hover,
 			&:focus,
 			&:active
-				background-color $blue
+				background-color transparent
 	
 	.dropdown-header
 		padding 10px 15px
