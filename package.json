@@ -2,5 +2,12 @@
   "name": "sleek",
   "version": "1.2.0",
   "description": "Toph's base stylesheets",
-  "main": "src/index.styl"
+  "scripts": {
+    "build": "stylus -o dist/sleek.css src/index.styl"
+  },
+  "style": "dist/sleek.css",
+  "main": "src/index.styl",
+  "devDependencies": {
+    "stylus": "^0.54.8"
+  }
 }
