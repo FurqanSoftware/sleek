@@ -1,0 +1,80 @@
+// Copyright 2020 Furqan Software Ltd. All rights reserved.
+
+.pnav
+	display none
+	border-top 1px solid lighten($silver, 75%)
+	
+	&.open
+		display block
+
+	&__search
+		position relative
+		width 100%
+		margin 6px 0
+		
+		input
+			width 100%
+			padding 7px 5px 6px 25px
+			border none
+			border-bottom 1px solid lighten($silver, 50%)
+			transition border-bottom-color 0.25s ease-in-out
+			
+			&:focus
+				border-bottom-color $blue
+		
+		.icon
+			position absolute
+			top 12px
+			left 5px
+			opacity 0.5
+		
+	&__item
+		color $dark
+
+		&.-link
+			&:hover,
+			&:focus,
+			&:active
+				background-color transparent
+				color $dark
+
+		.icon
+			margin-top -3px
+			font-size 20px
+
+@media (max-width: 991px)
+	.pnav
+		&__search
+			margin-bottom 15px
+
+		&__item.-link
+			display block
+			margin 0 -15px
+			padding 10px 15px
+
+			&.-active
+				border-left 2px solid $blue
+				padding-left 13px
+
+@media (min-width: 992px)
+	.pnav
+		display block
+
+		&__search
+			float right
+			width 250px
+		
+		&__item
+			float left
+			
+			&.-link
+				padding 15px 15px 13px
+				border-bottom 2px solid white
+				transition border-bottom-color 0.125s ease-in-out
+
+				&:hover,
+				&:focus
+					border-bottom-color lighten($blue, 50%)
+				
+				&.-active
+					border-bottom-color $blue
