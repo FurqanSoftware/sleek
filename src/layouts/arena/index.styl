@@ -1,0 +1,137 @@
+// Copyright 2020 Furqan Software Ltd. All rights reserved.
+
+@require '../../node_modules/sleek/src/base/func'
+@require '../../node_modules/sleek/src/base/color'
+
+body
+	background-color $dark
+
+.phead
+	&__logo
+		float left
+		padding 15px 0
+
+.pmenu
+	float right
+	margin 15px 0
+	
+	&__item
+		position relative
+		float left
+		display block
+		height 40px
+		border-radius 2px
+	
+		&.-user img
+			margin-left 10px
+			border-radius 2px
+
+		&.-link,
+		&.-bell
+			transition background-color 0.25s ease-in-out
+
+			img
+				transition opacity 0.25s ease-in-out
+
+			&:hover,
+			&:focus,
+			&.open
+				background-color lighten($dark, 5%)
+
+		&.-link
+			padding 7px 8px 9px
+			line-height 24px
+		
+		&.-bell a
+			display block
+			padding 8px
+
+.pside
+	width auto
+	padding-bottom 20px
+	color white
+
+	&__timer
+		margin 22px 18px 11px
+
+		.progress
+			height 6px
+			border-bottom 1px solid white
+			border-radius 0
+			background transparent
+			
+			.progress-bar
+				background-color white
+
+	&__link
+		display block
+		padding 10px 15px
+		border-left 0 solid alpha(white, 50%)
+		background-color transparent
+		color white
+		transition padding-left 0.125s ease-in-out, border-left 0.125s ease-in-out
+
+		&:hover,
+		&:focus
+			border-left-width 5px
+			padding-left 10px
+			color white
+	
+		&.disabled
+			opacity 0.5
+			cursor not-allowed
+
+		&.-active
+			border-left 5px solid white
+			padding-left 10px
+	
+		.icon
+			margin -2px 5px 0 0
+			font-size 16px
+
+.pfoot
+	padding 10px 0
+	text-align center
+	color $silver
+
+	a
+		color $silver
+
+		&:hover,
+		&:focus
+			color lighten($silver, 20%)
+
+#content
+	min-height 100vh
+	margin-left 0
+	padding-top 15px
+	border-radius 0
+	background-color #f7f9fc
+
+@media (max-width: 991px)
+	.pside
+		display none
+		overflow-y hidden
+
+		&.open
+			display block
+
+@media (min-width: 992px)
+	.pmenu__item.-bars
+		display none
+
+	.pside
+		float left
+		width 250px
+		padding-bottom 75px
+
+	.pfoot
+		position fixed
+		bottom 0
+		left 0
+		width 250px
+		background-color alpha($dark, 95%)
+
+	#content
+		margin-left 250px
+		border-radius 2px 0 0 0
