@@ -5,12 +5,12 @@
 .alert
 	border-radius 2px
 
-.alert--broadcast
+.alert.-broadcast
 	border-width 0 0 1px
 	border-radius 0
 
 _alert(name, code)
-	.alert--{name}
+	.alert.-{name}
 		background-color lighten(code, 95%)
 		border-color code
 
@@ -21,14 +21,14 @@ _alert('green', $green)
 _alert('red', $red)
 _alert('orange', $orange)
 
-.alert--subtle
+.alert.-subtle
 	border-color lighten($silver, 25%)
 	text-align center
 	color lighten($dark, 50%)
 
-a > .alert--subtle
+a > .alert.-subtle
 	transition border-color 0.25s ease-in-out, color 0.25s ease-in-out
 
-a:hover > .alert--subtle
+a:hover > .alert.-subtle
 	border-color $blue
 	color lighten($dark, 25%)
