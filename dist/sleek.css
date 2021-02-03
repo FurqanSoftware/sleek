@@ -68,8 +68,40 @@
   font-display: swap;
   src: local('Ubuntu Mono Bold'), local('UbuntuMono-Bold'), url("../fonts/ubuntumono-b-webfont.woff2") format('woff2'), url("../fonts/ubuntumono-b-webfont.woff") format('woff');
 }
+@font-face {
+  font-family: 'Hind Siliguri';
+  font-style: normal;
+  font-weight: 700;
+  font-display: swap;
+  src: local('Hind Siliguri Bold'), local('HindSiliguri-Bold'), url("../fonts/HindSiliguri-Bold.woff2") format('woff2'), url("../fonts/HindSiliguri-Bold.woff") format('woff');
+  unicode-range: U+00-FF, U+980-9FF;
+}
+@font-face {
+  font-family: 'Hind Siliguri';
+  font-style: normal;
+  font-weight: 300;
+  font-display: swap;
+  src: local('Hind Siliguri Light'), local('HindSiliguri-Light'), url("../fonts/HindSiliguri-Light.woff2") format('woff2'), url("../fonts/HindSiliguri-Light.woff") format('woff');
+  unicode-range: U+00-FF, U+980-9FF;
+}
+@font-face {
+  font-family: 'Hind Siliguri';
+  font-style: normal;
+  font-weight: 500;
+  font-display: swap;
+  src: local('Hind Siliguri Medium'), local('HindSiliguri-Medium'), url("../fonts/HindSiliguri-Medium.woff2") format('woff2'), url("../fonts/HindSiliguri-Medium.woff") format('woff');
+  unicode-range: U+00-FF, U+980-9FF;
+}
+@font-face {
+  font-family: 'Hind Siliguri';
+  font-style: normal;
+  font-weight: 400;
+  font-display: swap;
+  src: local('Hind Siliguri Regular'), local('HindSiliguri-Regular'), url("../fonts/HindSiliguri-Regular.woff2") format('woff2'), url("../fonts/HindSiliguri-Regular.woff") format('woff');
+  unicode-range: U+00-FF, U+980-9FF;
+}
 body {
-  font-family: 'Ubuntu', 'Helvetica', sans-serif;
+  font-family: 'Ubuntu', 'Hind Siliguri', 'Helvetica', sans-serif;
   font-size: 14px;
   line-height: 1.42857143;
   color: #2f353b;
@@ -529,11 +561,18 @@ h6 .label {
 .avatar {
   position: relative;
 }
-.avatar.mini {
+.avatar.-sm,
+.avatar.-xs {
   display: inline-block;
-  width: 40px;
-  margin-right: 8px;
+  margin-right: 10px;
   text-align: center;
+}
+.avatar.-sm {
+  width: 40px;
+}
+.avatar.-xs {
+  width: 20px;
+  margin-right: 5px;
 }
 .avatar .emblem {
   position: absolute;
@@ -981,7 +1020,8 @@ a > .dashlet:hover .visual {
   -o-border-radius: 2px;
   border-radius: 2px;
 }
-.alert--broadcast {
+.alert.-broadcast {
+  margin: 0;
   border-width: 0 0 1px;
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
@@ -989,43 +1029,43 @@ a > .dashlet:hover .visual {
   -o-border-radius: 0;
   border-radius: 0;
 }
-.alert--default {
+.alert.-default {
   background-color: #fdfefe;
   border-color: #e1e5ec;
 }
-.alert--ebony {
+.alert.-ebony {
   background-color: #f2f5f8;
   border-color: #22313f;
 }
-.alert--blue {
+.alert.-blue {
   background-color: #f5fafd;
   border-color: #3598dc;
 }
-.alert--green {
+.alert.-green {
   background-color: #f3fdf9;
   border-color: #26c281;
 }
-.alert--red {
+.alert.-red {
   background-color: #fef7f7;
   border-color: #e35b5a;
 }
-.alert--orange {
+.alert.-orange {
   background-color: #fff9f2;
   border-color: #e87e04;
 }
-.alert--subtle {
+.alert.-subtle {
   border-color: #edf1f4;
   text-align: center;
   color: #8f9aa5;
 }
-a > .alert--subtle {
+a > .alert.-subtle {
   -webkit-transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out;
   -moz-transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out;
   -ms-transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out;
   -o-transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out;
   transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out;
 }
-a:hover > .alert--subtle {
+a:hover > .alert.-subtle {
   border-color: #3598dc;
   color: #5c6873;
 }
