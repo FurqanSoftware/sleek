@@ -7,6 +7,75 @@
 	font-size 16px
 	line-height 1.6em
 
+	&__cover
+		position relative
+		min-height 160px
+		margin -20px -20px 20px
+		border-bottom 1px solid #e7ecf1
+		border-radius 2px 2px 0 0
+		overflow hidden
+
+		&.-modest
+			height 160px
+			opacity 0.5
+			transition opacity 0.25s ease-in-out
+		
+		&.-placeholder
+			background-position 50% 50%
+			background-size auto
+			background-color #e7ecf1
+			background-repeat repeat
+		
+		img
+			display block
+			width 100%
+			height auto
+	
+	&:hover
+		.artifact__cover
+			opacity 1
+
+	&__header
+		position relative
+
+		.flairs
+			position absolute
+			bottom 10px
+
+	&__caption
+		h1, h2, h3, h4, h5, h6
+			margin-top 0
+	
+	&__avatars img
+		margin-right 2px
+		margin-bottom 2px
+
+	&__share
+		float right
+		margin-top -30px
+		padding 5px
+		border 1px solid lighten($silver, 50%)
+		border-radius 5px
+
+		&icon
+			float right
+			width 24px
+			line-height 1.35
+			text-align center
+
+		a
+			display block
+			float left
+			margin-right 5px
+
+			> img
+				display block
+				height 24px
+				margin 0
+				padding 0
+				border-radius 5px
+				vertical-align bottom
+
 	h1
 		margin 20px 0
 		font-size 30px
@@ -45,51 +114,11 @@
 		width 100%
 		max-width 100%
 	
-	.caption
-		h1, h2, h3, h4, h5, h6
-			margin-top 0
-	
 	a.caption,
 	a.caption:hover,
 	a.caption:active,
 	a.caption:focus
 		color $dark
-
-	
-	.cover
-		position relative
-		min-height 160px
-		margin -20px -20px 20px
-		border-bottom 1px solid #e7ecf1
-		border-radius 2px 2px 0 0
-		overflow hidden
-
-		&.modest
-			height 160px
-			background-position 50% 50%
-			background-size cover
-			background-color #e7ecf1
-			background-repeat no-repeat
-			opacity 0.5
-			transition opacity 0.25s ease-in-out
-		
-		&.placeholder
-			background-size auto
-			background-repeat repeat
-		
-		img
-			margin 0 auto
-	
-	&:hover
-		.cover
-			opacity 1
-
-	.header
-		position relative
-
-		.flairs
-			position absolute
-			bottom 10px
 
 	table.samples
 		> thead > tr > th
@@ -103,11 +132,4 @@
 			margin 0
 			border none
 			background-color transparent
-
-	.limits
-		border-bottom 1px dashed #999
-		cursor pointer
-
-	.avatars img
-		margin-right 2px
-		margin-bottom 2px
+	

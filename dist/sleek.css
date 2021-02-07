@@ -143,10 +143,10 @@ h4 {
   font-size: 18px;
 }
 h5 {
-  font-size: 14px;
+  font-size: 16px;
 }
 h6 {
-  font-size: 12px;
+  font-size: 14px;
 }
 p {
   margin: 20px 0;
@@ -835,6 +835,94 @@ a > .dashlet:hover .visual {
   font-size: 16px;
   line-height: 1.6em;
 }
+.artifact__cover {
+  position: relative;
+  min-height: 160px;
+  margin: -20px -20px 20px;
+  border-bottom: 1px solid #e7ecf1;
+  -webkit-border-radius: 2px 2px 0 0;
+  -moz-border-radius: 2px 2px 0 0;
+  -ms-border-radius: 2px 2px 0 0;
+  -o-border-radius: 2px 2px 0 0;
+  border-radius: 2px 2px 0 0;
+  overflow: hidden;
+}
+.artifact__cover.-modest {
+  height: 160px;
+  opacity: 0.5;
+  -webkit-transition: opacity 0.25s ease-in-out;
+  -moz-transition: opacity 0.25s ease-in-out;
+  -ms-transition: opacity 0.25s ease-in-out;
+  -o-transition: opacity 0.25s ease-in-out;
+  transition: opacity 0.25s ease-in-out;
+}
+.artifact__cover.-placeholder {
+  background-position: 50% 50%;
+  background-size: auto;
+  background-color: #e7ecf1;
+  background-repeat: repeat;
+}
+.artifact__cover img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.artifact:hover .artifact__cover {
+  opacity: 1;
+}
+.artifact__header {
+  position: relative;
+}
+.artifact__header .flairs {
+  position: absolute;
+  bottom: 10px;
+}
+.artifact__caption h1,
+.artifact__caption h2,
+.artifact__caption h3,
+.artifact__caption h4,
+.artifact__caption h5,
+.artifact__caption h6 {
+  margin-top: 0;
+}
+.artifact__avatars img {
+  margin-right: 2px;
+  margin-bottom: 2px;
+}
+.artifact__share {
+  float: right;
+  margin-top: -30px;
+  padding: 5px;
+  border: 1px solid #f3f5f8;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+}
+.artifact__shareicon {
+  float: right;
+  width: 24px;
+  line-height: 1.35;
+  text-align: center;
+}
+.artifact__share a {
+  display: block;
+  float: left;
+  margin-right: 5px;
+}
+.artifact__share a > img {
+  display: block;
+  height: 24px;
+  margin: 0;
+  padding: 0;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  -ms-border-radius: 5px;
+  -o-border-radius: 5px;
+  border-radius: 5px;
+  vertical-align: bottom;
+}
 .artifact h1 {
   margin: 20px 0;
   font-size: 30px;
@@ -847,19 +935,19 @@ a > .dashlet:hover .visual {
   margin: 40px 0 15px;
 }
 .artifact h2 {
-  font-size: 22px;
+  font-size: 24px;
 }
 .artifact h3 {
-  font-size: 19px;
+  font-size: 22px;
 }
 .artifact h4 {
-  font-size: 16px;
+  font-size: 20px;
 }
 .artifact h5 {
-  font-size: 13px;
+  font-size: 18px;
 }
 .artifact h6 {
-  font-size: 10px;
+  font-size: 16px;
 }
 .artifact p > img {
   display: block;
@@ -873,61 +961,11 @@ a > .dashlet:hover .visual {
   width: 100%;
   max-width: 100%;
 }
-.artifact .caption h1,
-.artifact .caption h2,
-.artifact .caption h3,
-.artifact .caption h4,
-.artifact .caption h5,
-.artifact .caption h6 {
-  margin-top: 10px;
-}
 .artifact a.caption,
 .artifact a.caption:hover,
 .artifact a.caption:active,
 .artifact a.caption:focus {
   color: #2f353b;
-}
-.artifact .cover {
-  position: relative;
-  min-height: 160px;
-  margin: -20px -20px 20px;
-  border-bottom: 1px solid #e7ecf1;
-  -webkit-border-radius: 2px 2px 0 0;
-  -moz-border-radius: 2px 2px 0 0;
-  -ms-border-radius: 2px 2px 0 0;
-  -o-border-radius: 2px 2px 0 0;
-  border-radius: 2px 2px 0 0;
-  overflow: hidden;
-}
-.artifact .cover.modest {
-  height: 160px;
-  background-position: 50% 50%;
-  background-size: cover;
-  background-color: #e7ecf1;
-  background-repeat: no-repeat;
-  opacity: 0.5;
-  -webkit-transition: opacity 0.25s ease-in-out;
-  -moz-transition: opacity 0.25s ease-in-out;
-  -ms-transition: opacity 0.25s ease-in-out;
-  -o-transition: opacity 0.25s ease-in-out;
-  transition: opacity 0.25s ease-in-out;
-}
-.artifact .cover.placeholder {
-  background-size: auto;
-  background-repeat: repeat;
-}
-.artifact .cover img {
-  margin: 0 auto;
-}
-.artifact:hover .cover {
-  opacity: 1;
-}
-.artifact .header {
-  position: relative;
-}
-.artifact .header .flairs {
-  position: absolute;
-  bottom: 10px;
 }
 .artifact table.samples > thead > tr > th {
   font-size: 0.95em;
@@ -940,14 +978,6 @@ a > .dashlet:hover .visual {
   margin: 0;
   border: none;
   background-color: transparent;
-}
-.artifact .limits {
-  border-bottom: 1px dashed #999;
-  cursor: pointer;
-}
-.artifact .avatars img {
-  margin-right: 2px;
-  margin-bottom: 2px;
 }
 .pagination {
   margin: 0;
