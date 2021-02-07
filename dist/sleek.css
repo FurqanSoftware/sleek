@@ -877,14 +877,6 @@ a > .dashlet:hover .visual {
   position: absolute;
   bottom: 10px;
 }
-.artifact__caption h1,
-.artifact__caption h2,
-.artifact__caption h3,
-.artifact__caption h4,
-.artifact__caption h5,
-.artifact__caption h6 {
-  margin-top: 0;
-}
 .artifact__avatars img {
   margin-right: 2px;
   margin-bottom: 2px;
@@ -948,6 +940,14 @@ a > .dashlet:hover .visual {
 }
 .artifact h6 {
   font-size: 16px;
+}
+.artifact__caption h1,
+.artifact__caption h2,
+.artifact__caption h3,
+.artifact__caption h4,
+.artifact__caption h5,
+.artifact__caption h6 {
+  margin-top: 0;
 }
 .artifact p > img {
   display: block;
