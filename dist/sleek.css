@@ -192,46 +192,101 @@ fieldset h5 {
   top: 10px;
   right: 10px;
 }
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  background-color: transparent;
+}
+td,
+th {
+  padding: 0;
+  text-align: left;
+}
 .table {
-  border: none !important;
+  width: 100%;
+  max-width: 100%;
+  margin-bottom: 20px;
+  border: none;
+}
+.table > thead > tr > th,
+.table > tbody > tr > th,
+.table > tfoot > tr > th,
+.table > thead > tr > td,
+.table > tbody > tr > td,
+.table > tfoot > tr > td {
+  padding: 8px;
+  line-height: 1.42857143;
+  vertical-align: top;
 }
 .table > thead > tr {
-  border-bottom: 1px solid #f3f5f8;
+  border-bottom: 2px solid #f3f5f8;
 }
 .table > thead > tr > th {
-  border: none;
-  font-weight: 500;
+  vertical-align: bottom;
 }
 .table > thead > tr > th .text + .icon {
   margin-left: 5px;
 }
+.table > thead:first-child > tr:first-child > th,
+.table > thead:first-child > tr:first-child > td {
+  border-top: 0;
+}
 .table > tbody > tr {
   border-bottom: 1px solid #f3f5f8;
 }
-.table > tbody > tr > td {
-  border: none;
-  vertical-align: middle;
-}
 .table > tbody > tr:last-child {
-  border: none;
-}
-.table > thead > tr.active > th,
-.table > tbody > tr.active > th,
-.table > thead > tr.active > td,
-.table > tbody > tr.active > td,
-.table > thead > tr > th.active,
-.table > tbody > tr > th.active,
-.table > thead > tr > td.active,
-.table > tbody > tr > td.active {
-  background-color: #f9fafc;
-}
-.table--nested {
-  margin-bottom: 0;
-}
-.table--nested > tbody > tr {
   border-bottom: none;
 }
-.portlet > .content > .table-responsive:last-child > .table,
+.table > tbody + tbody {
+  border-top: 1px solid #f3f5f8;
+}
+.table .table .table {
+  background-color: #fff;
+}
+.table > thead > tr > td.active,
+.table > tbody > tr > td.active,
+.table > tfoot > tr > td.active,
+.table > thead > tr > th.active,
+.table > tbody > tr > th.active,
+.table > tfoot > tr > th.active,
+.table > thead > tr.active > td,
+.table > tbody > tr.active > td,
+.table > tfoot > tr.active > td,
+.table > thead > tr.active > th,
+.table > tbody > tr.active > th,
+.table > tfoot > tr.active > th {
+  background-color: #f9fafc;
+}
+.table.-nested {
+  margin-bottom: 0;
+}
+.table.-nested > tbody > tr {
+  border-bottom: none;
+}
+.tablebox {
+  min-height: 0.01%;
+  overflow-x: auto;
+}
+@media screen and (max-width: 767px) {
+  .tablebox {
+    width: 100%;
+    margin-bottom: 15px;
+    overflow-y: hidden;
+    border: 1px solid #f3f5f8;
+  }
+  .tablebox > .table {
+    margin-bottom: 0;
+  }
+  .tablebox > .table > thead > tr > th,
+  .tablebox > .table > tbody > tr > th,
+  .tablebox > .table > tfoot > tr > th,
+  .tablebox > .table > thead > tr > td,
+  .tablebox > .table > tbody > tr > td,
+  .tablebox > .table > tfoot > tr > td {
+    white-space: nowrap;
+  }
+}
+.portlet > .content > .tablebox:last-child > .table,
 .portlet > .content > .table:last-child {
   margin-bottom: 0;
 }
@@ -244,22 +299,17 @@ fieldset h5 {
   padding-right: 0;
 }
 @media (min-width: 768px) {
-  .portlet > .content > .table-responsive > .table thead > tr > th:first-child,
+  .portlet > .content > .tablebox > .table thead > tr > th:first-child,
   .portlet > .content > .scroller > .table thead > tr > th:first-child,
-  .portlet > .content > .table-responsive > .table tbody > tr > td:first-child,
+  .portlet > .content > .tablebox > .table tbody > tr > td:first-child,
   .portlet > .content > .scroller > .table tbody > tr > td:first-child {
     padding-left: 0;
   }
-  .portlet > .content > .table-responsive > .table thead > tr > th:last-child,
+  .portlet > .content > .tablebox > .table thead > tr > th:last-child,
   .portlet > .content > .scroller > .table thead > tr > th:last-child,
-  .portlet > .content > .table-responsive > .table tbody > tr > td:last-child,
+  .portlet > .content > .tablebox > .table tbody > tr > td:last-child,
   .portlet > .content > .scroller > .table tbody > tr > td:last-child {
     padding-right: 0;
-  }
-}
-@media (max-width: 767px) {
-  .table-responsive {
-    border: 1px solid #f3f5f8;
   }
 }
 .btn {
