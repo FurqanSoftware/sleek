@@ -1,3 +1,111 @@
+body {
+  margin: 0;
+  padding: 0;
+}
+hr {
+  margin: 20px 0;
+  border: none;
+  border-top: 1px solid #edf1f4;
+}
+a {
+  text-decoration: none;
+  color: #3598dc;
+}
+a:hover,
+a:active,
+a:focus {
+  text-decoration: none;
+  color: #307eb4;
+}
+label {
+  font-weight: normal;
+}
+pre,
+pre[class*="language-"],
+.pre,
+code,
+code[class*="language-"] {
+  font-family: 'Ubuntu Mono', monospace;
+  font-size: 1.05em;
+}
+pre {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+}
+code {
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+pre[class*="language-"] code {
+  display: block;
+}
+pre[class*="language-"] code .line-numbers {
+  padding-left: 3.8em !important;
+}
+dl dt {
+  margin-bottom: 4px;
+  font-weight: 500;
+}
+dl dt .icon {
+  margin-top: -4px;
+  font-size: 16px;
+}
+dl dd .item {
+  margin-bottom: 5px;
+}
+small,
+.small {
+  font-size: 0.95em;
+}
+.hidden {
+  display: none;
+}
+.dotted {
+  border-bottom: 1px dotted #2f353b;
+  cursor: pointer;
+}
+.scroller {
+  overflow-y: auto;
+}
+.text-muted {
+  color: #5c6873;
+}
+.img-rounded {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+}
+.progress {
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+}
+.navbar-toggle {
+  margin: 0;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
+}
+.navbar-nav > li > a > .badge {
+  position: absolute;
+  bottom: 2px;
+  right: -1px;
+  color: #fff;
+}
+a:focus,
+a::-moz-focus-inner {
+  outline: none;
+}
 @font-face {
   font-family: 'Ubuntu';
   font-style: normal;
@@ -214,7 +322,7 @@ th {
 .table > thead > tr > td,
 .table > tbody > tr > td,
 .table > tfoot > tr > td {
-  padding: 8px;
+  padding: 10px;
   line-height: 1.42857143;
   vertical-align: top;
 }
@@ -222,7 +330,7 @@ th {
   border-bottom: 2px solid #f3f5f8;
 }
 .table > thead > tr > th {
-  vertical-align: bottom;
+  font-weight: bold;
 }
 .table > thead > tr > th .text + .icon {
   margin-left: 5px;
@@ -256,12 +364,6 @@ th {
 .table > tbody > tr.active > th,
 .table > tfoot > tr.active > th {
   background-color: #f9fafc;
-}
-.table.-nested {
-  margin-bottom: 0;
-}
-.table.-nested > tbody > tr {
-  border-bottom: none;
 }
 .tablebox {
   min-height: 0.01%;
@@ -1148,117 +1250,6 @@ a > .alert.-subtle {
 a:hover > .alert.-subtle {
   border-color: #3598dc;
   color: #5c6873;
-}
-body {
-  margin: 0 !important;
-  padding: 0 !important;
-}
-hr {
-  margin: 20px 0;
-  border: none;
-  border-top: 1px solid #ecf0f4;
-}
-a {
-  text-decoration: none;
-  color: #3598dc;
-}
-a:hover,
-a:active,
-a:focus {
-  text-decoration: none;
-}
-a:hover,
-a:focus {
-  color: #207bba;
-}
-label {
-  font-weight: normal;
-}
-pre,
-pre[class*="language-"],
-.pre,
-code,
-code[class*="language-"] {
-  font-family: 'Ubuntu Mono', monospace;
-  font-size: 1.05em;
-}
-pre {
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -o-border-radius: 2px;
-  border-radius: 2px;
-}
-code {
-  border: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-pre[class*="language-"] code {
-  display: block;
-}
-pre[class*="language-"] code .line-numbers {
-  padding-left: 3.8em !important;
-}
-dl dt {
-  margin-bottom: 4px;
-  font-weight: 500;
-}
-dl dt .icon {
-  margin-top: -4px;
-  font-size: 16px;
-}
-dl dd .item {
-  margin-bottom: 5px;
-}
-small,
-.small {
-  font-size: 0.95em;
-}
-.hidden {
-  display: none;
-}
-.dotted {
-  border-bottom: 1px dotted #2f353b;
-  cursor: pointer;
-}
-.scroller {
-  overflow-y: auto;
-}
-.text-muted {
-  color: #5c6873;
-}
-.img-rounded {
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -o-border-radius: 2px;
-  border-radius: 2px;
-}
-.progress {
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -o-border-radius: 2px;
-  border-radius: 2px;
-}
-.navbar-toggle {
-  margin: 0;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -o-border-radius: 2px;
-  border-radius: 2px;
-}
-.navbar-nav > li > a > .badge {
-  position: absolute;
-  bottom: 2px;
-  right: -1px;
-  color: #fff;
-}
-a:focus,
-a::-moz-focus-inner {
-  outline: none;
 }
 .bg-dark {
   background-color: #2f353b !important;
