@@ -1,0 +1,46 @@
+// Copyright 2021 Furqan Software Ltd. All rights reserved.
+
+.icon
+	width 1em
+	height 1em
+	-webkit-touch-callout none
+	-webkit-user-select none
+	-khtml-user-select none
+	-moz-user-select none
+	-ms-user-select none
+	user-select none
+
+	&:not(.custom)
+		filter invert(18%) sepia(3%) saturate(2176%) hue-rotate(169deg) brightness(88%) contrast(88%)
+
+_iconcolor(name, filter)
+	.icon.{name}
+		filter filter !important
+
+	.btn.{name} .icon
+		filter filter
+
+_iconcolor('muted', invert(39%) sepia(15%) saturate(430%) hue-rotate(167deg) brightness(96%) contrast(86%))
+_iconcolor('ebony', invert(16%) sepia(13%) saturate(1446%) hue-rotate(168deg) brightness(94%) contrast(92%))
+_iconcolor('blue', invert(60%) sepia(14%) saturate(5798%) hue-rotate(178deg) brightness(90%) contrast(91%))
+_iconcolor('green', invert(72%) sepia(11%) saturate(2723%) hue-rotate(101deg) brightness(86%) contrast(86%))
+_iconcolor('red', invert(58%) sepia(41%) saturate(6111%) hue-rotate(327deg) brightness(97%) contrast(84%))
+_iconcolor('orange', invert(51%) sepia(77%) saturate(1714%) hue-rotate(3deg) brightness(95%) contrast(97%))
+_iconcolor('silver', invert(94%) sepia(11%) saturate(94%) hue-rotate(169deg) brightness(100%) contrast(91%))
+
+.icon.white:not(.custom)
+	filter invert(100%) sepia(100%) saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%) !important
+
+.btn.default .icon:not(.custom),
+.btn.white .icon:not(.custom)
+	filter invert(39%) sepia(15%) saturate(430%) hue-rotate(167deg) brightness(96%) contrast(86%)
+
+.btn.blue .icon:not(.custom),
+.btn.red .icon:not(.custom)
+	filter invert(100%) sepia(100%) saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%)
+
+.icon.sm
+	font-size 16px
+
+.icon.x2
+	font-size 2em
