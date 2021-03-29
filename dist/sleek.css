@@ -88,20 +88,6 @@ small,
   -o-border-radius: 2px;
   border-radius: 2px;
 }
-.navbar-toggle {
-  margin: 0;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -o-border-radius: 2px;
-  border-radius: 2px;
-}
-.navbar-nav > li > a > .badge {
-  position: absolute;
-  bottom: 2px;
-  right: -1px;
-  color: #fff;
-}
 a:focus,
 a::-moz-focus-inner {
   outline: none;
@@ -414,6 +400,25 @@ th {
     padding-right: 0;
   }
 }
+.badge {
+  display: inline-block;
+  padding: 1px 5px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  background-color: rgba(231,236,241,0.5);
+  color: #454e57;
+  -webkit-transition: background-color 0.25s ease-in-out;
+  -moz-transition: background-color 0.25s ease-in-out;
+  -ms-transition: background-color 0.25s ease-in-out;
+  -o-transition: background-color 0.25s ease-in-out;
+  transition: background-color 0.25s ease-in-out;
+}
+.badge:empty {
+  display: none;
+}
 .btn {
   -webkit-border-radius: 2px;
   -moz-border-radius: 2px;
@@ -660,14 +665,14 @@ h5 .label,
 h6 .label {
   font-size: 75%;
 }
-.badge {
-  font-weight: normal;
-  background-color: rgba(47,53,59,0.1);
-  color: #5c6873;
-}
 .avatars img,
 .avatar img {
   background-color: #d8e0e8;
+  -webkit-border-radius: 2px;
+  -moz-border-radius: 2px;
+  -ms-border-radius: 2px;
+  -o-border-radius: 2px;
+  border-radius: 2px;
 }
 .avatar {
   position: relative;
