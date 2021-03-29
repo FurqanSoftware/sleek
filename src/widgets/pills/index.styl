@@ -29,8 +29,13 @@
 				float right
 				margin-top -1px
 				margin-left 10px
-				background-color alpha(white, 12.5%)
 				color $blue
+
+			&:focus,
+			&:hover,
+			&:active
+				> .badge
+					background-color alpha(white, 25%)
 
 			> .icon + .text
 				margin-left 10px
