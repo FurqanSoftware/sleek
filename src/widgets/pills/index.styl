@@ -59,6 +59,15 @@
 				.badge
 					background-color alpha(white, 12.5%)
 					color white
+		
+		&.-disabled
+			> a,
+			> a:hover
+			> a:focus
+				color $muted
+				background-color transparent
+				cursor not-allowed
+				opacity 0.75
 
 	&.-stacked
 		> li
