@@ -524,47 +524,6 @@ th {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-.nav.nav-pills > li.divider {
-  height: 16px;
-  margin: 12px 10px 12px 12px;
-  border-right: 1px solid #e7ecf1;
-}
-.nav.nav-pills > li > a {
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -o-border-radius: 2px;
-  border-radius: 2px;
-  -webkit-transition: background-color 0.25s ease-in-out;
-  -moz-transition: background-color 0.25s ease-in-out;
-  -ms-transition: background-color 0.25s ease-in-out;
-  -o-transition: background-color 0.25s ease-in-out;
-  transition: background-color 0.25s ease-in-out;
-}
-.nav.nav-pills > li > a:focus,
-.nav.nav-pills > li > a:hover {
-  background-color: rgba(53,152,220,0.1);
-}
-.nav.nav-pills > li > a:active {
-  background-color: rgba(53,152,220,0.25);
-}
-.nav.nav-pills > li > a > .badge {
-  margin-top: -1px;
-}
-.nav.nav-pills > li > a > .icon + .text {
-  margin-left: 10px;
-}
-.nav.nav-pills > li > a img.icon {
-  margin-top: -2px;
-}
-.nav.nav-pills > li > a img.icon + .text {
-  margin-left: 5px;
-}
-.nav.nav-pills > li.active > a,
-.nav.nav-pills > li.active > a:hover,
-.nav.nav-pills > li.active > a:focus {
-  background-color: #3598dc;
-}
 .dropdown-toggle .caret {
   margin-left: 4px;
 }
