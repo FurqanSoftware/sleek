@@ -72,7 +72,7 @@ small,
   overflow-y: auto;
 }
 .text-muted {
-  color: #5c6873;
+  color: #8b9096;
 }
 .img-rounded {
   -webkit-border-radius: 2px;
@@ -409,7 +409,7 @@ th {
   -o-border-radius: 3px;
   border-radius: 3px;
   background-color: rgba(231,236,241,0.5);
-  color: #454e57;
+  color: #5d6268;
   -webkit-transition: background-color 0.25s ease-in-out;
   -moz-transition: background-color 0.25s ease-in-out;
   -ms-transition: background-color 0.25s ease-in-out;
@@ -446,7 +446,7 @@ th {
   font-size: 24px;
 }
 .btn.default {
-  color: #5c6873;
+  color: #8b9096;
   border-color: #e1e5ec;
   background-color: #e1e5ec;
 }
@@ -503,7 +503,7 @@ th {
   box-shadow: none;
 }
 .btn.white {
-  color: #5c6873;
+  color: #8b9096;
   border-color: #fff;
   background-color: #fff;
 }
@@ -610,7 +610,7 @@ th {
   display: block;
   border-bottom: 1px solid #f9fafc;
   padding: 10px 15px;
-  color: #5c6873;
+  color: #8b9096;
 }
 .dropdown.notifications > .dropdown-menu ul > li > a:hover,
 .dropdown.notifications > .dropdown-menu ul > li > a:focus,
@@ -741,7 +741,7 @@ h6 .label {
 .portlet > .header > .caption > .note {
   margin-top: 10px;
   font-size: 1.1em;
-  color: #5c6873;
+  color: #8b9096;
 }
 .portlet > .header > .caption .icon {
   margin: -2px 5px 0 0;
@@ -807,7 +807,7 @@ section > .caption {
   margin: 0 0 25px;
   padding: 25px 0;
   text-align: center;
-  color: #5c6873;
+  color: #8b9096;
 }
 section > .caption h1,
 section > .caption h2,
