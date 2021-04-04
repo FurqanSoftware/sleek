@@ -1,0 +1,89 @@
+// Copyright 2021 Furqan Software Ltd. All rights reserved.
+
+.handle
+	padding 0.25rem 0.5rem
+	border-radius 3px
+
+.handle,
+.handle:hover,
+.handle:focus
+	color darken(#555555, 15%)
+	
+	&.-sss
+		color darken(#ca302f, 15%) // Red
+
+	&.-ss
+		color darken(#da9101, 15%) // Orange
+
+	&.-s
+		color darken(#fcc201, 25%) // Yellow
+
+	&.-a
+		color darken(#fcc201, 25%) // Yellow
+
+	&.-b
+		color darken(#138715, 15%) // Green
+
+	&.-c
+		color darken(#304cc8, 15%) // Blue
+
+	&.-e
+		color darken(#4e2388, 15%) // Purple
+
+.handle
+	background-color alpha(#555555, 0.05)
+	
+	&.-sss
+		background-color alpha(#ca302f, 0.05)
+
+	&.-ss
+		background-color alpha(#da9101, 0.05)
+
+	&.-s
+		background-color alpha(#fcc201, 0.05)
+
+	&.-a
+		background-color alpha(#fcc201, 0.05)
+
+	&.-b
+		background-color alpha(#138715, 0.05)
+
+	&.-c
+		background-color alpha(#304cc8, 0.05)
+
+	&.-e
+		background-color alpha(#4e2388, 0.05)
+
+.handle:hover,
+.handle:focus
+	background-color alpha(#555555, 0.1)
+	
+	&.-sss
+		background-color alpha(#ca302f, 0.1)
+
+	&.-ss
+		background-color alpha(#da9101, 0.1)
+
+	&.-s
+		background-color alpha(#fcc201, 0.1)
+
+	&.-a
+		background-color alpha(#fcc201, 0.1)
+
+	&.-b
+		background-color alpha(#138715, 0.1)
+
+	&.-c
+		background-color alpha(#304cc8, 0.1)
+
+	&.-e
+		background-color alpha(#4e2388, 0.1)
+
+.mention
+	.at
+		display none
+	
+	.handle:before
+		content '@'
+		font-size 0.85em
+		color lighten($muted, 50%)
