@@ -44,6 +44,7 @@
 		> .btn-group
 			margin-left 10px
 
+	// DEPRECATED: to be replaced by .panel__drawer
 	> .utility
 		padding 15px 0 0
 		border-top 1px solid #f2f5f8
@@ -55,6 +56,16 @@
 		
 		.progress
 			margin-bottom 0
+	
+	// XXX: Change to &__drawer after portlet is renamed to panel
+	.panel__drawer
+		display none
+		padding 15px 0 0
+		border-top 1px solid #f2f5f8
+		border-bottom 1px solid #f2f5f8
+
+		&.-open
+			display block	
 	
 	&.fit
 		padding 0
