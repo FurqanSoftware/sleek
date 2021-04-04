@@ -770,6 +770,15 @@ h6 .label {
 .portlet > .content .progress {
   margin-bottom: 0;
 }
+.portlet .panel__drawer {
+  display: none;
+  padding: 15px 0 0;
+  border-top: 1px solid #f2f5f8;
+  border-bottom: 1px solid #f2f5f8;
+}
+.portlet .panel__drawer.-open {
+  display: block;
+}
 .portlet.fit {
   padding: 0;
 }
