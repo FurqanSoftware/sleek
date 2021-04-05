@@ -10,7 +10,7 @@
 	-ms-user-select none
 	user-select none
 
-	&:not(.custom)
+	&:not(.-custom)
 		filter invert(18%) sepia(3%) saturate(2176%) hue-rotate(169deg) brightness(88%) contrast(88%)
 
 _iconcolor(name, filter)
@@ -28,15 +28,15 @@ _iconcolor('red', invert(58%) sepia(41%) saturate(6111%) hue-rotate(327deg) brig
 _iconcolor('orange', invert(51%) sepia(77%) saturate(1714%) hue-rotate(3deg) brightness(95%) contrast(97%))
 _iconcolor('silver', invert(94%) sepia(11%) saturate(94%) hue-rotate(169deg) brightness(100%) contrast(91%))
 
-.icon.white:not(.custom)
+.icon.white:not(.-custom)
 	filter invert(100%) sepia(100%) saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%) !important
 
-.btn.-default .icon:not(.custom),
-.btn.-white .icon:not(.custom)
+.btn.-default .icon:not(.-custom),
+.btn.-white .icon:not(.-custom)
 	filter invert(39%) sepia(15%) saturate(430%) hue-rotate(167deg) brightness(96%) contrast(86%)
 
-.btn.-blue .icon:not(.custom),
-.btn.-red .icon:not(.custom)
+.btn.-blue .icon:not(.-custom),
+.btn.-red .icon:not(.-custom)
 	filter invert(100%) sepia(100%) saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%)
 
 .icon.sm
