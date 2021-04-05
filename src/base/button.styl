@@ -3,10 +3,35 @@
 @require './func'
 @require './color'
 
+.btngroup
+	position relative
+	display inline-block
+	margin-left 5px
+	
+	&:first-child
+		margin-left 0
+	
+	> .btn
+		position relative
+		float left
+
 .btn
-	border-radius 2px
+	display inline-block
+	padding 10px 15px
+	border none
+	border-radius 3px
 	outline none !important
-	transition border-color 0.25s ease-in-out, background-color 0.25s ease-in-out
+	text-align center
+	background-color transparent
+	transition box-shadow 0.25s ease-in-out, border-color 0.25s ease-in-out
+
+	&.-disabled,
+	&[disabled]
+		opacity 0.65
+	
+	&.-block
+		display block
+		width 100%
 
 	.icon
 		margin-top -2px
@@ -18,35 +43,45 @@
 	.text + .icon
 		margin-left 5px
 
-.btn-lg .icon
-	font-size 24px
+_button(name, bg, text, edge=10%, hover=30%, active=15%)
+	.btn
+		&.-{name}
+			color text
+			background-color bg
+			box-shadow inset 0 -2px 0 darken(bg, edge)
+
+		&.-{name}:hover,
+		&.-{name}:focus
+			box-shadow inset 0 -2px 0 darken(bg, hover)
+
+		&.-{name}:active,
+		&.-{name}.active
+			box-shadow inset 1px 2px 0 darken(bg, active)
+			
+		&.-{name}.-disabled,
+		&.-{name}[disabled]
+			box-shadow none
 	
-_button(name, codemain, codetext)
-	.btn.{name}
-		color codetext
-		border-color codemain
-		background-color codemain
-
-	.btn.{name}:hover
-		border-color darken(codemain, 25%)
-		background-color darken(codemain, 5%)
-		box-shadow none
-
-	.btn.{name}:active,
-	.btn.{name}.active,
-	.open .btn.{name}.dropdown-toggle
-		border-color darken(codemain, 25%)
-		background-color darken(codemain, 25%)
-		box-shadow none
+	.open > &.-{name}:first-child
+		box-shadow inset 1px 2px 0 darken(bg, active)
 
 _button('default', #e1e5ec, $muted)
-_button('blue', $blue, white)
-_button('red', $red, white)
-_button('white', white, $muted)
+_button('blue', $blue, white, 20%, 60%, 30%)
+_button('red', $red, white, 20%, 60%, 30%)
 
-.btn.subtle
-	border-color lighten($silver, 25%)
+.btn.-subtle
+	border 1px solid lighten($silver, 50%)
+	color $dark
+	box-shadow inset 0 -2px 0 lighten($silver, 50%)
 
 	&:hover,
-	&:active
-		box-shadow none
+	&:focus
+		border-color $silver
+		box-shadow inset 0 -2px 0 $silver
+
+	&:active,
+	&.active
+		box-shadow inset 1px 2px 1px lighten($silver, 50%)
+
+.open > &.-subtle:first-child
+	box-shadow inset 1px 2px 1px lighten($silver, 50%)
