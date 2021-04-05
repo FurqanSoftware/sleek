@@ -74,12 +74,10 @@
 	&.fit
 		padding 0
 
-	&.collapsible > .content
+	&.-clipped > .content
+		max-height 190px
 		overflow hidden
-
-		&.collapsed
-			max-height 190px
-			mask-image linear-gradient(to top, transparent 1%, white 50%)
+		mask-image linear-gradient(to top, transparent 1%, white 50%)
 
 .modal-content .portlet
 	padding 10px
