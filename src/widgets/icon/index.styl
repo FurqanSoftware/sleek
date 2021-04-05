@@ -12,6 +12,12 @@
 
 	&:not(.-custom)
 		filter invert(18%) sepia(3%) saturate(2176%) hue-rotate(169deg) brightness(88%) contrast(88%)
+	
+	&.-spin
+		animation-name spin
+		animation-duration 5000ms
+		animation-iteration-count infinite
+		animation-timing-function linear;
 
 _iconcolor(name, filter)
 	.icon.{name}
@@ -44,3 +50,9 @@ _iconcolor('silver', invert(94%) sepia(11%) saturate(94%) hue-rotate(169deg) bri
 
 .icon.x2
 	font-size 2em
+
+@keyframes spin
+	from
+		transform rotate(0deg)
+	to
+		transform rotate(360deg)
