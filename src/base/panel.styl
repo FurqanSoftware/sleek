@@ -1,0 +1,79 @@
+// Copyright 2020 Furqan Software Ltd. All Rights Reserved.
+
+@require './func'
+@require './color'
+
+.panel
+	margin 0 0 25px
+	padding 20px
+	border 1px solid $silver
+	border-radius 2px
+	background-color white
+	box-shadow 0 1px 3px alpha($dark, 0.0325)
+
+	&.-fit
+		padding 0
+
+	&.-space
+		padding 50px
+		
+	&.-green
+		border-color $green
+
+	&__head
+		min-height 50px
+		margin -10px 0 10px
+
+	&__title
+		display inline-block
+		float left
+		padding 10px 0
+
+		h1, h2, h3, h4, h5, h6
+			margin 0
+			font-size 1.5em
+	
+		.icon
+			margin -2px 5px 0 0
+			font-size 24px
+
+	&__actions
+		float right
+		padding 5px 0
+
+		.btn
+			padding 5px 10px
+			font-size 0.95em
+	
+	&__body .panel__actions
+		padding 0
+
+	&__body
+		.progress
+			margin-bottom 0
+
+	&.-clipped > .panel__body
+		max-height 190px
+		overflow hidden
+		mask-image linear-gradient(to top, transparent 1%, white 50%)
+
+a > .panel
+	transition border-color 0.25s ease-in-out
+
+	&:hover
+		border-color lighten($blue, 50%)
+
+section
+	> .caption
+		margin 0 0 25px
+		padding 25px 0
+		text-align center
+		color $muted
+
+		h1, h2, h3, h4, h5, h6
+			margin 0
+
+@media (max-width: 767px)
+	.panel .panel__actions .btn
+		.icon + .text
+			display none

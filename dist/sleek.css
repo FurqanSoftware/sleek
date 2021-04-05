@@ -374,29 +374,29 @@ th {
     white-space: nowrap;
   }
 }
-.portlet > .content > .tablebox:last-child > .table,
-.portlet > .content > .table:last-child {
+.panel > .content > .tablebox:last-child > .table,
+.panel > .content > .table:last-child {
   margin-bottom: 0;
 }
-.portlet > .content > .table thead > tr > th:first-child,
-.portlet > .content > .table tbody > tr > td:first-child {
+.panel > .content > .table thead > tr > th:first-child,
+.panel > .content > .table tbody > tr > td:first-child {
   padding-left: 0;
 }
-.portlet > .content > .table thead > tr > th:last-child,
-.portlet > .content > .table tbody > tr > td:last-child {
+.panel > .content > .table thead > tr > th:last-child,
+.panel > .content > .table tbody > tr > td:last-child {
   padding-right: 0;
 }
 @media (min-width: 768px) {
-  .portlet > .content > .tablebox > .table thead > tr > th:first-child,
-  .portlet > .content > .scroller > .table thead > tr > th:first-child,
-  .portlet > .content > .tablebox > .table tbody > tr > td:first-child,
-  .portlet > .content > .scroller > .table tbody > tr > td:first-child {
+  .panel > .content > .tablebox > .table thead > tr > th:first-child,
+  .panel > .content > .scroller > .table thead > tr > th:first-child,
+  .panel > .content > .tablebox > .table tbody > tr > td:first-child,
+  .panel > .content > .scroller > .table tbody > tr > td:first-child {
     padding-left: 0;
   }
-  .portlet > .content > .tablebox > .table thead > tr > th:last-child,
-  .portlet > .content > .scroller > .table thead > tr > th:last-child,
-  .portlet > .content > .tablebox > .table tbody > tr > td:last-child,
-  .portlet > .content > .scroller > .table tbody > tr > td:last-child {
+  .panel > .content > .tablebox > .table thead > tr > th:last-child,
+  .panel > .content > .scroller > .table thead > tr > th:last-child,
+  .panel > .content > .tablebox > .table tbody > tr > td:last-child,
+  .panel > .content > .scroller > .table tbody > tr > td:last-child {
     padding-right: 0;
   }
 }
@@ -758,7 +758,7 @@ h6 .label {
   bottom: -8px;
   opacity: 0;
 }
-.portlet {
+.panel {
   margin: 0 0 25px;
   padding: 20px;
   border: 1px solid #e7ecf1;
@@ -771,106 +771,65 @@ h6 .label {
   -webkit-box-shadow: 0 1px 3px rgba(47,53,59,0.033);
   box-shadow: 0 1px 3px rgba(47,53,59,0.033);
 }
-.portlet > .header {
+.panel.-fit {
+  padding: 0;
+}
+.panel.-space {
+  padding: 50px;
+}
+.panel.-green {
+  border-color: #26c281;
+}
+.panel__head {
   min-height: 50px;
   margin: -10px 0 10px;
 }
-.portlet > .header > .caption {
+.panel__title {
   display: inline-block;
   float: left;
   padding: 10px 0;
 }
-.portlet > .header > .caption h1,
-.portlet > .header > .caption h2,
-.portlet > .header > .caption h3,
-.portlet > .header > .caption h4,
-.portlet > .header > .caption h5,
-.portlet > .header > .caption h6 {
+.panel__title h1,
+.panel__title h2,
+.panel__title h3,
+.panel__title h4,
+.panel__title h5,
+.panel__title h6 {
   margin: 0;
-  font-size: 1.3em;
+  font-size: 1.5em;
 }
-.portlet > .header > .caption > .note {
-  margin-top: 10px;
-  font-size: 1.1em;
-  color: #8b9096;
-}
-.portlet > .header > .caption .icon {
+.panel__title .icon {
   margin: -2px 5px 0 0;
   font-size: 24px;
 }
-.portlet > .header > .actions {
-  padding: 5px 0;
-}
-.portlet > .header > .actions .btn {
-  padding: 5px 10px;
-  font-size: 0.95em;
-}
-.portlet > .header > .actions,
-.portlet > .content > .actions {
-  display: inline-block;
-  float: right;
-}
-.portlet > .header > .actions > .btn-group,
-.portlet > .content > .actions > .btn-group {
-  margin-left: 10px;
-}
-.portlet > .utility {
-  padding: 15px 0 0;
-  border-top: 1px solid #f2f5f8;
-  border-bottom: 1px solid #f2f5f8;
-}
-.portlet > .content > .actions {
-  margin-top: -4px;
-}
-.portlet > .content .progress {
-  margin-bottom: 0;
-}
-.portlet .panel__actions {
+.panel__actions {
   float: right;
   padding: 5px 0;
 }
-.portlet .panel__actions .btn {
+.panel__actions .btn {
   padding: 5px 10px;
   font-size: 0.95em;
 }
-.portlet .panel__drawer {
-  display: none;
-  padding: 15px 0 0;
-  border-top: 1px solid #f2f5f8;
-  border-bottom: 1px solid #f2f5f8;
-}
-.portlet .panel__drawer.-open {
-  display: block;
-}
-.portlet.fit {
+.panel__body .panel__actions {
   padding: 0;
 }
-.portlet.-clipped > .content {
+.panel__body .progress {
+  margin-bottom: 0;
+}
+.panel.-clipped > .panel__body {
   max-height: 190px;
   overflow: hidden;
   -webkit-mask-image: linear-gradient(to top, transparent 1%, #fff 50%);
   mask-image: linear-gradient(to top, transparent 1%, #fff 50%);
 }
-.modal-content .portlet {
-  padding: 10px;
-  border: none;
-  border-bottom: 1px solid #f9fafc;
-  -webkit-border-radius: 0;
-  -moz-border-radius: 0;
-  -ms-border-radius: 0;
-  -o-border-radius: 0;
-  border-radius: 0;
-  -webkit-box-shadow: none;
-  box-shadow: none;
-}
-a > .portlet {
+a > .panel {
   -webkit-transition: border-color 0.25s ease-in-out;
   -moz-transition: border-color 0.25s ease-in-out;
   -ms-transition: border-color 0.25s ease-in-out;
   -o-transition: border-color 0.25s ease-in-out;
   transition: border-color 0.25s ease-in-out;
 }
-a > .portlet:hover {
+a > .panel:hover {
   border-color: #9acbee;
 }
 section > .caption {
@@ -888,7 +847,7 @@ section > .caption h6 {
   margin: 0;
 }
 @media (max-width: 767px) {
-  .portlet .actions .btn .icon + .text {
+  .panel .panel__actions .btn .icon + .text {
     display: none;
   }
 }
@@ -1012,7 +971,7 @@ a > .dashlet:hover {
 a > .dashlet:hover .visual {
   transform: scale(1.1);
 }
-.portlet > .content .dashlet {
+.panel > .content .dashlet {
   border: none;
   -webkit-box-shadow: none;
   box-shadow: none;
@@ -1209,6 +1168,18 @@ a > .dashlet:hover .visual {
   border-radius: 2px;
   -webkit-box-shadow: 0 5px 5px rgba(47,53,59,0.25);
   box-shadow: 0 5px 5px rgba(47,53,59,0.25);
+}
+.modal-content .panel {
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid #f9fafc;
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
+  -ms-border-radius: 0;
+  -o-border-radius: 0;
+  border-radius: 0;
+  -webkit-box-shadow: none;
+  box-shadow: none;
 }
 .modal-header {
   border-color: #f9fafc;
