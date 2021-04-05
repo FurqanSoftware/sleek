@@ -5,91 +5,76 @@
 .pills
 	padding-left 0
 	list-style none
-
-	> li
-		display block
-		position relative
-		float left
-			
-		> a
-			display block
-			position relative
-			padding 10px 15px
-			border-radius 3px
-			transition background-color 0.25s ease-in-out
-
-			&:focus,
-			&:hover
-				background-color alpha($blue, 10%)
-
-			&:active
-				background-color alpha($blue, 25%)
-				
-			> .badge
-				float right
-				margin-top -1px
-				margin-left 10px
-				color $muted
-
-			&:focus,
-			&:hover,
-			&:active
-				> .badge
-					background-color alpha(white, 25%)
-
-			> .icon + .text
-				margin-left 10px
-		
-			img.icon
-				margin-top -2px
-
-				+ .text
-					margin-left 5px
-
-		+ li
-			margin-left 2px
 	
+	&__item
+		display block
+		float left
+		position relative
+		padding 10px 15px
+		border-radius 3px
+		transition background-color 0.25s ease-in-out
+		
+		&:focus,
+		&:hover
+			background-color alpha($blue, 10%)
+
+		&:active
+			background-color alpha($blue, 25%)
+			
+		> .badge
+			float right
+			margin-top -1px
+			margin-left 10px
+			color $muted
+
+		&:focus,
+		&:hover,
+		&:active
+			> .badge
+				background-color alpha(white, 25%)
+		
 		&.-active
-			> a,
-			> a:hover
-			> a:focus
+			color white
+			background-color $blue
+			
+			.badge
+				background-color alpha(white, 12.5%)
 				color white
-				background-color $blue
-				
-				.badge
-					background-color alpha(white, 12.5%)
-					color white
 		
 		&.-disabled
-			> a,
-			> a:hover
-			> a:focus
-				color $muted
-				background-color transparent
-				cursor not-allowed
-				opacity 0.75
+			color $muted
+			background-color transparent
+			cursor default
+			opacity 0.75
+
+		> .icon + .text
+			margin-left 10px
+	
+		img.icon
+			margin-top -2px
+
+			+ .text
+				margin-left 5px
 		
-		&.-divider
-			height 1em
-			margin 1em
-			border-right 1px solid $silver
+		+ .pills__item
+			margin-left 2px
+
+	&__divider
+		float left
+		height 1em
+		margin 1em
+		border-right 1px solid $silver
 
 	&.-stacked
-		> li
+		> .pills__item
 			float none
 			
-			+ li
+			+ .pills__item
 				margin-top 2px
 				margin-left 0
 
 @media (max-width: 991px)
 	.pills
-		> li.active > a
-			padding 7px 13px
-
-		> li:not(.-active),
+		> :not(.-active),
 		.badge
 			display none
-
-	.portlet.-pills
-		display none
