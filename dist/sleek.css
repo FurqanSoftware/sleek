@@ -810,6 +810,15 @@ h6 .label {
   padding: 5px 10px;
   font-size: 0.95em;
 }
+.panel__drawer {
+  display: none;
+  padding: 15px 0 0;
+  border-top: 1px solid #e7ecf1;
+  border-bottom: 1px solid #e7ecf1;
+}
+.panel__drawer.-open {
+  display: block;
+}
 .panel__body .panel__actions {
   padding: 0;
 }
