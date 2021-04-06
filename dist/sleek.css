@@ -302,6 +302,9 @@ th {
   margin-bottom: 20px;
   border: none;
 }
+.table__actions .btn {
+  padding: 5px 10px;
+}
 .table > thead > tr > th,
 .table > tbody > tr > th,
 .table > tfoot > tr > th,
@@ -333,9 +336,6 @@ th {
 }
 .table > tbody + tbody {
   border-top: 1px solid #f3f5f8;
-}
-.table .table .table {
-  background-color: #fff;
 }
 .table > thead > tr > td.active,
 .table > tbody > tr > td.active,
@@ -563,24 +563,47 @@ th {
   -webkit-box-shadow: inset 1px 2px 0 #be2120;
   box-shadow: inset 1px 2px 0 #be2120;
 }
-.btn.-subtle {
+.btn.-white {
   border: 1px solid #f3f5f8;
   color: #2f353b;
+  background-color: #fff;
   -webkit-box-shadow: inset 0 -2px 0 #f3f5f8;
   box-shadow: inset 0 -2px 0 #f3f5f8;
 }
-.btn.-subtle:hover,
-.btn.-subtle:focus {
+.btn.-white:hover,
+.btn.-white:focus {
   border-color: #e7ecf1;
   -webkit-box-shadow: inset 0 -2px 0 #e7ecf1;
   box-shadow: inset 0 -2px 0 #e7ecf1;
 }
-.btn.-subtle:active,
-.btn.-subtle.active {
+.btn.-white:active,
+.btn.-white.-active {
   -webkit-box-shadow: inset 1px 2px 1px #f3f5f8;
   box-shadow: inset 1px 2px 1px #f3f5f8;
 }
-.open > .-subtle:first-child {
+.btn.-simple {
+  border: 1px solid #f3f5f8;
+  color: #2f353b;
+  background-color: #fff;
+}
+.btn.-simple:hover,
+.btn.-simple:focus,
+.btn.-simple:active,
+.btn.-simple.-active {
+  border-color: #e7ecf1;
+}
+.btn.-subtle {
+  border: 1px solid transparent;
+  color: #2f353b;
+  background-color: #fff;
+}
+.btn.-subtle:hover,
+.btn.-subtle:focus,
+.btn.-subtle:active,
+.btn.-subtle.-active {
+  border-color: #e7ecf1;
+}
+.open > .-white:first-child {
   -webkit-box-shadow: inset 1px 2px 1px #f3f5f8;
   box-shadow: inset 1px 2px 1px #f3f5f8;
 }
@@ -719,32 +742,33 @@ h6 .label {
 .avatars img,
 .avatar img {
   background-color: #d8e0e8;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -o-border-radius: 2px;
-  border-radius: 2px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
 }
 .avatar {
-  position: relative;
-}
-.avatar.-sm,
-.avatar.-xs {
   display: inline-block;
-  margin-right: 10px;
-  text-align: center;
+  position: relative;
 }
 .avatar.-sm {
   width: 40px;
 }
+.avatar.-sm + .handle {
+  margin-left: 10px;
+}
 .avatar.-xs {
   width: 20px;
-  margin-right: 5px;
+}
+.avatar.-xs + .handle {
+  margin-left: 5px;
+  vertical-align: middle;
 }
 .avatar .emblem {
   position: absolute;
-  right: -2px;
-  bottom: -4px;
+  right: -3px;
+  bottom: -5px;
   width: 24px;
   height: 18px;
   margin: 0;
@@ -755,7 +779,7 @@ h6 .label {
   transition: opacity 0.25s ease, bottom 0.25s ease;
 }
 .avatar:hover .emblem {
-  bottom: -8px;
+  bottom: -10px;
   opacity: 0;
 }
 .panel {
