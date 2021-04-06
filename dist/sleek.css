@@ -402,7 +402,7 @@ th {
 }
 .badge {
   display: inline-block;
-  padding: 1px 5px;
+  padding: 0 5px;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
   -ms-border-radius: 3px;
