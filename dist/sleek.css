@@ -1003,7 +1003,7 @@ a > .dashlet:hover {
 a > .dashlet:hover .visual {
   transform: scale(1.1);
 }
-.panel > .content .dashlet {
+.panel__body .dashlet {
   border: none;
   -webkit-box-shadow: none;
   box-shadow: none;
