@@ -1134,7 +1134,8 @@ a > .dashlet:hover .visual {
 .artifact__caption h6 {
   margin-top: 0;
 }
-.artifact p > img {
+.artifact p > img,
+.artifact p > picture > img {
   display: block;
   margin: 0 auto 8px;
   max-width: 100%;
