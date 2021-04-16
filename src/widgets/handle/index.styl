@@ -32,7 +32,7 @@
 
 .handle
 	background-color alpha(#555555, 0.05)
-	
+
 	&.-sss
 		background-color alpha(#ca302f, 0.05)
 
@@ -78,6 +78,14 @@
 
 	&.-e
 		background-color alpha(#4e2388, 0.1)
+
+.handle.-gone
+	&,
+	&:hover,
+	&:focus
+		background-color transparent
+		color $muted
+		text-decoration line-through
 
 .mention
 	.at
