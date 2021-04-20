@@ -464,11 +464,11 @@ th {
   outline: none !important;
   text-align: center;
   background-color: transparent;
-  -webkit-transition: box-shadow 0.25s ease-in-out, border-color 0.25s ease-in-out;
-  -moz-transition: box-shadow 0.25s ease-in-out, border-color 0.25s ease-in-out;
-  -ms-transition: box-shadow 0.25s ease-in-out, border-color 0.25s ease-in-out;
-  -o-transition: box-shadow 0.25s ease-in-out, border-color 0.25s ease-in-out;
-  transition: box-shadow 0.25s ease-in-out, border-color 0.25s ease-in-out;
+  -webkit-transition: border-color 0.25s ease-in-out, background-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+  -moz-transition: border-color 0.25s ease-in-out, background-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+  -ms-transition: border-color 0.25s ease-in-out, background-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+  -o-transition: border-color 0.25s ease-in-out, background-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
+  transition: border-color 0.25s ease-in-out, background-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
 }
 .btn.-disabled,
 .btn[disabled] {
@@ -501,6 +501,7 @@ th {
 }
 .btn.-default:active,
 .btn.-default.-active {
+  background-color: #d3d9e3;
   -webkit-box-shadow: inset 1px 2px 0 #b7c0d1;
   box-shadow: inset 1px 2px 0 #b7c0d1;
 }
@@ -526,6 +527,7 @@ th {
 }
 .btn.-blue:active,
 .btn.-blue.-active {
+  background-color: #248bd1;
   -webkit-box-shadow: inset 1px 2px 0 #1c6ca3;
   box-shadow: inset 1px 2px 0 #1c6ca3;
 }
@@ -551,6 +553,7 @@ th {
 }
 .btn.-red:active,
 .btn.-red.-active {
+  background-color: #de403f;
   -webkit-box-shadow: inset 1px 2px 0 #be2120;
   box-shadow: inset 1px 2px 0 #be2120;
 }
@@ -578,6 +581,7 @@ th {
 }
 .btn.-white:active,
 .btn.-white.-active {
+  background-color: #ebeff3;
   -webkit-box-shadow: inset 1px 2px 1px #f3f5f8;
   box-shadow: inset 1px 2px 1px #f3f5f8;
 }

@@ -32,7 +32,7 @@
 	outline none !important
 	text-align center
 	background-color transparent
-	transition box-shadow 0.25s ease-in-out, border-color 0.25s ease-in-out
+	transition border-color 0.25s ease-in-out, background-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out
 
 	&.-disabled,
 	&[disabled]
@@ -65,6 +65,7 @@ _button(name, bg, text, edge=10%, hover=30%, active=15%)
 
 		&.-{name}:active,
 		&.-{name}.-active
+			background-color darken(bg, (active/3))
 			box-shadow inset 1px 2px 0 darken(bg, active)
 			
 		&.-{name}.-disabled,
@@ -91,6 +92,7 @@ _button('red', $red, white, 20%, 60%, 30%)
 
 	&:active,
 	&.-active
+		background-color lighten($silver, 15%)
 		box-shadow inset 1px 2px 1px lighten($silver, 50%)
 
 .btn.-simple
