@@ -73,6 +73,7 @@ _button(name, bg, text, edge=10%, hover=30%, active=15%)
 			box-shadow none
 	
 	.open > &.-{name}:first-child
+		background-color darken(bg, (active/3))
 		box-shadow inset 1px 2px 0 darken(bg, active)
 
 _button('default', #e1e5ec, $dark)
@@ -95,6 +96,10 @@ _button('red', $red, white, 20%, 60%, 30%)
 		background-color lighten($silver, 15%)
 		box-shadow inset 1px 2px 1px lighten($silver, 50%)
 
+.open > &.-white:first-child
+	background-color lighten($silver, 15%)
+	box-shadow inset 1px 2px 1px lighten($silver, 50%)
+
 .btn.-simple
 	border 1px solid lighten($silver, 50%)
 	color $dark
@@ -115,6 +120,3 @@ _button('red', $red, white, 20%, 60%, 30%)
 	&:active,
 	&.-active
 		border-color $silver
-
-.open > &.-white:first-child
-	box-shadow inset 1px 2px 1px lighten($silver, 50%)
