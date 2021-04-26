@@ -464,11 +464,6 @@ th {
   outline: none !important;
   text-align: center;
   background-color: transparent;
-  -webkit-transition: border-color 0.25s ease-in-out, background-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
-  -moz-transition: border-color 0.25s ease-in-out, background-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
-  -ms-transition: border-color 0.25s ease-in-out, background-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
-  -o-transition: border-color 0.25s ease-in-out, background-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
-  transition: border-color 0.25s ease-in-out, background-color 0.25s ease-in-out, box-shadow 0.25s ease-in-out;
 }
 .btn.-disabled,
 .btn[disabled] {
