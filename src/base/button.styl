@@ -15,13 +15,13 @@
 		position relative
 		float left
 
-		&:not(:first-child):not(:last-child):not(.dropdown-toggle)
+		&:not(:first-child):not(:last-child)
 			border-radius 0
 
-		&:first-child:not(:last-child):not(.dropdown-toggle)
+		&:first-child:not(:last-child):not(.-toggle)
 			border-radius 3px 0 0 3px
 
-		&:last-child:not(:first-child):not(.dropdown-toggle)
+		&:last-child:not(:first-child), &.-toggle:not(:first-child)
 			border-radius 0 3px 3px 0
 
 .btn
@@ -71,7 +71,7 @@ _button(name, bg, text, edge=10%, hover=30%, active=15%)
 		&.-{name}[disabled]
 			box-shadow none
 	
-	.open > &.-{name}:first-child
+	.open > &.-{name}.-toggle
 		background-color darken(bg, (active/3))
 		box-shadow inset 1px 2px 0 darken(bg, active)
 
@@ -95,7 +95,7 @@ _button('red', $red, white, 20%, 45%, 22.5%)
 		background-color lighten($silver, 15%)
 		box-shadow inset 1px 2px 1px lighten($silver, 50%)
 
-.open > &.-white:first-child
+.open > &.-white.-toggle
 	background-color lighten($silver, 15%)
 	box-shadow inset 1px 2px 1px lighten($silver, 50%)
 
