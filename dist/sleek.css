@@ -435,21 +435,22 @@ th {
   position: relative;
   float: left;
 }
-.btngroup > .btn:not(:first-child):not(:last-child):not(.dropdown-toggle) {
+.btngroup > .btn:not(:first-child):not(:last-child) {
   -webkit-border-radius: 0;
   -moz-border-radius: 0;
   -ms-border-radius: 0;
   -o-border-radius: 0;
   border-radius: 0;
 }
-.btngroup > .btn:first-child:not(:last-child):not(.dropdown-toggle) {
+.btngroup > .btn:first-child:not(:last-child):not(.-toggle) {
   -webkit-border-radius: 3px 0 0 3px;
   -moz-border-radius: 3px 0 0 3px;
   -ms-border-radius: 3px 0 0 3px;
   -o-border-radius: 3px 0 0 3px;
   border-radius: 3px 0 0 3px;
 }
-.btngroup > .btn:last-child:not(:first-child):not(.dropdown-toggle) {
+.btngroup > .btn:last-child:not(:first-child),
+.btngroup > .btn.-toggle:not(:first-child) {
   -webkit-border-radius: 0 3px 3px 0;
   -moz-border-radius: 0 3px 3px 0;
   -ms-border-radius: 0 3px 3px 0;
@@ -509,7 +510,7 @@ th {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-.open > .-default:first-child {
+.open > .-default.-toggle {
   background-color: #d3d9e3;
   -webkit-box-shadow: inset 1px 2px 0 #b7c0d1;
   box-shadow: inset 1px 2px 0 #b7c0d1;
@@ -536,7 +537,7 @@ th {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-.open > .-blue:first-child {
+.open > .-blue.-toggle {
   background-color: #258fd7;
   -webkit-box-shadow: inset 1px 2px 0 #1f78b4;
   box-shadow: inset 1px 2px 0 #1f78b4;
@@ -563,7 +564,7 @@ th {
   -webkit-box-shadow: none;
   box-shadow: none;
 }
-.open > .-red:first-child {
+.open > .-red.-toggle {
   background-color: #e04746;
   -webkit-box-shadow: inset 1px 2px 0 #d22524;
   box-shadow: inset 1px 2px 0 #d22524;
@@ -587,7 +588,7 @@ th {
   -webkit-box-shadow: inset 1px 2px 1px #f3f5f8;
   box-shadow: inset 1px 2px 1px #f3f5f8;
 }
-.open > .-white:first-child {
+.open > .-white.-toggle {
   background-color: #ebeff3;
   -webkit-box-shadow: inset 1px 2px 1px #f3f5f8;
   box-shadow: inset 1px 2px 1px #f3f5f8;
