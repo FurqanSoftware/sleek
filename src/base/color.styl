@@ -1,11 +1,20 @@
 // Copyright 2020 Furqan Software Ltd. All Rights Reserved.
 
-$dark = #2f353b
-$ebony = #22313f
-$blue = #3598dc
-$green = #26c281
-$red = #e35b5a
-$orange = #e87e04
-$silver = #e7ecf1
+@require './color'
 
-$muted = mix($dark, $silver)
+_color(name, code)
+	.bg-{name}
+		background-color code !important
+
+	.font-{name}
+		color code !important
+
+	.border-{name}
+		border-color code !important
+
+_color('dark', $dark)
+_color('ebony', $ebony)
+_color('blue', $blue)
+_color('green', $green)
+_color('red', $red)
+_color('orange', $orange)
