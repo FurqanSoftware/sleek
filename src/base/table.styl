@@ -20,8 +20,16 @@ th
 	border none
 	
 	&__actions
+		text-align right
+		
+		.btngroup.-hover
+			display none
+
 		.btn
 			padding 5px 10px
+	
+	tr:hover .table__actions .btngroup.-hover
+		display inline-block
 
 	> thead > tr > th,
 	> tbody > tr > th,
