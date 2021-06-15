@@ -356,8 +356,17 @@ th {
   margin-bottom: 20px;
   border: none;
 }
+.table__actions {
+  text-align: right;
+}
+.table__actions .btngroup.-hover {
+  display: none;
+}
 .table__actions .btn {
   padding: 5px 10px;
+}
+.table tr:hover .table__actions .btngroup.-hover {
+  display: inline-block;
 }
 .table > thead > tr > th,
 .table > tbody > tr > th,
