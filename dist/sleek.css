@@ -318,8 +318,8 @@ fieldset h5 {
   border-radius: 2px;
 }
 .form-control:focus {
-  -webkit-box-shadow: inset 0 1px 1px rgba(47,53,59,0.075), 0 0 3px rgba(53,152,220,0.6);
-  box-shadow: inset 0 1px 1px rgba(47,53,59,0.075), 0 0 3px rgba(53,152,220,0.6);
+  -webkit-box-shadow: inset 0 1px 0 rgba(47,53,59,0.075);
+  box-shadow: inset 0 1px 0 rgba(47,53,59,0.075);
 }
 .form-horizontal .control-label {
   text-align: left;
@@ -866,8 +866,8 @@ h6 .label {
   -o-border-radius: 2px;
   border-radius: 2px;
   background-color: #fff;
-  -webkit-box-shadow: 0 1px 3px rgba(47,53,59,0.033);
-  box-shadow: 0 1px 3px rgba(47,53,59,0.033);
+  -webkit-box-shadow: 0 1px 0 rgba(47,53,59,0.033);
+  box-shadow: 0 1px 0 rgba(47,53,59,0.033);
 }
 .panel.-fit {
   padding: 0;
@@ -919,8 +919,8 @@ h6 .label {
   padding: 15px 20px 0;
   border-top: 1px solid #f3f5f8;
   border-bottom: 1px solid #f3f5f8;
-  -webkit-box-shadow: inset 0 1px 3px rgba(47,53,59,0.033);
-  box-shadow: inset 0 1px 3px rgba(47,53,59,0.033);
+  -webkit-box-shadow: inset 0 1px 0 rgba(47,53,59,0.033);
+  box-shadow: inset 0 1px 0 rgba(47,53,59,0.033);
 }
 .panel__drawer:after {
   display: table;
@@ -982,8 +982,8 @@ section > .caption h6 {
   overflow: hidden;
   background-color: #fff;
   color: #2f353b;
-  -webkit-box-shadow: 0 1px 3px rgba(47,53,59,0.033);
-  box-shadow: 0 1px 3px rgba(47,53,59,0.033);
+  -webkit-box-shadow: 0 1px 0 rgba(47,53,59,0.033);
+  box-shadow: 0 1px 0 rgba(47,53,59,0.033);
 }
 .dashlet.active,
 .dashlet.active:hover {
