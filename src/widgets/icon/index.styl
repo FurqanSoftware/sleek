@@ -23,7 +23,7 @@ _iconcolor(name, filter)
 	.icon.{name}
 		filter filter !important
 
-	.btn.-{name} .icon
+	.btn.-{name} .icon:not(.-custom)
 		filter filter
 
 _iconcolor('muted', invert(39%) sepia(15%) saturate(430%) hue-rotate(167deg) brightness(96%) contrast(86%))
