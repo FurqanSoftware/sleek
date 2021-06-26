@@ -6,17 +6,64 @@
 .dashlet
 	margin-bottom 25px
 	border 1px solid $silver
-	border-radius 2px
+	border-radius 3px
 	overflow hidden
 	background-color white
 	color $dark
 	box-shadow 0 1px 0 alpha($dark, 0.0325)
 
-	&.active,
-	&.active:hover
+	&.-active,
+	&.-active:hover
 		border-color $blue
+	
+	&.-xs
+		margin-bottom 5px
+	
+	&.-subtle
+		border none
+		box-shadow none
 
-	.visual
+	&__body
+		position absolute
+		right 15px
+		padding 20px 15px
+		font-size 15px
+		line-height 15px
+		text-align right
+	
+	&.-sm &__body
+		right auto
+		left 15px
+		padding 15px
+		text-align left
+	
+	&.-xs &__body
+		position static
+		padding 10px
+		font-size 14px
+		line-height 14px
+		text-align left
+		
+	&.-xs.-subtle &__body
+		padding 10px 0
+	
+	&__stat
+		margin-bottom 10px
+		font-size 30px
+		line-height 30px
+
+	&.-sm &__stat
+		margin-bottom 10px
+		font-size 25px
+		line-height 25px
+
+	&.-xs &__stat
+		float right
+		font-size inherit
+		line-height inherit
+		color $muted
+	
+	&__mark
 		display block
 		float left
 		width 80px
@@ -25,50 +72,30 @@
 		padding 10px 0 0 15px
 		font-size 110px
 		line-height 110px
-		color $ebony
 		opacity 0.05
 		transition transform 0.25s ease-in-out
 
-	.details
-		position absolute
-		right 15px
-		padding-right 15px
+	&.-sm &__mark
+		float right
+		margin-bottom 0
+		padding-top 0
+		font-size 80px
 
-		.number
-			margin-bottom 0
-			padding-top 25px
-			font-size 34px
-			line-height 36px
-			text-align right
+	&.-xs &__mark
+		float right
+		width 30px
+		height 30px
+		margin 0 10px 0 -35px
+		padding 0
+		font-size 50px
+		line-height 50px
+		opacity 0.025
 
-		.desc
-			font-size 16px
-			text-align right
-	
-	.display
-		margin-bottom 5px
-
-		.number
-			float right
-			line-height 1.2em
-		
-		.desc
-			width 75%
-			overflow hidden
-			font-size 1.2em
-			text-overflow ellipsis
-			white-space nowrap
-
-	.details,
-	.display
-		.desc .icon
-			margin-top -2px
-
-	.more
+	&__foot
 		position relative
 		display block
 		clear both
-		padding 6px 10px 6px 10px
+		padding 5px 10px
 		border-top 1px solid $silver
 		text-align center
 		background-color alpha($silver, 75%)
@@ -77,31 +104,6 @@
 		position relative
 		clear both
 		height 10px
-	
-
-	&.mini
-		margin-bottom 15px
-
-		.visual
-			float right
-			margin-bottom 0
-			padding-top 0
-			font-size 80px
-			opacity 0.05
-		
-		.details 
-			right auto
-			left 15px
-			padding-right 0
-			padding-left 15px
-			
-			.number,
-			.desc
-				text-align left
-
-			.number
-				padding-top 10px
-				font-size 24px
 
 a > .dashlet
 	transition border-color 0.25s ease-in-out
@@ -109,9 +111,5 @@ a > .dashlet
 a > .dashlet:hover
 	border-color lighten($blue, 50%)
 
-	.visual
+	.dashlet__mark
 		transform scale(1.1)
-
-.panel__body .dashlet
-	border none
-	box-shadow none
