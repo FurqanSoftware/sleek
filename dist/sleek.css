@@ -974,22 +974,70 @@ section > .caption h6 {
 .dashlet {
   margin-bottom: 25px;
   border: 1px solid #e7ecf1;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -o-border-radius: 2px;
-  border-radius: 2px;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
   overflow: hidden;
   background-color: #fff;
   color: #2f353b;
   -webkit-box-shadow: 0 1px 0 rgba(47,53,59,0.033);
   box-shadow: 0 1px 0 rgba(47,53,59,0.033);
 }
-.dashlet.active,
-.dashlet.active:hover {
+.dashlet.-active,
+.dashlet.-active:hover {
   border-color: #3598dc;
 }
-.dashlet .visual {
+.dashlet.-xs {
+  margin-bottom: 5px;
+}
+.dashlet.-subtle {
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+}
+.dashlet__body {
+  position: absolute;
+  right: 15px;
+  padding: 20px 15px;
+  font-size: 15px;
+  line-height: 15px;
+  text-align: right;
+}
+.dashlet.-sm .dashlet__body {
+  right: auto;
+  left: 15px;
+  padding: 15px;
+  text-align: left;
+}
+.dashlet.-xs .dashlet__body {
+  position: static;
+  padding: 10px;
+  font-size: 14px;
+  line-height: 14px;
+  text-align: left;
+}
+.dashlet.-xs.-subtle .dashlet__body {
+  padding: 10px 0;
+}
+.dashlet__stat {
+  margin-bottom: 10px;
+  font-size: 30px;
+  line-height: 30px;
+}
+.dashlet.-sm .dashlet__stat {
+  margin-bottom: 10px;
+  font-size: 25px;
+  line-height: 25px;
+}
+.dashlet.-xs .dashlet__stat {
+  float: right;
+  font-size: inherit;
+  line-height: inherit;
+  color: #8b9096;
+}
+.dashlet__mark {
   display: block;
   float: left;
   width: 80px;
@@ -998,7 +1046,6 @@ section > .caption h6 {
   padding: 10px 0 0 15px;
   font-size: 110px;
   line-height: 110px;
-  color: #22313f;
   opacity: 0.05;
   -webkit-transition: transform 0.25s ease-in-out;
   -moz-transition: transform 0.25s ease-in-out;
@@ -1006,45 +1053,27 @@ section > .caption h6 {
   -o-transition: transform 0.25s ease-in-out;
   transition: transform 0.25s ease-in-out;
 }
-.dashlet .details {
-  position: absolute;
-  right: 15px;
-  padding-right: 15px;
-}
-.dashlet .details .number {
-  margin-bottom: 0;
-  padding-top: 25px;
-  font-size: 34px;
-  line-height: 36px;
-  text-align: right;
-}
-.dashlet .details .desc {
-  font-size: 16px;
-  text-align: right;
-}
-.dashlet .display {
-  margin-bottom: 5px;
-}
-.dashlet .display .number {
+.dashlet.-sm .dashlet__mark {
   float: right;
-  line-height: 1.2em;
+  margin-bottom: 0;
+  padding-top: 0;
+  font-size: 80px;
 }
-.dashlet .display .desc {
-  width: 75%;
-  overflow: hidden;
-  font-size: 1.2em;
-  text-overflow: ellipsis;
-  white-space: nowrap;
+.dashlet.-xs .dashlet__mark {
+  float: right;
+  width: 30px;
+  height: 30px;
+  margin: 0 10px 0 -35px;
+  padding: 0;
+  font-size: 50px;
+  line-height: 50px;
+  opacity: 0.025;
 }
-.dashlet .details .desc .icon,
-.dashlet .display .desc .icon {
-  margin-top: -2px;
-}
-.dashlet .more {
+.dashlet__foot {
   position: relative;
   display: block;
   clear: both;
-  padding: 6px 10px 6px 10px;
+  padding: 5px 10px;
   border-top: 1px solid #e7ecf1;
   text-align: center;
   background-color: rgba(231,236,241,0.75);
@@ -1053,30 +1082,6 @@ section > .caption h6 {
   position: relative;
   clear: both;
   height: 10px;
-}
-.dashlet.mini {
-  margin-bottom: 15px;
-}
-.dashlet.mini .visual {
-  float: right;
-  margin-bottom: 0;
-  padding-top: 0;
-  font-size: 80px;
-  opacity: 0.05;
-}
-.dashlet.mini .details {
-  right: auto;
-  left: 15px;
-  padding-right: 0;
-  padding-left: 15px;
-}
-.dashlet.mini .details .number,
-.dashlet.mini .details .desc {
-  text-align: left;
-}
-.dashlet.mini .details .number {
-  padding-top: 10px;
-  font-size: 24px;
 }
 a > .dashlet {
   -webkit-transition: border-color 0.25s ease-in-out;
@@ -1088,13 +1093,8 @@ a > .dashlet {
 a > .dashlet:hover {
   border-color: #9acbee;
 }
-a > .dashlet:hover .visual {
+a > .dashlet:hover .dashlet__mark {
   transform: scale(1.1);
-}
-.panel__body .dashlet {
-  border: none;
-  -webkit-box-shadow: none;
-  box-shadow: none;
 }
 .artifact {
   font-size: 16px;
