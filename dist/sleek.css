@@ -857,7 +857,7 @@ h6 .label {
   opacity: 0;
 }
 .panel {
-  margin: 0 0 25px;
+  margin: 0 0 10px;
   padding: 20px;
   border: 1px solid #e7ecf1;
   -webkit-border-radius: 2px;
@@ -899,7 +899,7 @@ h6 .label {
 .panel__title h5,
 .panel__title h6 {
   margin: 0;
-  font-size: 1.5em;
+  font-size: 1.25em;
 }
 .panel__title .icon {
   margin: -2px 5px 0 0;
@@ -972,7 +972,7 @@ section > .caption h6 {
   }
 }
 .dashlet {
-  margin-bottom: 25px;
+  margin-bottom: 10px;
   border: 1px solid #e7ecf1;
   -webkit-border-radius: 3px;
   -moz-border-radius: 3px;
