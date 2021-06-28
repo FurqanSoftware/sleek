@@ -357,43 +357,88 @@ p {
 blockquote p:first-child {
   margin-top: 0;
 }
+.form__group {
+  margin-bottom: 10px;
+}
+.form__label {
+  margin-bottom: 5px;
+}
+.form__field {
+  display: block;
+  width: 100%;
+  height: 34px;
+  padding: 5px 10px;
+  border: 1px solid #d4d9de;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  -ms-border-radius: 3px;
+  -o-border-radius: 3px;
+  border-radius: 3px;
+  font-size: 14px;
+  line-height: 1.42857143;
+  background-color: #fff;
+  color: #2f353b;
+  -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+  box-shadow: inset 0 1px 1px rgba(0,0,0,0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -moz-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -ms-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+}
+.form__field.flatpickr-input[readonly] {
+  background-color: #fff;
+}
+.form__field:focus {
+  border-color: #3598dc;
+  outline: 0;
+  -webkit-box-shadow: inset 0 1px 0 rgba(47,53,59,0.075), 0 0 0 3px rgba(53,152,220,0.5);
+  box-shadow: inset 0 1px 0 rgba(47,53,59,0.075), 0 0 0 3px rgba(53,152,220,0.5);
+}
+.form__field[disabled] {
+  background-color: #e9eef2;
+}
+.form textarea.form__field {
+  height: auto;
+}
+.form__hint {
+  margin-top: 5px;
+  color: #8b9096;
+}
+.form__hint.-green {
+  color: #26c281;
+}
+.form__hint.-orange {
+  color: #e87e04;
+}
 fieldset {
-  margin-bottom: 25px;
+  margin: 0 -20px 30px;
+  padding: 30px 20px 0;
+  border-top: 1px dotted #e7ecf1;
 }
-fieldset h5 {
+.fieldset__head {
   margin-bottom: 15px;
+}
+.fieldset__toggle {
+  float: right;
+  margin-top: 0.5em;
+  margin-left: 30px;
+}
+.fieldset__title {
   text-decoration: underline;
+  font-size: 1.1em;
 }
-.form-control {
-  border-color: #e7ecf1;
-  -webkit-border-radius: 2px;
-  -moz-border-radius: 2px;
-  -ms-border-radius: 2px;
-  -o-border-radius: 2px;
-  border-radius: 2px;
+.fieldset__note {
+  margin-top: 5px;
+  color: #8b9096;
 }
-.form-control:focus {
-  -webkit-box-shadow: inset 0 1px 0 rgba(47,53,59,0.075);
-  box-shadow: inset 0 1px 0 rgba(47,53,59,0.075);
+fieldset.-flags .form__group {
+  margin-bottom: 20px;
 }
-.form-horizontal .control-label {
-  text-align: left;
-}
-.bracket {
-  position: relative;
-}
-.bracket .icon {
-  position: absolute;
-  top: 10px;
-  left: 10px;
-}
-.bracket .form-control {
-  padding-left: 30px;
-}
-.indicator {
-  position: absolute;
-  top: 10px;
-  right: 10px;
+fieldset.-flags .switch {
+  float: right;
+  margin-top: 0.5em;
+  margin-left: 30px;
 }
 table {
   border-spacing: 0;
