@@ -3,35 +3,77 @@
 @require './func'
 @require './color'
 
-fieldset
-	margin-bottom 25px
+.form
+	&__group
+		margin-bottom 10px
+	
+	&__label
+		margin-bottom 5px
 
-	h5
-		margin-bottom 15px
-		text-decoration underline
-
-.form-control
-	border-color $silver
-	border-radius 2px
-
-	&:focus
-		box-shadow inset 0 1px 0 alpha($dark, .075)
-
-.form-horizontal .control-label
-	text-align left
-
-.bracket
-	position relative
-
-	.icon
-		position absolute
-		top 10px
-		left 10px
+	&__field
+		display block
+		width 100%
+		height 34px
+		padding 5px 10px
+		border 1px solid mix($dark, $silver, 10)
+		border-radius 3px
+		font-size 14px
+		line-height 1.42857143
+		background-color white
+		color $dark
+		box-shadow inset 0 1px 1px rgba(0, 0, 0, .075)
+		transition border-color ease-in-out .15s, box-shadow ease-in-out .15s
 		
-	.form-control
-		padding-left 30px
+		&.flatpickr-input[readonly]
+			background-color white
+		
+		&:focus
+			border-color $blue
+			outline 0
+			box-shadow inset 0 1px 0 alpha($dark, .075), 0 0 0 3px alpha($blue, 0.5)
+			
+	&__field[disabled]
+		background-color lighten($silver, 0.75)
+	
+	textarea.form__field
+		height auto
 
-.indicator
-	position absolute
-	top 10px
-	right 10px
+	&__hint
+		margin-top 5px
+		color $muted
+
+		&.-green
+			color $green
+
+		&.-orange
+			color $orange
+
+fieldset
+	margin 0 -20px 30px
+	padding 30px 20px 0
+	border-top 1px dotted $silver
+
+	.&__head
+		margin-bottom 15px
+	
+	.&__toggle
+		float right
+		margin-top 0.5em
+		margin-left 30px
+
+	.&__title
+		text-decoration underline
+		font-size 1.1em
+
+	.&__note
+		margin-top 5px
+		color $muted
+
+	&.-flags
+		.form__group
+			margin-bottom 20px
+
+		.switch
+			float right
+			margin-top 0.5em
+			margin-left 30px
