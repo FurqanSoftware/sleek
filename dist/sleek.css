@@ -392,8 +392,16 @@ blockquote p:first-child {
   -webkit-box-shadow: inset 0 1px 0 rgba(47,53,59,0.075), 0 0 0 3px rgba(53,152,220,0.5);
   box-shadow: inset 0 1px 0 rgba(47,53,59,0.075), 0 0 0 3px rgba(53,152,220,0.5);
 }
+.form__field[readonly],
 .form__field[disabled] {
-  background-color: #e9eef2;
+  background-color: #f3f5f8;
+  color: rgba(47,53,59,0.75);
+}
+.form__field[readonly]:focus,
+.form__field[disabled]:focus {
+  border-color: #c2c7cc;
+  -webkit-box-shadow: inset 0 1px 0 rgba(47,53,59,0.075), 0 0 0 3px rgba(194,199,204,0.5);
+  box-shadow: inset 0 1px 0 rgba(47,53,59,0.075), 0 0 0 3px rgba(194,199,204,0.5);
 }
 .form textarea.form__field {
   height: auto;
