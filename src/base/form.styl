@@ -29,8 +29,14 @@
 			outline 0
 			box-shadow inset 0 1px 0 alpha($dark, .075), 0 0 0 3px alpha($blue, 0.5)
 			
+	&__field[readonly],
 	&__field[disabled]
-		background-color lighten($silver, 0.75)
+		background-color lighten($silver, 50%)
+		color alpha($dark, 0.75)
+		
+		&:focus
+			border-color mix($dark, $silver, 20)
+			box-shadow inset 0 1px 0 alpha($dark, .075), 0 0 0 3px alpha(mix($dark, $silver, 20), 0.5)
 	
 	textarea.form__field
 		height auto
