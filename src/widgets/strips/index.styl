@@ -1,0 +1,48 @@
+// Copyright 2021 Furqan Software Ltd. All rights reserved.
+
+@require '../../base/color'
+
+.strips
+	margin -10px -20px -20px
+	border-top 1px solid lighten($silver, 75%)
+
+	&__item
+		display block
+		position relative
+		padding 10px 20px 10px 15px
+		border-bottom 1px solid lighten($silver, 75%)
+		border-left 5px solid transparent
+		transition background-color 0.25s ease-in-out
+		
+		&:focus,
+		&:hover
+			border-left-color alpha($blue, 50%)
+
+		&:last-child
+			border-bottom none
+
+		&.-active
+			border-left-color $blue
+			color $dark
+
+			&:last-child
+				border-radius 0 0 0 2px
+
+		&.-disabled
+			color $muted
+			background-color transparent
+			cursor default
+			opacity 0.75
+
+@media (max-width: 991px)
+	.strips
+		> :not(.-active),
+		.badge
+			display none
+
+	.stripsbox
+		display inline-block
+		margin-bottom 25px
+
+		> .panel
+			display none
