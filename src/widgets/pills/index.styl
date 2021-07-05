@@ -3,9 +3,6 @@
 @require '../../base/color'
 
 .pills
-	padding-left 0
-	list-style none
-	
 	&__item
 		display block
 		float left
@@ -63,14 +60,6 @@
 		height 1em
 		margin 1em
 		border-right 1px solid $silver
-
-	&.-stacked
-		> .pills__item
-			float none
-			
-			+ .pills__item
-				margin-top 2px
-				margin-left 0
 
 @media (max-width: 991px)
 	.pills
