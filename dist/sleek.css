@@ -422,7 +422,7 @@ blockquote p:first-child {
 fieldset {
   margin: 0 -20px 30px;
   padding: 30px 20px 0;
-  border-top: 1px dotted #e7ecf1;
+  border-top: 1px solid #f9fafc;
 }
 .fieldset__head {
   margin-bottom: 15px;
