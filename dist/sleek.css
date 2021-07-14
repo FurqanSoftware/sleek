@@ -440,6 +440,12 @@ fieldset {
   margin-top: 5px;
   color: #8b9096;
 }
+fieldset.-closed .fieldset__head {
+  margin-bottom: 0;
+}
+fieldset.-closed .form__group {
+  display: none;
+}
 fieldset.-flags .form__group {
   margin-bottom: 20px;
 }
