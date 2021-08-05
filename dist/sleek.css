@@ -846,9 +846,8 @@ th {
   background-color: transparent;
 }
 .dropdown-menu .dropdown-header {
-  padding: 10px 15px;
-  font-size: inherit;
-  font-weight: 500;
+  padding: 10px 15px 5px;
+  font-size: 0.9em;
 }
 .dropdown-menu .divider {
   margin: 0;
@@ -985,9 +984,6 @@ h6 .label {
 }
 .panel.-fit {
   padding: 0;
-}
-.panel.-space {
-  padding: 50px;
 }
 .panel.-green {
   border-color: #26c281;
