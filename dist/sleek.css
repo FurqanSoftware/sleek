@@ -409,6 +409,21 @@ blockquote p:first-child {
 .form__field.flatpickr-input[readonly] {
   background-color: #fff;
 }
+.form__brace {
+  display: table;
+  width: 100%;
+}
+.form__brace > .form__field {
+  display: table-cell;
+  width: 100%;
+  vertical-align: middle;
+}
+.form__brace .form__addon {
+  display: table-cell;
+  width: 0.1%;
+  padding-right: 10px;
+  vertical-align: middle;
+}
 .form__hint {
   margin-top: 5px;
   color: #8b9096;
