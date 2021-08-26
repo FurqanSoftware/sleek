@@ -75,6 +75,13 @@
 		overflow hidden
 		mask-image linear-gradient(to top, transparent 1%, white 50%)
 
+	&.-closed
+		> .panel__head
+			margin-bottom -20px
+
+		> .panel__body
+			display none
+
 a > .panel
 	transition border-color 0.25s ease-in-out
 
