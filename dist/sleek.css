@@ -1067,6 +1067,12 @@ h6 .label {
   -webkit-mask-image: linear-gradient(to top, transparent 1%, #fff 50%);
   mask-image: linear-gradient(to top, transparent 1%, #fff 50%);
 }
+.panel.-closed > .panel__head {
+  margin-bottom: -20px;
+}
+.panel.-closed > .panel__body {
+  display: none;
+}
 a > .panel {
   -webkit-transition: border-color 0.25s ease-in-out;
   -moz-transition: border-color 0.25s ease-in-out;
