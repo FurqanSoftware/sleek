@@ -831,6 +831,7 @@ th {
 }
 .dropdown-menu > li > a {
   padding: 10px 15px;
+  line-height: 1.5;
   color: #2f353b;
   -webkit-transition: background-color 0.25s ease-in-out;
   -moz-transition: background-color 0.25s ease-in-out;
