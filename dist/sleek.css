@@ -1071,7 +1071,8 @@ h6 .label {
 .panel.-closed > .panel__head {
   margin-bottom: -20px;
 }
-.panel.-closed > .panel__body {
+.panel.-closed > .panel__body,
+.panel.-closed > .panel__foot {
   display: none;
 }
 a > .panel {
