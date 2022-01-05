@@ -3,8 +3,9 @@
 @require './color'
 
 .alert
-	padding 15px
-	margin-bottom 20px
+	position relative
+	padding 1.5rem
+	margin-bottom 1.5rem
 	border 1px solid transparent
 	border-radius 3px
 	
@@ -13,16 +14,34 @@
 		margin-bottom 0
 	
 	> p + p
-		margin-top 5px
+		margin-top 1rem
 
 	&.-broadcast
 		margin 0
 		border-width 0 0 1px
 		border-radius 0
+		
+	&.-closable
+		padding-right 4.5rem
+		
+	&__body
+		display flex
+		align-items center
 	
-	.alert__close
-		float right
-		margin-top -1px
+	&__icon
+		margin-right 1rem
+
+		.icon
+			font-size 1.45em
+
+	&__actions
+		margin-top 1.5rem
+	
+	&__close
+		position absolute
+		top 0
+		right 0
+		padding 1.5rem
 
 _alert(name, code)
 	.alert.-{name}
