@@ -71,24 +71,37 @@ body
 
 	&__link
 		display block
-		padding 10px 15px 10px 10px
-		border-left 5px solid $dark
+		position relative
+		padding 10px 15px
 		background-color transparent
 		color white
-		transition border-left-color 0.125s ease-in-out
+		
+		&::after
+			content ''
+			position absolute
+			top 0
+			left 0
+			height 100%
+			border-left 5px solid alpha(white, 50%)
+			transform scaleY(0)
+			transition transform 0.125s ease-in-out
 
 		&:hover,
 		&:focus,
 		&:active
-			border-left-color alpha(white, 50%)
 			color white
+			
+			&::after
+				transform scaleY(1)
 	
 		&.disabled
 			opacity 0.5
 			cursor not-allowed
 
 		&.-active
-			border-left-color white
+			&::after
+				transform scaleY(1)
+				border-left-color white
 	
 		.icon
 			margin -2px 5px 0 0

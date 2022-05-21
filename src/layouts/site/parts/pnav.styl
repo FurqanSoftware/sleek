@@ -84,14 +84,26 @@
 			
 			&.-link,
 			&.-drop > a
+				position relative
 				padding 15px 15px 13px
-				border-bottom 2px solid white
-				transition border-bottom-color 0.125s ease-in-out
+
+				&::after
+					content ''
+					position absolute
+					left 0
+					bottom 0
+					width 100%
+					border-bottom 2px solid lighten($blue, 50%)
+					transform scaleX(0)
+					transition transform 0.125s ease-in-out
 
 				&:hover,
 				&:focus
 					border-bottom-color lighten($blue, 50%)
-				
+					
+					&::after
+						transform scaleX(1)
+
 				&.-active
 					border-bottom-color $blue
 
