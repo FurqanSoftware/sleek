@@ -489,13 +489,18 @@ th {
   text-align: right;
 }
 .table__actions .btngroup.-hover {
-  display: none;
+  opacity: 0.25;
+  -webkit-transition: opacity 125ms ease-in;
+  -moz-transition: opacity 125ms ease-in;
+  -ms-transition: opacity 125ms ease-in;
+  -o-transition: opacity 125ms ease-in;
+  transition: opacity 125ms ease-in;
 }
 .table__actions .btn {
   padding: 5px 10px;
 }
 .table tr:hover .table__actions .btngroup.-hover {
-  display: inline-block;
+  opacity: 1;
 }
 .table > thead > tr > th,
 .table > tbody > tr > th,
@@ -503,9 +508,8 @@ th {
 .table > thead > tr > td,
 .table > tbody > tr > td,
 .table > tfoot > tr > td {
-  padding: 10px;
+  padding: 1rem;
   line-height: 1.42857143;
-  vertical-align: top;
 }
 .table > thead > tr {
   border-bottom: 2px solid #f3f5f8;
@@ -522,6 +526,11 @@ th {
 }
 .table > tbody > tr {
   border-bottom: 1px solid #f3f5f8;
+  -webkit-transition: opacity 125ms ease-in;
+  -moz-transition: opacity 125ms ease-in;
+  -ms-transition: opacity 125ms ease-in;
+  -o-transition: opacity 125ms ease-in;
+  transition: opacity 125ms ease-in;
 }
 .table > tbody > tr:last-child {
   border-bottom: none;
@@ -542,6 +551,9 @@ th {
 .table > tbody > tr.active > th,
 .table > tfoot > tr.active > th {
   background-color: #f9fafc;
+}
+.table.-emphasis > tbody:hover tr:not(:hover) {
+  opacity: 0.75;
 }
 .tablebox {
   min-height: 0.01%;
