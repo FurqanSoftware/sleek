@@ -1,67 +1,78 @@
 // Copyright 2020 Furqan Software Ltd. All Rights Reserved.
 
-@require './func'
-@require './color'
+*
+	box-sizing border-box
 
-body 
+body
 	margin 0
-	padding 0
+
+// img, video, canvas, audio, iframe, embed, object
+// 	display block
+// 	vertical-align middle
+
+article,
+aside,
+details,
+figcaption, 
+figure, 
+footer,
+header,
+hgroup, 
+main,
+menu,
+nav,
+section,
+summary 
+	display block
+
+// TO REMOVE OR MOVE ELSEWHERE
+
+@require './func'
+@require './palette'
 
 hr
 	margin 20px 0
 	border none
 	border-top 1px solid lighten($silver, 25%)
 
-a
-	text-decoration none
-	color $blue
-
-	&:hover,
-	&:active,
-	&:focus
-		text-decoration none
-		color mix($blue, $ebony, 75%)
-
 label
 	font-weight normal
 
-pre,
-pre[class*="language-"],
-.pre,
-code,
-code[class*="language-"]
-	font-family 'Ubuntu Mono', monospace
-	font-size 1.05em
+// pre,
+// pre[class*="language-"],
+// .pre,
+// code,
+// code[class*="language-"]
+// 	font-family 'Ubuntu Mono', monospace
+// 	font-size 1.05em
 
-pre
-	border-radius 2px
+// pre
+// 	border-radius 2px
 
-code
-	border none
-	box-shadow none
+// code
+// 	border none
+// 	box-shadow none
 
-pre[class*="language-"] code
-	display block
+// pre[class*="language-"] code
+// 	display block
 
-	.line-numbers
-		padding-left 3.8em !important
+// 	.line-numbers
+// 		padding-left 3.8em !important
 
+// dl
+// 	dt
+// 		margin-bottom 4px
+// 		font-weight 500
 
-dl
-	dt
-		margin-bottom 4px
-		font-weight 500
+// 		.icon
+// 			margin-top -4px
 
-		.icon
-			margin-top -4px
-			font-size 16px
-
-	dd .item
-		margin-bottom 5px
+// 	dd .item
+// 		margin-bottom 5px
 
 small,
 .small
-	font-size 0.95em
+	font-size 0.85em
 
 .hidden
 	display none
@@ -83,10 +94,3 @@ small,
 
 .progress
 	border-radius 2px
-
-// Firefox
-
-// Remove dotted ring from around links in Firefox.
-a:focus,
-a::-moz-focus-inner
-	outline none
