@@ -4,15 +4,15 @@
 @require './color'
 
 .artifact
-	font-size 16px
-	line-height 1.6em
+	font-size 1.25rem
+	line-height 2em
 
 	&__cover
 		position relative
 		min-height 160px
-		margin -20px -20px 20px
+		margin -1.25rem -1.25rem 1.25rem
 		border-bottom 1px solid #e7ecf1
-		border-radius 2px 2px 0 0
+		border-radius 0.25rem 0.25rem 0 0
 		overflow hidden
 
 		&.-modest
@@ -43,33 +43,19 @@
 			bottom 10px
 
 	h1
-		margin 20px 0
-		font-size 30px
-
-	h2,
-	h3,
-	h4,
-	h5,
-	h6
-		margin 40px 0 15px
+		font-size 1.85em
 
 	h2
-		font-size 24px
+		font-size 1.5em
 
 	h3
-		font-size 22px
+		font-size 1.35em
 
 	h4
-		font-size 20px
-
-	h5
-		font-size 18px
-		
-	h6
-		font-size 16px
+		font-size 1.2em
 
 	&__caption
-		h1, h2, h3, h4, h5, h6
+		h1, h2, h3, h4
 			margin-top 0
 	
 	p > img,
@@ -79,17 +65,17 @@
 		max-width 100%
 	
 	pre[class*="language-"]
-		margin 20px 0
+		margin 1.25rem 0
 	
 	table
 		width 100%
 		max-width 100%
 	
-	a.caption,
-	a.caption:hover,
-	a.caption:active,
-	a.caption:focus
-		color $dark
+	a.caption
+		&,
+		&:hover,
+		&:focus
+			color $dark
 
 	table.samples
 		> thead > tr > th

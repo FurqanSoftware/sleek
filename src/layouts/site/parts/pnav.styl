@@ -14,7 +14,7 @@
 		position relative
 		width 100%
 		margin 12px 0
-		font-size 14px
+		font-size 1rem
 		
 		input
 			width 100%
@@ -35,19 +35,20 @@
 		
 	&__item
 		color $dark
-		font-size 14px
+		font-size 1rem
 
 		&.-link,
 		&.-drop > a
+			text-decoration none
+
 			&:hover,
-			&:focus,
-			&:active
+			&:focus
+				text-decoration none
 				background-color transparent
 				color $dark
 
 		.icon
 			margin-top -3px
-			font-size 20px
 
 @media (max-width: 991px)
 	.pnav
@@ -56,7 +57,7 @@
 		&__menu > a
 			display block
 			margin 0 -15px
-			padding 10px 15px
+			padding 0.5rem 1rem
 
 			&.-active
 				border-left 2px solid $blue
@@ -124,16 +125,15 @@
 					margin 5px 0 0
 					padding 0
 					border 1px solid darken($silver, 5%)
-					border-radius 2px
+					border-radius 0.25rem
 					overflow hidden
-					font-size 14px
 					text-align left
 					background-color white
 					box-shadow 0 3px 0 alpha($dark, 0.05)
 					
 					> a
 						display block
-						padding 10px 15px
+						padding 0.5rem 1rem
 						color $dark
 						transition background-color 0.25s ease-in-out
 
@@ -141,9 +141,6 @@
 						&:focus,
 						&:active
 							background-color lighten($silver, 75%)
-						
-						.icon
-							font-size 16px
 				
 				&.open .pnav__menu
 					display block
