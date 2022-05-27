@@ -2,15 +2,13 @@
 
 @require './color'
 
-.avatars,
-.avatar
-	img 
-		background-color darken($silver, 5%)
-		border-radius 3px
-	
 .avatar
 	display inline-block
 	position relative
+	
+	img 
+		background-color darken($silver, 5%)
+		border-radius 0.25rem
 
 	&.-sm
 		width 40px
@@ -38,3 +36,8 @@
 		.emblem
 			bottom -10px
 			opacity 0
+
+.avatarset
+	display flex
+	flex-wrap wrap
+	gap 0.25rem
