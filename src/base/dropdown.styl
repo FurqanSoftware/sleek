@@ -6,8 +6,7 @@
 .dropdown-toggle .caret
 	margin-left 4px
 
-.dropdown-menu,
-.navbar-nav > li > .dropdown-menu
+.dropdown-menu
 	border-color darken($silver, 5%)
 	border-radius 0.25rem
 
@@ -58,9 +57,6 @@
 		&:last-child
 			display none
 
-.navbar-nav > li > .dropdown-menu
-	margin-top 5px
-
 .dropdown.notifications
 	> .dropdown-menu
 		width 300px
@@ -91,20 +87,3 @@
 			
 		.dropdown-header
 			background-color lighten($silver, 75%)
-
-@media (max-width: 767px)
-	.navbar-nav .open .dropdown-menu
-		position fixed
-		width 80%
-		max-height 70vh
-		top 15%
-		left 10%
-		overflow-y auto
-		border 1px solid lighten($dark, 50%)
-		border-radius 2px
-		background white
-		box-shadow 0 5px 5px alpha($dark, 0.25)
-	
-		> li > a,
-		.dropdown-header
-			padding 0.5rem 1rem
