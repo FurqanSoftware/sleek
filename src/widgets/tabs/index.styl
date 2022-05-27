@@ -1,0 +1,57 @@
+// Copyright 2021 Furqan Software Ltd. All rights reserved.
+
+@require '../../base/palette'
+
+.tabs
+	display flex
+
+	&__item
+		flex 0 0 auto
+		padding 0.5rem 1rem
+		border-bottom 2px solid transparent
+		color $muted
+		transition border-bottom-color 0.125s ease-in-out
+		text-decoration none
+
+		&:focus,
+		&:hover
+			border-bottom-color lighten($blue, 50%)
+			color $muted
+			text-decoration none
+
+		> .badge
+			float right
+			margin-left 10px
+			color $muted
+
+		&.-active
+			border-bottom-color $blue
+			color $dark
+		
+		&.-disabled
+			color $muted
+			cursor default
+			opacity 0.75
+
+		> .icon + .text
+			margin-left 10px
+	
+		img.icon
+			margin-top -2px
+
+			+ .text
+				margin-left 5px
+		
+		+ .tabs__item
+			margin-left 2px
+
+	&__divider
+		float left
+		height 1em
+		margin 1em
+		border-right 1px solid $silver
+
+@media (max-width: 991px)
+	.tabs
+		> :not(.-active):not(.-navsm)
+			display none
