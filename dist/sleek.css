@@ -1230,6 +1230,11 @@ a > .dashlet {
   -o-transition: border-color 0.25s ease-in-out;
   transition: border-color 0.25s ease-in-out;
 }
+a > .dashlet,
+a > .dashlet:hover,
+a > .dashlet:focus {
+  text-decoration: none;
+}
 a > .dashlet:hover {
   border-color: #9acbee;
 }
