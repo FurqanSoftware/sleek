@@ -1,0 +1,36 @@
+// Copyright 2020 Furqan Software Ltd. All rights reserved.
+
+@require '../../base/palette'
+
+.flair
+	display flex
+	flex-wrap wrap
+	gap 0.25em 1rem
+	margin-top 0.5em
+	
+	&__item
+		display flex
+		align-items center
+
+		&.-hover
+			display none
+	
+	&.-inline
+		flex-wrap nowrap
+		margin-top 0
+
+	.icon + .text
+		margin-left 10px
+
+	.icon
+		display block
+		font-size 16px
+		text-decoration none
+
+		+ .text
+			margin-left 5px
+
+// Other Contexts
+
+tr:hover .flair > .flair__item.-hover
+	display inline-block
