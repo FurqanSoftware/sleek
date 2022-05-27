@@ -100,13 +100,13 @@
 
 				&:hover,
 				&:focus
-					border-bottom-color lighten($blue, 50%)
-					
 					&::after
 						transform scaleX(1)
 
 				&.-active
-					border-bottom-color $blue
+					&::after
+						transform scaleX(1)
+						border-bottom-color $blue
 
 			&.-drop
 				position relative
