@@ -1,0 +1,66 @@
+// Copyright 2020 Furqan Software Ltd. All Rights Reserved.
+
+html
+	font-size 16px
+
+body 
+	font-family 'Ubuntu', 'Hind Siliguri', 'Helvetica', sans-serif
+	line-height 1.75em
+	color $dark
+	direction 'ltr'
+
+h1,
+h2,
+h3,
+h4
+	font-weight normal
+
+h1
+	font-size 2.625em
+
+h2
+	font-size 2.0625em
+
+h3
+	font-size 1.625em
+
+h4
+	font-size 1.25em
+
+p
+	margin 0 0 1.8125em
+
+a
+	text-decoration none
+	color $blue
+
+	&:hover,
+	&:focus
+		text-decoration underline
+		color mix($blue, $ebony, 75%)
+	
+	&:active
+		color $ebony
+
+	&:focus-visible
+		outline thin dotted
+		outline 0.5rem auto Highlight
+		outline 0.5rem auto -webkit-focus-ring-color
+		outline-offset 0.5rem
+	
+	&:focus,
+	&::-moz-focus-inner
+		outline none
+
+blockquote :last-child
+	margin-bottom 0
+
+dl
+	margin-bottom 1.25em
+
+dt
+	margin-bottom 0.25em
+	font-weight 500
+
+dd
+	margin-left 0
