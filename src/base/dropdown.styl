@@ -3,87 +3,140 @@
 @require './func'
 @require './color'
 
-.dropdown-toggle .caret
-	margin-left 4px
-
-.dropdown-menu
-	border-color darken($silver, 5%)
-	border-radius 0.25rem
-
-.dropdown-menu
-	margin-top 5px
-	padding 0
-	box-shadow 0 3px 5px alpha($dark, 0.05)
-	overflow hidden
+.dropdown
+	position relative
 	
-	> li
-		> a
-			padding 0.5rem 1rem
-			line-height 1.5
-			color $dark
-			transition background-color 0.25s ease-in-out
-
-			&:hover,
-			&:focus,
-			&:active
-				background-color lighten($silver, 75%)
-			
-			.icon
-				font-size 1rem
+	&__menu
+		display none
+		flex-direction column
+		position absolute
+		top 100%
+		left 0
+		z-index 1000
+		min-width 150px
+		min-width max-content
+		margin-top 0.25rem
+		border 1px solid $silver
+		border-radius 0.25rem
+		text-align left
+		background-color white
+		box-shadow 0 3px 5px alpha($dark, 0.05)
 		
-		.dropdown
-			margin -25px 0 0 95%
+		&.-right
+			right 0
+			left auto
 	
-		&.active a
-			padding-left 10px
-			border-left 5px solid $blue
-			background-color transparent
-			color $dark
+	&__item
+		padding 0.5rem 1rem
+		color $dark
+		transition background-color 0.25s ease-in-out
+		
+		&.-link
+			text-decoration none
 
 			&:hover,
-			&:focus,
-			&:active
-				background-color transparent
-	
-	.dropdown-header
-		padding 0.5rem 1rem 0.25rem
-		font-size 0.9rem
+			&:focus
+				text-decoration none
+				color $dark
 
-	.divider
-		margin 0
-		background-color lighten($silver, 20%)
+		&:not(.-disabled)
+			&:hover,
+			&:focus
+				background-color lighten($silver, 75%)
+
+		&.-active
+			position relative
+			box-shadow inset 10px 0 0 -5px $blue
+		
+		&.-disabled
+			opacity 0.75
+			cursor not-allowed
+		
+		.icon
+			width 1rem
+			margin-right 1rem
+			font-size 1rem
+
+	&__head
+		padding 0.5rem 1rem 0.25rem
+		color lighten($dark, 50%)
+		font-size 0.95em
+	
+	&__divider
+		border-bottom 1px solid $silver
 
 		&:first-child,
 		&:last-child
 			display none
+		
+	&.-open > .dropdown__menu
+		display flex
+		
+	&.-notifications
+		.dropdown__menu
+			width 300px
 
-.dropdown.notifications
-	> .dropdown-menu
-		width 300px
+// .dropdown-menu
+// 	margin-top 5px
+// 	padding 0
+// 	overflow hidden
+	
+// 	> li
+// 		> a
+// 			padding 0.5rem 1rem
+// 			line-height 1.5
+// 			color $dark
+// 			transition background-color 0.25s ease-in-out
 
-		ul
-			padding-left 0
-			list-style none
-
-			> li
-				> a
-					display block
-					border-bottom 1px solid lighten($silver, 75%)
-					padding 0.5rem 1rem
-					color $muted
-
-					&:hover,
-					&:focus,
-					&:active
-						background-color lighten($silver, 75%)
-
-					.time
-						margin-top 0.25rem
-						font-size 0.95em
-
-				&.unseen a
-					padding-left 12px
-					border-left 3px solid $blue
+// 			&:hover,
+// 			&:focus,
+// 			&:active
+// 				background-color lighten($silver, 75%)
 			
-		.dropdown-header
-			background-color lighten($silver, 75%)
+// 			.icon
+// 				font-size 1rem
+		
+// 		.dropdown
+// 			margin -25px 0 0 95%
+	
+// 		&.active a
+// 			padding-left 10px
+// 			border-left 5px solid $blue
+// 			background-color transparent
+// 			color $dark
+
+// 			&:hover,
+// 			&:focus,
+// 			&:active
+// 				background-color transparent
+
+// .dropdown.notifications
+// 	> .dropdown-menu
+// 		width 300px
+
+// 		ul
+// 			padding-left 0
+// 			list-style none
+
+// 			> li
+// 				> a
+// 					display block
+// 					border-bottom 1px solid lighten($silver, 75%)
+// 					padding 0.5rem 1rem
+// 					color $muted
+
+// 					&:hover,
+// 					&:focus,
+// 					&:active
+// 						background-color lighten($silver, 75%)
+
+// 					.time
+// 						margin-top 0.25rem
+// 						font-size 0.95em
+
+// 				&.unseen a
+// 					padding-left 12px
+// 					border-left 3px solid $blue
+			
+// 		.dropdown-header
+// 			background-color lighten($silver, 75%)

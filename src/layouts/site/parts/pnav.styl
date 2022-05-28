@@ -7,7 +7,7 @@
 	border-top 1px solid lighten($silver, 75%)
 	font-size 0
 	
-	&.open
+	&.-open
 		display block
 
 	&__search
@@ -46,6 +46,12 @@
 				text-decoration none
 				background-color transparent
 				color $dark
+		
+		&.-more
+			&,
+			&:hover,
+			&:focus
+				text-decoration none
 
 		.icon
 			margin-top -3px
@@ -67,7 +73,7 @@
 			.pnav__menu
 				display none
 			
-			&.open .pnav__menu
+			&.-open .pnav__menu
 				display block
 
 @media (min-width: 992px)
@@ -121,7 +127,8 @@
 					top 100%
 					left 0
 					z-index 1000
-					min-width 160px
+					min-width 150px
+					min-width max-content
 					margin 5px 0 0
 					padding 0
 					border 1px solid darken($silver, 5%)
@@ -142,5 +149,5 @@
 						&:active
 							background-color lighten($silver, 75%)
 				
-				&.open .pnav__menu
+				&.-open .pnav__menu
 					display block

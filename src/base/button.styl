@@ -59,7 +59,7 @@ _button(name, bg, text, edge=10%, hover=30%, active=15%)
 		&.-{name}[disabled]
 			box-shadow none
 	
-	.open > &.-{name}.-toggle
+	.-open > &.-{name}.-toggle
 		background-color darken(bg, (active/3))
 		box-shadow inset 1px 2px 0 darken(bg, active)
 
@@ -83,7 +83,7 @@ _button('red', $red, white, 20%, 45%, 22.5%)
 		background-color lighten($silver, 15%)
 		box-shadow inset 1px 2px 1px lighten($silver, 50%)
 
-.open > &.-white.-toggle
+.-open > &.-white.-toggle
 	background-color lighten($silver, 15%)
 	box-shadow inset 1px 2px 1px lighten($silver, 50%)
 
