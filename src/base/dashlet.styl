@@ -105,11 +105,17 @@
 		clear both
 		height 10px
 
-a > .dashlet
-	transition border-color 0.25s ease-in-out
+	a&
+		display block
+		text-decoration none
+		color $dark
+		transition border-color 0.25s ease-in-out
 
-a > .dashlet:hover
-	border-color lighten($blue, 50%)
+		&:hover,
+		&:focus
+			text-decoration none
+			color $dark
+			border-color lighten($blue, 50%)
 
-	.dashlet__mark
-		transform scale(1.1)
+			.dashlet__mark
+				transform scale(1.1)
