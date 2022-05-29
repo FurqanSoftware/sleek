@@ -1,7 +1,7 @@
 // Copyright 2020 Furqan Software Ltd. All Rights Reserved.
 
 @require './func'
-@require './color'
+@require './palette'
 
 .dropdown
 	position relative
@@ -25,6 +25,10 @@
 		&.-right
 			right 0
 			left auto
+		
+		&.-scroll
+			overflow-y auto
+			-webkit-overflow-scrolling touch
 	
 	&__item
 		padding 0.5rem 1rem
@@ -75,6 +79,53 @@
 	&.-notifications
 		.dropdown__menu
 			width 300px
+	
+	&.-select
+		.dropdown__toggle
+			position relative
+			padding-right 1.5rem
+			overflow hidden
+			white-space nowrap
+			
+			&::before
+				content ''
+				position absolute
+				width 2.5rem
+				top 0
+				right 0
+				bottom 0
+				z-index 1
+				background-color white
+				background linear-gradient(to right, transparent, white 1rem, white 100%)
+				pointer-events none
+			
+			&::after
+				content ''
+				position absolute
+				width 0
+				height 0
+				top 50%
+				right 0
+				z-index 2
+				margin -0.125rem 0.5rem 0 0
+				border-left 0.25rem solid transparent
+				border-top 0.25rem solid lighten($dark, 50%)
+				border-right 0.25rem solid transparent
+
+			input[type=radio]
+				display none
+			
+			input[type=radio] + *
+				display none
+			
+			input[type=radio]:checked + *
+				display block
+		
+		.dropdown__menu label
+			cursor pointer
+			
+		select
+			display none
 
 // .dropdown-menu
 // 	margin-top 5px
