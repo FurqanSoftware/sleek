@@ -7,27 +7,29 @@
 
 	&__item
 		flex 0 0 auto
-		padding 0.5rem 1rem
 		border-radius 0.25rem
 		text-decoration none
 		transition background-color 0.25s ease-in-out
+		
+		&:not(.-drop),
+		&.-drop > .dropdown__toggle
+			padding 0.5rem 1rem
+		
+		&.-drop > .dropdown__toggle
+			display block
 		
 		&:focus,
 		&:hover
 			text-decoration none
 			background-color alpha($blue, 10%)
 
-		&:active
-			background-color alpha($blue, 25%)
-			
 		> .badge
 			float right
 			margin-left 10px
 			color $muted
 
 		&:focus,
-		&:hover,
-		&:active
+		&:hover
 			> .badge
 				background-color alpha(white, 25%)
 		
@@ -44,6 +46,9 @@
 			background-color transparent
 			cursor default
 			opacity 0.75
+		
+		&.-navsm
+			border 1px solid $silver
 
 		> .icon + .text
 			margin-left 10px

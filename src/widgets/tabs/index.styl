@@ -7,11 +7,17 @@
 
 	&__item
 		flex 0 0 auto
-		padding 0.5rem 1rem
 		border-bottom 2px solid transparent
 		color $muted
 		transition border-bottom-color 0.125s ease-in-out
 		text-decoration none
+		
+		&:not(.-drop),
+		&.-drop > .dropdown__toggle
+			padding 0.5rem 1rem
+		
+		&.-drop > .dropdown__toggle
+			display block
 
 		&:focus,
 		&:hover
