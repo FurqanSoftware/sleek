@@ -62,7 +62,15 @@ class Dropdown {
 			dom.addClass(item, 'dropdown__item', '-link')
 			item.setAttribute('href', 'javascript:;')
 			item.setAttribute('tabindex', '0')
-			dom.setText(item, dom.getText(option))
+			
+			const tpl = settings.itemTemplate || '%{label}'
+			const dataset = {
+				...option.dataset,
+				label: dom.getText(option),
+				value: option.getAttribute('value')
+			}
+			item.innerHTML = tpl.replace(/%\{([a-z]+)\}/g, (match, key) => dataset[key])
+
 			menu.appendChild(item)
 
 			dom.on(item, 'click', () => selectOption(option, item))
