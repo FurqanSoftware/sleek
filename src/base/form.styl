@@ -21,13 +21,13 @@
 		line-height 1.42857143
 		background-color white
 		color $dark
-		box-shadow inset 0 1px 1px rgba(0, 0, 0, .075)
+		box-shadow inset 0 0.25rem 0.125rem $shadow0
 		transition border-color ease-in-out .15s, box-shadow ease-in-out .15s
 		
 		&:focus
 			border-color $blue
 			outline 0
-			box-shadow inset 0 1px 0 alpha($dark, .075), 0 0 0 3px alpha($blue, 0.5)
+			box-shadow inset 0 0.25rem 0.125rem $shadow0, 0 0 0 0.25rem alpha($blue, 50%)
 			
 	&__field[readonly],
 	&__field[disabled]
@@ -36,7 +36,7 @@
 		
 		&:focus
 			border-color mix($dark, $silver, 20)
-			box-shadow inset 0 1px 0 alpha($dark, .075), 0 0 0 3px alpha(mix($dark, $silver, 20), 0.5)
+			box-shadow inset 0 0.25rem 0.125rem $shadow0, 0 0 0 0.25rem alpha($blue, 50%)
 	
 	textarea.form__field
 		height auto

@@ -1,11 +1,18 @@
 // Copyright 2020 Furqan Software Ltd. All Rights Reserved.
 
-$dark = #2f353b
-$ebony = #22313f
-$blue = #3598dc
-$green = #26c281
-$red = #e35b5a
+$dark   = #2f353b
+$ebony  = #22313f
+$blue   = #3598dc
+$green  = #26c281
+$red    = #e35b5a
 $orange = #e87e04
 $silver = #e7ecf1
 
 $muted = mix($dark, $silver)
+
+$shadow0 = alpha($dark, 2.5%) // Form fields.
+$shadow1 = alpha($dark, 5%)   // Regular panels, closest to page.
+$shadow2 = alpha($dark, 10%)  // Important panels, above regular panels.
+$shadow3 = alpha($dark, 15%)  // Dropdowns.
+$shadow5 = alpha($dark, 20%)  // Modals, bell menu.
+$shadow7 = alpha($dark, 25%)  // ?
