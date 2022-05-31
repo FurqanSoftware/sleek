@@ -43,7 +43,7 @@ class Dropdown {
 			const toggle = dom.$('.dropdown__toggle', this.el)
 			
 			if (option.dataset.empty == 'true') {
-				toggle.innerHTML = ''
+				toggle.innerHTML = settings.placeholder || ''
 				return
 			}
 
