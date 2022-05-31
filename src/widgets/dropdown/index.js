@@ -47,7 +47,7 @@ class Dropdown {
 				return
 			}
 
-			const tpl = settings.selectedTemplate || '${label}'
+			const tpl = settings.selectedTemplate || '%{label}'
 			const dataset = {
 				...option.dataset,
 				label: dom.getText(option),
