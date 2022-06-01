@@ -55,6 +55,20 @@ a
 blockquote :last-child
 	margin-bottom 0
 
+summary
+	font-weight 500
+	cusrsor pointer
+	
+	.icon
+		margin -0.25rem 0.75rem 0 0
+		transition transform 125ms ease-in
+	
+	[open] > &
+		margin-bottom 1rem
+		
+		.icon
+			transform rotate(90deg)
+
 dl
 	margin-bottom 1.25em
 
