@@ -270,6 +270,24 @@ a::-moz-focus-inner {
 blockquote :last-child {
   margin-bottom: 0;
 }
+summary {
+  font-weight: 500;
+  cusrsor: pointer;
+}
+summary .icon {
+  margin: -0.25rem 0.75rem 0 0;
+  -webkit-transition: transform 125ms ease-in;
+  -moz-transition: transform 125ms ease-in;
+  -ms-transition: transform 125ms ease-in;
+  -o-transition: transform 125ms ease-in;
+  transition: transform 125ms ease-in;
+}
+[open] > summary {
+  margin-bottom: 1rem;
+}
+[open] > summary .icon {
+  transform: rotate(90deg);
+}
 dl {
   margin-bottom: 1.25em;
 }
@@ -711,7 +729,7 @@ th {
   border-color: #e7ecf1;
 }
 .btngroup {
-  display: inline-flex;
+  display: flex;
 }
 .btngroup > .btn:not(:first-child):not(:last-child) {
   -webkit-border-radius: 0;
@@ -858,7 +876,9 @@ h6 .label {
 }
 .panel__actions {
   float: right;
-  padding: 5px 0;
+  display: flex;
+  gap: 0.25rem;
+  padding: 0.25rem 0;
 }
 .panel__actions .btn {
   padding: 5px 10px;
@@ -1140,11 +1160,6 @@ a.dashlet:focus .dashlet__mark {
 .artifact table.-samples pre {
   padding: 0;
   margin: 0;
-}
-.artifact img {
-  display: block;
-  margin: 0 auto;
-  max-width: 100%;
 }
 .pagination {
   margin: 0;
