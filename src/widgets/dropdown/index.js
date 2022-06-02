@@ -13,7 +13,6 @@ class Dropdown {
 
 		const toggle = dom.$('.dropdown__toggle', this.el)
 		toggle.setAttribute('tabindex', '0')
-		dom.on(toggle, 'click', () => { this.open(toggle) })
 	}
 
 	initSelect() {
@@ -105,6 +104,7 @@ class Dropdown {
 		dom.addClass(this.el, '-open')
 		const menu = dom.$('.dropdown__menu', this.el)
 		if (menu) {
+			this.reposition()
 			dom.addClass(menu, 'animated', 'fadeInUpSmallest', 'fastest')
 			dom.once(menu, 'animationend', () => { dom.removeClass(menu, 'animated', 'fadeInUpSmallest', 'fastest') })
 		}
@@ -126,6 +126,68 @@ class Dropdown {
 
 	refresh() {
 		if (dom.hasClass(this.el, '-select')) this.initSelect()
+	}
+
+	reposition() {
+		const menu = dom.$('.dropdown__menu', this.el)
+		if (dom.hasClass(menu, '-left') || dom.hasClass(menu, '-right')) return
+		if (dom.hasClass(this.el, '-select')) this.repositionSelect()
+		if (dom.closest(menu.parentNode, '.dropdown__menu')) this.repositionChild()
+	}
+
+	repositionSelect() {
+		const menu = dom.$('.dropdown__menu', this.el)
+		const pos = this.el.getBoundingClientRect()
+		let top = '100%'
+		let bottom = 'auto'
+		if (pos.top+dom.getHeight(menu) > window.innerHeight) {
+			top = 'auto'
+			bottom = '100%'
+		}
+		dom.setStyles(menu, {
+			top,
+			bottom
+		})
+	}
+
+	repositionChild() {
+		const menu = dom.$('.dropdown__menu', this.el)
+		const pos = this.el.getBoundingClientRect()
+		const elWidth = dom.getWidth(this.el)
+		const elHeight = dom.getHeight(this.el)
+		const menuWidth = dom.getWidth(menu)
+		const menuHeight = dom.getHeight(menu)
+		let top = '0px'
+		let bottom = 'auto'
+		let right = 'auto'
+		let left = '100%'
+		if (pos.left+elWidth+menuWidth > document.documentElement.clientWidth) {
+			if (pos.left > menuWidth) {
+				[left, right] = [right, left]
+			} else {
+				top = `${elHeight}px`
+				right = 'auto'
+				left = '1rem'
+			}
+		}
+		if (pos.top+menuHeight > document.documentElement.clientHeight) {
+			[top, bottom] = [bottom, top]
+		}
+		dom.setStyles(menu, {
+			top,
+			right,
+			bottom,
+			left
+		})
+	}
+
+	isChildOf(other) {
+		let target = this.el
+		while (target && target.parentNode) {
+			if (target.parentNode == other.el) return true;
+			target = target.parentNode;
+		}
+		return false
 	}
 }
 
@@ -151,7 +213,8 @@ class Root {
 
 			const dropdown = this.dropdowns.get(el)
 			this.closeOthers(dropdown)
-			dropdown.open()
+			if (!dom.hasClass(dropdown.el, '-open')) dropdown.open()
+			else dropdown.close()
 		})
 
 		dom.on(root, 'click', event => {
@@ -176,7 +239,7 @@ class Root {
 
 	closeOthers(dropdown) {
 		this.dropdowns.forEach(other => {
-			if (dropdown != other) other.close()
+			if (dom.hasClass(other.el, '-open') && dropdown != other && !dropdown.isChildOf(other)) other.close()
 		})
 	}
 
