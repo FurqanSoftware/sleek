@@ -5,7 +5,7 @@
 @require './palette'
 
 .dashlet
-	margin-bottom 10px
+	margin-bottom 0.5rem
 	border 1px solid $silver
 	border-radius 0.25rem
 	overflow hidden
@@ -18,7 +18,7 @@
 		border-color $blue
 	
 	&.-xs
-		margin-bottom 5px
+		margin-bottom 0.25rem
 	
 	&.-subtle
 		border none
@@ -26,37 +26,34 @@
 
 	&__body
 		position absolute
-		right 15px
-		padding 20px 15px
-		font-size 15px
-		line-height 15px
+		right 1rem
+		padding 1.25rem 1rem
+		line-height 1em
 		text-align right
 	
 	&.-sm &__body
 		right auto
-		left 15px
-		padding 15px
+		left 1rem
+		padding 1rem
 		text-align left
 	
 	&.-xs &__body
 		position static
-		padding 10px
-		font-size 14px
-		line-height 14px
+		padding 0.5rem
 		text-align left
+		font-size 0.95rem
 		
 	&.-xs.-subtle &__body
-		padding 10px 0
+		padding 0.5rem 0
 	
 	&__stat
-		margin-bottom 10px
-		font-size 30px
-		line-height 30px
+		margin-bottom 0.5rem
+		font-size 2rem
+		line-height 1em
 
 	&.-sm &__stat
-		margin-bottom 10px
-		font-size 25px
-		line-height 25px
+		margin-bottom 0.5rem
+		font-size 1.5rem
 
 	&.-xs &__stat
 		float right
@@ -67,56 +64,55 @@
 	&__mark
 		display block
 		float left
-		width 80px
-		height 80px
-		margin 0 0 15px -35px
-		padding 10px 0 0 15px
-		font-size 110px
-		line-height 110px
-		opacity 0.05
-		transition transform 0.25s ease-in-out
+		width 5rem
+		height 5rem
+		margin 0 0 1rem -2rem
+		padding 0.5rem 0 0 1rem
+		font-size 7.5rem
+		line-height 1em
+		opacity 0.0625
+		transition transform $fast ease-in
 
 	&.-sm &__mark
 		float right
 		margin-bottom 0
 		padding-top 0
-		font-size 80px
+		font-size 5rem
 
 	&.-xs &__mark
 		float right
-		width 30px
-		height 30px
-		margin 0 10px 0 -35px
+		width 2rem
+		height 2rem
+		margin 0 0.5rem 0 -2rem
 		padding 0
-		font-size 50px
-		line-height 50px
-		opacity 0.025
+		font-size 3rem
+		opacity 0.0325
 
 	&__foot
 		position relative
 		display block
 		clear both
-		padding 5px 10px
+		padding 0.25rem 0.5rem
 		border-top 1px solid $silver
 		text-align center
-		background-color alpha($silver, 75%)
+		background-color $shade
 
 	.progress
 		position relative
 		clear both
-		height 10px
+		height 0.5rem
 
 	a&
 		display block
 		text-decoration none
 		color $dark
-		transition border-color 0.25s ease-in-out
+		transition border-color $fast ease-in
 
 		&:hover,
 		&:focus
 			text-decoration none
 			color $dark
-			border-color lighten($blue, 50%)
+			border-color $blueglow
 
 			.dashlet__mark
-				transform scale(1.1)
+				transform scale(1.15)
