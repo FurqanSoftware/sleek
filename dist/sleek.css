@@ -329,17 +329,17 @@ code {
   color: #2f353b;
   -webkit-box-shadow: inset 0 0.25rem 0.125rem rgba(47,53,59,0.025);
   box-shadow: inset 0 0.25rem 0.125rem rgba(47,53,59,0.025);
-  -webkit-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-  -moz-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-  -ms-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
-  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -webkit-transition: border-color 125ms ease-in, box-shadow 125ms ease-in;
+  -moz-transition: border-color 125ms ease-in, box-shadow 125ms ease-in;
+  -ms-transition: border-color 125ms ease-in, box-shadow 125ms ease-in;
+  -o-transition: border-color 125ms ease-in, box-shadow 125ms ease-in;
+  transition: border-color 125ms ease-in, box-shadow 125ms ease-in;
 }
 .form__field:focus {
   border-color: #3598dc;
   outline: 0;
-  -webkit-box-shadow: inset 0 0.25rem 0.125rem rgba(47,53,59,0.025), 0 0 0 0.25rem rgba(53,152,220,0.5);
-  box-shadow: inset 0 0.25rem 0.125rem rgba(47,53,59,0.025), 0 0 0 0.25rem rgba(53,152,220,0.5);
+  -webkit-box-shadow: inset 0 0.25rem 0.125rem rgba(47,53,59,0.025), 0 0 0 0.25rem rgba(53,152,220,0.75);
+  box-shadow: inset 0 0.25rem 0.125rem rgba(47,53,59,0.025), 0 0 0 0.25rem rgba(53,152,220,0.75);
 }
 .form__field[readonly],
 .form__field[disabled] {
@@ -349,8 +349,8 @@ code {
 .form__field[readonly]:focus,
 .form__field[disabled]:focus {
   border-color: #c2c7cc;
-  -webkit-box-shadow: inset 0 0.25rem 0.125rem rgba(47,53,59,0.025), 0 0 0 0.25rem rgba(53,152,220,0.5);
-  box-shadow: inset 0 0.25rem 0.125rem rgba(47,53,59,0.025), 0 0 0 0.25rem rgba(53,152,220,0.5);
+  -webkit-box-shadow: inset 0 0.25rem 0.125rem rgba(47,53,59,0.025), 0 0 0 0.25rem rgba(53,152,220,0.75);
+  box-shadow: inset 0 0.25rem 0.125rem rgba(47,53,59,0.025), 0 0 0 0.25rem rgba(53,152,220,0.75);
 }
 .form textarea.form__field {
   height: auto;
@@ -435,20 +435,25 @@ th {
   border: none;
 }
 .table__actions {
-  text-align: right;
+  display: flex;
+  gap: 0.25rem;
+  opacity: 0.5;
 }
-.table__actions .btngroup.-hover {
-  opacity: 0.25;
+.table__actions .btngroup {
   -webkit-transition: opacity 125ms ease-in;
   -moz-transition: opacity 125ms ease-in;
   -ms-transition: opacity 125ms ease-in;
   -o-transition: opacity 125ms ease-in;
   transition: opacity 125ms ease-in;
 }
-.table__actions .btn {
-  padding: 5px 10px;
+.table__actions .btngroup:first-child {
+  margin-left: auto;
 }
-.table tr:hover .table__actions .btngroup.-hover {
+.table__actions .btn {
+  padding: 0.25rem 0.5rem;
+  font-size: 0.95em;
+}
+.table tr:hover .table__actions {
   opacity: 1;
 }
 .table > thead > tr > th,
@@ -496,7 +501,7 @@ th {
   background-color: #f9fafc;
 }
 .table.-emphasis > tbody tr:hover {
-  background: linear-gradient(#cce5f6, #cce5f6 3px, transparent 3px, transparent 100%), linear-gradient(to top, #cce5f6, #cce5f6 3px, transparent 3px, transparent 100%);
+  background: linear-gradient(rgba(53,152,220,0.75), rgba(53,152,220,0.75) 3px, transparent 3px, transparent 100%), linear-gradient(to top, rgba(53,152,220,0.75), rgba(53,152,220,0.75) 3px, transparent 3px, transparent 100%);
 }
 .tablebox {
   min-height: 0.01%;
@@ -553,11 +558,11 @@ th {
   border-radius: 0.25rem;
   background-color: rgba(231,236,241,0.5);
   color: #5d6268;
-  -webkit-transition: background-color 0.25s ease-in-out;
-  -moz-transition: background-color 0.25s ease-in-out;
-  -ms-transition: background-color 0.25s ease-in-out;
-  -o-transition: background-color 0.25s ease-in-out;
-  transition: background-color 0.25s ease-in-out;
+  -webkit-transition: background-color 125ms ease-in;
+  -moz-transition: background-color 125ms ease-in;
+  -ms-transition: background-color 125ms ease-in;
+  -o-transition: background-color 125ms ease-in;
+  transition: background-color 125ms ease-in;
 }
 .badge:empty {
   display: none;
@@ -599,7 +604,7 @@ th {
   margin-left: 5px;
 }
 .btn.-sm {
-  padding: 5px 10px;
+  padding: 0.25rem 0.5rem;
   font-size: 0.95rem;
 }
 .btn.-default {
@@ -806,11 +811,11 @@ h6 .label {
   width: 24px;
   height: 18px;
   margin: 0;
-  -webkit-transition: opacity 200ms ease, transform 250ms ease;
-  -moz-transition: opacity 200ms ease, transform 250ms ease;
-  -ms-transition: opacity 200ms ease, transform 250ms ease;
-  -o-transition: opacity 200ms ease, transform 250ms ease;
-  transition: opacity 200ms ease, transform 250ms ease;
+  -webkit-transition: opacity 125ms ease, transform 125ms ease;
+  -moz-transition: opacity 125ms ease, transform 125ms ease;
+  -ms-transition: opacity 125ms ease, transform 125ms ease;
+  -o-transition: opacity 125ms ease, transform 125ms ease;
+  transition: opacity 125ms ease, transform 125ms ease;
 }
 .avatar:hover .emblem {
   transform: translateY(10px);
@@ -822,7 +827,7 @@ h6 .label {
   gap: 0.25rem;
 }
 .panel {
-  margin: 0 0 10px;
+  margin-bottom: 0.5rem;
   padding: 1.25rem;
   border: 1px solid #e7ecf1;
   -webkit-border-radius: 0.25rem;
@@ -881,13 +886,13 @@ h6 .label {
   padding: 0.25rem 0;
 }
 .panel__actions .btn {
-  padding: 5px 10px;
+  padding: 0.25rem 0.5rem;
   font-size: 0.95em;
 }
 .panel__drawer {
   display: none;
-  margin: 0 -1.25rem;
-  padding: 1rem 1.25rem 0;
+  margin: 0 -1.25rem 1rem;
+  padding: 1rem 1.25rem 0.5rem;
   border-top: 1px solid #f3f5f8;
   border-bottom: 1px solid #f3f5f8;
   -webkit-box-shadow: inset 0 0.25rem 0.125rem rgba(47,53,59,0.025);
@@ -921,14 +926,14 @@ h6 .label {
   display: none;
 }
 a > .panel {
-  -webkit-transition: border-color 0.25s ease-in-out;
-  -moz-transition: border-color 0.25s ease-in-out;
-  -ms-transition: border-color 0.25s ease-in-out;
-  -o-transition: border-color 0.25s ease-in-out;
-  transition: border-color 0.25s ease-in-out;
+  -webkit-transition: border-color 125ms ease-in;
+  -moz-transition: border-color 125ms ease-in;
+  -ms-transition: border-color 125ms ease-in;
+  -o-transition: border-color 125ms ease-in;
+  transition: border-color 125ms ease-in;
 }
 a > .panel:hover {
-  border-color: #9acbee;
+  border-color: rgba(53,152,220,0.75);
 }
 section > .caption {
   margin: 0 0 25px;
@@ -950,7 +955,7 @@ section > .caption h6 {
   }
 }
 .dashlet {
-  margin-bottom: 10px;
+  margin-bottom: 0.5rem;
   border: 1px solid #e7ecf1;
   -webkit-border-radius: 0.25rem;
   -moz-border-radius: 0.25rem;
@@ -968,7 +973,7 @@ section > .caption h6 {
   border-color: #3598dc;
 }
 .dashlet.-xs {
-  margin-bottom: 5px;
+  margin-bottom: 0.25rem;
 }
 .dashlet.-subtle {
   border: none;
@@ -977,37 +982,34 @@ section > .caption h6 {
 }
 .dashlet__body {
   position: absolute;
-  right: 15px;
-  padding: 20px 15px;
-  font-size: 15px;
-  line-height: 15px;
+  right: 1rem;
+  padding: 1.25rem 1rem;
+  line-height: 1em;
   text-align: right;
 }
 .dashlet.-sm .dashlet__body {
   right: auto;
-  left: 15px;
-  padding: 15px;
+  left: 1rem;
+  padding: 1rem;
   text-align: left;
 }
 .dashlet.-xs .dashlet__body {
   position: static;
-  padding: 10px;
-  font-size: 14px;
-  line-height: 14px;
+  padding: 0.5rem;
   text-align: left;
+  font-size: 0.95rem;
 }
 .dashlet.-xs.-subtle .dashlet__body {
-  padding: 10px 0;
+  padding: 0.5rem 0;
 }
 .dashlet__stat {
-  margin-bottom: 10px;
-  font-size: 30px;
-  line-height: 30px;
+  margin-bottom: 0.5rem;
+  font-size: 2rem;
+  line-height: 1em;
 }
 .dashlet.-sm .dashlet__stat {
-  margin-bottom: 10px;
-  font-size: 25px;
-  line-height: 25px;
+  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
 }
 .dashlet.-xs .dashlet__stat {
   float: right;
@@ -1018,40 +1020,39 @@ section > .caption h6 {
 .dashlet__mark {
   display: block;
   float: left;
-  width: 80px;
-  height: 80px;
-  margin: 0 0 15px -35px;
-  padding: 10px 0 0 15px;
-  font-size: 110px;
-  line-height: 110px;
-  opacity: 0.05;
-  -webkit-transition: transform 0.25s ease-in-out;
-  -moz-transition: transform 0.25s ease-in-out;
-  -ms-transition: transform 0.25s ease-in-out;
-  -o-transition: transform 0.25s ease-in-out;
-  transition: transform 0.25s ease-in-out;
+  width: 5rem;
+  height: 5rem;
+  margin: 0 0 1rem -2rem;
+  padding: 0.5rem 0 0 1rem;
+  font-size: 7.5rem;
+  line-height: 1em;
+  opacity: 0.0625;
+  -webkit-transition: transform 125ms ease-in;
+  -moz-transition: transform 125ms ease-in;
+  -ms-transition: transform 125ms ease-in;
+  -o-transition: transform 125ms ease-in;
+  transition: transform 125ms ease-in;
 }
 .dashlet.-sm .dashlet__mark {
   float: right;
   margin-bottom: 0;
   padding-top: 0;
-  font-size: 80px;
+  font-size: 5rem;
 }
 .dashlet.-xs .dashlet__mark {
   float: right;
-  width: 30px;
-  height: 30px;
-  margin: 0 10px 0 -35px;
+  width: 2rem;
+  height: 2rem;
+  margin: 0 0.5rem 0 -2rem;
   padding: 0;
-  font-size: 50px;
-  line-height: 50px;
-  opacity: 0.025;
+  font-size: 3rem;
+  opacity: 0.0325;
 }
 .dashlet__foot {
   position: relative;
   display: block;
   clear: both;
-  padding: 5px 10px;
+  padding: 0.25rem 0.5rem;
   border-top: 1px solid #e7ecf1;
   text-align: center;
   background-color: rgba(231,236,241,0.75);
@@ -1059,27 +1060,27 @@ section > .caption h6 {
 .dashlet .progress {
   position: relative;
   clear: both;
-  height: 10px;
+  height: 0.5rem;
 }
 a.dashlet {
   display: block;
   text-decoration: none;
   color: #2f353b;
-  -webkit-transition: border-color 0.25s ease-in-out;
-  -moz-transition: border-color 0.25s ease-in-out;
-  -ms-transition: border-color 0.25s ease-in-out;
-  -o-transition: border-color 0.25s ease-in-out;
-  transition: border-color 0.25s ease-in-out;
+  -webkit-transition: border-color 125ms ease-in;
+  -moz-transition: border-color 125ms ease-in;
+  -ms-transition: border-color 125ms ease-in;
+  -o-transition: border-color 125ms ease-in;
+  transition: border-color 125ms ease-in;
 }
 a.dashlet:hover,
 a.dashlet:focus {
   text-decoration: none;
   color: #2f353b;
-  border-color: #9acbee;
+  border-color: rgba(53,152,220,0.75);
 }
 a.dashlet:hover .dashlet__mark,
 a.dashlet:focus .dashlet__mark {
-  transform: scale(1.1);
+  transform: scale(1.15);
 }
 .artifact {
   font-size: 1.25rem;
@@ -1100,11 +1101,11 @@ a.dashlet:focus .dashlet__mark {
 .artifact__cover.-modest {
   height: 160px;
   opacity: 0.5;
-  -webkit-transition: opacity 0.25s ease-in-out;
-  -moz-transition: opacity 0.25s ease-in-out;
-  -ms-transition: opacity 0.25s ease-in-out;
-  -o-transition: opacity 0.25s ease-in-out;
-  transition: opacity 0.25s ease-in-out;
+  -webkit-transition: opacity 125ms ease-in;
+  -moz-transition: opacity 125ms ease-in;
+  -ms-transition: opacity 125ms ease-in;
+  -o-transition: opacity 125ms ease-in;
+  transition: opacity 125ms ease-in;
 }
 .artifact__cover.-placeholder {
   background-position: 50% 50%;
@@ -1168,11 +1169,11 @@ a.dashlet:focus .dashlet__mark {
 .pagination > li > span {
   margin: 0 2px;
   border: none;
-  -webkit-transition: background-color 0.25s ease-in-out;
-  -moz-transition: background-color 0.25s ease-in-out;
-  -ms-transition: background-color 0.25s ease-in-out;
-  -o-transition: background-color 0.25s ease-in-out;
-  transition: background-color 0.25s ease-in-out;
+  -webkit-transition: background-color 125ms ease-in;
+  -moz-transition: background-color 125ms ease-in;
+  -ms-transition: background-color 125ms ease-in;
+  -o-transition: background-color 125ms ease-in;
+  transition: background-color 125ms ease-in;
 }
 .pagination > li > a,
 .pagination > li:first-child > a,
@@ -1273,6 +1274,7 @@ a.dashlet:focus .dashlet__mark {
 }
 .alert__icon {
   margin-right: 1rem;
+  line-height: 0;
 }
 .alert__icon .icon {
   font-size: 1.5em;
@@ -1315,16 +1317,20 @@ a.dashlet:focus .dashlet__mark {
   text-align: center;
   color: #8f9aa5;
 }
-a > .alert.-subtle {
-  -webkit-transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out;
-  -moz-transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out;
-  -ms-transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out;
-  -o-transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out;
-  transition: border-color 0.25s ease-in-out, color 0.25s ease-in-out;
+a.alert.-subtle {
+  display: block;
+  text-decoration: none;
 }
-a:hover > .alert.-subtle {
+a.alert.-subtle:hover {
   border-color: #3598dc;
   color: #5c6873;
+}
+a > .alert.-subtle {
+  -webkit-transition: border-color 125ms ease-in, color 125ms ease-in;
+  -moz-transition: border-color 125ms ease-in, color 125ms ease-in;
+  -ms-transition: border-color 125ms ease-in, color 125ms ease-in;
+  -o-transition: border-color 125ms ease-in, color 125ms ease-in;
+  transition: border-color 125ms ease-in, color 125ms ease-in;
 }
 .progress {
   height: 20px;
