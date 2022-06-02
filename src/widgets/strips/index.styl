@@ -1,5 +1,6 @@
 // Copyright 2021 Furqan Software Ltd. All rights reserved.
 
+@require '../../base/const'
 @require '../../base/palette'
 
 .strips
@@ -12,7 +13,7 @@
 		padding 10px 20px
 		border-bottom 1px solid lighten($silver, 75%)
 		text-decoration none
-		transition background-color 0.25s ease-in-out
+		transition background-color $fast ease-in
 		
 		&:focus,
 		&:hover

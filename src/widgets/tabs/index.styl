@@ -1,5 +1,6 @@
 // Copyright 2021 Furqan Software Ltd. All rights reserved.
 
+@require '../../base/const'
 @require '../../base/palette'
 
 .tabs
@@ -9,7 +10,7 @@
 		flex 0 0 auto
 		border-bottom 2px solid transparent
 		color $muted
-		transition border-bottom-color 0.125s ease-in-out
+		transition border-bottom-color $fast ease-in
 		text-decoration none
 		
 		&:not(.-drop),
@@ -21,7 +22,7 @@
 
 		&:focus,
 		&:hover
-			border-bottom-color lighten($blue, 50%)
+			border-bottom-color $blueglow
 			color $muted
 			text-decoration none
 

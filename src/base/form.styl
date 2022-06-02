@@ -1,5 +1,6 @@
 // Copyright 2020 Furqan Software Ltd. All Rights Reserved.
 
+@require './const'
 @require './func'
 @require './palette'
 
@@ -22,12 +23,12 @@
 		background-color white
 		color $dark
 		box-shadow inset 0 0.25rem 0.125rem $shadow0
-		transition border-color ease-in-out .15s, box-shadow ease-in-out .15s
+		transition border-color $fast ease-in, box-shadow $fast ease-in
 		
 		&:focus
 			border-color $blue
 			outline 0
-			box-shadow inset 0 0.25rem 0.125rem $shadow0, 0 0 0 0.25rem alpha($blue, 50%)
+			box-shadow inset 0 0.25rem 0.125rem $shadow0, 0 0 0 0.25rem $blueglow
 			
 	&__field[readonly],
 	&__field[disabled]
@@ -36,7 +37,7 @@
 		
 		&:focus
 			border-color mix($dark, $silver, 20)
-			box-shadow inset 0 0.25rem 0.125rem $shadow0, 0 0 0 0.25rem alpha($blue, 50%)
+			box-shadow inset 0 0.25rem 0.125rem $shadow0, 0 0 0 0.25rem $blueglow
 	
 	textarea.form__field
 		height auto

@@ -1,5 +1,7 @@
 // Copyright 2020 Furqan Software Ltd. All Rights Reserved.
 
+@require './const'
+
 html
 	font-size 16px
 
@@ -61,7 +63,7 @@ summary
 	
 	.icon
 		margin -0.25rem 0.75rem 0 0
-		transition transform 125ms ease-in
+		transition transform $fast ease-in
 	
 	[open] > &
 		margin-bottom 1rem

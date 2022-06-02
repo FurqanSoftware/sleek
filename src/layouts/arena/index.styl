@@ -1,5 +1,6 @@
 // Copyright 2020 Furqan Software Ltd. All rights reserved.
 
+@require '../../base/const'
 @require '../../base/func'
 @require '../../base/palette'
 
@@ -28,10 +29,10 @@ body
 
 		&.-link,
 		&.-bell > a
-			transition background-color 0.25s ease-in-out
+			transition background-color $fast ease-in
 
 			img
-				transition opacity 0.25s ease-in-out
+				transition opacity $fast ease-in
 
 			&:hover,
 			&:focus,
@@ -85,7 +86,7 @@ body
 			height 100%
 			border-left 5px solid alpha(white, 50%)
 			transform scaleY(0)
-			transition transform 0.125s ease-in-out
+			transition transform $fast ease-in
 
 		&:hover,
 		&:focus

@@ -1,5 +1,6 @@
 // Copyright 2020 Furqan Software Ltd. All Rights Reserved.
 
+@require './const'
 @require './func'
 @require './palette'
 
@@ -92,7 +93,7 @@
 			display none
 
 a > .panel
-	transition border-color 0.25s ease-in-out
+	transition border-color $fast ease-in
 
 	&:hover
 		border-color lighten($blue, 50%)

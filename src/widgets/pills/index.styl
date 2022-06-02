@@ -1,5 +1,6 @@
 // Copyright 2021 Furqan Software Ltd. All rights reserved.
 
+@require '../../base/const'
 @require '../../base/palette'
 
 .pills
@@ -9,7 +10,7 @@
 		flex 0 0 auto
 		border-radius 0.25rem
 		text-decoration none
-		transition background-color 0.25s ease-in-out
+		transition background-color $fast ease-in
 		
 		&:not(.-drop),
 		&.-drop > .dropdown__toggle

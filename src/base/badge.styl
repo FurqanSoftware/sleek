@@ -1,12 +1,14 @@
 // Copyright 2020 Furqan Software Ltd. All Rights Reserved.
 
+@require './const'
+
 .badge
 	display inline-block
 	padding 0 0.5rem
 	border-radius 0.25rem
 	background-color alpha($silver, 50%)
 	color mix($dark, $muted)
-	transition background-color 0.25s ease-in-out
+	transition background-color $fast ease-in
 
 	&:empty
 		display none

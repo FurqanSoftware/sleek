@@ -1,5 +1,6 @@
 // Copyright 2020 Furqan Software Ltd. All rights reserved.
 
+@require '../../../base/const'
 @require '../../../base/palette'
 
 .pnav
@@ -126,7 +127,7 @@
 						display block
 						padding 0.5rem 1rem
 						color $dark
-						transition background-color 0.25s ease-in-out
+						transition background-color $fast ease-in
 
 						&:hover,
 						&:focus,
@@ -147,7 +148,7 @@
 				width 100%
 				border-bottom 0.125rem solid lighten($blue, 50%)
 				transform scaleX(0)
-				transition transform 125ms ease-in
+				transition transform $fast ease-in
 
 			&:hover,
 			&:focus,
