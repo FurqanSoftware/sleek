@@ -31,6 +31,7 @@
 	
 	&__icon
 		margin-right 1rem
+		line-height 0
 
 		.icon
 			font-size 1.5em
@@ -61,9 +62,13 @@ _alert('orange', $orange)
 	text-align center
 	color lighten($dark, 50%)
 
-a > .alert.-subtle
-	transition border-color 0.25s ease-in-out, color 0.25s ease-in-out
+	a&
+		display block
+		text-decoration none
 
-a:hover > .alert.-subtle
-	border-color $blue
-	color lighten($dark, 25%)
+		&:hover
+			border-color $blue
+			color lighten($dark, 25%)
+
+a > .alert.-subtle
+	transition border-color $fast ease-in, color $fast ease-in
