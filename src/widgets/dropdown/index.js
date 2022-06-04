@@ -217,12 +217,6 @@ class Root {
 			else dropdown.close()
 		})
 
-		dom.on(root, 'click', event => {
-			if (!dom.hasClass(event.target, 'dropdown')) return
-			event.preventDefault()
-			return false
-		})
-
 		for (const el of dom.$$('.dropdown.-select', root)) this.makeOnce(el)
 	}
 
