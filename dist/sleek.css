@@ -828,7 +828,6 @@ h6 .label {
 }
 .panel {
   margin-bottom: 0.5rem;
-  padding: 1.25rem;
   border: 1px solid #e7ecf1;
   -webkit-border-radius: 0.25rem;
   -moz-border-radius: 0.25rem;
@@ -846,25 +845,52 @@ h6 .label {
   border-color: #26c281;
 }
 .panel__head {
-  min-height: 50px;
-  margin: -0.5rem 0 0.5rem;
+  padding: 1rem 1.25rem;
+}
+.panel__head::after {
+  content: '';
+  display: block;
+  clear: both;
 }
 .panel__head.-socle {
-  margin: -1.25rem -1.25rem 1.25rem -1.25rem;
-  padding: 1.25rem 1.25rem 0;
+  margin-bottom: 1.25rem;
+  padding-bottom: 0;
   border-bottom: 1px solid #e7ecf1;
   -webkit-box-shadow: 0 0.25rem 0.125rem rgba(47,53,59,0.025);
   box-shadow: 0 0.25rem 0.125rem rgba(47,53,59,0.025);
 }
+.panel__head.-socle .tabsbox {
+  margin-top: 1rem;
+}
+.panel__drawer {
+  display: none;
+  padding: 1rem 1.25rem 0.5rem;
+  border-top: 1px solid #f3f5f8;
+  border-bottom: 1px solid #f3f5f8;
+  -webkit-box-shadow: inset 0 0.25rem 0.125rem rgba(47,53,59,0.025);
+  box-shadow: inset 0 0.25rem 0.125rem rgba(47,53,59,0.025);
+}
+.panel__drawer:after {
+  display: table;
+  content: " ";
+  clear: both;
+}
+.panel__drawer.-open {
+  display: block;
+}
+.panel__body {
+  padding: 1rem 1.25rem;
+}
+.panel__body .progress {
+  margin-bottom: 0;
+}
 .panel__foot.-shade {
-  margin: 0 -1.25rem -1.25rem -1.25rem;
-  padding: 1.25rem;
+  padding: 1rem 1.25rem;
   background-color: #f9fafc;
 }
 .panel__title {
-  display: inline-block;
   float: left;
-  padding: 10px 0;
+  line-height: 2.25rem;
 }
 .panel__title h1,
 .panel__title h2,
@@ -883,34 +909,11 @@ h6 .label {
   float: right;
   display: flex;
   gap: 0.25rem;
-  padding: 0.25rem 0;
+  margin: 0 0 0 auto;
 }
 .panel__actions .btn {
   padding: 0.25rem 0.5rem;
   font-size: 0.95em;
-}
-.panel__drawer {
-  display: none;
-  margin: 0 -1.25rem 1rem;
-  padding: 1rem 1.25rem 0.5rem;
-  border-top: 1px solid #f3f5f8;
-  border-bottom: 1px solid #f3f5f8;
-  -webkit-box-shadow: inset 0 0.25rem 0.125rem rgba(47,53,59,0.025);
-  box-shadow: inset 0 0.25rem 0.125rem rgba(47,53,59,0.025);
-}
-.panel__drawer:after {
-  display: table;
-  content: " ";
-  clear: both;
-}
-.panel__drawer.-open {
-  display: block;
-}
-.panel__body .panel__actions {
-  padding: 0;
-}
-.panel__body .progress {
-  margin-bottom: 0;
 }
 .panel.-clipped > .panel__body {
   max-height: 190px;
