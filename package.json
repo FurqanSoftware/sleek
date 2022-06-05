@@ -1,6 +1,6 @@
 {
   "name": "sleek",
-  "version": "1.28.2",
+  "version": "1.28.3",
   "description": "Toph's base stylesheets",
   "scripts": {
     "build": "stylus -o dist/sleek.css src/base/index.styl"
