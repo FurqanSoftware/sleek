@@ -4,13 +4,13 @@
 @require '../../base/palette'
 
 .strips
-	margin -10px -20px -20px
+	margin -1rem -1.25rem -1rem
 	border-top 1px solid lighten($silver, 75%)
 
 	&__item
 		display block
 		position relative
-		padding 10px 20px
+		padding 0.5rem 1.25rem
 		border-bottom 1px solid lighten($silver, 75%)
 		text-decoration none
 		transition background-color $fast ease-in
@@ -18,13 +18,13 @@
 		&:focus,
 		&:hover
 			text-decoration none
-			box-shadow inset 10px 0 0 -5px alpha($blue, 50%)
+			box-shadow inset 0.5rem 0 0 -0.25rem $blueglow
 
 		&:last-child
 			border-bottom none
 
 		&.-active
-			box-shadow inset 10px 0 0 -5px $blue
+			box-shadow inset 0.5rem 0 0 -0.25rem $blue
 			color $dark
 
 			&:last-child
