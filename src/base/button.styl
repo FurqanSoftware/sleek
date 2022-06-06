@@ -40,40 +40,56 @@
 		padding 0.25rem 0.5rem
 		font-size 0.95rem
 
-_button(name, bg, text, edge=20%, hover=10%, active=20%)
+_button(name, bg, edge=20%, hover=10%, active=20%)
 	.btn
 		&.-{name}
-			color text
 			border 1px solid darken(bg, edge)
 			background-color bg
+			color luminosity(bg) < 0.5 ? white : $dark
 			transition box-shadow $fast ease-in
+			
+			.icon
+				filter luminosity(bg) < 0.5 ? invert(100%) sepia(100%) saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%) !important : none
 
-		&.-{name}:hover
+		&.-{name}:hover,
+		&.-{name}:focus
+			border-color darken(bg, edge+hover)
 			background-color darken(bg, hover)
-			box-shadow inset 0 0 0 0.125rem darken(bg, ((edge+hover)/2))
+			color luminosity(darken(bg, hover)) < 0.5 ? white : $dark
+			box-shadow inset 0 0 0 0.125rem darken(bg, (edge+hover/2))
+			
+			.icon
+				filter luminosity(darken(bg, hover)) < 0.5 ? invert(100%) sepia(100%) saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%) !important : none
 
 		&.-{name}:focus
-			background-color darken(bg, hover)
-			box-shadow inset 0 0 0 0.125rem darken(bg, ((edge+hover)/2)), 0 0 0 0.25rem $blueglow
-			z-index 1
-
+			box-shadow inset 0 0 0 0.125rem darken(bg, (edge+hover/2)), 0 0 0 0.25rem $blueglow
+			
 		&.-{name}.-active
+			border-color darken(bg, edge+active)
 			background-color darken(bg, active)
-			box-shadow inset 0 0 0 0.125rem darken(bg, ((edge+hover)/2))
+			color luminosity(darken(bg, active)) < 0.5 ? white : $dark
+			box-shadow inset 0 0 0 0.125rem darken(bg, (edge+active/2))
+			
+			.icon
+				filter luminosity(darken(bg, active)) < 0.5 ? invert(100%) sepia(100%) saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%) !important : none
 			
 		&.-{name}.-disabled,
 		&.-{name}[disabled]
 			box-shadow none
-	
+			cursor not-allowed
+
 	.-open > &.-{name}.-toggle
 		background-color darken(bg, active)
 		box-shadow inset 0 0 0 0.125rem darken(bg, ((edge+hover)/2))
 
-_button('default', #e1e5ec, $dark)
-_button('blue', $blue, white)
-_button('red', $red, white)
-_button('simple', white, $dark)
-_button('subtle', white, $dark)
+		.icon
+			filter luminosity(darken(bg, active)) < 0.5 ? invert(100%) sepia(100%) saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%) !important : none
+
+_button('default', #e1e5ec)
+_button('blue', $blue)
+_button('red', $red)
+_button('simple', white)
+_button('subtle', white)
 
 .btn.-subtle
 	border 1px solid transparent
