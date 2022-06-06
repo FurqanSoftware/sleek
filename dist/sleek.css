@@ -315,7 +315,6 @@ code {
 .form__field {
   display: block;
   width: 100%;
-  height: 34px;
   padding: 0.25rem 0.5rem;
   border: 1px solid #d4d9de;
   -webkit-border-radius: 0.25rem;
@@ -324,7 +323,6 @@ code {
   -o-border-radius: 0.25rem;
   border-radius: 0.25rem;
   font-size: 1rem;
-  line-height: 1.42857143;
   background-color: #fff;
   color: #2f353b;
   -webkit-box-shadow: inset 0 0.25rem 0.125rem rgba(47,53,59,0.025);
@@ -608,133 +606,279 @@ th {
   font-size: 0.95rem;
 }
 .btn.-default {
-  color: #2f353b;
+  border: 1px solid #a9b4c8;
   background-color: #e1e5ec;
-  -webkit-box-shadow: inset 0 -2px 0 #c5cdda;
-  box-shadow: inset 0 -2px 0 #c5cdda;
+  color: #2f353b;
+  -webkit-transition: box-shadow 125ms ease-in;
+  -moz-transition: box-shadow 125ms ease-in;
+  -ms-transition: box-shadow 125ms ease-in;
+  -o-transition: box-shadow 125ms ease-in;
+  transition: box-shadow 125ms ease-in;
+}
+.btn.-default .icon {
+  filter: none;
 }
 .btn.-default:hover,
 .btn.-default:focus {
-  -webkit-box-shadow: inset 0 -2px 0 #8c9cb6;
-  box-shadow: inset 0 -2px 0 #8c9cb6;
+  border-color: #8c9cb6;
+  background-color: #c5cdda;
+  color: #2f353b;
+  -webkit-box-shadow: inset 0 0 0 0.125rem #9aa8bf;
+  box-shadow: inset 0 0 0 0.125rem #9aa8bf;
 }
-.btn.-default:active,
+.btn.-default:hover .icon,
+.btn.-default:focus .icon {
+  filter: none;
+}
+.btn.-default:focus {
+  -webkit-box-shadow: inset 0 0 0 0.125rem #9aa8bf, 0 0 0 0.25rem rgba(53,152,220,0.75);
+  box-shadow: inset 0 0 0 0.125rem #9aa8bf, 0 0 0 0.25rem rgba(53,152,220,0.75);
+}
 .btn.-default.-active {
-  background-color: #d3d9e3;
-  -webkit-box-shadow: inset 1px 2px 0 #b7c0d1;
-  box-shadow: inset 1px 2px 0 #b7c0d1;
+  border-color: #7083a4;
+  background-color: #a9b4c8;
+  color: #fff;
+  -webkit-box-shadow: inset 0 0 0 0.125rem #8c9cb6;
+  box-shadow: inset 0 0 0 0.125rem #8c9cb6;
+}
+.btn.-default.-active .icon {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%) !important;
 }
 .btn.-default.-disabled,
 .btn.-default[disabled] {
   -webkit-box-shadow: none;
   box-shadow: none;
+  cursor: not-allowed;
 }
 .-open > .-default.-toggle {
-  background-color: #d3d9e3;
-  -webkit-box-shadow: inset 1px 2px 0 #b7c0d1;
-  box-shadow: inset 1px 2px 0 #b7c0d1;
+  background-color: #a9b4c8;
+  -webkit-box-shadow: inset 0 0 0 0.125rem #b7c0d1;
+  box-shadow: inset 0 0 0 0.125rem #b7c0d1;
+}
+.-open > .-default.-toggle .icon {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%) !important;
 }
 .btn.-blue {
-  color: #fff;
+  border: 1px solid #207bba;
   background-color: #3598dc;
-  -webkit-box-shadow: inset 0 -2px 0 #207bba;
-  box-shadow: inset 0 -2px 0 #207bba;
+  color: #fff;
+  -webkit-transition: box-shadow 125ms ease-in;
+  -moz-transition: box-shadow 125ms ease-in;
+  -ms-transition: box-shadow 125ms ease-in;
+  -o-transition: box-shadow 125ms ease-in;
+  transition: box-shadow 125ms ease-in;
+}
+.btn.-blue .icon {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%) !important;
 }
 .btn.-blue:hover,
 .btn.-blue:focus {
-  -webkit-box-shadow: inset 0 -2px 0 #165580;
-  box-shadow: inset 0 -2px 0 #165580;
+  border-color: #1c6ca3;
+  background-color: #248bd1;
+  color: #fff;
+  -webkit-box-shadow: inset 0 0 0 0.125rem #1e74af;
+  box-shadow: inset 0 0 0 0.125rem #1e74af;
 }
-.btn.-blue:active,
+.btn.-blue:hover .icon,
+.btn.-blue:focus .icon {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%) !important;
+}
+.btn.-blue:focus {
+  -webkit-box-shadow: inset 0 0 0 0.125rem #1e74af, 0 0 0 0.25rem rgba(53,152,220,0.75);
+  box-shadow: inset 0 0 0 0.125rem #1e74af, 0 0 0 0.25rem rgba(53,152,220,0.75);
+}
 .btn.-blue.-active {
-  background-color: #258fd7;
-  -webkit-box-shadow: inset 1px 2px 0 #1f78b4;
-  box-shadow: inset 1px 2px 0 #1f78b4;
+  border-color: #185d8c;
+  background-color: #207bba;
+  color: #fff;
+  -webkit-box-shadow: inset 0 0 0 0.125rem #1c6ca3;
+  box-shadow: inset 0 0 0 0.125rem #1c6ca3;
+}
+.btn.-blue.-active .icon {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%) !important;
 }
 .btn.-blue.-disabled,
 .btn.-blue[disabled] {
   -webkit-box-shadow: none;
   box-shadow: none;
+  cursor: not-allowed;
 }
 .-open > .-blue.-toggle {
-  background-color: #258fd7;
-  -webkit-box-shadow: inset 1px 2px 0 #1f78b4;
-  box-shadow: inset 1px 2px 0 #1f78b4;
+  background-color: #207bba;
+  -webkit-box-shadow: inset 0 0 0 0.125rem #2283c6;
+  box-shadow: inset 0 0 0 0.125rem #2283c6;
+}
+.-open > .-blue.-toggle .icon {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%) !important;
 }
 .btn.-red {
-  color: #fff;
+  border: 1px solid #d92625;
   background-color: #e35b5a;
-  -webkit-box-shadow: inset 0 -2px 0 #d92625;
-  box-shadow: inset 0 -2px 0 #d92625;
+  color: #fff;
+  -webkit-transition: box-shadow 125ms ease-in;
+  -moz-transition: box-shadow 125ms ease-in;
+  -ms-transition: box-shadow 125ms ease-in;
+  -o-transition: box-shadow 125ms ease-in;
+  transition: box-shadow 125ms ease-in;
+}
+.btn.-red .icon {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%) !important;
 }
 .btn.-red:hover,
 .btn.-red:focus {
-  -webkit-box-shadow: inset 0 -2px 0 #951a19;
-  box-shadow: inset 0 -2px 0 #951a19;
+  border-color: #be2120;
+  background-color: #de403f;
+  color: #fff;
+  -webkit-box-shadow: inset 0 0 0 0.125rem #cb2422;
+  box-shadow: inset 0 0 0 0.125rem #cb2422;
 }
-.btn.-red:active,
+.btn.-red:hover .icon,
+.btn.-red:focus .icon {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%) !important;
+}
+.btn.-red:focus {
+  -webkit-box-shadow: inset 0 0 0 0.125rem #cb2422, 0 0 0 0.25rem rgba(53,152,220,0.75);
+  box-shadow: inset 0 0 0 0.125rem #cb2422, 0 0 0 0.25rem rgba(53,152,220,0.75);
+}
 .btn.-red.-active {
-  background-color: #e04746;
-  -webkit-box-shadow: inset 1px 2px 0 #d22524;
-  box-shadow: inset 1px 2px 0 #d22524;
+  border-color: #a31d1c;
+  background-color: #d92625;
+  color: #fff;
+  -webkit-box-shadow: inset 0 0 0 0.125rem #be2120;
+  box-shadow: inset 0 0 0 0.125rem #be2120;
+}
+.btn.-red.-active .icon {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%) !important;
 }
 .btn.-red.-disabled,
 .btn.-red[disabled] {
   -webkit-box-shadow: none;
   box-shadow: none;
+  cursor: not-allowed;
 }
 .-open > .-red.-toggle {
-  background-color: #e04746;
-  -webkit-box-shadow: inset 1px 2px 0 #d22524;
-  box-shadow: inset 1px 2px 0 #d22524;
+  background-color: #d92625;
+  -webkit-box-shadow: inset 0 0 0 0.125rem #dc3331;
+  box-shadow: inset 0 0 0 0.125rem #dc3331;
 }
-.btn.-white {
-  border: 1px solid #f3f5f8;
-  color: #2f353b;
-  background-color: #fff;
-  -webkit-box-shadow: inset 0 -2px 0 #f3f5f8;
-  box-shadow: inset 0 -2px 0 #f3f5f8;
-}
-.btn.-white:hover,
-.btn.-white:focus {
-  border-color: #e7ecf1;
-  -webkit-box-shadow: inset 0 -2px 0 #e7ecf1;
-  box-shadow: inset 0 -2px 0 #e7ecf1;
-}
-.btn.-white:active,
-.btn.-white.-active {
-  background-color: #ebeff3;
-  -webkit-box-shadow: inset 1px 2px 1px #f3f5f8;
-  box-shadow: inset 1px 2px 1px #f3f5f8;
-}
-.-open > .-white.-toggle {
-  background-color: #ebeff3;
-  -webkit-box-shadow: inset 1px 2px 1px #f3f5f8;
-  box-shadow: inset 1px 2px 1px #f3f5f8;
+.-open > .-red.-toggle .icon {
+  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%) !important;
 }
 .btn.-simple {
-  border: 1px solid #f3f5f8;
-  color: #2f353b;
+  border: 1px solid #ccc;
   background-color: #fff;
+  color: #2f353b;
+  -webkit-transition: box-shadow 125ms ease-in;
+  -moz-transition: box-shadow 125ms ease-in;
+  -ms-transition: box-shadow 125ms ease-in;
+  -o-transition: box-shadow 125ms ease-in;
+  transition: box-shadow 125ms ease-in;
+}
+.btn.-simple .icon {
+  filter: none;
 }
 .btn.-simple:hover,
-.btn.-simple:focus,
-.btn.-simple:active,
+.btn.-simple:focus {
+  border-color: #b3b3b3;
+  background-color: #e6e6e6;
+  color: #2f353b;
+  -webkit-box-shadow: inset 0 0 0 0.125rem #bfbfbf;
+  box-shadow: inset 0 0 0 0.125rem #bfbfbf;
+}
+.btn.-simple:hover .icon,
+.btn.-simple:focus .icon {
+  filter: none;
+}
+.btn.-simple:focus {
+  -webkit-box-shadow: inset 0 0 0 0.125rem #bfbfbf, 0 0 0 0.25rem rgba(53,152,220,0.75);
+  box-shadow: inset 0 0 0 0.125rem #bfbfbf, 0 0 0 0.25rem rgba(53,152,220,0.75);
+}
 .btn.-simple.-active {
-  border-color: #e7ecf1;
+  border-color: #999;
+  background-color: #ccc;
+  color: #2f353b;
+  -webkit-box-shadow: inset 0 0 0 0.125rem #b3b3b3;
+  box-shadow: inset 0 0 0 0.125rem #b3b3b3;
+}
+.btn.-simple.-active .icon {
+  filter: none;
+}
+.btn.-simple.-disabled,
+.btn.-simple[disabled] {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+.-open > .-simple.-toggle {
+  background-color: #ccc;
+  -webkit-box-shadow: inset 0 0 0 0.125rem #d9d9d9;
+  box-shadow: inset 0 0 0 0.125rem #d9d9d9;
+}
+.-open > .-simple.-toggle .icon {
+  filter: none;
+}
+.btn.-subtle {
+  border: 1px solid #ccc;
+  background-color: #fff;
+  color: #2f353b;
+  -webkit-transition: box-shadow 125ms ease-in;
+  -moz-transition: box-shadow 125ms ease-in;
+  -ms-transition: box-shadow 125ms ease-in;
+  -o-transition: box-shadow 125ms ease-in;
+  transition: box-shadow 125ms ease-in;
+}
+.btn.-subtle .icon {
+  filter: none;
+}
+.btn.-subtle:hover,
+.btn.-subtle:focus {
+  border-color: #b3b3b3;
+  background-color: #e6e6e6;
+  color: #2f353b;
+  -webkit-box-shadow: inset 0 0 0 0.125rem #bfbfbf;
+  box-shadow: inset 0 0 0 0.125rem #bfbfbf;
+}
+.btn.-subtle:hover .icon,
+.btn.-subtle:focus .icon {
+  filter: none;
+}
+.btn.-subtle:focus {
+  -webkit-box-shadow: inset 0 0 0 0.125rem #bfbfbf, 0 0 0 0.25rem rgba(53,152,220,0.75);
+  box-shadow: inset 0 0 0 0.125rem #bfbfbf, 0 0 0 0.25rem rgba(53,152,220,0.75);
+}
+.btn.-subtle.-active {
+  border-color: #999;
+  background-color: #ccc;
+  color: #2f353b;
+  -webkit-box-shadow: inset 0 0 0 0.125rem #b3b3b3;
+  box-shadow: inset 0 0 0 0.125rem #b3b3b3;
+}
+.btn.-subtle.-active .icon {
+  filter: none;
+}
+.btn.-subtle.-disabled,
+.btn.-subtle[disabled] {
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  cursor: not-allowed;
+}
+.-open > .-subtle.-toggle {
+  background-color: #ccc;
+  -webkit-box-shadow: inset 0 0 0 0.125rem #d9d9d9;
+  box-shadow: inset 0 0 0 0.125rem #d9d9d9;
+}
+.-open > .-subtle.-toggle .icon {
+  filter: none;
 }
 .btn.-subtle {
   border: 1px solid transparent;
-  color: #2f353b;
-}
-.btn.-subtle:hover,
-.btn.-subtle:focus,
-.btn.-subtle:active,
-.btn.-subtle.-active {
-  border-color: #e7ecf1;
+  background-color: transparent;
 }
 .btngroup {
   display: flex;
+}
+.btngroup > .btn ~ .btn {
+  border-left: 0;
 }
 .btngroup > .btn:not(:first-child):not(:last-child) {
   -webkit-border-radius: 0;
