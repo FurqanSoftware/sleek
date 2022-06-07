@@ -104,13 +104,12 @@
 		&:first-child,
 		&:last-child
 			display none
-		
-	&.-open
-		> .dropdown__toggle
-			background-color $silverglow
 
-		> .dropdown__menu
+	&.-open > .dropdown__menu
 			display flex
+	
+	.-open > .dropdown__toggle
+		background-color $silverglow
 		
 	&.-notifications
 		.dropdown__menu

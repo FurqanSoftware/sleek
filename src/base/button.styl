@@ -82,7 +82,7 @@ _button(name, bg, edge=20%, hover=10%, active=20%)
 		border-color darken(bg, edge+active)
 		background-color darken(bg, active)
 		color luminosity(darken(bg, active)) < 0.5 ? white : $dark
-		box-shadow inset 0 0 0 0.125rem darken(bg, ((edge+hover)/2))
+		box-shadow inset 0 0 0 0.125rem darken(bg, (edge+active/2))
 
 		.icon
 			filter luminosity(darken(bg, active)) < 0.5 ? invert(100%) sepia(100%) saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%) !important : none
