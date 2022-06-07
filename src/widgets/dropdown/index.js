@@ -131,11 +131,11 @@ class Dropdown {
 	reposition() {
 		const menu = dom.$('.dropdown__menu', this.el)
 		if (dom.hasClass(menu, '-left') || dom.hasClass(menu, '-right')) return
-		if (dom.hasClass(this.el, '-select')) this.repositionSelect()
-		if (dom.closest(menu.parentNode, '.dropdown__menu')) this.repositionChild()
+		if (dom.hasClass(this.el, '-select') || !dom.closest(menu.parentNode, '.dropdown__menu')) this.repositionY()
+		if (dom.closest(menu.parentNode, '.dropdown__menu')) this.repositionXY()
 	}
 
-	repositionSelect() {
+	repositionY() {
 		const menu = dom.$('.dropdown__menu', this.el)
 		const pos = this.el.getBoundingClientRect()
 		let top = '100%'
@@ -150,7 +150,7 @@ class Dropdown {
 		})
 	}
 
-	repositionChild() {
+	repositionXY() {
 		const menu = dom.$('.dropdown__menu', this.el)
 		const pos = this.el.getBoundingClientRect()
 		const elWidth = dom.getWidth(this.el)
