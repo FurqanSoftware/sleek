@@ -105,8 +105,12 @@
 		&:last-child
 			display none
 		
-	&.-open > .dropdown__menu
-		display flex
+	&.-open
+		> .dropdown__toggle
+			background-color $silverglow
+
+		> .dropdown__menu
+			display flex
 		
 	&.-notifications
 		.dropdown__menu
