@@ -997,14 +997,13 @@ h6 .label {
   clear: both;
 }
 .panel__head.-socle {
-  margin-bottom: 1.25rem;
-  padding-bottom: 0;
   border-bottom: 1px solid #e7ecf1;
   -webkit-box-shadow: 0 0.25rem 0.125rem rgba(47,53,59,0.025);
   box-shadow: 0 0.25rem 0.125rem rgba(47,53,59,0.025);
 }
 .panel__head.-socle .tabsbox {
   margin-top: 1rem;
+  margin-bottom: -1rem;
 }
 .panel__drawer {
   display: none;
