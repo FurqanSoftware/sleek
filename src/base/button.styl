@@ -79,7 +79,9 @@ _button(name, bg, edge=20%, hover=10%, active=20%)
 			cursor not-allowed
 
 	.-open > &.-{name}.-toggle
+		border-color darken(bg, edge+active)
 		background-color darken(bg, active)
+		color luminosity(darken(bg, active)) < 0.5 ? white : $dark
 		box-shadow inset 0 0 0 0.125rem darken(bg, ((edge+hover)/2))
 
 		.icon
