@@ -137,17 +137,37 @@ class Dropdown {
 
 	repositionY() {
 		const menu = dom.$('.dropdown__menu', this.el)
-		const pos = this.el.getBoundingClientRect()
-		let top = '100%'
-		let bottom = 'auto'
-		if (pos.top+dom.getHeight(menu) > window.innerHeight) {
-			top = 'auto'
-			bottom = '100%'
-		}
 		dom.setStyles(menu, {
-			top,
-			bottom
+			height: 'auto'
 		})
+		const pos = this.el.getBoundingClientRect()
+		if (pos.bottom+dom.getHeight(menu) < window.innerHeight) {
+			// Fits below
+			dom.setStyles(menu, {
+				top: '100%',
+				bottom: 'auto'
+			})
+		} else if (dom.getHeight(menu) < pos.top) {
+			// Fits above
+			dom.setStyles(menu, {
+				top: 'auto',
+				bottom: '100%'
+			})
+		} else if (window.innerHeight - pos.bottom > pos.top) {
+			// More space below
+			dom.setStyles(menu, {
+				top: '100%',
+				bottom: 'auto',
+				height: Math.floor((window.innerHeight - pos.bottom)/window.innerHeight*100) + 'vh'
+			})
+		} else {
+			// Assume more space above
+			dom.setStyles(menu, {
+				top: 'auto',
+				bottom: '100%',
+				height: Math.floor(pos.top/window.innerHeight*100) + 'vh'
+			})
+		}
 	}
 
 	repositionXY() {
