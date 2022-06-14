@@ -3,29 +3,58 @@
 @require './func'
 @require './palette'
 
-.modal-content
-	border lighten($dark, 50%)
-	border-radius 0.25rem
-	box-shadow 0 0.5rem 1rem $shadow5
+.modal
+	position fixed
+	top 0
+	right 0
+	bottom 0
+	left 0
+	z-index 1050
+	display none
+	overflow hidden
+	-webkit-overflow-scrolling touch
+	outline 0
+	
+	&.-open
+		display block
 
-	.panel
-		padding 10px
-		border none
-		border-bottom 1px solid lighten($silver, 75%)
-		border-radius 0
-		box-shadow none
+		&:not(.-closing)
+			overflow-x hidden
+			overflow-y auto
+	
+	&__dialog
+		position relative
+		width auto
+		margin 0.5rem
+		border-radius 0.25rem
+		overflow hidden
+		background-color white
+		box-shadow 0 0 0 1000vw alpha($dark, 50%), 0 0.5rem 1rem $shadow5
 
-.modal-header
-	border-color lighten($silver, 75%)
-
-	.close
+	&__head
+		padding 1rem 1.25rem
+		
+		&.-socle
+			border-bottom 1px solid $silver
+			box-shadow 0 0.25rem 0.125rem $shadow0
+		
+	&__cross
 		float right
-		padding 2px 5px
-		font-size 1rem
-		opacity 1
 
-.modal.fade .modal-dialog
-	transition none
+	&__body
+		padding 1rem 1.25rem
 
-.modal-backdrop
-	background: rgba($dark, 0.5)
+	&__foot
+		padding 1rem 1.25rem
+
+		&.-shade
+			background-color lighten($silver, 75%)
+
+@media (min-width: 768px)
+	.modal__dialog
+		width 600px
+		margin 2rem auto
+
+@media (min-width: 992px)
+	.modal__dialog.-lg
+		width 900px
