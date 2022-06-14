@@ -25,13 +25,13 @@
 			display block
 			clear both
 
-	&__head.-socle
-		border-bottom 1px solid $silver
-		box-shadow 0 0.25rem 0.125rem $shadow0
-		
-		.tabsbox
-			margin-top 1rem
-			margin-bottom -1rem
+		&.-socle
+			border-bottom 1px solid $silver
+			box-shadow 0 0.25rem 0.125rem $shadow0
+			
+			.tabsbox
+				margin-top 1rem
+				margin-bottom -1rem
 
 	&__drawer
 		display none
@@ -47,6 +47,9 @@
 
 		&.-open
 			display block
+		
+		.panel__head.-socle + &
+			box-shadow none
 
 	&__body
 		padding 1rem 1.25rem
