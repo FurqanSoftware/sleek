@@ -1,7 +1,7 @@
 // Copyright 2020 Furqan Software Ltd. All Rights Reserved.
 
-@require './func'
-@require './palette'
+@require '../../base/func'
+@require '../../base/palette'
 
 .modal
 	position fixed
@@ -37,6 +37,10 @@
 		&.-socle
 			border-bottom 1px solid $silver
 			box-shadow 0 0.25rem 0.125rem $shadow0
+			
+			.tabsbox
+				margin-top 1rem
+				margin-bottom -1rem
 		
 	&__cross
 		float right
