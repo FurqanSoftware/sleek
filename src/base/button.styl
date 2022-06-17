@@ -9,7 +9,6 @@
 	padding 0.5rem 1rem
 	border none
 	border-radius 0.25rem
-	outline none !important
 	text-align center
 	text-decoration none
 	background-color transparent
@@ -54,15 +53,16 @@ _button(name, bg, edge=20%, hover=10%, active=20%)
 		&.-{name}:hover,
 		&.-{name}:focus
 			border-color darken(bg, edge+hover)
-			background-color darken(bg, hover)
-			color luminosity(darken(bg, hover)) < 0.5 ? white : $dark
+			color luminosity(bg) < 0.5 ? white : $dark
 			box-shadow inset 0 0 0 0.125rem darken(bg, (edge+hover/2))
 			
 			.icon
 				filter luminosity(darken(bg, hover)) < 0.5 ? invert(100%) sepia(100%) saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%) !important : none
 
 		&.-{name}:focus
-			box-shadow inset 0 0 0 0.125rem darken(bg, (edge+hover/2)), 0 0 0 0.25rem $blueglow
+			outline $blueglow auto 0.25rem
+			outline-offset 0.25rem
+			box-shadow inset 0 0 0 0.125rem darken(bg, (edge+hover/2))
 			
 		&.-{name}.-active
 			border-color darken(bg, edge+active)
