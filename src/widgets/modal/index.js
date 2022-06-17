@@ -23,7 +23,7 @@ class Modal {
 		dom.addClass(dialog, 'animated', 'fadeInDownSmall', 'faster')
 		dom.once(dialog, 'animationend', () => dom.removeClass(dialog, 'animated', 'fadeInDownSmall', 'faster'))
 
-		dom.setStyles(document.body, { overflowY: 'hidden' })
+		setOverflowY(this.root, 'hidden')
 
 		dom.$('[data-autofocus="modal:open"]', this.el)?.focus()
 	}
@@ -41,11 +41,7 @@ class Modal {
 			if (!this.attached) dom.detach(this.el)
 		})
 
-		if (isLast) {
-			dom.setStyles(document.body, {
-				overflowY: ''
-			})
-		}
+		if (isLast) setOverflowY(this.root, '')
 	}
 }
 
@@ -88,6 +84,8 @@ class Root {
 		return this.modals.get(el)
 	}
 }
+
+const setOverflowY = (el, overflowY) => dom.setStyles(el, {overflowY})
 
 Modal.Root = Root
 
