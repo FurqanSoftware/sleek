@@ -1,0 +1,28 @@
+// Copyright 2020 Furqan Software Ltd. All rights reserved.
+
+@require '../../base/func'
+@require '../../base/palette'
+
+.pagination
+	display flex
+	gap 0.125rem
+	justify-content center
+	
+	&__item
+		padding 0.25rem 0.5rem
+		border-radius 0.25rem
+		text-decoration none
+		
+		&:hover,
+		&:focus
+			background-color alpha($blue, 0.125)
+			text-decoration none
+
+		&.-active
+			background-color $blue
+			color white
+
+@media (max-width: 767px)
+	.pagination
+		&__item.-extra
+			display none
