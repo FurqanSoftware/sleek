@@ -1,5 +1,6 @@
 // Copyright 2020 Furqan Software Ltd. All Rights Reserved.
 
+@require '../../base/const'
 @require '../../base/func'
 @require '../../base/palette'
 
@@ -15,12 +16,33 @@
 	-webkit-overflow-scrolling touch
 	outline 0
 	
+	&::before
+		content ''
+		position absolute
+		top 0
+		right 0
+		bottom 0
+		left 0
+		opacity 0
+		background-color alpha($dark, 25%)
+		backdrop-filter blur(0.125rem)
+		-webkit-backdrop-filter blur(0.125rem)
+		transition opacity $fast ease-in
+	
 	&.-open
-		display block
+		&::before
+			opacity 1
 
 		&:not(.-closing)
 			overflow-x hidden
 			overflow-y auto
+
+	&.-opening
+		display block
+	
+	&.-closing
+		&::before
+			opacity 0
 	
 	&__dialog
 		position relative
@@ -29,7 +51,7 @@
 		border-radius 0.25rem
 		overflow hidden
 		background-color white
-		box-shadow 0 0 0 1000vw alpha($dark, 50%), 0 0.5rem 1rem $shadow5
+		box-shadow 0 0.5rem 1rem $shadow5
 
 	&__head
 		padding 1rem 1.25rem
@@ -62,3 +84,6 @@
 @media (min-width: 992px)
 	.modal__dialog.-lg
 		width 900px
+
+.modalroot.-block
+	overflow-y hidden

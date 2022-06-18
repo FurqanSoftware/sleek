@@ -1,5 +1,6 @@
 // Copyright 2022 Furqan Software Ltd. All rights reserved.
 
+import fn from '@toph/kernel.js/fn'
 import dom from '@toph/kernel.js/dom'
 
 class Modal {
@@ -17,31 +18,32 @@ class Modal {
 	show() {
 		this.root.appendChild(this.el)
 
-		dom.addClass(this.el, '-open')
+		dom.addClass(this.el, '-opening')
+		fn.defer(() => dom.addClass(this.el, '-open'))
 		const dialog = dom.$('.modal__dialog', this.el)
 		dom.removeClass(dialog, 'animated', 'fadeOut', 'faster')
 		dom.addClass(dialog, 'animated', 'fadeInDownSmall', 'faster')
 		dom.once(dialog, 'animationend', () => dom.removeClass(dialog, 'animated', 'fadeInDownSmall', 'faster'))
 
-		setOverflowY(this.root, 'hidden')
+		blockScroll(this.root)
 
 		dom.$('[data-autofocus="modal:open"]', this.el)?.focus()
 	}
 
 	hide() {
-		const isLast = dom.$$('.modal.-open').length == 1
+		const isLast = dom.$$('.modal.-open, .modal.-opening').length == 1
 
 		dom.addClass(this.el, '-closing')
 		const dialog = dom.$('.modal__dialog', this.el)
 		dom.removeClass(dialog, 'animated', 'fadeInDownSmall', 'faster')
 		dom.addClass(dialog, 'animated', 'fadeOut', 'faster')
 		dom.once(dialog, 'animationend', () => {
-			dom.removeClass(this.el, '-open', '-closing')
+			dom.removeClass(this.el, '-opening', '-open', '-closing')
 			dom.removeClass(dialog, 'animated', 'fadeOut', 'faster')
 			if (!this.attached) dom.detach(this.el)
 		})
 
-		if (isLast) setOverflowY(this.root, '')
+		if (isLast) unblockScroll(this.root)
 	}
 }
 
@@ -61,7 +63,6 @@ class Root {
 
 			const modal = this.modals.get(el)
 			modal.show()
-			dom.setStyles(root, { overflowY: 'hidden' })
 		})
 
 		dom.on(document, 'keyup', event => {
@@ -85,7 +86,9 @@ class Root {
 	}
 }
 
-const setOverflowY = (el, overflowY) => dom.setStyles(el, {overflowY})
+const blockScroll = el => dom.addClass(el, 'modalroot', '-block')
+
+const unblockScroll = el => dom.removeClass(el, 'modalroot', '-block')
 
 Modal.Root = Root
 
