@@ -19,11 +19,6 @@ section,
 summary {
   display: block;
 }
-hr {
-  margin: 20px 0;
-  border: none;
-  border-top: 1px solid #edf1f4;
-}
 label {
   font-weight: normal;
 }
@@ -112,6 +107,9 @@ small,
 .col-lg-12 {
   padding-right: 5px;
   padding-left: 5px;
+}
+.flow > * + * {
+  margin-top: 1rem;
 }
 @font-face {
   font-family: 'Ubuntu';
@@ -219,7 +217,7 @@ html {
   font-size: 16px;
 }
 body {
-  font-family: 'Ubuntu', 'Hind Siliguri', 'Helvetica', sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, 'Hind Siliguri', Cantarell, 'Helvetica Neue', sans-serif;
   line-height: 1.75em;
   color: #2f353b;
   direction: 'ltr';
@@ -258,10 +256,8 @@ a:active {
   color: #195e8e;
 }
 a:focus-visible {
-  outline: thin dotted;
-  outline: 0.5rem auto Highlight;
-  outline: 0.5rem auto -webkit-focus-ring-color;
-  outline-offset: 0.5rem;
+  outline: rgba(53,152,220,0.75) auto 0.25rem;
+  outline-offset: 0.25rem;
 }
 a:focus,
 a::-moz-focus-inner {
@@ -294,6 +290,16 @@ summary .icon {
 [open] > summary .icon {
   transform: rotate(90deg);
 }
+ul,
+ol {
+  margin: 0 0 0.5rem;
+}
+ul ul,
+ol ul,
+ul ol,
+ol ol {
+  margin-bottom: 0;
+}
 dl {
   margin-bottom: 1.25em;
 }
@@ -303,6 +309,21 @@ dt {
 }
 dd {
   margin-left: 0;
+}
+blockquote {
+  margin: 0 0 1.25rem;
+  padding: 0.5rem 1.25rem;
+  border-left: 0.25rem solid #e7ecf1;
+}
+blockquote p:last-child,
+blockquote ul:last-child,
+blockquote ol:last-child {
+  margin-bottom: 0;
+}
+hr {
+  margin: 1.25rem 0;
+  border: 0;
+  border-top: 1px solid #edf1f4;
 }
 pre,
 code {
@@ -580,7 +601,6 @@ th {
   -ms-border-radius: 0.25rem;
   -o-border-radius: 0.25rem;
   border-radius: 0.25rem;
-  outline: none !important;
   text-align: center;
   text-decoration: none;
   background-color: transparent;
@@ -612,8 +632,8 @@ th {
   font-size: 0.95rem;
 }
 .btn.-default {
-  border: 1px solid #a9b4c8;
-  background-color: #e1e5ec;
+  border: 1px solid #abbdce;
+  background-color: #e7ecf1;
   color: #2f353b;
   -webkit-transition: box-shadow 125ms ease-in;
   -moz-transition: box-shadow 125ms ease-in;
@@ -626,26 +646,27 @@ th {
 }
 .btn.-default:hover,
 .btn.-default:focus {
-  border-color: #8c9cb6;
-  background-color: #c5cdda;
+  border-color: #8ea5bd;
   color: #2f353b;
-  -webkit-box-shadow: inset 0 0 0 0.125rem #9aa8bf;
-  box-shadow: inset 0 0 0 0.125rem #9aa8bf;
+  -webkit-box-shadow: inset 0 0 0 0.125rem #9cb1c6;
+  box-shadow: inset 0 0 0 0.125rem #9cb1c6;
 }
 .btn.-default:hover .icon,
 .btn.-default:focus .icon {
   filter: none;
 }
 .btn.-default:focus {
-  -webkit-box-shadow: inset 0 0 0 0.125rem #9aa8bf, 0 0 0 0.25rem rgba(53,152,220,0.75);
-  box-shadow: inset 0 0 0 0.125rem #9aa8bf, 0 0 0 0.25rem rgba(53,152,220,0.75);
+  outline: rgba(53,152,220,0.75) auto 0.25rem;
+  outline-offset: 0.25rem;
+  -webkit-box-shadow: inset 0 0 0 0.125rem #9cb1c6;
+  box-shadow: inset 0 0 0 0.125rem #9cb1c6;
 }
 .btn.-default.-active {
-  border-color: #7083a4;
-  background-color: #a9b4c8;
+  border-color: #708eab;
+  background-color: #abbdce;
   color: #fff;
-  -webkit-box-shadow: inset 0 0 0 0.125rem #8c9cb6;
-  box-shadow: inset 0 0 0 0.125rem #8c9cb6;
+  -webkit-box-shadow: inset 0 0 0 0.125rem #8ea5bd;
+  box-shadow: inset 0 0 0 0.125rem #8ea5bd;
 }
 .btn.-default.-active .icon {
   filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%) !important;
@@ -657,11 +678,11 @@ th {
   cursor: not-allowed;
 }
 .-open > .-default.-toggle {
-  border-color: #7083a4;
-  background-color: #a9b4c8;
+  border-color: #708eab;
+  background-color: #abbdce;
   color: #fff;
-  -webkit-box-shadow: inset 0 0 0 0.125rem #8c9cb6;
-  box-shadow: inset 0 0 0 0.125rem #8c9cb6;
+  -webkit-box-shadow: inset 0 0 0 0.125rem #8ea5bd;
+  box-shadow: inset 0 0 0 0.125rem #8ea5bd;
 }
 .-open > .-default.-toggle .icon {
   filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%) !important;
@@ -682,7 +703,6 @@ th {
 .btn.-blue:hover,
 .btn.-blue:focus {
   border-color: #1c6ca3;
-  background-color: #248bd1;
   color: #fff;
   -webkit-box-shadow: inset 0 0 0 0.125rem #1e74af;
   box-shadow: inset 0 0 0 0.125rem #1e74af;
@@ -692,8 +712,10 @@ th {
   filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%) !important;
 }
 .btn.-blue:focus {
-  -webkit-box-shadow: inset 0 0 0 0.125rem #1e74af, 0 0 0 0.25rem rgba(53,152,220,0.75);
-  box-shadow: inset 0 0 0 0.125rem #1e74af, 0 0 0 0.25rem rgba(53,152,220,0.75);
+  outline: rgba(53,152,220,0.75) auto 0.25rem;
+  outline-offset: 0.25rem;
+  -webkit-box-shadow: inset 0 0 0 0.125rem #1e74af;
+  box-shadow: inset 0 0 0 0.125rem #1e74af;
 }
 .btn.-blue.-active {
   border-color: #185d8c;
@@ -737,7 +759,6 @@ th {
 .btn.-red:hover,
 .btn.-red:focus {
   border-color: #be2120;
-  background-color: #de403f;
   color: #fff;
   -webkit-box-shadow: inset 0 0 0 0.125rem #cb2422;
   box-shadow: inset 0 0 0 0.125rem #cb2422;
@@ -747,8 +768,10 @@ th {
   filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%) !important;
 }
 .btn.-red:focus {
-  -webkit-box-shadow: inset 0 0 0 0.125rem #cb2422, 0 0 0 0.25rem rgba(53,152,220,0.75);
-  box-shadow: inset 0 0 0 0.125rem #cb2422, 0 0 0 0.25rem rgba(53,152,220,0.75);
+  outline: rgba(53,152,220,0.75) auto 0.25rem;
+  outline-offset: 0.25rem;
+  -webkit-box-shadow: inset 0 0 0 0.125rem #cb2422;
+  box-shadow: inset 0 0 0 0.125rem #cb2422;
 }
 .btn.-red.-active {
   border-color: #a31d1c;
@@ -792,7 +815,6 @@ th {
 .btn.-simple:hover,
 .btn.-simple:focus {
   border-color: #b3b3b3;
-  background-color: #e6e6e6;
   color: #2f353b;
   -webkit-box-shadow: inset 0 0 0 0.125rem #bfbfbf;
   box-shadow: inset 0 0 0 0.125rem #bfbfbf;
@@ -802,8 +824,10 @@ th {
   filter: none;
 }
 .btn.-simple:focus {
-  -webkit-box-shadow: inset 0 0 0 0.125rem #bfbfbf, 0 0 0 0.25rem rgba(53,152,220,0.75);
-  box-shadow: inset 0 0 0 0.125rem #bfbfbf, 0 0 0 0.25rem rgba(53,152,220,0.75);
+  outline: rgba(53,152,220,0.75) auto 0.25rem;
+  outline-offset: 0.25rem;
+  -webkit-box-shadow: inset 0 0 0 0.125rem #bfbfbf;
+  box-shadow: inset 0 0 0 0.125rem #bfbfbf;
 }
 .btn.-simple.-active {
   border-color: #999;
@@ -847,7 +871,6 @@ th {
 .btn.-subtle:hover,
 .btn.-subtle:focus {
   border-color: #b3b3b3;
-  background-color: #e6e6e6;
   color: #2f353b;
   -webkit-box-shadow: inset 0 0 0 0.125rem #bfbfbf;
   box-shadow: inset 0 0 0 0.125rem #bfbfbf;
@@ -857,8 +880,10 @@ th {
   filter: none;
 }
 .btn.-subtle:focus {
-  -webkit-box-shadow: inset 0 0 0 0.125rem #bfbfbf, 0 0 0 0.25rem rgba(53,152,220,0.75);
-  box-shadow: inset 0 0 0 0.125rem #bfbfbf, 0 0 0 0.25rem rgba(53,152,220,0.75);
+  outline: rgba(53,152,220,0.75) auto 0.25rem;
+  outline-offset: 0.25rem;
+  -webkit-box-shadow: inset 0 0 0 0.125rem #bfbfbf;
+  box-shadow: inset 0 0 0 0.125rem #bfbfbf;
 }
 .btn.-subtle.-active {
   border-color: #999;
@@ -926,18 +951,7 @@ th {
   margin-left: auto;
 }
 .label {
-  padding: 3px 6px 3px 6px;
-  font-size: 1em;
-  font-weight: normal;
-  color: #fff;
-}
-h1 .label,
-h2 .label,
-h3 .label,
-h4 .label,
-h5 .label,
-h6 .label {
-  font-size: 75%;
+  padding: 0.125rem 0.25rem;
 }
 .avatar {
   display: inline-block;
@@ -1087,6 +1101,9 @@ h6 .label {
 .panel.-closed > .panel__body,
 .panel.-closed > .panel__foot {
   display: none;
+}
+.panel.-hero .panel__body {
+  padding: 2.5rem;
 }
 a > .panel {
   -webkit-transition: border-color 125ms ease-in;
