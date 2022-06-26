@@ -5,47 +5,22 @@
 @require './palette'
 
 .artifact
-	font-size 1.25rem
 	line-height 2em
-
-	&__cover
-		position relative
-		min-height 160px
-		margin -1.25rem -1.25rem 1.25rem
-		border-bottom 1px solid #e7ecf1
-		border-radius 0.25rem 0.25rem 0 0
-		overflow hidden
-
-		&.-modest
-			height 160px
-			opacity 0.5
-			transition opacity $fast ease-in
-		
-		&.-placeholder
-			background-position 50% 50%
-			background-size auto
-			background-color #e7ecf1
-			background-repeat repeat
-		
-		img
-			display block
-			width 100%
-			height auto
 	
-	&:hover
-		.artifact__cover
-			opacity 1
+	> * + *
+		margin-top 2rem
 
-	&__header
-		position relative
-
-		.flairs
-			position absolute
-			bottom 10px
-
-	&__caption
-		h1, h2, h3, h4
-			margin-top 0
+	h1
+		line-height 1.85em
+	
+	h2
+		line-height 1.5em
+	
+	h3
+		line-height 1.35em
+	
+	h4
+		line-height 1.2em
 	
 	p > img,
 	p > picture > img
@@ -53,23 +28,11 @@
 		margin 0 auto 8px
 		max-width 100%
 	
-	pre[class*="language-"]
-		margin 1.25rem 0
-	
 	table
 		width 100%
 		max-width 100%
-	
-	a.caption
-		&,
-		&:hover,
-		&:focus
-			color $dark
 
 	table.-samples
-		> thead > tr > th
-			font-size 0.95em
-	
 		> tbody > tr > td
 			vertical-align top
 

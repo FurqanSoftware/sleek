@@ -16,6 +16,45 @@
 
 	&.-green
 		border-color $green
+	
+	&__cover
+		position relative
+		max-height 56rem
+		min-height 10rem
+		border-bottom 1px solid $silver
+		border-radius 0.25rem 0.25rem 0 0
+		overflow hidden
+
+		&.-modest
+			height 10rem
+			
+			> picture
+				filter blur(1px)
+				opacity 0.75
+				transition filter $fast ease-in, opacity $fast ease-in
+		
+		&.-empty
+			background-size auto
+			background-repeat repeat
+			box-shadow inset 0 -0.25rem 0.125rem $shadow0
+		
+		> img
+			display block
+			width 100%
+			height auto
+		
+		.flair
+			position absolute
+			right 0
+			bottom 0
+			left 0
+			padding 1rem 1.25rem
+			background-color alpha(white, 25%)
+			backdrop-filter blur(0.125rem)
+	
+	&:hover &__cover.-modest > picture
+		filter blur(0)
+		opacity 1
 
 	&__head
 		padding 1rem 1.25rem
