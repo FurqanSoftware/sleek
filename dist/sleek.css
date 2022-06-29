@@ -132,8 +132,14 @@ small,
 .flex.-gap-1-2 {
   gap: 0.5rem;
 }
+.flex.-gap-1 {
+  gap: 1rem;
+}
 .flex.-j-center {
   justify-content: center;
+}
+.flex.-j-right {
+  justify-content: right;
 }
 .flex.-a-center {
   align-items: center;
@@ -502,20 +508,11 @@ th {
 }
 .table__actions {
   opacity: 0.5;
-}
-.table__actions .btngroup {
   -webkit-transition: opacity 125ms ease-in;
   -moz-transition: opacity 125ms ease-in;
   -ms-transition: opacity 125ms ease-in;
   -o-transition: opacity 125ms ease-in;
   transition: opacity 125ms ease-in;
-}
-.table__actions .btngroup:first-child {
-  margin-left: auto;
-}
-.table__actions .btn {
-  padding: 0.25rem 0.5rem;
-  font-size: 0.95em;
 }
 .table tr:hover .table__actions {
   opacity: 1;
@@ -532,7 +529,7 @@ th {
   border-bottom: 2px solid #f3f5f8;
 }
 .table > thead > tr > th {
-  font-weight: bold;
+  font-weight: 500;
 }
 .table > thead > tr > th .text + .icon {
   margin-left: 0.25rem;
@@ -1339,7 +1336,13 @@ a.dashlet:focus .dashlet__mark {
   line-height: 2em;
 }
 .artifact > * + * {
-  margin-top: 2rem;
+  margin-top: 1.5rem;
+}
+.artifact__fragment {
+  display: contents;
+}
+.artifact__fragment > * + * {
+  margin-top: 1.5rem;
 }
 .artifact h1 {
   line-height: 1.85em;
@@ -1566,4 +1569,7 @@ a > .alert.-subtle {
 }
 .border-orange {
   border-color: #e87e04 !important;
+}
+.font-white {
+  color: #fff !important;
 }
