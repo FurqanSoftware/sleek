@@ -23,7 +23,7 @@ class Modal {
 		const dialog = dom.$('.modal__dialog', this.el)
 		dom.removeClass(dialog, 'animated', 'fadeOut', 'faster')
 		dom.addClass(dialog, 'animated', 'fadeInDownSmall', 'faster')
-		dom.once(dialog, 'animationend', () => dom.removeClass(dialog, 'animated', 'fadeInDownSmall', 'faster'))
+		dom.once(dialog, 'animationend', () => dom.removeClass(dialog, '-opening', 'animated', 'fadeInDownSmall', 'faster'))
 
 		blockScroll(this.root)
 
