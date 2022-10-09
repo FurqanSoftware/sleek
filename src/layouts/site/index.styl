@@ -11,18 +11,21 @@ body
 	background-color lighten(mix($blue, $silver, 10%), 82.5%)
 
 .phead
-	margin-bottom 25px
-	border-bottom 1px solid $silver
+	margin-bottom 1.5rem
+	border-bottom 1px solid lighten($silver, 75%)
 	background white
-	box-shadow 0 0.0625rem 0.125rem $shadow1
 
 	&__logo
 		float left
-		padding 15px 0
+		padding 1rem 0
+	
+	&.-shade
+		border-bottom 1px solid $silver
+		box-shadow 0 0.0625rem 0.125rem $shadow1
 
 .pmenu
 	float right
-	margin 15px 0
+	margin 1rem 0
 
 	&__item
 		position relative
@@ -108,7 +111,7 @@ body
 		float right
 
 		a
-			margin-left 15px
+			margin-left 1rem
 
 			&:first-child
 				margin-left 0

@@ -1,0 +1,64 @@
+// Copyright 2020 Furqan Software Ltd. All rights reserved.
+
+@require '../../../base/const'
+@require '../../../base/palette'
+
+.pblip
+	margin -1.5rem 0 1.5rem
+	padding 5rem 0
+	background-color lighten(mix($blue, $silver, 10%), 82.5%)
+
+	&__head
+		margin-bottom 4.5rem
+		text-align center
+
+	&__stroke
+		width 3rem
+		height 0.125rem
+		margin 1.5rem auto 0
+		background-color $dark
+	
+	&__foot
+		margin-top 3rem
+		text-align center
+	
+	&__note
+		font-size 1.25rem
+	
+	&__actions
+		margin-top 2rem
+
+	&.-hero
+		border-bottom 1px solid $silver
+		background-color white
+		box-shadow 0 0.0625rem 0.125rem $shadow1
+		
+		.pblip__head h2
+			color $blue
+		
+		.pblip__stroke
+			background-color $dark
+
+	&.-blue
+		background-color $blue
+		color white
+		
+		.pblip__head h2
+			color white
+		
+		.pblip__stroke
+			background-color white
+
+	&.-ebony
+		background-color $ebony
+		
+		.pblip__head h2
+			color white
+		
+		.pblip__stroke
+			background-color white
+
+	&.-float
+		position relative
+		margin-top -10rem
+		background-color transparent
