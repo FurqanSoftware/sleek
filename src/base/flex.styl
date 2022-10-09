@@ -30,3 +30,34 @@
 	&__item
 		&.-m-l-auto
 			margin-left auto
+		
+		&.-g-1
+			flex-grow 1
+
+		&.-g-2
+			flex-grow 2
+		
+		&.-s-1
+			flex-shrink 1
+		
+		&.-b-0
+			flex-basis 0
+
+@media (max-width: 992px)
+	.flex 
+		&.-lmd-r-auto
+			flex-wrap wrap
+
+			> *
+				flex-basis 100%
+
+		.-lmd-a-items
+			align-items center
+
+@media (max-width: 767px)
+	.flex 
+		&.-lsm-r-auto
+			flex-wrap wrap
+
+			> *
+				flex-basis 100%
