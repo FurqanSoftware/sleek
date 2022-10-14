@@ -28,6 +28,12 @@
 	&__actions
 		margin-top 2rem
 
+	&__tail
+		position relative
+		z-index 1
+		margin 5rem 0 -10rem
+		text-align center
+	
 	&.-hero
 		border-bottom 1px solid $silver
 		background-color white
@@ -48,12 +54,13 @@
 		
 		.pblip__stroke
 			background-color white
+			
+		.pblip__tail
+			color $dark
 
 	&.-ebony
 		background-color $ebony
-		
-		.pblip__head h2
-			color white
+		color white
 		
 		.pblip__stroke
 			background-color white
