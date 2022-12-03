@@ -45,6 +45,15 @@ body
 			text-decoration none
 			transition background-color $fast ease-in
 
+			&:hover,
+			&:focus,
+			&.-open
+				text-decoration none
+				background-color $silverglow
+
+		&.-link,
+		&.-bell > a
+			> img,
 			.dropdown__toggle img
 				display block
 				opacity 0.35
@@ -53,9 +62,7 @@ body
 			&:hover,
 			&:focus,
 			&.-open
-				text-decoration none
-				background-color $silverglow
-
+				> img,
 				.dropdown__toggle img
 					opacity 0.5
 
