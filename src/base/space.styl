@@ -10,7 +10,7 @@ for n in (0..5)
             .gap-{x}
                 gap unit(n/d, rem)
             // Margin, Padding
-            for k in margin padding
+            for k in 'margin' 'padding'
                 kc = substr(k, 0, 1)
                 .{kc}-{x}
                     {k} unit(n/d, rem)
