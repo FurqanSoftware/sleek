@@ -1395,41 +1395,6 @@ a.dashlet:focus .dashlet__mark {
   padding: 0;
   margin: 0;
 }
-.pagination {
-  margin: 0;
-}
-.pagination > li > a,
-.pagination > li > span {
-  margin: 0 2px;
-  border: none;
-  -webkit-transition: background-color 125ms ease-in;
-  -moz-transition: background-color 125ms ease-in;
-  -ms-transition: background-color 125ms ease-in;
-  -o-transition: background-color 125ms ease-in;
-  transition: background-color 125ms ease-in;
-}
-.pagination > li > a,
-.pagination > li:first-child > a,
-.pagination > li:last-child > a,
-.pagination > li:hover > a,
-.pagination > li > span,
-.pagination > li:first-child > span,
-.pagination > li:last-child > span,
-.pagination > li:hover > span {
-  -webkit-border-radius: 0.25rem;
-  -moz-border-radius: 0.25rem;
-  -ms-border-radius: 0.25rem;
-  -o-border-radius: 0.25rem;
-  border-radius: 0.25rem;
-}
-.pagination > li:hover > a,
-.pagination > li:hover > span {
-  background-color: rgba(53,152,220,0.1);
-}
-.pagination > .active > a,
-.pagination > .active > span {
-  background-color: #3598dc !important;
-}
 .alert {
   position: relative;
   padding: 1.5rem;
