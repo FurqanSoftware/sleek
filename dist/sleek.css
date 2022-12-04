@@ -121,13 +121,16 @@ small,
 .flex.-gap-1 {
   gap: 1rem;
 }
-.flex.-j-center {
+.flex.-jc-center {
   justify-content: center;
 }
-.flex.-j-right {
+.flex.-jc-around {
+  justify-content: space-around;
+}
+.flex.-jc-right {
   justify-content: right;
 }
-.flex.-a-center {
+.flex.-ai-center {
   align-items: center;
 }
 .flex.-wrap {
@@ -155,7 +158,7 @@ small,
   .flex.-lmd-r-auto > * {
     flex-basis: 100%;
   }
-  .flex .-lmd-a-items {
+  .flex .-lmd-ai-center {
     align-items: center;
   }
 }
