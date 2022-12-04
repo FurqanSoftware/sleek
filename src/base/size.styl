@@ -1,0 +1,15 @@
+// Copyright 2022 Furqan Software Ltd. All Rights Reserved.
+
+_kinds = {
+    'w': width, 'mw': max-width, 'nw': min-width,
+    'h': height, 'mh': max-height, 'nh': min-height
+}
+for kc, k in _kinds
+    for p in 25 50 75 100
+        .{kc}-{p}
+            {k} percentage(p/100)
+        .{kc}v-{p}
+            {k} unit(p, vh)
+
+    .{kc}-auto
+        {k} auto
