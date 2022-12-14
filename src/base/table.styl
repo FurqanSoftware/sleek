@@ -4,20 +4,9 @@
 @require './func'
 @require './palette'
 
-table
-	border-spacing 0
-	border-collapse collapse
-	background-color transparent
-
-td,
-th
-	padding 0
-	text-align left
-
 .table
 	width 100%
 	max-width 100%
-	margin-bottom 20px
 	border none
 	
 	&__actions
@@ -29,11 +18,32 @@ th
 
 	> thead > tr > th,
 	> tbody > tr > th,
+	> tfoot > tr > th
+		text-align left
+
+	> thead > tr > th,
+	> tbody > tr > th,
 	> tfoot > tr > th,
 	> thead > tr > td,
 	> tbody > tr > td,
 	> tfoot > tr > td
 		padding 1rem
+
+	> thead > tr > th:first-child,
+	> tbody > tr > th:first-child,
+	> tfoot > tr > th:first-child,
+	> thead > tr > td:first-child,
+	> tbody > tr > td:first-child,
+	> tfoot > tr > td:first-child
+		padding-left 0
+
+	> thead > tr > th:last-child,
+	> tbody > tr > th:last-child,
+	> tfoot > tr > th:last-child,
+	> thead > tr > td:last-child,
+	> tbody > tr > td:last-child,
+	> tfoot > tr > td:last-child
+		padding-right 0
 
 	> thead > tr
 		border-bottom 2px solid lighten($silver, 50%)
@@ -72,15 +82,13 @@ th
 		background-color lighten($silver, 75%)
 
 .table.-emphasis > tbody tr:hover
-	background linear-gradient($blueglow, $blueglow 3px, transparent 3px, transparent 100%), linear-gradient(to top, $blueglow, $blueglow 3px, transparent 3px, transparent 100%)
+	transform scale(1)
+	background linear-gradient($blueglow, $blueglow 1px, transparent 1px, transparent 100%), linear-gradient(to top, $blueglow, $blueglow 1px, transparent 1px, transparent 100%)
 
 .tablebox
 	min-height .01%
 	margin-bottom 20px
 	overflow-x auto
-	
-	> .table
-		margin-bottom 0
 
 @media screen and (max-width: 767px)
 	.tablebox
@@ -88,31 +96,3 @@ th
 		margin-bottom 15px
 		overflow-y hidden
 		border 1px solid lighten($silver, 50%)
-
-		> .table
-			margin-bottom 0
-
-.panel__body
-	> .tablebox:last-child > .table,
-	> .table:last-child
-		margin-bottom 0
-
-	> .table
-		thead > tr > th:first-child,
-		tbody > tr > td:first-child
-			padding-left 0
-
-		thead > tr > th:last-child,
-		tbody > tr > td:last-child
-			padding-right 0
-
-@media (min-width: 768px)
-	.panel__body > .tablebox > .table
-	.panel__body > .scroller > .table
-		thead > tr > th:first-child,
-		tbody > tr > td:first-child
-			padding-left 0
-
-		thead > tr > th:last-child,
-		tbody > tr > td:last-child
-			padding-right 0
