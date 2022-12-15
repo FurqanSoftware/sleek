@@ -14,14 +14,12 @@ body
 
 .pmenu
 	float right
-	margin 15px 0
+	display flex
+	margin 1rem 0
 	
 	&__item
 		position relative
-		float left
 		display block
-		height 40px
-		border-radius 0.25rem
 	
 		&.-user
 			margin-left 0.5rem
@@ -31,15 +29,30 @@ body
 
 		&.-link,
 		&.-drop > a
+			border-radius 0.25rem
+			text-decoration none
 			transition background-color $fast ease-in
 
-			img
+			&:hover,
+			&:focus,
+			&.-open
+				text-decoration none
+				background-color lighten($dark, 5%)
+
+		&.-link,
+		&.-drop > a
+			> img,
+			.dropdown__toggle img
+				display block
+				opacity 0.35
 				transition opacity $fast ease-in
 
 			&:hover,
 			&:focus,
 			&.-open
-				background-color lighten($dark, 5%)
+				> img,
+				.dropdown__toggle img
+					opacity 0.5
 
 		&.-link
 			padding 8px
@@ -55,6 +68,15 @@ body
 			right 0
 			background-color alpha($red, 75%)
 			color white
+
+	&__divider
+		position relative
+		float left
+		display block
+		height 40px
+		margin 0.75rem
+		border-right 1px solid lighten($dark, 5%)
+		height 1rem
 
 .pside
 	width auto
