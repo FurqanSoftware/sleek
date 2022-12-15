@@ -3,6 +3,9 @@
 ::after {
   box-sizing: border-box;
 }
+html {
+  line-sizing: normal;
+}
 article,
 aside,
 details,
@@ -28,8 +31,10 @@ p,
 pre {
   margin: 0;
 }
-html {
-  line-sizing: normal;
+table {
+  border-spacing: 0;
+  border-collapse: collapse;
+  background-color: transparent;
 }
 label {
   font-weight: normal;
@@ -510,20 +515,9 @@ fieldset.-flags .switch {
   margin-top: 0.5em;
   margin-left: 30px;
 }
-table {
-  border-spacing: 0;
-  border-collapse: collapse;
-  background-color: transparent;
-}
-td,
-th {
-  padding: 0;
-  text-align: left;
-}
 .table {
   width: 100%;
   max-width: 100%;
-  margin-bottom: 20px;
   border: none;
 }
 .table__actions {
@@ -539,11 +533,32 @@ th {
 }
 .table > thead > tr > th,
 .table > tbody > tr > th,
+.table > tfoot > tr > th {
+  text-align: left;
+}
+.table > thead > tr > th,
+.table > tbody > tr > th,
 .table > tfoot > tr > th,
 .table > thead > tr > td,
 .table > tbody > tr > td,
 .table > tfoot > tr > td {
   padding: 1rem;
+}
+.table > thead > tr > th:first-child,
+.table > tbody > tr > th:first-child,
+.table > tfoot > tr > th:first-child,
+.table > thead > tr > td:first-child,
+.table > tbody > tr > td:first-child,
+.table > tfoot > tr > td:first-child {
+  padding-left: 0;
+}
+.table > thead > tr > th:last-child,
+.table > tbody > tr > th:last-child,
+.table > tfoot > tr > th:last-child,
+.table > thead > tr > td:last-child,
+.table > tbody > tr > td:last-child,
+.table > tfoot > tr > td:last-child {
+  padding-right: 0;
 }
 .table > thead > tr {
   border-bottom: 2px solid #f3f5f8;
@@ -582,15 +597,13 @@ th {
   background-color: #f9fafc;
 }
 .table.-emphasis > tbody tr:hover {
-  background: linear-gradient(rgba(53,152,220,0.75), rgba(53,152,220,0.75) 3px, transparent 3px, transparent 100%), linear-gradient(to top, rgba(53,152,220,0.75), rgba(53,152,220,0.75) 3px, transparent 3px, transparent 100%);
+  transform: scale(1);
+  background: linear-gradient(rgba(53,152,220,0.75), rgba(53,152,220,0.75) 1px, transparent 1px, transparent 100%), linear-gradient(to top, rgba(53,152,220,0.75), rgba(53,152,220,0.75) 1px, transparent 1px, transparent 100%);
 }
 .tablebox {
   min-height: 0.01%;
   margin-bottom: 20px;
   overflow-x: auto;
-}
-.tablebox > .table {
-  margin-bottom: 0;
 }
 @media screen and (max-width: 767px) {
   .tablebox {
@@ -598,35 +611,6 @@ th {
     margin-bottom: 15px;
     overflow-y: hidden;
     border: 1px solid #f3f5f8;
-  }
-  .tablebox > .table {
-    margin-bottom: 0;
-  }
-}
-.panel__body > .tablebox:last-child > .table,
-.panel__body > .table:last-child {
-  margin-bottom: 0;
-}
-.panel__body > .table thead > tr > th:first-child,
-.panel__body > .table tbody > tr > td:first-child {
-  padding-left: 0;
-}
-.panel__body > .table thead > tr > th:last-child,
-.panel__body > .table tbody > tr > td:last-child {
-  padding-right: 0;
-}
-@media (min-width: 768px) {
-  .panel__body > .tablebox > .table thead > tr > th:first-child,
-  .panel__body > .scroller > .table thead > tr > th:first-child,
-  .panel__body > .tablebox > .table tbody > tr > td:first-child,
-  .panel__body > .scroller > .table tbody > tr > td:first-child {
-    padding-left: 0;
-  }
-  .panel__body > .tablebox > .table thead > tr > th:last-child,
-  .panel__body > .scroller > .table thead > tr > th:last-child,
-  .panel__body > .tablebox > .table tbody > tr > td:last-child,
-  .panel__body > .scroller > .table tbody > tr > td:last-child {
-    padding-right: 0;
   }
 }
 .badge {
