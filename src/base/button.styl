@@ -91,11 +91,20 @@ _button('default', $silver)
 _button('blue', $blue)
 _button('red', $red)
 _button('simple', white)
-_button('subtle', white)
 
 .btn.-subtle
 	border 1px solid transparent
 	background-color transparent
+
+	&.-subtle:hover,
+	&.-subtle:focus
+		border-color darken(white, 30%)
+		color $dark
+
+	.-open > &.-subtle.-toggle
+		border-color darken(white, 40%)
+		background-color darken(white, 20%)
+		color $dark
 
 .btngroup
 	display flex
