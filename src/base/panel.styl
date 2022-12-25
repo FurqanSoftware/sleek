@@ -11,12 +11,6 @@
 	background-color white
 	box-shadow 0 0.0625rem 0.125rem $shadow1
 
-	&.-fit
-		padding 0
-
-	&.-green
-		border-color $green
-	
 	&__cover
 		position relative
 		max-height 56rem
@@ -132,25 +126,12 @@
 		> .panel__body,
 		> .panel__foot
 			display none
-	
-	&.-hero &__body
-			padding 2.5rem
 
 a > .panel
 	transition border-color $fast ease-in
 
 	&:hover
 		border-color $blueglow
-
-section
-	> .caption
-		margin 0 0 25px
-		padding 25px 0
-		text-align center
-		color $muted
-
-		h1, h2, h3, h4, h5, h6
-			margin 0
 
 @media (max-width: 767px)
 	.panel .panel__actions .btn

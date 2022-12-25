@@ -101,3 +101,30 @@
 	font-display swap
 	src local('Hind Siliguri Regular'), local('HindSiliguri-Regular'), url('../fonts/HindSiliguri-Regular.woff2') format('woff2'), url('../fonts/HindSiliguri-Regular.woff') format('woff')
 	unicode-range U+00-FF, U+980-9FF
+
+$fontSizeBase = 1rem
+$fontSizes = {
+	'h1': 2.5,
+	'h2': 2,
+	'h3': 1.75,
+	'h4': 1.5,
+	'h5': 1.25,
+	'h6': 1
+}
+
+for k, v in $fontSizes
+	.font-{k}
+		font-size unit(v, rem)
+
+_seen = {}
+for n in (1..5)
+	for d in (1..5)
+		if !_seen[n/d]
+			_seen[n/d] = true
+			x = d == 1 ? n : s("%d-%d", n, d)
+			.font-{x}
+				font-size unit(n/d, rem)
+
+small,
+.font-sm
+	font-size 0.875rem
