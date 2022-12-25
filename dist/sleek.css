@@ -42,10 +42,6 @@ th {
 label {
   font-weight: normal;
 }
-small,
-.small {
-  font-size: 0.85em;
-}
 .hidden {
   display: none;
 }
@@ -55,9 +51,6 @@ small,
 }
 .scroller {
   overflow-y: auto;
-}
-.text-muted {
-  color: #5c6873;
 }
 .row {
   margin-right: -5px;
@@ -120,15 +113,6 @@ small,
 .flex.-column {
   flex-direction: column;
 }
-.flex.-gap-1-4 {
-  gap: 0.25rem;
-}
-.flex.-gap-1-2 {
-  gap: 0.5rem;
-}
-.flex.-gap-1 {
-  gap: 1rem;
-}
 .flex.-jc-center {
   justify-content: center;
 }
@@ -180,13 +164,6 @@ small,
 }
 .flow > * + * {
   margin-top: 1rem;
-}
-.flow .flow__item.-m-y-3 {
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-}
-.flow .flow__item.-m-b-2 {
-  margin-bottom: 2rem;
 }
 @font-face {
   font-family: 'Ubuntu';
@@ -289,6 +266,85 @@ small,
   font-display: swap;
   src: local('Hind Siliguri Regular'), local('HindSiliguri-Regular'), url("../fonts/HindSiliguri-Regular.woff2") format('woff2'), url("../fonts/HindSiliguri-Regular.woff") format('woff');
   unicode-range: U+00-FF, U+980-9FF;
+}
+.font-h1 {
+  font-size: 2.5rem;
+}
+.font-h2 {
+  font-size: 2rem;
+}
+.font-h3 {
+  font-size: 1.75rem;
+}
+.font-h4 {
+  font-size: 1.5rem;
+}
+.font-h5 {
+  font-size: 1.25rem;
+}
+.font-h6 {
+  font-size: 1rem;
+}
+.font-1 {
+  font-size: 1rem;
+}
+.font-1-2 {
+  font-size: 0.5rem;
+}
+.font-1-3 {
+  font-size: 0.333333333333333rem;
+}
+.font-1-4 {
+  font-size: 0.25rem;
+}
+.font-1-5 {
+  font-size: 0.2rem;
+}
+.font-2 {
+  font-size: 2rem;
+}
+.font-2-3 {
+  font-size: 0.666666666666667rem;
+}
+.font-2-5 {
+  font-size: 0.4rem;
+}
+.font-3 {
+  font-size: 3rem;
+}
+.font-3-2 {
+  font-size: 1.5rem;
+}
+.font-3-4 {
+  font-size: 0.75rem;
+}
+.font-3-5 {
+  font-size: 0.6rem;
+}
+.font-4 {
+  font-size: 4rem;
+}
+.font-4-3 {
+  font-size: 1.333333333333333rem;
+}
+.font-4-5 {
+  font-size: 0.8rem;
+}
+.font-5 {
+  font-size: 5rem;
+}
+.font-5-2 {
+  font-size: 2.5rem;
+}
+.font-5-3 {
+  font-size: 1.666666666666667rem;
+}
+.font-5-4 {
+  font-size: 1.25rem;
+}
+small,
+.font-sm {
+  font-size: 0.875rem;
 }
 html {
   font-size: 16px;
@@ -987,12 +1043,6 @@ fieldset.-flags .switch {
   -webkit-box-shadow: 0 0.0625rem 0.125rem rgba(47,53,59,0.05);
   box-shadow: 0 0.0625rem 0.125rem rgba(47,53,59,0.05);
 }
-.panel.-fit {
-  padding: 0;
-}
-.panel.-green {
-  border-color: #26c281;
-}
 .panel__cover {
   position: relative;
   max-height: 56rem;
@@ -1130,9 +1180,6 @@ fieldset.-flags .switch {
 .panel.-closed > .panel__foot {
   display: none;
 }
-.panel.-hero .panel__body {
-  padding: 2.5rem;
-}
 a > .panel {
   -webkit-transition: border-color 125ms ease-in;
   -moz-transition: border-color 125ms ease-in;
@@ -1142,20 +1189,6 @@ a > .panel {
 }
 a > .panel:hover {
   border-color: rgba(53,152,220,0.75);
-}
-section > .caption {
-  margin: 0 0 25px;
-  padding: 25px 0;
-  text-align: center;
-  color: #5c6873;
-}
-section > .caption h1,
-section > .caption h2,
-section > .caption h3,
-section > .caption h4,
-section > .caption h5,
-section > .caption h6 {
-  margin: 0;
 }
 @media (max-width: 767px) {
   .panel .panel__actions .btn .icon + .text {
@@ -1311,8 +1344,8 @@ a.dashlet:focus .dashlet__mark {
 .artifact h4 {
   line-height: 1.2em;
 }
-.artifact p > img,
-.artifact p > picture > img {
+.artifact img,
+.artifact svg {
   display: block;
   margin: 0 auto 8px;
   max-width: 100%;
@@ -1321,12 +1354,9 @@ a.dashlet:focus .dashlet__mark {
   width: 100%;
   max-width: 100%;
 }
-.artifact table.-samples > tbody > tr > td {
+.artifact table th,
+.artifact table td {
   vertical-align: top;
-}
-.artifact table.-samples pre {
-  padding: 0;
-  margin: 0;
 }
 .alert {
   position: relative;
@@ -1338,13 +1368,6 @@ a.dashlet:focus .dashlet__mark {
   -ms-border-radius: 0.25rem;
   -o-border-radius: 0.25rem;
   border-radius: 0.25rem;
-}
-.alert > p,
-.alert > ul {
-  margin-bottom: 0;
-}
-.alert > p + p {
-  margin-top: 1rem;
 }
 .alert.-broadcast {
   margin: 0;
@@ -1368,9 +1391,6 @@ a.dashlet:focus .dashlet__mark {
 }
 .alert__icon .icon {
   font-size: 1.5em;
-}
-.alert__actions {
-  margin-top: 1.5rem;
 }
 .alert__close {
   position: absolute;
@@ -1423,18 +1443,14 @@ a > .alert.-subtle {
   transition: border-color 125ms ease-in, color 125ms ease-in;
 }
 .progress {
-  height: 20px;
-  margin-bottom: 20px;
+  display: flex;
+  height: 1rem;
   overflow: hidden;
-  background-color: transparent;
 }
 .progress__bar {
-  float: left;
   width: 0;
   height: 100%;
-  line-height: 20px;
-  color: #fff;
-  text-align: center;
+  line-height: 1rem;
 }
 .d-block {
   display: block;
@@ -2365,5 +2381,8 @@ a > .alert.-subtle {
   border-color: #e87e04 !important;
 }
 .font-white {
-  color: #fff !important;
+  color: #fff;
+}
+.font-muted {
+  color: #5c6873;
 }
