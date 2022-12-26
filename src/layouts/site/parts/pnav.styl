@@ -5,7 +5,6 @@
 
 .pnav
 	display none
-	border-top 1px solid lighten($silver, 75%)
 	
 	&.-open
 		display block
@@ -58,18 +57,25 @@
 
 @media (max-width: 991px)
 	.pnav
+		position absolute
+		top 72px
+		right 0
+		left 0
+		z-index 1000
+		border-bottom 1px solid $silver
+		background-color white
+		box-shadow 0 0.0625rem 0.125rem $shadow1
+
 		&__group
 			flex-direction column
 
 		&__search
-			width 100%
-			margin 1rem 0
+			margin 1rem 0.75rem
 		
 		&__item.-link,
 		&__item.-drop > a,
 		&__menu > a
 			display block
-			margin 0 -15px
 			padding 0.5rem 1rem
 
 			&.-active
@@ -89,16 +95,24 @@
 @media (min-width: 992px)
 	.pnav
 		display block
+		flex-grow 1
+		margin 0 2rem
 
 		&__search
 			float right
-			width 15rem
+			width 12.5rem
+			
+			input
+				padding 1.35rem 1rem 1.35rem 2rem
+			
+			.icon
+				top 1.725rem
 		
 		&__item
 			&.-link,
 			&.-drop > a
 				position relative
-				padding 0.75rem 1rem
+				padding 1.35rem 1rem
 
 			&.-drop
 				position relative
