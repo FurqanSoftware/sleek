@@ -1,5 +1,7 @@
 // Copyright 2022 Furqan Software Ltd. All Rights Reserved.
 
+@require './responsive'
+
 _space(ns)
     _seen = {}
     for n in (0..5)
@@ -29,6 +31,6 @@ _space(ns)
 
 _space('')
 
-for bk, b in _breakpoints
-    @media (min-width: unit(b, 'px'))
+for bk, bv in _breakpoints
+    @media (min-width: unit(bv, 'px'))
         _space('%s-' % unquote(bk))

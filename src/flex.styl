@@ -28,13 +28,21 @@ _flex(ns)
     .{ns}flex-nowrap
         flex-wrap nowrap
     
+    for n in (0..5)
+        .{ns}flex-grow-{n}
+            flex-grow n
+        .{ns}flex-shrink-{n}
+            flex-shrink n
+
+    .{ns}flex-basis-0
+        flex-basis 0
     for p in 25 50 75 100
         .{ns}flex-basis-{p}
             flex-basis percentage(p/100)
 
 _flex('')
 
-for bk, b in _breakpoints
-    @media (min-width: unit(b, 'px'))
+for bk, bv in _breakpoints
+    @media (min-width: unit(bv, 'px'))
         _flex('%s-' % unquote(bk))
 

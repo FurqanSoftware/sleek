@@ -22,6 +22,6 @@ _border(ns)
 
 _border('')
 
-for bk, b in _breakpoints
-    @media (min-width: unit(b, 'px'))
+for bk, bv in _breakpoints
+    @media (min-width: unit(bv, 'px'))
         _border('%s-' % unquote(bk))

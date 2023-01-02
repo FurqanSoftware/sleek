@@ -19,7 +19,7 @@ _kinds = {
 for kc, k in _kinds
     _size('', kc, k)
 
-for bk, b in _breakpoints
-    @media (min-width: unit(b, 'px'))
+for bk, bv in _breakpoints
+    @media (min-width: unit(bv, 'px'))
         for kc, k in _kinds
             _size('%s-' % unquote(bk), kc, k)
