@@ -1,9 +1,9 @@
 {
   "name": "sleek",
-  "version": "1.39.2",
+  "version": "1.40.0",
   "description": "Toph's base stylesheets",
   "scripts": {
-    "build": "stylus -o dist/sleek.css src/base/index.styl"
+    "build": "stylus -o dist/sleek.css src/index.styl"
   },
   "style": "dist/sleek.css",
   "main": "src/index.styl",
