@@ -1,15 +1,25 @@
 // Copyright 2022 Furqan Software Ltd. All Rights Reserved.
 
+@require './responsive'
+
+_size(ns, kc, k)
+    for p in 25 50 75 100
+        .{ns}{kc}-{p}
+            {k} percentage(p/100)
+        .{ns}{kc}v-{p}
+            {k} unit(p, vh)
+
+    .{ns}{kc}-auto
+        {k} auto
+
 _kinds = {
     'w': 'width', 'mw': 'max-width', 'nw': 'min-width',
     'h': 'height', 'mh': 'max-height', 'nh': 'min-height'
 }
 for kc, k in _kinds
-    for p in 25 50 75 100
-        .{kc}-{p}
-            {k} percentage(p/100)
-        .{kc}v-{p}
-            {k} unit(p, vh)
+    _size('', kc, k)
 
-    .{kc}-auto
-        {k} auto
+for bk, b in _breakpoints
+    @media (min-width: unit(b, 'px'))
+        for kc, k in _kinds
+            _size('%s-' % unquote(bk), kc, k)

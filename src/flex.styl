@@ -1,57 +1,40 @@
-// Copyright 2022 Furqan Software Ltd. All Rights Reserved.
+// Copyright 2023 Furqan Software Ltd. All Rights Reserved.
+
+@require './responsive'
 
 .flex
-	display flex
-	
-	&.-column
-		flex-direction column
+    display flex
 
-	&.-jc-center
-		justify-content center
+    &.-jc-center
+        justify-content center
 
-	&.-jc-around
-		justify-content space-around
+    &.-jc-around
+        justify-content space-around
 
-	&.-jc-right
-		justify-content right
+    &.-jc-right
+        justify-content right
 
-	&.-ai-center
-		align-items center
+    &.-ai-center
+        align-items center
 
-	&.-wrap
-		flex-wrap wrap
-	
-	&__item
-		&.-m-l-auto
-			margin-left auto
-		
-		&.-g-1
-			flex-grow 1
+_flex(ns)
+    .{ns}flex-column
+        flex-direction column
+    .{ns}flex-row
+        flex-direction row
 
-		&.-g-2
-			flex-grow 2
-		
-		&.-s-1
-			flex-shrink 1
-		
-		&.-b-0
-			flex-basis 0
+    .{ns}flex-wrap
+        flex-wrap wrap
+    .{ns}flex-nowrap
+        flex-wrap nowrap
+    
+    for p in 25 50 75 100
+        .{ns}flex-basis-{p}
+            flex-basis percentage(p/100)
 
-@media (max-width: 992px)
-	.flex 
-		&.-lmd-r-auto
-			flex-wrap wrap
+_flex('')
 
-			> *
-				flex-basis 100%
+for bk, b in _breakpoints
+    @media (min-width: unit(b, 'px'))
+        _flex('%s-' % unquote(bk))
 
-		.-lmd-ai-center
-			align-items center
-
-@media (max-width: 767px)
-	.flex 
-		&.-lsm-r-auto
-			flex-wrap wrap
-
-			> *
-				flex-basis 100%

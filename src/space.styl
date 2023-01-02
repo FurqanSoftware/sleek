@@ -1,27 +1,34 @@
 // Copyright 2022 Furqan Software Ltd. All Rights Reserved.
 
-_seen = {}
-for n in (0..5)
-    for d in (1..5)
-        if !_seen[n/d]
-            _seen[n/d] = true
-            x = d == 1 ? n : s("%d-%d", n, d)
-            // Gap
-            .gap-{x}
-                gap unit(n/d, rem)
-            // Margin, Padding
-            for k in 'margin' 'padding'
-                kc = substr(k, 0, 1)
-                .{kc}-{x}
-                    {k} unit(n/d, rem)
-                for e in top right bottom left
-                    ec = substr(e, 0, 1)
-                    .{kc}{ec}-{x}
-                        {k}-{e} unit(n/d, rem)
+_space(ns)
+    _seen = {}
+    for n in (0..5)
+        for d in (1..5)
+            if !_seen[n/d]
+                _seen[n/d] = true
+                x = d == 1 ? n : s("%d-%d", n, d)
+                // Gap
+                .{ns}gap-{x}
+                    gap unit(n/d, rem)
+                // Margin, Padding
+                for k in 'margin' 'padding'
+                    kc = substr(k, 0, 1)
+                    .{ns}{kc}-{x}
+                        {k} unit(n/d, rem)
+                    for e in top right bottom left
+                        ec = substr(e, 0, 1)
+                        .{ns}{kc}{ec}-{x}
+                            {k}-{e} unit(n/d, rem)
 
-.m-auto
-    margin auto
-for e in top right bottom left
-    ec = substr(e, 0, 1)
-    .m{ec}-auto
-        margin-{e} auto
+    .{ns}m-auto
+        margin auto
+    for e in top right bottom left
+        ec = substr(e, 0, 1)
+        .{ns}m{ec}-auto
+            margin-{e} auto
+
+_space('')
+
+for bk, b in _breakpoints
+    @media (min-width: unit(b, 'px'))
+        _space('%s-' % unquote(bk))

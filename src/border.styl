@@ -1,6 +1,27 @@
 // Copyright 2022 Furqan Software Ltd. All Rights Reserved.
 
-for d in 1 2 4 8
-    x = d == 1 ? 1 : s("%d-%d", 1, d)
-    .br-{x}
-        border-radius unit(1/d, rem)
+@require './responsive'
+@require './color'
+
+_border(ns)
+    .{ns}b-none
+        border none
+    .{ns}b-silver
+        border 1px solid $silver
+    for e in top right bottom left
+        ec = substr(e, 0, 1)
+        .{ns}b{ec}-none
+            border-{e} none
+        .{ns}b{ec}-silver
+            border-{e} 1px solid $silver
+
+    for d in 1 2 4 8
+        x = d == 1 ? 1 : s("%d-%d", 1, d)
+        .{ns}br-{x}
+            border-radius unit(1/d, rem)
+
+_border('')
+
+for bk, b in _breakpoints
+    @media (min-width: unit(b, 'px'))
+        _border('%s-' % unquote(bk))
