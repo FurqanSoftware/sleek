@@ -83,11 +83,6 @@
 		&.-disabled
 			opacity 0.75
 			cursor not-allowed
-		
-		.icon
-			width 1rem
-			margin-right 1rem
-			font-size 1rem
 			
 		.badge
 			float right
@@ -104,6 +99,14 @@
 		&:first-child,
 		&:last-child
 			display none
+	
+	&__icon
+		&.-left
+			margin-right 0.5rem
+
+		&.-right
+			float right
+			margin-left 1rem
 
 	&.-open > .dropdown__menu
 			display flex
