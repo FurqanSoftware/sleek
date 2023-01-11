@@ -19,6 +19,12 @@
 		animation-iteration-count infinite
 		animation-timing-function linear;
 
+	&.-pulse
+		animation-name pulse
+		animation-duration 2500ms
+		animation-iteration-count infinite
+		animation-timing-function linear;
+
 _iconcolor(name, filter)
 	.icon.{name}
 		filter filter !important
@@ -56,3 +62,11 @@ _iconcolor('silver', invert(94%) sepia(11%) saturate(94%) hue-rotate(169deg) bri
 		transform rotate(0deg)
 	to
 		transform rotate(360deg)
+
+@keyframes pulse
+	0%
+		opacity 1
+	50%
+		opacity 0
+	100%
+		opacity 1
