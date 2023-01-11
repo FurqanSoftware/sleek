@@ -23,9 +23,11 @@
 			height 10rem
 			
 			> picture
-				filter blur(1px)
 				opacity 0.75
-				transition filter $fast ease-in, opacity $fast ease-in
+				transition opacity $fast ease-in
+				
+				img
+					width 100%
 		
 		&.-empty
 			background-size auto
@@ -47,7 +49,6 @@
 			backdrop-filter blur(0.125rem)
 	
 	&:hover &__cover.-modest > picture
-		filter blur(0)
 		opacity 1
 
 	&__head
