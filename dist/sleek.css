@@ -855,7 +855,6 @@ fieldset.-flags .switch {
 }
 .btn .icon {
   margin-top: -2px;
-  font-size: 1rem;
 }
 .btn .icon + .text {
   margin-left: 5px;
@@ -1212,13 +1211,15 @@ fieldset.-flags .switch {
   height: 10rem;
 }
 .panel__cover.-modest > picture {
-  filter: blur(1px);
   opacity: 0.75;
-  -webkit-transition: filter 125ms ease-in, opacity 125ms ease-in;
-  -moz-transition: filter 125ms ease-in, opacity 125ms ease-in;
-  -ms-transition: filter 125ms ease-in, opacity 125ms ease-in;
-  -o-transition: filter 125ms ease-in, opacity 125ms ease-in;
-  transition: filter 125ms ease-in, opacity 125ms ease-in;
+  -webkit-transition: opacity 125ms ease-in;
+  -moz-transition: opacity 125ms ease-in;
+  -ms-transition: opacity 125ms ease-in;
+  -o-transition: opacity 125ms ease-in;
+  transition: opacity 125ms ease-in;
+}
+.panel__cover.-modest > picture img {
+  width: 100%;
 }
 .panel__cover.-empty {
   background-size: auto;
@@ -1241,7 +1242,6 @@ fieldset.-flags .switch {
   backdrop-filter: blur(0.125rem);
 }
 .panel:hover .panel__cover.-modest > picture {
-  filter: blur(0);
   opacity: 1;
 }
 .panel__head {
@@ -1497,8 +1497,9 @@ a.dashlet:focus .dashlet__mark {
 .artifact h4 {
   line-height: 1.2em;
 }
-.artifact img,
-.artifact svg {
+.artifact > * > img,
+.artifact > * > picture > img,
+.artifact > * > svg {
   display: block;
   margin: 0 auto 8px;
   max-width: 100%;
@@ -1540,10 +1541,8 @@ a.dashlet:focus .dashlet__mark {
 }
 .alert__icon {
   margin-right: 1rem;
+  font-size: 1.25rem;
   line-height: 0;
-}
-.alert__icon .icon {
-  font-size: 1.5em;
 }
 .alert__close {
   position: absolute;
