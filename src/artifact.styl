@@ -7,13 +7,18 @@
 .artifact
 	line-height 2em
 	
-	> * + *
-		margin-top 1.5rem
-	
+	&,
 	&__fragment
 		> * + *
 			margin-top 1.5rem
 
+		> * > img,
+		> * > picture > img,
+		> * > svg
+			display block
+			margin 0 auto 0.5rem
+			max-width 100%
+		
 	h1
 		line-height 1.85em
 	
@@ -25,13 +30,6 @@
 	
 	h4
 		line-height 1.2em
-	
-	> * > img,
-	> * > picture > img,
-	> * > svg
-		display block
-		margin 0 auto 8px
-		max-width 100%
 	
 	table
 		width 100%
