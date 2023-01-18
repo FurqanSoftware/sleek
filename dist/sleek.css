@@ -1479,11 +1479,19 @@ a.dashlet:focus .dashlet__mark {
 .artifact {
   line-height: 2em;
 }
-.artifact > * + * {
-  margin-top: 1.5rem;
-}
+.artifact > * + *,
 .artifact__fragment > * + * {
   margin-top: 1.5rem;
+}
+.artifact > * > img,
+.artifact__fragment > * > img,
+.artifact > * > picture > img,
+.artifact__fragment > * > picture > img,
+.artifact > * > svg,
+.artifact__fragment > * > svg {
+  display: block;
+  margin: 0 auto 0.5rem;
+  max-width: 100%;
 }
 .artifact h1 {
   line-height: 1.85em;
@@ -1496,13 +1504,6 @@ a.dashlet:focus .dashlet__mark {
 }
 .artifact h4 {
   line-height: 1.2em;
-}
-.artifact > * > img,
-.artifact > * > picture > img,
-.artifact > * > svg {
-  display: block;
-  margin: 0 auto 8px;
-  max-width: 100%;
 }
 .artifact table {
   width: 100%;
