@@ -61,8 +61,9 @@ class Dropdown {
 			dom.addClass(item, 'dropdown__item', '-link')
 			item.setAttribute('href', 'javascript:;')
 			item.setAttribute('tabindex', '0')
-			
-			const tpl = settings.itemTemplate || '%{label}'
+
+			const tpl = (option.dataset.empty != 'true' ? settings.itemTemplate : settings.emptyItemTemplate) || '%{label}'
+
 			const dataset = {
 				...option.dataset,
 				label: dom.getText(option),
