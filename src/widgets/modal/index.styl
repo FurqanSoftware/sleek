@@ -3,6 +3,15 @@
 @require '../../const'
 @require '../../func'
 @require '../../palette'
+@require '../../responsive'
+
+_modal_widths = {
+	sm: 480
+	md: 660
+	lg: 900
+	xl: 1080
+	xx: 1260
+}
 
 .modal
 	position fixed
@@ -81,14 +90,15 @@
 			border-radius 0 0 0.25rem 0.25rem
 			background-color lighten($silver, 75%)
 
-@media (min-width: 768px)
+@media (min-width 768px)
 	.modal__dialog
-		width 600px
 		margin 2rem auto
 
-@media (min-width: 992px)
-	.modal__dialog.-lg
-		width 900px
+
+for bk, bv in _breakpoints
+	@media (min-width unit(bv, 'px'))
+		.modal__dialog.-{bk}
+			width unit(_modal_widths[bk], 'px')
 
 .modalroot.-block
 	overflow-y hidden
