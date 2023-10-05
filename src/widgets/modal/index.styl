@@ -90,15 +90,11 @@ _modal_widths = {
 			border-radius 0 0 0.25rem 0.25rem
 			background-color lighten($silver, 75%)
 
-@media (min-width 768px)
-	.modal__dialog
-		margin 2rem auto
-
-
 for bk, bv in _breakpoints
 	@media (min-width unit(bv, 'px'))
 		.modal__dialog.-{bk}
 			width unit(_modal_widths[bk], 'px')
+			margin 2rem auto
 
 .modalroot.-block
 	overflow-y hidden
