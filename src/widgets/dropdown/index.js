@@ -1,4 +1,4 @@
-// Copyright 2022 Furqan Software Ltd. All rights reserved.
+// Copyright 2023 Furqan Software Ltd. All rights reserved.
 
 import dom from '@toph/kernel.js/dom'
 
