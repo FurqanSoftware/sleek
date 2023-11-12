@@ -102,9 +102,13 @@
 		&__search
 			float right
 			width 11rem
+			transition width 0.125s ease-in-out
 			
 			input
 				line-height 2.5rem
+			
+			&:focus-within
+				width 17rem
 		
 		&__item
 			&.-link,
