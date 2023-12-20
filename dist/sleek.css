@@ -27,6 +27,8 @@ h1,
 h2,
 h3,
 h4,
+h5,
+h6,
 p,
 pre {
   margin: 0;
@@ -804,9 +806,6 @@ summary .icon {
   -ms-transition: transform 125ms ease-in;
   -o-transition: transform 125ms ease-in;
   transition: transform 125ms ease-in;
-}
-[open] > summary {
-  margin-bottom: 1rem;
 }
 [open] > summary .icon {
   transform: rotate(90deg);
