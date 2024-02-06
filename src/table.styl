@@ -33,10 +33,7 @@
 	> tfoot > tr > td:last-child
 		padding-right 0
 
-	> thead > tr
-		border-bottom 2px solid lighten($silver, 50%)
-		
-		> th
+	> thead > tr > th
 			font-weight 500
 
 			.text + .icon
@@ -46,14 +43,13 @@
 	> thead:first-child > tr:first-child > td
 		border-top 0
 	
-	> tbody > tr
-		border-bottom 1px solid lighten($silver, 50%)
-		
-		&:last-child
-			border-bottom-color transparent
-
+	> thead > tr:not(:first-child),
+	> tbody > tr,
 	> tbody + tbody
 		border-top 1px solid lighten($silver, 50%)
+	
+	> tbody > tr:last-child
+		border-bottom 1px solid lighten($silver, 50%)
 
 	> thead > tr > td.active,
 	> tbody > tr > td.active,
@@ -70,8 +66,11 @@
 		background-color lighten($silver, 75%)
 
 .table.-emphasis > tbody tr:hover
-	transform scale(1)
-	background linear-gradient($blueglow, $blueglow 1px, transparent 1px, transparent 100%), linear-gradient(to top, $blueglow, $blueglow 1px, transparent 1px, transparent 100%)
+.table.-emphasis > tbody tr:hover + tr
+	border-top-color $blueglow
+
+.table.-emphasis > tbody tr:last-child:hover
+	border-bottom-color $blueglow
 
 .tablebox
 	min-height .01%
