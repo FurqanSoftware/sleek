@@ -42,6 +42,10 @@ table {
 th {
   text-align: left;
 }
+::placeholder {
+  color: #5c6873;
+  opacity: 1;
+}
 label {
   font-weight: normal;
 }
@@ -990,9 +994,6 @@ fieldset.-flags .switch {
 .table > tfoot > tr > td:last-child {
   padding-right: 0;
 }
-.table > thead > tr {
-  border-bottom: 2px solid #f3f5f8;
-}
 .table > thead > tr > th {
   font-weight: 500;
 }
@@ -1003,14 +1004,13 @@ fieldset.-flags .switch {
 .table > thead:first-child > tr:first-child > td {
   border-top: 0;
 }
-.table > tbody > tr {
-  border-bottom: 1px solid #f3f5f8;
-}
-.table > tbody > tr:last-child {
-  border-bottom-color: transparent;
-}
+.table > thead > tr:not(:first-child),
+.table > tbody > tr,
 .table > tbody + tbody {
   border-top: 1px solid #f3f5f8;
+}
+.table > tbody > tr:last-child {
+  border-bottom: 1px solid #f3f5f8;
 }
 .table > thead > tr > td.active,
 .table > tbody > tr > td.active,
@@ -1026,9 +1026,12 @@ fieldset.-flags .switch {
 .table > tfoot > tr.active > th {
   background-color: #f9fafc;
 }
-.table.-emphasis > tbody tr:hover {
-  transform: scale(1);
-  background: linear-gradient(rgba(53,152,220,0.75), rgba(53,152,220,0.75) 1px, transparent 1px, transparent 100%), linear-gradient(to top, rgba(53,152,220,0.75), rgba(53,152,220,0.75) 1px, transparent 1px, transparent 100%);
+.table.-emphasis > tbody tr:hover,
+.table.-emphasis > tbody tr:hover + tr {
+  border-top-color: rgba(53,152,220,0.75);
+}
+.table.-emphasis > tbody tr:last-child:hover {
+  border-bottom-color: rgba(53,152,220,0.75);
 }
 .tablebox {
   min-height: 0.01%;
