@@ -82,7 +82,7 @@ class Dropdown {
 
 		this.firstSearchPending = true
 
-		const applySearch = fn.debounce((...args) => this.applySearch(...args), 375)
+		const applySearch = fn.throttle((...args) => this.applySearch(...args), 375)
 
 		const input = dom.$('input', search)
 		dom.on(input, 'keydown', event => {
