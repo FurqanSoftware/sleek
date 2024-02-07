@@ -80,6 +80,8 @@ class Dropdown {
 		search.innerHTML = '<input class="form__field" placeholder="Search">'
 		this.searchEl = search
 
+		this.firstSearchPending = true
+
 		const applySearch = fn.debounce((...args) => this.applySearch(...args), 375)
 
 		const input = dom.$('input', search)
@@ -91,7 +93,6 @@ class Dropdown {
 	}
 
 	applySearch(query) {
-		if (!query) return
 		if (this.searchXhr) {
 			this.searchXhr.abort()
 			delete this.searchXhr
@@ -225,6 +226,10 @@ class Dropdown {
 			}
 			const input = dom.$('input', search)
 			input.focus()
+			if (this.firstSearchPending) {
+				this.applySearch(input.value)
+				this.firstSearchPending = false
+			}
 		}
 
 		this.reposition()
