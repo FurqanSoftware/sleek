@@ -10,6 +10,9 @@
 	&__toggle
 		&:not(.-disabled)
 			cursor pointer
+	
+	&__toggle + &__search input
+		width 100%
 
 	&__menu
 		display none
@@ -34,6 +37,9 @@
 		&.-scroll
 			overflow-y auto
 			-webkit-overflow-scrolling touch
+	
+		.dropdown__search
+			padding 0.5rem
 		
 		.dropdown__menu
 			top 0
