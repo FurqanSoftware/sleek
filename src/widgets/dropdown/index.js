@@ -80,7 +80,7 @@ class Dropdown {
 		search.innerHTML = '<input class="form__field" placeholder="Search">'
 		this.searchEl = search
 
-		this.firstSearchPending = true
+		this.searchedOnceOnOpen = false
 
 		const applySearch = fn.throttle((...args) => this.applySearch(...args), 375)
 
@@ -214,8 +214,8 @@ class Dropdown {
 			}
 		}
 
-		const search = this.searchEl
-		if (search) {
+		if (this.settings.search) {
+			const search = this.searchEl
 			if (dom.hasClass(this.el, '-select')) {
 				const toggle = dom.$('.dropdown__toggle', this.el)
 				dom.addClass(toggle, 'hidden')
@@ -226,9 +226,9 @@ class Dropdown {
 			}
 			const input = dom.$('input', search)
 			input.focus()
-			if (this.firstSearchPending) {
+			if (this.settings.search.onceOnOpen && !this.searchedOnceOnOpen) {
 				this.applySearch(input.value)
-				this.firstSearchPending = false
+				this.searchedOnceOnOpen = true
 			}
 		}
 
@@ -242,10 +242,11 @@ class Dropdown {
 			dom.removeClass(this.el, '-open')
 			return
 		}
-		const search = dom.$('.dropdown__search', this.el)
-		if (this.searchEl) {
+		
+		if (this.settings.search) {
+			const search = dom.$('.dropdown__search', this.el)
+			if (search) dom.detach(search)
 			const toggle = dom.$('.dropdown__toggle', this.el)
-			dom.detach(search)
 			dom.removeClass(toggle, 'hidden')
 		}
 		dom.addClass(menu, 'animated', 'fadeOutUpSmall', 'fastest')
