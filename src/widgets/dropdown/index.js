@@ -206,10 +206,12 @@ class Dropdown {
 			dom.once(menu, 'animationend', () => { dom.removeClass(menu, 'animated', 'fadeInUpSmallest', 'fastest') })
 			const active = dom.$('.dropdown__item.-active', menu)
 			if (active) {
-				const top = Math.max(0, Math.floor(active.offsetTop - dom.getHeight(menu)/3))
-				menu.scrollTo({
-					top,
-					behavior: 'instant'
+				fn.defer(() => {
+					const top = Math.max(0, Math.floor(active.offsetTop - dom.getHeight(menu)/3))
+					menu.scrollTo({
+						top,
+						behavior: 'instant'
+					})
 				})
 			}
 		}
