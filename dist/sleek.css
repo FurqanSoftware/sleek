@@ -976,7 +976,7 @@ fieldset.-flags .switch {
 .table > thead > tr > td,
 .table > tbody > tr > td,
 .table > tfoot > tr > td {
-  padding: 1rem;
+  padding: 0.5rem;
 }
 .table > thead > tr > th:first-child,
 .table > tbody > tr > th:first-child,
