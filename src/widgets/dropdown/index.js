@@ -5,11 +5,9 @@ import fn from '@toph/kernel.js/fn'
 import http from '@toph/kernel.js/http'
 
 class Dropdown {
-	constructor(el, root) {
+	constructor(el, settings = {}) {
 		this.el = el
-		this.root = root
-		if (this.el.dataset.dropdown) this.settings = JSON.parse(this.el.dataset.dropdown)
-		else this.settings = {}
+		this.settings = settings
 		this.init()
 	}
 
@@ -98,7 +96,7 @@ class Dropdown {
 			delete this.searchXhr
 		}
 		const searchOptions = {}
-		if (this.root && this.root.searchHTTPHeaders) searchOptions.headers = this.root.searchHTTPHeaders
+		if (this.settings.search.httpHeaders) searchOptions.headers = this.settings.search.httpHeaders
 		this.searchXhr = http.get(`${this.settings.search.url}${this.settings.search.url.includes('?') ? '&' : '?'}q=${encodeURIComponent(query)}`, searchOptions, (err, data) => {
 			if (err) {
 				console.error(err)
@@ -191,7 +189,7 @@ class Dropdown {
 
 	executeTemplate(tpl, data) {
 		if (typeof tpl === 'function') return tpl(data)
-		if (tpl.match(/^\*[a-zA-Z]+$/)) return this.executeTemplate(this.root.templates[tpl.substr(1)], data)
+		if (tpl.match(/^\*[a-zA-Z]+$/)) return this.executeTemplate(this.settings.templates[tpl.substr(1)], data)
 		return tpl.replace(/%\{([a-z]+)\}/g, (match, key) => data[key])
 	}
 
@@ -350,49 +348,54 @@ class Dropdown {
 }
 
 class Root {
-	constructor(root = document.body, options) {
-		this.root = root
+	constructor(el = document.body, settings = {}) {
+		this.el = el
 		this.dropdowns = new Map()
-		this.templates = options.templates || {}
-		this.searchHTTPHeaders = options.searchHTTPHeaders || {}
+		this.settings = settings
 
-		dom.on(root, 'click', event => {
-			const el = dom.between(event.target, root, '.dropdown')
-			if (!el) {
+		dom.on(this.el, 'click', event => {
+			const dropdownEl = dom.between(event.target, this.el, '.dropdown')
+			if (!dropdownEl) {
 				this.closeAll()
 				return
 			}
 
-			this.makeOnce(el)
+			this.make(dropdownEl)
 
-			const search = dom.between(event.target, root, '.dropdown__search')
+			const search = dom.between(event.target, dropdownEl, '.dropdown__search')
 			if (search) return
 
-			const toggle = dom.between(event.target, root, '.dropdown__toggle')
+			const toggle = dom.between(event.target, dropdownEl, '.dropdown__toggle')
 			if (!toggle) {
 				this.closeAll()
 				return
 			}
 
-			const dropdown = this.dropdowns.get(el)
+			const dropdown = this.dropdowns.get(dropdownEl)
 			this.closeOthers(dropdown)
 
 			if (!dom.hasClass(dropdown.el, '-open')) dropdown.open()
 			else dropdown.close()
 		})
-
-		for (const el of dom.$$('.dropdown.-select', root)) this.makeOnce(el)
 	}
 
-	makeOnce(el) {
-		if (this.dropdowns.has(el)) return
-		const dropdown = new Dropdown(el, this)
-		this.dropdowns.set(el, dropdown)
+	makeUnder() {
+		for (const dropdownEl of dom.$$('.dropdown.-select', this.el)) this.make(dropdownEl)
 	}
 
-	getOrMake(el) {
-		if (!this.dropdowns.has(el)) this.makeOnce(el)
-		return this.dropdowns.get(el)
+	make(dropdownEl) {
+		if (this.dropdowns.has(dropdownEl)) return
+		let settings = {}
+		if (dropdownEl.dataset.dropdown) settings = JSON.parse(dropdownEl.dataset.dropdown)
+		if (!settings.templates) settings.templates = this.settings.templates
+		if (settings.search && !settings.search.httpHeaders) settings.search.httpHeaders = this.settings.searchHTTPHeaders
+		const dropdown = new Dropdown(dropdownEl, settings)
+		this.dropdowns.set(dropdownEl, dropdown)
+	}
+
+	getOrMake(dropdownEl) {
+		if (!this.dropdowns.has(dropdownEl)) this.make(dropdownEl)
+		return this.dropdowns.get(dropdownEl)
 	}
 
 	closeOthers(dropdown) {
