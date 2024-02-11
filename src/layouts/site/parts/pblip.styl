@@ -34,6 +34,41 @@
 		margin 5rem 0 -10rem
 		text-align center
 	
+	&.-cover
+		position relative
+		padding 0
+		border-bottom 1px solid $silver
+		background-color white
+		box-shadow 0 0.0625rem 0.125rem $shadow1
+
+		.pblip__wrap
+			position relative
+			max-width 1400px
+			margin 0 auto
+
+		.pblip__foot
+			position absolute
+			right 0
+			bottom 1rem
+			left 0
+			transition bottom $fast ease-in, opacity $fast ease-in
+			transition-delay $fast
+			
+		&:not(.-empty):has(.pblip__wrap:hover) .pblip__foot:not(:hover)
+			opacity 0.25
+
+		.flair__item
+			padding 0.5rem 1rem
+			border 1px solid $silver
+			border-radius 0.25rem
+			background-color white
+			backdrop-filter blur(0.5rem)
+		
+		+ .pblip
+			margin-top -5.75rem
+			transition margin-top $fast ease-in
+			transition-delay $fast
+	
 	&.-hero
 		border-bottom 1px solid $silver
 		background-color white
@@ -69,3 +104,26 @@
 		position relative
 		margin-top -10rem
 		background-color transparent
+
+@media (min-width: 992px)
+	.pblip.-cover
+		&:not(.-empty)
+			.pblip__foot
+				bottom 7.5rem
+			
+			+ .pblip
+				margin-top -13.062rem
+			
+			&:has(.pblip__wrap:hover)
+				.pblip__foot
+					bottom 1rem
+
+				+ .pblip
+					margin-top -5.75rem
+
+		&.-empty
+			.pblip__foot
+				bottom 2.5rem
+			
+			+ .pblip
+				margin-top -8.0625rem
