@@ -25,30 +25,6 @@ class Dropdown {
 
 		const select = dom.$('select', this.el)
 
-		const selectOption = (option, item) => {
-			const value = option.getAttribute('value')
-			select.value = value
-
-			this.renderOptionSelected(option)
-
-			select.dispatchEvent(new Event('change', {
-				bubbles: true
-			}))
-
-			for (const other of dom.$$('.-active', menu)) dom.removeClass(other, '-active')
-			dom.addClass(item, '-active')
-		}
-
-		const addOption = (option) => {
-			const item = this.makeOptionItem(option)
-
-			menu.appendChild(item)
-
-			dom.on(item, 'click', () => selectOption(option, item))
-
-			if (option.value == select.value) selectOption(option, item)
-		}
-
 		for (const child of select.childNodes) {
 			switch (child.tagName) {
 				case 'OPTGROUP':
@@ -57,7 +33,7 @@ class Dropdown {
 					dom.setText(head, child.getAttribute('label'))
 					menu.appendChild(head)
 
-					for (const option of dom.$$('option', child)) addOption(option)
+					for (const option of dom.$$('option', child)) menu.appendChild(this.makeItemOption(option, select))
 
 					const divider = document.createElement('div')
 					dom.addClass(divider, 'dropdown__divider')
@@ -65,10 +41,18 @@ class Dropdown {
 					break
 
 				case 'OPTION':
-					addOption(child)
+					menu.appendChild(this.makeItemOption(child, select))
 					break
 			}
 		}
+
+		select.addEventListener('change', () => {
+			this.renderToggle()
+			this.renderActiveItems()
+		})
+
+		this.renderToggle()
+		this.renderActiveItems()
 	}
 
 	initSearch() {
@@ -109,7 +93,7 @@ class Dropdown {
 			for (const el of dom.$$('.dropdown__item', menu)) dom.detach(el)
 
 			const addItem = (data) => {
-				const {label, value, ...rest} = data
+				const { label, value, empty, ...rest } = data
 
 				const item = this.makeItem(data)
 				menu.appendChild(item)
@@ -117,42 +101,90 @@ class Dropdown {
 				if (dom.hasClass(this.el, '-select')) {
 					const select = dom.$('select', this.el)	
 					dom.on(item, 'click', () => {
+						if (!select.multiple) select.innerHTML = ''
+
+						if (select.multiple) {
+							if (empty) {
 						select.innerHTML = ''
+								this.renderToggle()
+								return
+							}
+
+							for (const option of select.selectedOptions) {
+								if (option.value === value) {
+									dom.detach(option)
+									this.renderToggle()
+									return
+								}
+							}
+						}
 
 						const option = document.createElement('option')
-						for (const k of Object.keys(rest)) option.setAttribute(`data-${k}`, rest[k])
+						option.setAttribute(`data-extra`, JSON.stringify(rest))
 						option.setAttribute('value', value)
 						option.setAttribute('selected', true)
 						dom.setText(option, label)
 						select.appendChild(option)
 
-						this.renderSelected(data)
+						this.renderToggle()
 					})
 				}
 			}
 
-			addItem({empty: 'true', label: 'None'})
-			for (const item of items) addItem({...item, label: item.text, value: item.id})
+			addItem({ label: 'None', value: '', empty: true })
+			for (const item of items) addItem({ ...item, label: item.text, value: item.id })
 
 			this.reposition()
+			this.renderActiveItems()
 		})
 	}
 
-	renderSelected(data) {
+	renderToggle() {
+		if (dom.hasClass(this.el, '-select')) this.renderToggleSelect()
+	}
+
+	renderToggleSelect() {
 		const toggle = dom.$('.dropdown__toggle', this.el)
+		toggle.innerHTML = ''
 		
-		if (data.empty == 'true') {
-			toggle.innerHTML = this.settings.placeholder || ''
+		const select = dom.$('select', this.el)
+		if (select.selectedOptions.length == 0 || select.selectedOptions.length == 1 && select.selectedOptions[0].dataset.empty) {
+			this.renderTogglePlaceholder()
 			return
 		}
 
 		const tpl = this.settings.selectedTemplate || '%{label}'
-		toggle.innerHTML = this.executeTemplate(tpl, data)
+		let first = true
+		for (const option of select.selectedOptions) {
+			const data = this.extractOptionData(option)
+			const span = document.createElement('span')
+			span.innerHTML = this.executeTemplate(tpl, data)
+			if (!first) toggle.appendChild(document.createTextNode(', '))
+			toggle.appendChild(span)
+			first = false
+		}
 	}
 
-	renderOptionSelected(option) {
-		const data = this.extractOptionData(option)
-		this.renderSelected(data)
+	renderTogglePlaceholder() {
+		const toggle = dom.$('.dropdown__toggle', this.el)
+		toggle.innerHTML = this.settings.placeholder || '&nbsp;'
+	}
+
+	renderActiveItems() {
+		if (dom.hasClass(this.el, '-select')) this.renderActiveItemsSelect()
+	}
+
+	renderActiveItemsSelect() {
+		const select = dom.$('select', this.el)
+
+		const selected = {}
+		for (const option of select.selectedOptions) selected[option.value] = true
+
+		const menu = dom.$('.dropdown__menu', this.el)
+		for (const item of dom.$$('.dropdown__item', menu)) {
+			if (selected[item.dataset.value]) dom.addClass(item, '-active')
+			else dom.removeClass(item, '-active')
+		}
 	}
 
 	makeItem(data) {
@@ -160,18 +192,30 @@ class Dropdown {
 		dom.addClass(item, 'dropdown__item', '-link')
 		item.setAttribute('href', 'javascript:;')
 		item.setAttribute('tabindex', '0')
+		item.setAttribute('data-value', data.value)
 
-		const tpl = (data.empty != 'true' ? this.settings.itemTemplate : this.settings.emptyItemTemplate) || '%{label}'
+		const tpl = (!data.empty ? this.settings.itemTemplate : this.settings.emptyItemTemplate) || '%{label}'
 		item.innerHTML = this.executeTemplate(tpl, data)
 
-		if (this.settings.navigate && !data.empty) item.setAttribute('href', this.executeTemplate(this.settings.navigate.urlTemplate, data))
+		if (this.settings.navigate) item.setAttribute('href', this.executeTemplate(this.settings.navigate.urlTemplate, data))
 
 		return item
 	}
 
-	makeOptionItem(option) {
+	makeItemOption(option, select) {
 		const data = this.extractOptionData(option)
-		return this.makeItem(data)
+		const item = this.makeItem(data)
+
+		dom.on(item, 'click', () => {
+			if (!select.multiple) select.value = option.getAttribute('value')
+			else option.selected = !option.selected
+
+			select.dispatchEvent(new Event('change', {
+				bubbles: true
+			}))
+		})
+
+		return item
 	}
 
 	extractOptionData(option) {
@@ -205,7 +249,7 @@ class Dropdown {
 			const active = dom.$('.dropdown__item.-active', menu)
 			if (active) {
 				fn.defer(() => {
-					const top = Math.max(0, Math.floor(active.offsetTop - dom.getHeight(menu)/3))
+					const top = Math.max(0, Math.floor(active.offsetTop - dom.getHeight(menu) / 3))
 					menu.scrollTo({
 						top,
 						behavior: 'instant'
@@ -273,7 +317,7 @@ class Dropdown {
 			height: 'auto'
 		})
 		const pos = this.el.getBoundingClientRect()
-		if (pos.bottom+dom.getHeight(menu) < window.innerHeight) {
+		if (pos.bottom + dom.getHeight(menu) < window.innerHeight) {
 			// Fits below
 			dom.setStyles(menu, {
 				top: '100%',
@@ -290,14 +334,14 @@ class Dropdown {
 			dom.setStyles(menu, {
 				top: '100%',
 				bottom: 'auto',
-				height: Math.floor((window.innerHeight - pos.bottom)/window.innerHeight*100) + 'vh'
+				height: Math.floor((window.innerHeight - pos.bottom) / window.innerHeight * 100) + 'vh'
 			})
 		} else {
 			// Assume more space above
 			dom.setStyles(menu, {
 				top: 'auto',
 				bottom: '100%',
-				height: Math.floor(pos.top/window.innerHeight*100) + 'vh'
+				height: Math.floor(pos.top / window.innerHeight * 100) + 'vh'
 			})
 		}
 	}
@@ -313,10 +357,10 @@ class Dropdown {
 		let bottom = 'auto'
 		let right = 'auto'
 		let left = '100%'
-		if (pos.left+elWidth+menuWidth > document.documentElement.clientWidth) {
+		if (pos.left + elWidth + menuWidth > document.documentElement.clientWidth) {
 			if (pos.left > menuWidth) {
 				[left, right] = [right, left]
-			} else if (pos.left+menuWidth < document.documentElement.clientWidth) {
+			} else if (pos.left + menuWidth < document.documentElement.clientWidth) {
 				top = `${elHeight}px`
 				right = 'auto'
 				left = '1rem'
@@ -325,7 +369,7 @@ class Dropdown {
 				right = 'auto'
 			}
 		}
-		if (pos.top+menuHeight > document.documentElement.clientHeight) {
+		if (pos.top + menuHeight > document.documentElement.clientHeight) {
 			[top, bottom] = [bottom, top]
 		}
 		
