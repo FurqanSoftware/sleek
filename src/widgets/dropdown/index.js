@@ -167,7 +167,11 @@ class Dropdown {
 
 	renderTogglePlaceholder() {
 		const toggle = dom.$('.dropdown__toggle', this.el)
-		toggle.innerHTML = this.settings.placeholder || '&nbsp;'
+		toggle.innerHTML = ''
+		const span = document.createElement('span')
+		dom.addClass(span, 'font-muted')
+		span.innerHTML = this.settings.placeholder || '&nbsp;'
+		toggle.appendChild(span)
 	}
 
 	renderActiveItems() {
