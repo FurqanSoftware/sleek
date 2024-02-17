@@ -3,14 +3,20 @@
   "version": "1.48.1",
   "description": "Toph's base stylesheets",
   "scripts": {
-    "build": "stylus -o dist/sleek.css src/index.styl"
+    "build": "rollup -c rollup.config.js && stylus -o dist/sleek.css src/index.styl && stylus -o dist/widgets/animate.css src/widgets/animate/index.styl && stylus -o dist/widgets/dropdown.css src/widgets/dropdown/index.styl"
   },
   "style": "dist/sleek.css",
   "main": "src/index.styl",
   "dependencies": {
+    "animate.css": "^4.1.0",
     "@toph/kernel.js": "^1.3.1"
   },
   "devDependencies": {
+    "@rollup/plugin-node-resolve": "^15.2.3",
+    "@babel/core": "^7.13.14",
+    "@babel/preset-env": "^7.13.12",
+    "@rollup/plugin-babel": "^5.3.0",
+    "rollup": "^2.44.0",
     "stylus": "^0.54.8"
   }
 }
