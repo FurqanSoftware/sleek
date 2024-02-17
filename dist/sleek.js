@@ -311,17 +311,20 @@ class Dropdown {
         if (dom.hasClass(this.el, '-select')) {
           const select = dom.$('select', this.el);
           dom.on(item, 'click', () => {
-            if (!select.multiple) select.innerHTML = '';
-            if (select.multiple) {
-              if (empty) {
-                select.innerHTML = '';
-                this.renderToggle();
-                return;
-              }
+            if (empty) {
+              select.innerHTML = '';
+              this.renderToggle();
+              this.renderActiveItems();
+              return;
+            }
+            if (!select.multiple) {
+              select.innerHTML = '';
+            } else {
               for (const option of select.selectedOptions) {
                 if (option.value === value) {
                   dom.detach(option);
                   this.renderToggle();
+                  this.renderActiveItems();
                   return;
                 }
               }
