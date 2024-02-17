@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="/dist/sleek.css">
+        <link rel="stylesheet" type="text/css" href="/dist/widgets/animate.css">
+        <link rel="stylesheet" type="text/css" href="/dist/widgets/dropdown.css">
+    </head>
+    <body class="p-1">
+        <div class="container">
+            <article class="flow">
+                <h1>Dropdown</h1>
+
+                <div>
+                    <div class="dropdown">
+                        <div class="form__field dropdown__toggle">Fruits</div>
+                        <div class="dropdown__menu">
+                            <a class="dropdown__item -link" href="#">Apple</a>
+                            <a class="dropdown__item -link" href="#">Orange</a>
+                            <a class="dropdown__item -link" href="#">Grape</a>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>Select</h2>
+
+                <div>
+                    <div class="dropdown -select">
+                        <div class="form__field dropdown__toggle">Fruits</div>
+                        <div class="dropdown__menu"></div>
+                        <select>
+                            <option value="apple">Apple</option>
+                            <option value="orange">Orange</option>
+                            <option value="grape">Grape</option>
+                        </select>
+                    </div>
+                </div>
+
+                <h2>Select (Multiple)</h2>
+
+                <div>
+                    <div class="dropdown -select">
+                        <div class="form__field dropdown__toggle">Fruits</div>
+                        <div class="dropdown__menu"></div>
+                        <select multiple>
+                            <option value="apple">Apple</option>
+                            <option value="orange">Orange</option>
+                            <option value="grape">Grape</option>
+                        </select>
+                    </div>
+                </div>
+
+                <h2>Search</h2>
+
+                <div>
+                    <div class="dropdown -select" data-dropdown='{"search": {"url": "xyz"}}'>
+                        <div class="form__field dropdown__toggle">Fruits</div>
+                        <div class="dropdown__menu"></div>
+                        <select class="form__field">
+                            <option value="apple">Apple</option>
+                            <option value="orange">Orange</option>
+                            <option value="grape">Grape</option>
+                        </select>
+                    </div>
+                </div>
+
+                <h2>Search (Multiple)</h2>
+
+                <div>
+                    <div class="dropdown -select" data-dropdown='{"search": {"url": "xyz"}}'>
+                        <div class="form__field dropdown__toggle">Fruits</div>
+                        <div class="dropdown__menu"></div>
+                        <select class="form__field" multiple>
+                            <option value="apple">Apple</option>
+                            <option value="orange">Orange</option>
+                            <option value="grape">Grape</option>
+                        </select>
+                    </div>
+                </div>
+            </article>
+        </div>
+
+        <script type="text/javascript" src="/dist/sleek.js"></script>
+        <script type="text/javascript">
+            (function() {
+                var root = new Sleek.Dropdown.Root()
+                root.makeUnder()
+            })()
+        </script>
+    </body>
+</html>
