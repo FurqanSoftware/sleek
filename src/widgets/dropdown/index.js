@@ -56,7 +56,6 @@ class Dropdown {
 	}
 
 	initSearch() {
-		const toggle = dom.$('.dropdown__toggle', this.el)
 		const search = document.createElement('div')
 		dom.addClass(search, 'dropdown__search')
 		search.innerHTML = '<input class="form__field" placeholder="Search">'
