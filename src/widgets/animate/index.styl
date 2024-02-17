@@ -1,0 +1,204 @@
+// Copyright 2021 Furqan Software Ltd. All rights reserved.
+
+@require '../../../node_modules/animate.css/source/_vars.css'
+@require '../../../node_modules/animate.css/source/_base.css'
+@require '../../../node_modules/animate.css/source/attention_seekers/flash.css'
+@require '../../../node_modules/animate.css/source/attention_seekers/swing.css'
+@require '../../../node_modules/animate.css/source/attention_seekers/tada.css'
+@require '../../../node_modules/animate.css/source/bouncing_entrances/bounceIn.css'
+@require '../../../node_modules/animate.css/source/fading_entrances/fadeIn.css'
+@require '../../../node_modules/animate.css/source/fading_entrances/fadeInLeft.css'
+@require '../../../node_modules/animate.css/source/fading_exits/fadeOut.css'
+@require '../../../node_modules/animate.css/source/fading_exits/fadeOutDown.css'
+@require '../../../node_modules/animate.css/source/fading_exits/fadeOutRight.css'
+@require '../../../node_modules/animate.css/source/fading_exits/fadeOutUp.css'
+
+transform()
+	webkit-transform arguments
+	transform arguments
+
+animation-name()
+	-webkit-animation-name arguments
+	animation-name arguments
+
+animation-delay()
+	-webkit-animation-delay arguments
+	animation-delay arguments
+
+animation-duration()
+	-webkit-animation-duration arguments
+	animation-duration arguments
+
+.animated.delay-1q
+	animation-delay 0.5s
+
+.animated.delay-2q
+	animation-delay 1s
+
+.animated.delay-3q
+	animation-delay 1.5s
+
+.animated.fastest
+	animation-duration 250ms
+
+@-webkit-keyframes fadeInDownSmall
+	from
+		opacity 0
+		transform translate3d(0, -25%, 0)
+
+	to
+		opacity 1
+		transform translate3d(0, 0, 0)
+
+@keyframes fadeInDownSmall
+	from
+		opacity 0
+		transform translate3d(0, -25%, 0)
+
+	to
+		opacity 1
+		transform translate3d(0, 0, 0)
+
+.fadeInDownSmall
+	animation-name fadeInDownSmall
+
+@-webkit-keyframes fadeInLeftSmall
+	from
+		opacity 0
+		transform translate3d(-25%, 0, 0)
+
+	to
+		opacity 1
+		transform translate3d(0, 0, 0)
+
+@keyframes fadeInLeftSmall
+	from
+		opacity 0
+		transform translate3d(-25%, 0, 0)
+
+	to
+		opacity 1
+		transform translate3d(0, 0, 0)
+
+.fadeInLeftSmall
+	animation-name fadeInLeftSmall
+
+@-webkit-keyframes fadeInRightSmall
+	from
+		opacity 0
+		transform translate3d(25%, 0, 0)
+
+	to
+		opacity 1
+		transform translate3d(0, 0, 0)
+
+@keyframes fadeInRightSmall
+	from
+		opacity 0
+		transform translate3d(25%, 0, 0)
+
+	to
+		opacity 1
+		transform translate3d(0, 0, 0)
+
+.fadeInRightSmall
+	animation-name fadeInRightSmall
+
+@-webkit-keyframes fadeInUpSmall
+	from
+		opacity 0
+		transform translate3d(0, 25%, 0)
+
+	to
+		opacity 1
+		transform translate3d(0, 0, 0)
+
+@keyframes fadeInUpSmall
+	from
+		opacity 0
+		transform translate3d(0, 25%, 0)
+
+	to
+		opacity 1
+		transform translate3d(0, 0, 0)
+
+.fadeInUpSmall
+	animation-name fadeInUpSmall
+
+@-webkit-keyframes fadeInUpSmallest
+	from
+		opacity 0
+		transform translate3d(0, 2.5%, 0)
+
+	to
+		opacity 1
+		transform translate3d(0, 0, 0)
+
+@keyframes fadeInUpSmallest
+	from
+		opacity 0
+		transform translate3d(0, 2.5%, 0)
+
+	to
+		opacity 1
+		transform translate3d(0, 0, 0)
+
+.fadeInUpSmallest
+	animation-name fadeInUpSmallest
+
+@-webkit-keyframes fadeOutDownSmall
+	from
+		opacity 1
+
+	to
+		opacity 0
+		transform translate3d(0, 25%, 0)
+
+@keyframes fadeOutDownSmall
+	from
+		opacity 1
+
+	to
+		opacity 0
+		transform translate3d(0, 25%, 0)
+
+.fadeOutDownSmall
+	animation-name fadeOutDownSmall
+
+@-webkit-keyframes fadeOutUpSmall
+	from
+		opacity 1
+
+	to
+		opacity 0
+		transform translate3d(0, -25%, 0)
+
+@keyframes fadeOutUpSmall
+	from
+		opacity 1
+
+	to
+		opacity 0
+		transform translate3d(0, -25%, 0)
+
+.fadeOutUpSmall
+	animation-name fadeOutUpSmall
+
+@-webkit-keyframes fadeOutUpSmall
+	from
+		opacity 1
+
+	to
+		opacity 0
+		transform translate3d(0, -2.5%, 0)
+
+@keyframes fadeOutUpSmall
+	from
+		opacity 1
+
+	to
+		opacity 0
+		transform translate3d(0, -2.5%, 0)
+
+.fadeOutUpSmall
+	animation-name fadeOutUpSmall
