@@ -126,6 +126,7 @@ class Dropdown {
 						select.appendChild(option)
 
 						this.renderToggle()
+						this.renderActiveItems()
 					})
 				}
 			}
