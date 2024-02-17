@@ -64,6 +64,12 @@ input[type=search] {
 input[type=file] {
   display: block;
 }
+select {
+  text-transform: none;
+}
+select[multiple] {
+  height: auto;
+}
 ::placeholder {
   color: #5c6873;
   opacity: 1;

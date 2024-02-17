@@ -333,6 +333,7 @@ class Dropdown {
             dom.setText(option, label);
             select.appendChild(option);
             this.renderToggle();
+            this.renderActiveItems();
           });
         }
       };
@@ -407,12 +408,13 @@ class Dropdown {
     const data = this.extractOptionData(option);
     const item = this.makeItem(data);
     dom.on(item, 'click', () => {
-      if (!select.multiple) {
-        for (const other of select.selectedOptions) {
-          if (other !== option) other.selected = false;
-        }
+      if (option.dataset.empty) {
+        const currentSelected = [...select.selectedOptions];
+        option.selected = true;
+        for (const option of currentSelected) option.selected = false;
+      } else {
+        if (!select.multiple) option.selected = true;else option.selected = !option.selected;
       }
-      option.selected = !option.selected;
       select.dispatchEvent(new Event('change', {
         bubbles: true
       }));
