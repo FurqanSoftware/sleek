@@ -105,7 +105,7 @@ class Dropdown {
 
 						if (select.multiple) {
 							if (empty) {
-						select.innerHTML = ''
+								select.innerHTML = ''
 								this.renderToggle()
 								return
 							}
@@ -211,7 +211,7 @@ class Dropdown {
 		const item = this.makeItem(data)
 
 		dom.on(item, 'click', () => {
-			if (!select.multiple) select.value = option.getAttribute('value')
+			if (!select.multiple || option.dataset.empty) select.value = option.getAttribute('value')
 			else option.selected = !option.selected
 
 			select.dispatchEvent(new Event('change', {
