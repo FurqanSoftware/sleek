@@ -42,6 +42,28 @@ table {
 th {
   text-align: left;
 }
+input,
+button,
+select,
+textarea {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+input[disabled] {
+  cursor: default;
+}
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button,
+input height auto,
+input[type=search] {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+input[type=file] {
+  display: block;
+}
 ::placeholder {
   color: #5c6873;
   opacity: 1;
@@ -50,7 +72,7 @@ label {
   font-weight: normal;
 }
 .hidden {
-  display: none;
+  display: none !important;
 }
 .dotted {
   border-bottom: 1px dotted #2f353b;
