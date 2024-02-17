@@ -44,6 +44,33 @@ table
 th
 	text-align left
 
+input, button, select, textarea
+	font-family inherit
+	font-size inherit
+	line-height inherit
+
+input
+	&[disabled]
+		cursor default
+
+	&[type=number]::-webkit-inner-spin-button,
+	&[type=number]::-webkit-outer-spin-button
+	height auto
+
+	&[type=search]
+		-webkit-box-sizing border-box
+		-moz-box-sizing border-box
+		box-sizing border-box
+
+	&[type=file]
+		display block
+
+select
+	text-transform none
+
+	&[multiple]
+		height auto
+
 ::placeholder
 	color lighten(#2f353b, 25%)
 	opacity 1
@@ -57,7 +84,7 @@ label
 	font-weight normal
 
 .hidden
-	display none
+	display none !important
 
 .dotted
 	border-bottom 1px dotted $dark
