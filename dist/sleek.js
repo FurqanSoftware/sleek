@@ -299,6 +299,7 @@ class Dropdown {
       const items = JSON.parse(data);
       const menu = dom.$('.dropdown__menu', this.el);
       for (const el of dom.$$('.dropdown__item', menu)) dom.detach(el);
+      const select = dom.$('select', this.el);
       const addItem = data => {
         const {
           label,
@@ -308,8 +309,7 @@ class Dropdown {
         } = data;
         const item = this.makeItem(data);
         menu.appendChild(item);
-        if (dom.hasClass(this.el, '-select')) {
-          const select = dom.$('select', this.el);
+        if (select) {
           dom.on(item, 'click', () => {
             if (empty) {
               select.innerHTML = '';
@@ -340,7 +340,7 @@ class Dropdown {
           });
         }
       };
-      addItem({
+      if (select && (select.multiple || dom.$('option[data-empty]', select))) addItem({
         label: 'None',
         value: '',
         empty: true
