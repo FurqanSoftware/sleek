@@ -6,7 +6,7 @@
 .pblip
 	margin -1.5rem 0 1.5rem
 	padding 5rem 0
-	background-color lighten(mix($blue, $silver, 10%), 82.5%)
+	background-color var(--sleek-body-background-color)
 
 	&__head
 		margin-bottom 4.5rem
@@ -16,7 +16,7 @@
 		width 3rem
 		height 0.125rem
 		margin 1.5rem auto 0
-		background-color $dark
+		background-color var(--sleek-text-default-color)
 	
 	&__foot
 		margin-top 3rem
@@ -37,9 +37,9 @@
 	&.-cover
 		position relative
 		padding 0
-		border-bottom 1px solid $silver
-		background-color white
-		box-shadow 0 0.0625rem 0.125rem $shadow1
+		border-bottom 1px solid var(--sleek-surface-border-color)
+		background-color var(--sleek-surface-background-color)
+		box-shadow 0 0.0625rem 0.125rem var(--sleek-shadow-color-1)
 
 		.pblip__wrap
 			position relative
@@ -59,9 +59,9 @@
 
 		.flair__item
 			padding 0.5rem 1rem
-			border 1px solid $silver
+			border 1px solid var(--sleek-surface-border-color)
 			border-radius 0.25rem
-			background-color white
+			background-color var(--sleek-surface-background-color)
 			backdrop-filter blur(0.5rem)
 		
 		+ .pblip
@@ -70,15 +70,15 @@
 			transition-delay $fast
 	
 	&.-hero
-		border-bottom 1px solid $silver
-		background-color white
-		box-shadow 0 0.0625rem 0.125rem $shadow1
+		border-bottom 1px solid var(--sleek-surface-border-color)
+		background-color var(--sleek-surface-background-color)
+		box-shadow 0 0.0625rem 0.125rem var(--sleek-shadow-color-1)
 		
 		.pblip__head h2
 			color $blue
 		
 		.pblip__stroke
-			background-color $dark
+			background-color var(--sleek-text-default-color)
 
 	&.-blue
 		background-color $blue
@@ -91,7 +91,7 @@
 			background-color white
 			
 		.pblip__tail
-			color $dark
+			color var(--sleek-text-default-color)
 
 	&.-ebony
 		background-color $ebony

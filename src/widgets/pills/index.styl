@@ -27,12 +27,6 @@
 		> .badge
 			float right
 			margin-left 0.5rem
-			color $muted
-
-		&:focus,
-		&:hover
-			> .badge
-				background-color alpha(white, 25%)
 		
 		&.-active
 			color white
@@ -49,7 +43,7 @@
 			opacity 0.75
 		
 		&.-navsm
-			border 1px solid $silver
+			border 1px solid var(--sleek-surface-border-color)
 
 		> .icon + .text
 			margin-left 0.5rem
@@ -66,7 +60,7 @@
 	&__divider
 		height 1em
 		margin auto 1em
-		border-right 1px solid $silver
+		border-right 1px solid var(--sleek-divider-border-color)
 
 @media (max-width: 991px)
 	.pills

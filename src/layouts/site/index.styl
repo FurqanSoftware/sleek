@@ -4,17 +4,21 @@
 @require '../../func'
 @require '../../palette'
 
+:root
+	--sleek-site-pmenu-item-hover-background-color $silverglow
+    --sleek-site-pmenu-icon-filter none
+
 body
 	display flex
 	flex-direction column
 	min-height 100vh
-	background-color lighten(mix($blue, $silver, 10%), 82.5%)
+	background-color var(--sleek-body-background-color)
 
 .phead
 	margin-bottom 1.5rem
-	border-bottom 1px solid lighten($silver, 75%)
-	background white
-	
+	border-bottom 1px solid var(--sleek-surface-border-color-subtle)
+	background var(--sleek-surface-background-color)
+
 	&__body
 		display flex
 		align-items center
@@ -24,8 +28,8 @@ body
 		padding 1rem 0
 	
 	&.-shade
-		border-bottom 1px solid $silver
-		box-shadow 0 0.0625rem 0.125rem $shadow1
+		border-bottom 1px solid var(--sleek-surface-border-color)
+		box-shadow 0 0.0625rem 0.125rem var(--sleek-shadow-color-1)
 
 .pmenu
 	display flex
@@ -51,7 +55,7 @@ body
 			&:focus,
 			&.-open
 				text-decoration none
-				background-color $silverglow
+				background-color var(--sleek-site-pmenu-item-hover-background-color)
 
 		&.-link,
 		&.-drop > a
@@ -60,6 +64,9 @@ body
 				display block
 				opacity 0.35
 				transition opacity $fast ease-in
+
+			.icon
+				filter var(--sleek-site-pmenu-icon-filter)
 
 			&:hover,
 			&:focus,
@@ -89,17 +96,17 @@ body
 		display block
 		height 40px
 		margin 0.75rem
-		border-right 1px solid $silver
+		border-right 1px solid var(--sleek-divider-border-color)
 		height 1rem
 
 .pfoot
 	margin-top auto
 	padding 1rem 0
-	border-top 1px solid $silver
-	color $muted
+	border-top 1px solid var(--sleek-surface-border-color)
+	color var(--sleek-text-muted-color)
 
 	a
-		color $muted
+		color var(--sleek-text-muted-color)
 
 		&:hover,
 		&:focus

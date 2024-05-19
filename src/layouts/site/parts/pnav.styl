@@ -3,6 +3,9 @@
 @require '../../../const'
 @require '../../../palette'
 
+:root
+	--sleek-pnav-menu-item-hover-background-color $silverglow
+
 .pnav
 	display none
 	
@@ -20,6 +23,8 @@
 			margin 0
 			padding 1rem 0.25rem 1rem 2rem
 			border none
+			background-color var(--sleek-surface-background-color)
+			color var(--sleek-text-default-color)
 
 			&:focus
 				outline none
@@ -33,7 +38,7 @@
 			opacity 0.75
 		
 	&__item
-		color $dark
+		color var(--sleek-text-default-color)
 
 		&.-link,
 		&.-drop > a
@@ -43,7 +48,7 @@
 			&:focus
 				text-decoration none
 				background-color transparent
-				color $dark
+				color var(--sleek-text-default-color)
 		
 		&.-more
 			&,
@@ -61,9 +66,9 @@
 		right 0
 		left 0
 		z-index 1000
-		border-bottom 1px solid $silver
-		background-color white
-		box-shadow 0 0.0625rem 0.125rem $shadow1
+		border-bottom 1px solid var(--sleek-surface-border-color)
+		background-color var(--sleek-surface-background-color)
+		box-shadow 0 0.0625rem 0.125rem var(--sleek-shadow-color-1)
 
 		&__group
 			flex-direction column
@@ -132,23 +137,23 @@
 					min-width max-content
 					margin 5px 0 0
 					padding 0
-					border 1px solid darken($silver, 5%)
+					border 1px solid var(--sleek-surface-border-color)
 					border-radius 0.25rem
 					overflow hidden
 					text-align left
-					background-color white
+					background-color var(--sleek-surface-background-color)
 					box-shadow 0 3px 0 alpha($dark, 0.05)
 					
 					> a
 						display block
 						padding 0.5rem 1rem
-						color $dark
+						color var(--color-text-default)
 						transition background-color $fast ease-in
 
 						&:hover,
 						&:focus,
 						&:active
-							background-color lighten($silver, 75%)
+							background-color var(--sleek-pnav-menu-item-hover-background-color)
 				
 				&.-open .pnav__menu
 					display block
@@ -180,4 +185,4 @@
 		&__divider
 			height 1rem
 			margin auto 1em
-			border-left 1px solid $silver
+			border-left 1px solid var(--sleek-divider-border-color)

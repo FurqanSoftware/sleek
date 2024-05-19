@@ -4,8 +4,13 @@
 @require '../../func'
 @require '../../palette'
 
+:root
+	--sleek-arena-body-background-color $dark
+
+	--sleek-arena-pmenu-item-hover-background-color lighten($dark, 5%)
+
 body
-	background-color $dark
+	background-color var(--sleek-arena-body-background-color)
 
 .phead
 	&__logo
@@ -37,7 +42,7 @@ body
 			&:focus,
 			&.-open
 				text-decoration none
-				background-color lighten($dark, 5%)
+				background-color var(--sleek-arena-pmenu-item-hover-background-color)
 
 		&.-link,
 		&.-drop > a
@@ -75,7 +80,7 @@ body
 		display block
 		height 40px
 		margin 0.75rem
-		border-right 1px solid lighten($dark, 5%)
+		border-right 1px solid var(--sleek-divider-border-color)
 		height 1rem
 
 .pside
@@ -149,7 +154,7 @@ body
 	margin-left 0
 	padding-top 15px
 	border-radius 0
-	background-color #f7f9fc
+	background-color var(--sleek-body-background-color)
 
 @media (max-width: 991px)
 	.pside
@@ -173,7 +178,7 @@ body
 		bottom 0
 		left 0
 		width 275px
-		background-color alpha($dark, 95%)
+		background-color var(--sleek-arena-body-background-color)
 
 	#content
 		margin-left 275px

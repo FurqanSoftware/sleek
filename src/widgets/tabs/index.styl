@@ -9,7 +9,7 @@
 	&__item
 		flex 0 0 auto
 		border-bottom 2px solid transparent
-		color $muted
+		color var(--sleek-text-muted-color)
 		transition border-bottom-color $fast ease-in
 		text-decoration none
 		
@@ -23,20 +23,20 @@
 		&:focus,
 		&:hover
 			border-bottom-color $blueglow
-			color $muted
+			color var(--sleek-text-muted-color)
 			text-decoration none
 
 		> .badge
 			float right
 			margin-left 0.5rem
-			color $muted
+			color var(--sleek-text-muted-color)
 
 		&.-active
 			border-bottom-color $blue
-			color $dark
+			color var(--sleek-text-default-color)
 		
 		&.-disabled
-			color $muted
+			color var(--sleek-text-muted-color)
 			cursor default
 			opacity 0.75
 
@@ -54,7 +54,7 @@
 
 	&__divider
 		margin 1em
-		border-right 1px solid $silver
+		border-right 1px solid var(--sleek-divider-border-color)
 
 @media (max-width: 991px)
 	.tabs

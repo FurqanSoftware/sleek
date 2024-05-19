@@ -55,18 +55,19 @@ _modal_widths = {
 		position relative
 		width auto
 		margin 0.5rem
+		border 1px solid var(--sleek-surface-border-color)
 		border-radius 0.25rem
 		// Fixes https://gitlab.furqansoftware.net/toph/sleek/-/issues/8
 		// overflow hidden
-		background-color white
-		box-shadow 0 0.5rem 1rem $shadow5
+		background-color var(--sleek-surface-background-color)
+		box-shadow 0 0.5rem 1rem var(--sleek-shadow-color-5)
 
 	&__head
 		padding 1rem 1.25rem
 		
 		&.-socle
-			border-bottom 1px solid $silver
-			box-shadow 0 0.25rem 0.125rem $shadow0
+			border-bottom 1px solid var(--sleek-surface-border-color)
+			box-shadow 0 0.25rem 0.125rem var(--sleek-shadow-color-0)
 			
 			.tabsbox
 				margin-top 1rem
@@ -88,7 +89,7 @@ _modal_widths = {
 
 		&.-shade
 			border-radius 0 0 0.25rem 0.25rem
-			background-color lighten($silver, 75%)
+			background-color var(--sleek-surface-shade-background-color)
 
 for bk, bv in _breakpoints
 	@media (min-width unit(bv, 'px'))

@@ -33,30 +33,24 @@
 		right 0
 		padding 1.5rem
 
-_alert(name, code)
-	.alert.-{name}
-		background-color lighten(code, 95%)
-		border-color code
-
-_alert('default', #e1e5ec)
-_alert('ebony', $ebony)
-_alert('blue', $blue)
-_alert('green', $green)
-_alert('red', $red)
-_alert('orange', $orange)
+for c in 'default' 'ebony' 'blue' 'green' 'red' 'orange'
+	.alert.-{c}
+		background-color var('--sleek-alert-%s-background-color' % unquote(c))
+		border-color var('--sleek-alert-%s-border-color' % unquote(c))
 
 .alert.-subtle
-	border-color lighten($silver, 25%)
+	border-color var(--sleek-surface-border-color-subtle)
 	text-align center
-	color lighten($dark, 50%)
+	color var(--sleek-alert-subtle-color)
 
 	a&
 		display block
 		text-decoration none
 
-		&:hover
+		&:hover,
+		&:focus
 			border-color $blue
-			color lighten($dark, 25%)
+			color var(--sleek-alert-subtle-color)
 
 a > .alert.-subtle
 	transition border-color $fast ease-in, color $fast ease-in

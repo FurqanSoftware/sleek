@@ -26,7 +26,7 @@ class TheadFly {
 		dom.setStyles(this.flyEl, {
 			display: 'none',
 			position: 'fixed',
-			borderBottom: '1px solid #e7ecf1',
+			borderBottom: '1px solid var(--sleek-surface-border-color)',
 			boxShadow: '0 .25rem .125rem rgba(47,53,59,.025)'
 		})
 
@@ -65,7 +65,7 @@ class TheadFly {
 			top: `${Math.min(offset, tableRect.top+tableRect.height-offset-elRect.height)}px`,
 			width: `${this.targetEl.clientWidth}px`,
 			display: 'block',
-			backgroundColor: 'white'
+			backgroundColor: 'var(--sleek-surface-background-color)'
 		})
 		dom.setStyles(this.cloneTable, {
 			width: `${dom.getWidth(this.table)}px`,

@@ -6,12 +6,12 @@
 
 .dashlet
 	margin-bottom 0.5rem
-	border 1px solid $silver
+	border 1px solid var(--sleek-surface-border-color)
 	border-radius 0.25rem
 	overflow hidden
-	background-color white
-	color $dark
-	box-shadow 0 0.0625rem 0.125rem $shadow1
+	background-color var(--sleek-surface-background-color)
+	color var(--sleek-text-default-color)
+	box-shadow 0 0.0625rem 0.125rem var(--sleek-shadow-color-1)
 
 	&.-active,
 	&.-active:hover
@@ -58,7 +58,7 @@
 		float right
 		font-size inherit
 		line-height inherit
-		color $muted
+		color var(--sleek-text-muted-color)
 	
 	&__mark
 		display block
@@ -92,9 +92,9 @@
 		display block
 		clear both
 		padding 0.25rem 0.5rem
-		border-top 1px solid $silver
+		border-top 1px solid var(--sleek-surface-border-color)
 		text-align center
-		background-color $shade
+		background-color var(--sleek-surface-shade-background-color)
 
 	.progress
 		position relative
@@ -104,14 +104,14 @@
 	a&
 		display block
 		text-decoration none
-		color $dark
+		color var(--sleek-text-default-color)
 		transition border-color $fast ease-in
 
 		&:hover,
 		&:focus
 			text-decoration none
-			color $dark
-			border-color $blueglow
+			color var(--sleek-text-default-color)
+			border-color var(--sleek-surface-highlight-border-color)
 
 			.dashlet__mark
 				opacity 0.09375

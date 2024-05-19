@@ -6,16 +6,16 @@
 
 .panel
 	margin-bottom 0.5rem
-	border 1px solid $silver
+	border 1px solid var(--sleek-surface-border-color)
 	border-radius 0.25rem
-	background-color white
-	box-shadow 0 0.0625rem 0.125rem $shadow1
+	background-color var(--sleek-surface-background-color)
+	box-shadow 0 0.0625rem 0.125rem var(--sleek-shadow-color-1)
 
 	&__cover
 		position relative
 		max-height 56rem
 		min-height 10rem
-		border-bottom 1px solid $silver
+		border-bottom 1px solid var(--sleek-surface-border-color)
 		border-radius 0.25rem 0.25rem 0 0
 		overflow hidden
 
@@ -32,7 +32,7 @@
 		&.-empty
 			background-size auto
 			background-repeat repeat
-			box-shadow inset 0 -0.25rem 0.125rem $shadow0
+			box-shadow inset 0 -0.25rem 0.125rem var(--sleek-shadow-color-0)
 		
 		> img
 			display block
@@ -60,8 +60,8 @@
 			clear both
 
 		&.-socle
-			border-bottom 1px solid $silver
-			box-shadow 0 0.25rem 0.125rem $shadow0
+			border-bottom 1px solid var(--sleek-surface-border-color)
+			box-shadow 0 0.25rem 0.125rem var(--sleek-shadow-color-0)
 			
 			.tabsbox
 				margin-top 1rem
@@ -70,9 +70,9 @@
 	&__drawer
 		display none
 		padding 1rem 1.25rem 0.5rem
-		border-top 1px solid lighten($silver, 50%)
-		border-bottom 1px solid lighten($silver, 50%)
-		box-shadow inset 0 0.25rem 0.125rem $shadow0
+		border-top 1px solid var(--sleek-surface-border-color-subtle)
+		border-bottom 1px solid var(--sleek-surface-border-color-subtle)
+		box-shadow inset 0 0.25rem 0.125rem var(--sleek-shadow-color-0)
 		
 		&:after
 			display table
@@ -96,7 +96,7 @@
 
 		&.-shade
 			border-radius 0 0 0.25rem 0.25rem
-			background-color lighten($silver, 75%)
+			background-color var(--sleek-surface-shade-background-color)
 
 	&__title
 		float left
@@ -128,7 +128,7 @@ a > .panel
 	transition border-color $fast ease-in
 
 	&:hover
-		border-color $blueglow
+		border-color var(--sleek-surface-highlight-border-color)
 
 @media (max-width: 767px)
 	.panel .panel__actions .btn

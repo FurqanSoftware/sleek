@@ -12,7 +12,7 @@ _color(name, code)
 	.border-{name}
 		border-color code !important
 
-_color('dark', $dark)
+_color('dark', var(--sleek-text-default-color))
 _color('ebony', $ebony)
 _color('blue', $blue)
 _color('green', $green)
@@ -21,4 +21,4 @@ _color('orange', $orange)
 _color('white', white)
 
 .font-muted
-	color $muted
+	color var(--sleek-text-muted-color)
