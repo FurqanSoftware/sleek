@@ -31,10 +31,11 @@
 	&__field[disabled]
 		background-color var(--sleek-field-disabled-background-color)
 		color var(--sleek-field-disabled-color)
+		box-shadow inset 0 0.25rem 0.125rem var(--sleek-shadow-color-1)
 		
 		&:focus
 			border-color mix($dark, $silver, 20)
-			box-shadow inset 0 0.25rem 0.125rem var(--sleek-shadow-color-0), 0 0 0 0.25rem var(--sleek-field-disabled-focus-border-color)
+			box-shadow inset 0 0.25rem 0.125rem var(--sleek-shadow-color-1), 0 0 0 0.25rem var(--sleek-field-disabled-focus-border-color)
 	
 	textarea.form__field
 		height auto
