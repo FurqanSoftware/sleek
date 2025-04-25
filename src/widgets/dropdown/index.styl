@@ -13,7 +13,33 @@
 	&__toggle
 		&:not(.-disabled)
 			cursor pointer
-	
+
+		&.form__field
+			&::before
+				content ''
+				position absolute
+				width 2.5rem
+				top 0
+				right 0
+				bottom 0
+				z-index 1
+				background-color var(--sleek-surface-background-color)
+				background linear-gradient(to right, transparent, var(--sleek-surface-background-color) 1rem, var(--sleek-surface-background-color) 100%)
+				pointer-events none
+
+			&::after
+				content ''
+				position absolute
+				width 0
+				height 0
+				top 50%
+				right 0
+				z-index 2
+				margin -0.125rem 0.5rem 0 0
+				border-left 0.25rem solid transparent
+				border-top 0.25rem solid lighten($dark, 25%)
+				border-right 0.25rem solid transparent
+
 	&__toggle + &__search input
 		width 100%
 
@@ -133,31 +159,6 @@
 			padding-right 1.5rem
 			overflow hidden
 			white-space nowrap
-			
-			&::before
-				content ''
-				position absolute
-				width 2.5rem
-				top 0
-				right 0
-				bottom 0
-				z-index 1
-				background-color var(--sleek-surface-background-color)
-				background linear-gradient(to right, transparent, var(--sleek-surface-background-color) 1rem, var(--sleek-surface-background-color) 100%)
-				pointer-events none
-			
-			&::after
-				content ''
-				position absolute
-				width 0
-				height 0
-				top 50%
-				right 0
-				z-index 2
-				margin -0.125rem 0.5rem 0 0
-				border-left 0.25rem solid transparent
-				border-top 0.25rem solid lighten($dark, 25%)
-				border-right 0.25rem solid transparent
 
 			input[type=radio]
 				display none
