@@ -8,6 +8,7 @@ class Dropdown {
 	constructor(el, settings = {}) {
 		this.el = el
 		this.settings = settings
+		this._onWindowResize = this._onWindowResize.bind(this)
 		this.init()
 	}
 
@@ -46,7 +47,7 @@ class Dropdown {
 			}
 		}
 
-		select.addEventListener('change', () => {
+		dom.on(select, 'change', () => {
 			this.renderToggle()
 			this.renderActiveItems()
 		})
@@ -292,6 +293,7 @@ class Dropdown {
 		}
 
 		this.reposition()
+		dom.on(window, 'resize', this._onWindowResize)
 	}
 
 	close() {
@@ -313,6 +315,8 @@ class Dropdown {
 			dom.removeClass(this.el, '-open')
 			dom.removeClass(menu, 'animated', 'fadeOutUpSmall', 'fastest')
 		})
+
+		dom.off(window, 'resize', this._onWindowResize)
 	}
 
 	refresh() {
@@ -403,6 +407,10 @@ class Dropdown {
 			target = target.parentNode;
 		}
 		return false
+	}
+
+	_onWindowResize(event) {
+		this.reposition()
 	}
 }
 
