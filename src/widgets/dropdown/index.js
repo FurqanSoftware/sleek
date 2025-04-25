@@ -71,6 +71,7 @@ class Dropdown {
 			event.preventDefault()
 		})
 		dom.on(input, 'keyup', event => applySearch(input.value))
+		dom.on(input, 'paste', event => fn.defer(() => applySearch(input.value)))
 	}
 
 	applySearch(query) {
