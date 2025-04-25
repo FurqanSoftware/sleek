@@ -54,6 +54,8 @@ class Dropdown {
 
 		this.renderToggle()
 		this.renderActiveItems()
+
+		this.renderToolSelect()
 	}
 
 	initSearch() {
@@ -93,7 +95,7 @@ class Dropdown {
 			const menu = dom.$('.dropdown__menu', this.el)
 			for (const el of dom.$$('.dropdown__item', menu)) dom.detach(el)
 
-			const select = dom.$('select', this.el)	
+			const select = dom.$('select', this.el)
 
 			const addItem = (data) => {
 				const { label, value, empty, ...rest } = data
@@ -143,6 +145,18 @@ class Dropdown {
 			this.reposition()
 			this.renderActiveItems()
 		})
+	}
+	
+	selectAll() {
+		for (const option of dom.$$('select option', this.el)) option.selected = true
+		this.renderToggle()
+		this.renderActiveItems()
+	}
+	
+	selectNone() {
+		for (const option of dom.$$('select option', this.el)) option.selected = false
+		this.renderToggle()
+		this.renderActiveItems()
 	}
 
 	renderToggle() {
@@ -197,6 +211,17 @@ class Dropdown {
 		}
 	}
 
+	renderToolSelect() {
+		const tool = dom.$('.dropdown__tool', this.el)
+		if (!tool) return
+		tool.innerHTML = ''
+
+		tool.appendChild(this.makeToolText('Select: '))
+		tool.appendChild(this.makeToolItem('All', () => this.selectAll()))
+		tool.appendChild(this.makeToolText(', '))
+		tool.appendChild(this.makeToolItem('None', () => this.selectNone()))
+	}
+
 	makeItem(data) {
 		const item = document.createElement('a')
 		dom.addClass(item, 'dropdown__item', '-link')
@@ -231,6 +256,24 @@ class Dropdown {
 			}))
 		})
 
+		return item
+	}
+	
+  makeToolText(label) {
+    const item = document.createElement('span')
+		dom.setText(item, label)
+		return item
+  }
+	
+	makeToolItem(label, action) {
+		const item = document.createElement('a')
+		item.setAttribute('href', 'javascript:;')
+		item.setAttribute('tabindex', '0')
+		dom.setText(item, label)
+		dom.on(item, 'click', event => {
+			event.preventDefault()
+			action()
+		})
 		return item
 	}
 
@@ -273,6 +316,12 @@ class Dropdown {
 				})
 			}
 		}
+		
+		const tool = dom.$('.dropdown__tool', this.el)
+    if (tool) {
+      dom.addClass(tool, 'animated', 'fadeIn', 'fastest')
+      dom.once(tool, 'animationend', () => { dom.removeClass(tool, 'animated', 'fadeIn', 'fastest') })
+    }
 
 		if (this.settings.search) {
 			const search = this.searchEl
@@ -315,6 +364,12 @@ class Dropdown {
 			dom.removeClass(this.el, '-open')
 			dom.removeClass(menu, 'animated', 'fadeOutUpSmall', 'fastest')
 		})
+		
+		const tool = dom.$('.dropdown__tool', this.el)
+    if (tool) {
+      dom.addClass(tool, 'animated', 'fadeOut', 'fastest')
+      dom.once(tool, 'animationend', () => { dom.removeClass(tool, 'animated', 'fadeOut', 'fastest') })
+    }
 
 		dom.off(window, 'resize', this._onWindowResize)
 	}
@@ -328,6 +383,21 @@ class Dropdown {
 		if (dom.hasClass(menu, '-left') || dom.hasClass(menu, '-right')) return
 		if (dom.hasClass(this.el, '-select') || !dom.closest(menu.parentNode, '.dropdown__menu')) this.repositionY()
 		if (dom.closest(menu.parentNode, '.dropdown__menu')) this.repositionXY()
+
+		const tool = dom.$('.dropdown__tool', this.el)
+		if (tool) {
+			if (menu.style.top === '100%') {
+				dom.setStyles(tool, {
+					top: 'auto',
+					bottom: '100%'
+				})
+			} else {
+				dom.setStyles(tool, {
+					top: '100%',
+					bottom: 'auto'
+				})
+			}
+		}
 	}
 
 	repositionY() {
@@ -391,7 +461,7 @@ class Dropdown {
 		if (pos.top + menuHeight > document.documentElement.clientHeight) {
 			[top, bottom] = [bottom, top]
 		}
-		
+
 		dom.setStyles(menu, {
 			top,
 			right,

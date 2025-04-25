@@ -127,7 +127,21 @@
 		padding 0.5rem 1rem 0.25rem
 		color lighten($dark, 50%)
 		font-size 0.95em
-	
+
+	&__tool
+		display none
+		flex-direction column
+		position absolute
+		top 100%
+		left 0
+		z-index 1000
+		margin 0.25rem 0
+		padding 0.25rem 0.5rem
+		border 1px solid var(--sleek-surface-border-color)
+		border-radius 0.25rem
+		background-color var(--sleek-surface-background-color)
+		box-shadow 0 0.0625rem 0.125rem var(--sleek-shadow-color-1)
+
 	&__divider
 		border-bottom 1px solid var(--sleek-divider-border-color)
 
@@ -143,9 +157,13 @@
 			float right
 			margin-left 1rem
 
-	&.-open > .dropdown__menu
+	&.-open
+		> .dropdown__menu
 			display flex
-	
+
+		> .dropdown__tool
+			display block
+
 	.-open > .dropdown__toggle
 		background-color var(--sleek-dropdown-item-hover-background-color)
 		
