@@ -1585,8 +1585,8 @@ fieldset.-flags .switch {
   bottom: 0;
   left: 0;
   padding: 1rem 1.25rem;
-  background-color: rgba(255,255,255,0.25);
-  backdrop-filter: blur(0.125rem);
+  background-color: transparent;
+  backdrop-filter: blur(0.25rem);
 }
 .panel:hover .panel__cover.-modest > picture {
   opacity: 1;
@@ -1919,7 +1919,6 @@ a.dashlet:focus .dashlet__mark {
 }
 .alert.-subtle {
   border-color: var(--sleek-surface-border-color-subtle);
-  text-align: center;
   color: var(--sleek-alert-subtle-color);
 }
 a.alert.-subtle {
