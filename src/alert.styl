@@ -10,6 +10,16 @@
 	border 1px solid transparent
 	border-radius 0.25rem
 
+	a&
+		display block
+		text-decoration none
+
+		&,
+		&:hover,
+		&:focus,
+		&:active
+			color var(--sleek-text-default-color)
+
 	&.-broadcast
 		margin 0
 		border-width 0 0 1px
@@ -43,9 +53,6 @@ for c in 'default' 'ebony' 'blue' 'green' 'red' 'orange'
 	color var(--sleek-alert-subtle-color)
 
 	a&
-		display block
-		text-decoration none
-
 		&:hover,
 		&:focus
 			border-color $blue
