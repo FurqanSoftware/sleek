@@ -1833,8 +1833,8 @@ a.dashlet:focus .dashlet__mark {
 }
 .artifact > * > img,
 .artifact__fragment > * > img,
-.artifact > * > picture,
-.artifact__fragment > * > picture,
+.artifact > * > picture > img,
+.artifact__fragment > * > picture > img,
 .artifact > * > svg,
 .artifact__fragment > * > svg {
   display: block;
