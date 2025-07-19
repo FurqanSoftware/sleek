@@ -1,6 +1,6 @@
 {
   "name": "sleek",
-  "version": "1.52.2",
+  "version": "1.52.3",
   "description": "Toph's base stylesheets",
   "scripts": {
     "build": "rollup -c rollup.config.js && stylus -o dist/sleek.css src/index.styl && stylus -o dist/widgets/animate.css src/widgets/animate/index.styl && stylus -o dist/widgets/dropdown.css src/widgets/dropdown/index.styl"
