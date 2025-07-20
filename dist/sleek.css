@@ -1144,7 +1144,7 @@ fieldset.-flags .switch {
 .table > thead > tr.active > th,
 .table > tbody > tr.active > th,
 .table > tfoot > tr.active > th {
-  background-color: #f9fafc;
+  background-color: var(--sleek-surface-shade-background-color);
 }
 .table.-emphasis > tbody tr:hover,
 .table.-emphasis > tbody tr:hover + tr {
