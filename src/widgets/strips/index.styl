@@ -13,11 +13,13 @@
 		padding 0.5rem 1.25rem
 		border-bottom 1px solid var(--sleek-surface-border-color-subtle)
 		text-decoration none
+		color var(--sleek-text-default-color)
 		transition background-color $fast ease-in
-		
+
 		&:focus,
 		&:hover
 			text-decoration none
+			color var(--sleek-text-default-color)
 			box-shadow inset 0.5rem 0 0 -0.25rem $blueglow
 
 		&:last-child
@@ -25,7 +27,6 @@
 
 		&.-active
 			box-shadow inset 0.5rem 0 0 -0.25rem $blue
-			color var(--sleek-text-default-color)
 
 			&:last-child
 				border-radius 0 0 0 0.25rem
