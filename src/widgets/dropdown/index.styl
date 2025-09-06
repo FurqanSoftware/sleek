@@ -104,13 +104,6 @@
 				border-left 0.3125rem solid lighten($dark, 25%)
 				border-bottom 0.3125rem solid transparent
 
-		&:not(.-disabled)
-			cursor pointer
-
-			&:hover,
-			&:focus
-				background-color var(--sleek-dropdown-item-hover-background-color)
-
 		&.-active
 			position relative
 			box-shadow inset 0.5rem 0 0 -0.25rem $blue
@@ -161,6 +154,7 @@
 		> .dropdown__menu
 			display flex
 
+	&.-open:not(.-readonly)
 		> .dropdown__tool
 			display block
 
@@ -195,3 +189,17 @@
 			
 		select
 			display none
+
+	&:not(.-readonly)
+		.dropdown__item
+			&:not(.-disabled)
+				cursor pointer
+
+				&:hover,
+				&:focus
+					background-color var(--sleek-dropdown-item-hover-background-color)
+			
+
+	&.-readonly
+		.dropdown__item
+			cursor default

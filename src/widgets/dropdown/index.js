@@ -167,6 +167,11 @@ class Dropdown {
 		const toggle = dom.$('.dropdown__toggle', this.el)
 		toggle.innerHTML = ''
 		
+		if (dom.hasClass(toggle, 'form__field')) {
+		  if (dom.hasClass(this.el, '-readonly')) toggle.setAttribute('readonly', true)
+			else toggle.removeAttribute('readonly')
+		}
+		
 		const select = dom.$('select', this.el)
 		if (select.selectedOptions.length == 0 || select.selectedOptions.length == 1 && select.selectedOptions[0].dataset.empty) {
 			this.renderTogglePlaceholder()
@@ -242,6 +247,8 @@ class Dropdown {
 		const item = this.makeItem(data)
 
 		dom.on(item, 'click', () => {
+      if (dom.hasClass(this.el, '-readonly')) return;
+		  
 			if (option.dataset.empty) {
 				const currentSelected = [...select.selectedOptions]
 				option.selected = true
