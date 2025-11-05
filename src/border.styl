@@ -8,6 +8,8 @@ _border(ns)
         border none
     .{ns}b-silver
         border 1px solid $silver
+    .{ns}b-default
+        border 1px solid var(--sleek-surface-border-color)
     for e in top right bottom left
         ec = substr(e, 0, 1)
         .{ns}b{ec}-none
