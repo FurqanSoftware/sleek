@@ -863,7 +863,7 @@ small,
 }
 body {
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, 'Hind Siliguri', Cantarell, 'Helvetica Neue', sans-serif;
-  font-size: 1rem;
+  font-size: 0.875rem;
   line-height: 1.75em;
   color: var(--sleek-text-default-color);
   direction: 'ltr';
