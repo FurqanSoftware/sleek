@@ -1682,15 +1682,19 @@ fieldset.-flags .switch {
 .panel.-closed > .panel__foot {
   display: none;
 }
+a:has(> .panel) {
+  color: var(--sleek-text-default-color);
+  text-decoration: none;
+}
+a:hover > .panel {
+  border-color: var(--sleek-surface-highlight-border-color);
+}
 a > .panel {
   -webkit-transition: border-color 125ms ease-in;
   -moz-transition: border-color 125ms ease-in;
   -ms-transition: border-color 125ms ease-in;
   -o-transition: border-color 125ms ease-in;
   transition: border-color 125ms ease-in;
-}
-a > .panel:hover {
-  border-color: var(--sleek-surface-highlight-border-color);
 }
 @media (max-width: 767px) {
   .panel .panel__actions .btn .icon + .text {
