@@ -124,11 +124,16 @@
 		> .panel__foot
 			display none
 
-a > .panel
-	transition border-color $fast ease-in
+a
+	&:has(> .panel)
+		color var(--sleek-text-default-color)
+		text-decoration none
 
-	&:hover
+	&:hover > .panel
 		border-color var(--sleek-surface-highlight-border-color)
+
+	> .panel
+		transition border-color $fast ease-in
 
 @media (max-width: 767px)
 	.panel .panel__actions .btn
