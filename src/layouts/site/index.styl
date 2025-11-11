@@ -6,7 +6,7 @@
 
 :root
 	--sleek-site-pmenu-item-hover-background-color $silverglow
-    --sleek-site-pmenu-icon-filter none
+	--sleek-site-pmenu-icon-filter none
 
 body
 	display flex
@@ -101,7 +101,7 @@ body
 
 .pfoot
 	margin-top 5rem
-	padding 3rem 0 1rem
+	padding 1rem 0
 	border-top 1px solid var(--sleek-surface-border-color)
 	color var(--sleek-text-muted-color)
 
@@ -112,13 +112,19 @@ body
 		&:focus
 			color darken($muted, 20%)
 
+	&__upper
+		display flex
+		margin-bottom 3rem
+
+		&:after
+			clear both
+
 	&__logo
 		margin 0.5rem 0 1.5rem
 
 	&__nav
-		float right
+		margin-left auto
 		width 40%
-		margin 0.5rem 0
 		text-align center
 
 		ul
@@ -129,8 +135,17 @@ body
 			li
 				padding 0.75rem 0
 
+	&__social
+		display flex
+		gap 0.5rem
+
+	&__lower
+		display flex
+		gap 1rem
+		align-items center
+
 	&__legal
-		float right
+		margin-left auto
 
 		a
 			margin-left 1rem
@@ -146,16 +161,22 @@ body
 	.pfoot
 		text-align center
 
-		&__rights
-			margin-top 0.5rem
+		&__upper
+			flex-direction column
 
 		&__nav
-			float none
 			width auto
-			margin-bottom 1.5rem
+			margin 2rem 0 0
+
+		&__social
+			justify-content center
+
+		&__lower
+			flex-direction column
+			gap 0.5rem
 
 		&__legal
-			float none
+			margin-left unset
 
 // Discourse
 
