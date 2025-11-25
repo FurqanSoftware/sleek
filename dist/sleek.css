@@ -1287,7 +1287,7 @@ fieldset.-flags .switch {
   -o-transition: box-shadow 125ms ease-in;
   transition: box-shadow 125ms ease-in;
 }
-.btn.-default .icon {
+.btn.-default .icon:not(.-custom) {
   filter: var(--sleek-button-icon-default-filter) !important;
 }
 .btn.-default:hover,
@@ -1297,8 +1297,8 @@ fieldset.-flags .switch {
   -webkit-box-shadow: inset 0 0 0 0.125rem var(--sleek-button-default-hover-shadow-color);
   box-shadow: inset 0 0 0 0.125rem var(--sleek-button-default-hover-shadow-color);
 }
-.btn.-default:hover .icon,
-.btn.-default:focus .icon {
+.btn.-default:hover .icon:not(.-custom),
+.btn.-default:focus .icon:not(.-custom) {
   filter: var(--sleek-button-icon-default-hover-filter) !important;
 }
 .btn.-default:focus {
@@ -1314,7 +1314,7 @@ fieldset.-flags .switch {
   -webkit-box-shadow: inset 0 0 0 0.125rem var(--sleek-button-default-active-shadow-color);
   box-shadow: inset 0 0 0 0.125rem var(--sleek-button-default-active-shadow-color);
 }
-.btn.-default.-active .icon {
+.btn.-default.-active .icon:not(.-custom) {
   filter: var(--sleek-button-icon-default-active-filter) !important;
 }
 .btn.-default.-disabled,
@@ -1330,7 +1330,7 @@ fieldset.-flags .switch {
   -webkit-box-shadow: inset 0 0 0 0.125rem var(--sleek-button-icon-default-active-filter);
   box-shadow: inset 0 0 0 0.125rem var(--sleek-button-icon-default-active-filter);
 }
-.-open > .-default.-toggle .icon {
+.-open > .-default.-toggle .icon:not(.-custom) {
   filter: var(--sleek-button-icon-default-active-filter) !important;
 }
 .btn.-blue {
@@ -1343,7 +1343,7 @@ fieldset.-flags .switch {
   -o-transition: box-shadow 125ms ease-in;
   transition: box-shadow 125ms ease-in;
 }
-.btn.-blue .icon {
+.btn.-blue .icon:not(.-custom) {
   filter: var(--sleek-button-icon-blue-filter) !important;
 }
 .btn.-blue:hover,
@@ -1353,8 +1353,8 @@ fieldset.-flags .switch {
   -webkit-box-shadow: inset 0 0 0 0.125rem var(--sleek-button-blue-hover-shadow-color);
   box-shadow: inset 0 0 0 0.125rem var(--sleek-button-blue-hover-shadow-color);
 }
-.btn.-blue:hover .icon,
-.btn.-blue:focus .icon {
+.btn.-blue:hover .icon:not(.-custom),
+.btn.-blue:focus .icon:not(.-custom) {
   filter: var(--sleek-button-icon-blue-hover-filter) !important;
 }
 .btn.-blue:focus {
@@ -1370,7 +1370,7 @@ fieldset.-flags .switch {
   -webkit-box-shadow: inset 0 0 0 0.125rem var(--sleek-button-blue-active-shadow-color);
   box-shadow: inset 0 0 0 0.125rem var(--sleek-button-blue-active-shadow-color);
 }
-.btn.-blue.-active .icon {
+.btn.-blue.-active .icon:not(.-custom) {
   filter: var(--sleek-button-icon-blue-active-filter) !important;
 }
 .btn.-blue.-disabled,
@@ -1386,7 +1386,7 @@ fieldset.-flags .switch {
   -webkit-box-shadow: inset 0 0 0 0.125rem var(--sleek-button-icon-blue-active-filter);
   box-shadow: inset 0 0 0 0.125rem var(--sleek-button-icon-blue-active-filter);
 }
-.-open > .-blue.-toggle .icon {
+.-open > .-blue.-toggle .icon:not(.-custom) {
   filter: var(--sleek-button-icon-blue-active-filter) !important;
 }
 .btn.-simple {
@@ -1399,7 +1399,7 @@ fieldset.-flags .switch {
   -o-transition: box-shadow 125ms ease-in;
   transition: box-shadow 125ms ease-in;
 }
-.btn.-simple .icon {
+.btn.-simple .icon:not(.-custom) {
   filter: var(--sleek-button-icon-simple-filter) !important;
 }
 .btn.-simple:hover,
@@ -1409,8 +1409,8 @@ fieldset.-flags .switch {
   -webkit-box-shadow: inset 0 0 0 0.125rem var(--sleek-button-simple-hover-shadow-color);
   box-shadow: inset 0 0 0 0.125rem var(--sleek-button-simple-hover-shadow-color);
 }
-.btn.-simple:hover .icon,
-.btn.-simple:focus .icon {
+.btn.-simple:hover .icon:not(.-custom),
+.btn.-simple:focus .icon:not(.-custom) {
   filter: var(--sleek-button-icon-simple-hover-filter) !important;
 }
 .btn.-simple:focus {
@@ -1426,7 +1426,7 @@ fieldset.-flags .switch {
   -webkit-box-shadow: inset 0 0 0 0.125rem var(--sleek-button-simple-active-shadow-color);
   box-shadow: inset 0 0 0 0.125rem var(--sleek-button-simple-active-shadow-color);
 }
-.btn.-simple.-active .icon {
+.btn.-simple.-active .icon:not(.-custom) {
   filter: var(--sleek-button-icon-simple-active-filter) !important;
 }
 .btn.-simple.-disabled,
@@ -1442,7 +1442,7 @@ fieldset.-flags .switch {
   -webkit-box-shadow: inset 0 0 0 0.125rem var(--sleek-button-icon-simple-active-filter);
   box-shadow: inset 0 0 0 0.125rem var(--sleek-button-icon-simple-active-filter);
 }
-.-open > .-simple.-toggle .icon {
+.-open > .-simple.-toggle .icon:not(.-custom) {
   filter: var(--sleek-button-icon-simple-active-filter) !important;
 }
 .btn.-subtle {
