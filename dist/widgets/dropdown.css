@@ -114,6 +114,9 @@
   opacity: 0.75;
   cursor: not-allowed;
 }
+.dropdown__item .icon + .text {
+  margin-left: 0.25rem;
+}
 .dropdown__item .badge {
   float: right;
   margin-left: 2rem;
