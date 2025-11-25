@@ -92,7 +92,7 @@ for x in 'default' 'blue' 'simple'
 			color var('--sleek-button-%s-color' % unquote(x))
 			transition box-shadow $fast ease-in
 			
-			.icon
+			.icon:not(.-custom)
 				filter var('--sleek-button-icon-%s-filter' % unquote(x)) !important
 
 		&.-{x}:hover,
@@ -101,7 +101,7 @@ for x in 'default' 'blue' 'simple'
 			color var('--sleek-button-%s-hover-color' % unquote(x))
 			box-shadow inset 0 0 0 0.125rem var('--sleek-button-%s-hover-shadow-color' % unquote(x))
 			
-			.icon
+			.icon:not(.-custom)
 				filter var('--sleek-button-icon-%s-hover-filter' % unquote(x)) !important
 
 		&.-{x}:focus
@@ -115,7 +115,7 @@ for x in 'default' 'blue' 'simple'
 			color var('--sleek-button-%s-active-color' % unquote(x))
 			box-shadow inset 0 0 0 0.125rem var('--sleek-button-%s-active-shadow-color' % unquote(x))
 			
-			.icon
+			.icon:not(.-custom)
 				filter var('--sleek-button-icon-%s-active-filter' % unquote(x)) !important
 			
 		&.-{x}.-disabled,
@@ -129,7 +129,7 @@ for x in 'default' 'blue' 'simple'
 		color var('--sleek-button-%s-active-color' % unquote(x))
 		box-shadow inset 0 0 0 0.125rem var('--sleek-button-icon-%s-active-filter' % unquote(x))
 
-		.icon
+		.icon:not(.-custom)
 			filter var('--sleek-button-icon-%s-active-filter' % unquote(x)) !important
 
 .btn.-subtle
