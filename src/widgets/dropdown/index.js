@@ -15,38 +15,16 @@ class Dropdown {
   init() {
     if (dom.hasClass(this.el, "-select")) this.initSelect();
     if (this.settings.search) this.initSearch();
+    if (this.settings.dynamic) this.initDynamic();
 
     const toggle = dom.$(".dropdown__toggle", this.el);
     toggle.setAttribute("tabindex", "0");
   }
 
   initSelect() {
-    const menu = dom.$(".dropdown__menu", this.el);
-    menu.innerHTML = "";
-
     const select = dom.$("select", this.el);
 
-    for (const child of select.childNodes) {
-      switch (child.tagName) {
-        case "OPTGROUP":
-          const head = document.createElement("div");
-          dom.addClass(head, "dropdown__head");
-          dom.setText(head, child.getAttribute("label"));
-          menu.appendChild(head);
-
-          for (const option of dom.$$("option", child))
-            menu.appendChild(this.makeItemOption(option, select));
-
-          const divider = document.createElement("div");
-          dom.addClass(divider, "dropdown__divider");
-          menu.appendChild(divider);
-          break;
-
-        case "OPTION":
-          menu.appendChild(this.makeItemOption(child, select));
-          break;
-      }
-    }
+    this.renderItemsSelect();
 
     dom.on(select, "change", () => {
       this.renderToggle();
@@ -158,6 +136,37 @@ class Dropdown {
     );
   }
 
+  initDynamic() {
+    const dynamic = document.createElement("div");
+    dom.addClass(dynamic, "dropdown__dynamic");
+    dynamic.innerHTML = '<input class="form__field">';
+    this.dynamicEl = dynamic;
+
+    const input = dom.$("input", dynamic);
+    dom.on(input, "keydown", (event) => {
+      if (event.keyCode !== 13 && event.key !== ",") return;
+      event.preventDefault();
+    });
+    dom.on(input, "keyup", (event) => {
+      if (event.keyCode !== 13 && event.key !== ",") return;
+      const value = input.value.trim();
+      if (!value) return;
+      input.value = "";
+      const select = dom.$("select", this.el);
+      const option = document.createElement("option");
+      option.setAttribute("value", value);
+      option.setAttribute("selected", true);
+      dom.setText(option, value);
+      select.appendChild(option);
+      this.renderToggle();
+      this.renderItemsSelect();
+      this.renderActiveItems();
+    });
+    dom.on(input, "paste", (event) =>
+      fn.defer(() => applyDynamic(input.value)),
+    );
+  }
+
   selectAll() {
     for (const option of dom.$$("select option", this.el))
       option.selected = true;
@@ -215,6 +224,35 @@ class Dropdown {
     dom.addClass(span, "font-muted");
     span.innerHTML = this.settings.placeholder || "&nbsp;";
     toggle.appendChild(span);
+  }
+
+  renderItemsSelect() {
+    const menu = dom.$(".dropdown__menu", this.el);
+    menu.innerHTML = "";
+
+    const select = dom.$("select", this.el);
+
+    for (const child of select.childNodes) {
+      switch (child.tagName) {
+        case "OPTGROUP":
+          const head = document.createElement("div");
+          dom.addClass(head, "dropdown__head");
+          dom.setText(head, child.getAttribute("label"));
+          menu.appendChild(head);
+
+          for (const option of dom.$$("option", child))
+            menu.appendChild(this.makeItemOption(option, select));
+
+          const divider = document.createElement("div");
+          dom.addClass(divider, "dropdown__divider");
+          menu.appendChild(divider);
+          break;
+
+        case "OPTION":
+          menu.appendChild(this.makeItemOption(child, select));
+          break;
+      }
+    }
   }
 
   renderActiveItems() {
@@ -383,6 +421,20 @@ class Dropdown {
       }
     }
 
+    if (this.settings.dynamic) {
+      const dynamic = this.dynamicEl;
+      if (dom.hasClass(this.el, "-select")) {
+        const toggle = dom.$(".dropdown__toggle", this.el);
+        dom.addClass(toggle, "hidden");
+        toggle.insertAdjacentElement("afterend", dynamic);
+      } else {
+        const menu = dom.$(".dropdown__menu", this.el);
+        menu.insertBefore(dynamic, menu.firstChild);
+      }
+      const input = dom.$("input", dynamic);
+      input.focus();
+    }
+
     this.reposition();
     dom.on(window, "resize", this._onWindowResize);
   }
@@ -401,6 +453,14 @@ class Dropdown {
       const toggle = dom.$(".dropdown__toggle", this.el);
       dom.removeClass(toggle, "hidden");
     }
+
+    if (this.settings.dynamic) {
+      const dynamic = dom.$(".dropdown__dynamic", this.el);
+      if (dynamic) dom.detach(dynamic);
+      const toggle = dom.$(".dropdown__toggle", this.el);
+      dom.removeClass(toggle, "hidden");
+    }
+
     dom.addClass(menu, "animated", "fadeOutUpSmall", "fastest");
     dom.once(menu, "animationend", () => {
       dom.removeClass(this.el, "-open");
