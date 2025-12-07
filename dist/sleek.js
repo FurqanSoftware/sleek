@@ -622,6 +622,7 @@ class Dropdown {
   }
   reposition() {
     const menu = dom.$(".dropdown__menu", this.el);
+    if (!menu) return;
     if (dom.hasClass(menu, "-left") || dom.hasClass(menu, "-right")) return;
     if (dom.hasClass(this.el, "-select") || !dom.closest(menu.parentNode, ".dropdown__menu")) this.repositionY();
     if (dom.closest(menu.parentNode, ".dropdown__menu")) this.repositionXY();
