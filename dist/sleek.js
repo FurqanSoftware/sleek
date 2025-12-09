@@ -301,6 +301,7 @@ class Dropdown {
               select.innerHTML = "";
               this.renderToggle();
               this.renderActiveItems();
+              this.close();
               return;
             }
             if (!select.multiple) {
@@ -323,6 +324,7 @@ class Dropdown {
             select.appendChild(option);
             this.renderToggle();
             this.renderActiveItems();
+            if (!select.multiple) this.close();else dom.$(".dropdown__search input", this.el).focus();
           });
         }
       };
@@ -479,6 +481,7 @@ class Dropdown {
       select.dispatchEvent(new Event("change", {
         bubbles: true
       }));
+      if (!select.multiple) this.close();
     });
     return item;
   }
@@ -732,14 +735,13 @@ class Root {
         return;
       }
       this.make(dropdownEl);
-      const search = dom.between(event.target, dropdownEl, ".dropdown__search");
-      if (search) return;
+      const dropdown = this.dropdowns.get(dropdownEl);
+      if (dom.between(event.target, dropdownEl, ".dropdown__search, .dropdown__dynamic, .dropdown__menu, .dropdown__tool")) return;
       const toggle = dom.between(event.target, dropdownEl, ".dropdown__toggle");
       if (!toggle) {
         this.closeAll();
         return;
       }
-      const dropdown = this.dropdowns.get(dropdownEl);
       this.closeOthers(dropdown);
       if (!dom.hasClass(dropdown.el, "-open")) dropdown.open();else dropdown.close();
     });
