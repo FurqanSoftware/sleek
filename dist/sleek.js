@@ -243,6 +243,12 @@ class Dropdown {
     if (this.settings.dynamic) this.initDynamic();
     const toggle = dom.$(".dropdown__toggle", this.el);
     toggle.setAttribute("tabindex", "0");
+    dom.on(this.el, "keyup", event => {
+      if (event.key === "Escape" && dom.hasClass(this.el, "-open")) {
+        this.close();
+        event.stopPropagation();
+      }
+    });
   }
   initSelect() {
     const select = dom.$("select", this.el);
