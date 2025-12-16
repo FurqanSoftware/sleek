@@ -8,16 +8,16 @@
 
 .pnav
 	display none
-	
+
 	&.-open
 		display block
-	
+
 	&__group
 		display flex
 
 	&__search
 		position relative
-		
+
 		input
 			width 100%
 			margin 0
@@ -28,7 +28,7 @@
 
 			&:focus
 				outline none
-		
+
 		.icon
 			position absolute
 			top 50%
@@ -36,7 +36,7 @@
 			margin-top -0.5rem
 			line-height inherit
 			opacity 0.75
-		
+
 	&__item
 		color var(--sleek-text-default-color)
 
@@ -49,7 +49,7 @@
 				text-decoration none
 				background-color transparent
 				color var(--sleek-text-default-color)
-		
+
 		&.-more
 			&,
 			&:hover,
@@ -75,7 +75,7 @@
 
 		&__search
 			margin 1rem 0.75rem
-		
+
 		&__item.-link,
 		&__item.-drop > a,
 		&__menu > a
@@ -89,10 +89,10 @@
 		&__item.-drop
 			.pnav__menu
 				display none
-			
+
 			&.-open .pnav__menu
 				display block
-		
+
 		&__divider
 			height 1rem
 
@@ -106,13 +106,13 @@
 			float right
 			width 11rem
 			transition width 0.125s ease-in-out
-			
+
 			input
 				line-height 2.5rem
-			
+
 			&:focus-within
 				width 17rem
-		
+
 		&__item
 			&.-link,
 			&.-drop > a
@@ -136,17 +136,18 @@
 					min-width 150px
 					min-width max-content
 					margin 5px 0 0
-					padding 0
+					padding 0.25rem
 					border 1px solid var(--sleek-surface-border-color)
 					border-radius 0.25rem
 					overflow hidden
 					text-align left
 					background-color var(--sleek-surface-background-color)
 					box-shadow 0 3px 0 alpha($dark, 0.05)
-					
+
 					> a
 						display block
 						padding 0.5rem 1rem
+						border-radius 0.25rem
 						color var(--color-text-default)
 						transition background-color $fast ease-in
 
@@ -154,7 +155,7 @@
 						&:focus,
 						&:active
 							background-color var(--sleek-pnav-menu-item-hover-background-color)
-				
+
 				&.-open .pnav__menu
 					display block
 
