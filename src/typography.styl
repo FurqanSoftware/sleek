@@ -2,7 +2,7 @@
 
 @require './const'
 
-body 
+body
 	font-family -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen-Sans, Ubuntu, 'Hind Siliguri', Cantarell, 'Helvetica Neue', sans-serif
 	font-size 0.875rem
 	line-height 1.75em
@@ -35,37 +35,37 @@ a
 	&:focus
 		text-decoration underline
 		color var(--sleek-link-hover-color)
-	
+
 	&:active
 		color var(--sleek-link-hover-color)
 
 	&:focus-visible
 		outline var(--sleek-link-hover-color) auto 0.25rem
 		outline-offset 0.25rem
-	
+
 	&:focus,
 	&::-moz-focus-inner
 		outline none
-	
+
 	&.-dark
 		&,
 		&:hover,
 		&:focus,
 		&:active
 			color var(--sleek-text-default-color)
-		
+
 
 blockquote :last-child
 	margin-bottom 0
 
 summary
-	font-weight 500
+	font-weight 600
 	cursor pointer
-	
+
 	.icon
 		margin -0.25rem 0.75rem 0 0
 		transition transform $fast ease-in
-	
+
 	[open] > &
 		.icon
 			transform rotate(90deg)
@@ -82,7 +82,7 @@ ol ol
 
 dt
 	margin-bottom 0.25em
-	font-weight 500
+	font-weight 600
 
 dd
 	margin-left 0
