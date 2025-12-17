@@ -572,6 +572,7 @@ class Dropdown {
       }
       const input = dom.$("input", search);
       input.focus();
+      input.select();
       if (this.settings.search.onceOnOpen && !this.searchedOnceOnOpen) {
         this.applySearch(input.value);
         this.searchedOnceOnOpen = true;
@@ -589,6 +590,7 @@ class Dropdown {
       }
       const input = dom.$("input", dynamic);
       input.focus();
+      input.select();
     }
     this.reposition();
     dom.on(window, "resize", this._onWindowResize);

@@ -968,6 +968,12 @@ pre.-scroll {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
 }
+.font-mono {
+  font-family: 'Ubuntu Mono', 'Courier New', monospace;
+}
+.font-500 {
+  font-weight: 500;
+}
 pre,
 code {
   font-family: 'Ubuntu Mono', 'Courier New', monospace;
