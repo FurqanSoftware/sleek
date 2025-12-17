@@ -1,7 +1,7 @@
 // Copyright 2025 Furqan Software Ltd. All rights reserved.
 
 .bellmenu
-	.dropdown__menu&
+	&.dropdown__menu
 		padding 0
 
 	ul
@@ -59,19 +59,24 @@
 		-webkit-overflow-scrolling touch
 
 @media (max-width: 767px)
-	.-open .bellmenu
-		position fixed
-		max-height 70vh
-		top 15%
-		right 10%
-		left 10%
-		overflow-y auto
-		border-radius 2px
-		box-shadow 0 0.25rem 0.25rem var(--sleek-shadow-color-5)
+	.bellmenu
+		&.dropdown__menu,
+		&.dropdown__menu.-left,
+		&.dropdown__menu.-right
+			right 10%
+			left 10%
 
-		&__item > a,
-		&__head
-			padding 0.5rem 1rem
+		.-open &
+			position fixed
+			max-height 70vh
+			top 15%
+			overflow-y auto
+			border-radius 2px
+			box-shadow 0 0.25rem 0.25rem var(--sleek-shadow-color-5)
 
-		&__scroll
-			width 80vw
+			&__item > a,
+			&__head
+				padding 0.5rem 1rem
+
+			&__scroll
+				width 80vw
