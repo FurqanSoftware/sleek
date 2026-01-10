@@ -6,6 +6,10 @@
 body
 	background-color var(--sleek-surface-background-color)
 
+	&.-staging
+		border-top 0.25rem solid transparent
+		border-image repeating-linear-gradient(90deg, #fef08a, #fef08a 1rem, $dark 1rem, $dark 2rem) 1
+
 .phead
 	position fixed
 	top 0

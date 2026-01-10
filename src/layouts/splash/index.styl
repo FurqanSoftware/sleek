@@ -10,6 +10,10 @@ body
 	min-height 100vh
 	background-color var(--sleek-body-background-color)
 
+	&.-staging
+		border-top 0.25rem solid transparent
+		border-image repeating-linear-gradient(90deg, #fef08a, #fef08a 1rem, $dark 1rem, $dark 2rem) 1
+
 .phead
 	margin 2rem 0
 	text-align center
