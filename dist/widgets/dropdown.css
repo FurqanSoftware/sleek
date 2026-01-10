@@ -29,7 +29,7 @@
   z-index: 2;
   margin: -0.125rem 0.5rem 0 0;
   border-left: 0.25rem solid transparent;
-  border-top: 0.25rem solid #5c6873;
+  border-top: 0.25rem solid #52443d;
   border-right: 0.25rem solid transparent;
 }
 .dropdown__toggle + .dropdown__search input {
@@ -108,7 +108,7 @@
   z-index: 2;
   margin: -0.3125rem 0.75rem 0 0;
   border-top: 0.3125rem solid transparent;
-  border-left: 0.3125rem solid #5c6873;
+  border-left: 0.3125rem solid #52443d;
   border-bottom: 0.3125rem solid transparent;
 }
 .dropdown__item.-active {
@@ -130,7 +130,7 @@
 }
 .dropdown__head {
   padding: 0.5rem 1rem 0.25rem;
-  color: #8f9aa5;
+  color: #967f73;
   font-size: 0.95em;
 }
 .dropdown__tool {

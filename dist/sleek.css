@@ -71,7 +71,7 @@ select[multiple] {
   height: auto;
 }
 ::placeholder {
-  color: #5c6873;
+  color: #52443d;
   opacity: 1;
 }
 label {
@@ -81,7 +81,7 @@ label {
   display: none !important;
 }
 .dotted {
-  border-bottom: 1px dotted #2f353b;
+  border-bottom: 1px dotted #0c0a09;
   cursor: pointer;
 }
 .scroller {
@@ -95,23 +95,23 @@ label {
   --sleek-surface-border-color-subtle: #f3f5f8;
   --sleek-surface-highlight-border-color: #3598dc;
   --sleek-field-background-color: #fff;
-  --sleek-field-border-color: #d4d9de;
+  --sleek-field-border-color: #d1d5d9;
   --sleek-field-focus-border-color: rgba(53,152,220,0.75);
   --sleek-field-disabled-background-color: #f3f5f8;
-  --sleek-field-disabled-color: rgba(47,53,59,0.75);
+  --sleek-field-disabled-color: rgba(12,10,9,0.75);
   --sleek-field-disabled-focus-border-color: #f3f5f8;
   --sleek-button-default-background-color: #e7ecf1;
   --sleek-button-default-border-color: #abbdce;
-  --sleek-button-default-color: #2f353b;
+  --sleek-button-default-color: #0c0a09;
   --sleek-button-icon-default-filter: invert(18%) sepia(3%) saturate(2176%) hue-rotate(169deg) brightness(88%) contrast(88%);
   --sleek-button-default-hover-border-color: #8ea5bd;
-  --sleek-button-default-hover-color: #2f353b;
+  --sleek-button-default-hover-color: #0c0a09;
   --sleek-button-default-hover-shadow-color: #bac9d7;
   --sleek-button-icon-default-hover-filter: invert(18%) sepia(3%) saturate(2176%) hue-rotate(169deg) brightness(88%) contrast(88%);
   --sleek-button-default-focus-shadow-color: #bac9d7;
   --sleek-button-default-active-background-color: #abbdce;
   --sleek-button-default-active-border-color: #708eab;
-  --sleek-button-default-active-color: #2f353b;
+  --sleek-button-default-active-color: #0c0a09;
   --sleek-button-default-active-shadow-color: #bac9d7;
   --sleek-button-icon-default-active-filter: invert(18%) sepia(3%) saturate(2176%) hue-rotate(169deg) brightness(88%) contrast(88%);
   --sleek-button-blue-background-color: #3598dc;
@@ -130,16 +130,16 @@ label {
   --sleek-button-icon-blue-active-filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%);
   --sleek-button-simple-background-color: #fff;
   --sleek-button-simple-border-color: #ccc;
-  --sleek-button-simple-color: #2f353b;
+  --sleek-button-simple-color: #0c0a09;
   --sleek-button-icon-simple-filter: invert(18%) sepia(3%) saturate(2176%) hue-rotate(169deg) brightness(88%) contrast(88%);
   --sleek-button-simple-hover-border-color: #b3b3b3;
-  --sleek-button-simple-hover-color: #2f353b;
+  --sleek-button-simple-hover-color: #0c0a09;
   --sleek-button-simple-hover-shadow-color: #d9d9d9;
   --sleek-button-icon-simple-hover-filter: invert(18%) sepia(3%) saturate(2176%) hue-rotate(169deg) brightness(88%) contrast(88%);
   --sleek-button-simple-focus-shadow-color: #d9d9d9;
   --sleek-button-simple-active-background-color: #ccc;
   --sleek-button-simple-active-border-color: #999;
-  --sleek-button-simple-active-color: #2f353b;
+  --sleek-button-simple-active-color: #0c0a09;
   --sleek-button-simple-active-shadow-color: #d9d9d9;
   --sleek-button-icon-simple-active-filter: invert(18%) sepia(3%) saturate(2176%) hue-rotate(169deg) brightness(88%) contrast(88%);
   --sleek-button-subtle-hover-border-color: #b3b3b3;
@@ -163,20 +163,20 @@ label {
   --sleek-alert-orange-background-color: #fff9f2;
   --sleek-alert-orange-border-color: #e87e04;
   --sleek-alert-link-orange-hover-border-color: #a25803;
-  --sleek-alert-subtle-color: #8f9aa5;
-  --sleek-text-default-color: #2f353b;
-  --sleek-text-muted-color: #5c6873;
+  --sleek-alert-subtle-color: #967f73;
+  --sleek-text-default-color: #0c0a09;
+  --sleek-text-muted-color: #52443d;
   --sleek-link-color: #207cbb;
   --sleek-link-hover-color: #195e8e;
-  --sleek-link-muted-color: #5c6873;
-  --sleek-link-muted-hover-color: #2f353b;
+  --sleek-link-muted-color: #52443d;
+  --sleek-link-muted-hover-color: #0c0a09;
   --sleek-divider-border-color: #edf1f4;
-  --sleek-shadow-color-0: #f9fafb;
-  --sleek-shadow-color-1: #f4f5f6;
-  --sleek-shadow-color-2: #e9ebed;
-  --sleek-shadow-color-3: #dde1e4;
-  --sleek-shadow-color-5: #d2d7db;
-  --sleek-shadow-color-7: #c7ccd2;
+  --sleek-shadow-color-0: #faf9f8;
+  --sleek-shadow-color-1: #f5f2f1;
+  --sleek-shadow-color-2: #eae5e3;
+  --sleek-shadow-color-3: #e0d9d5;
+  --sleek-shadow-color-5: #d5ccc7;
+  --sleek-shadow-color-7: #cbbfb9;
 }
 .container {
   width: 100%;
@@ -1023,7 +1023,7 @@ code {
 }
 .form__field[readonly]:focus,
 .form__field[disabled]:focus {
-  border-color: #c2c7cc;
+  border-color: #bbbec2;
   -webkit-box-shadow: inset 0 0.25rem 0.125rem var(--sleek-shadow-color-1), 0 0 0 0.25rem var(--sleek-field-disabled-focus-border-color);
   box-shadow: inset 0 0.25rem 0.125rem var(--sleek-shadow-color-1), 0 0 0 0.25rem var(--sleek-field-disabled-focus-border-color);
 }
@@ -1051,7 +1051,7 @@ code {
 }
 .form__hint {
   margin-top: 5px;
-  color: #5c6873;
+  color: #52443d;
 }
 .form__hint.-green {
   color: #009736;
@@ -1077,7 +1077,7 @@ fieldset {
 }
 .fieldset__note {
   margin-top: 5px;
-  color: #5c6873;
+  color: #52443d;
 }
 fieldset.-closed .fieldset__head {
   margin-bottom: 0;
@@ -1965,8 +1965,8 @@ a > .alert.-subtle {
   display: flex;
   height: 1rem;
   overflow: hidden;
-  -webkit-box-shadow: inset 0 0.0625rem 0.125rem rgba(47,53,59,0.125);
-  box-shadow: inset 0 0.0625rem 0.125rem rgba(47,53,59,0.125);
+  -webkit-box-shadow: inset 0 0.0625rem 0.125rem rgba(12,10,9,0.125);
+  box-shadow: inset 0 0.0625rem 0.125rem rgba(12,10,9,0.125);
 }
 .progress__bar {
   width: 0;
