@@ -1,0 +1,106 @@
+// Copyright 2026 Furqan Software Ltd. All rights reserved.
+
+@use "sass:color";
+@use "../../palette";
+
+.bellmenu {
+    &.dropdown__menu {
+        padding: 0;
+    }
+
+    ul {
+        padding-left: 0;
+        list-style: none;
+    }
+
+    &__item {
+        > a {
+            display: block;
+            border-bottom: 1px solid var(--sleek-divider-border-color);
+            padding: 0.5rem 1rem;
+            text-decoration: none;
+            transition: background-color 0.25s ease-in-out;
+
+            &:hover,
+            &:focus {
+                text-decoration: none;
+                background-color: var(
+                    --sleek-dropdown-item-hover-background-color
+                );
+            }
+        }
+
+        &.-unseen > a {
+            padding-left: 0.75rem;
+            border-left: 0.25rem solid #{palette.$blue};
+            background-color: rgba(palette.$blue, 0.025);
+
+            &:hover,
+            &:focus {
+                background-color: rgba(palette.$blue, 0.075);
+            }
+        }
+    }
+
+    &__note {
+        margin-bottom: 0.25rem;
+        color: var(--sleek-text-default-color);
+    }
+
+    &__meta {
+        margin: 0.25rem 0.5rem 0 0;
+        font-size: 0.9em;
+        color: color.adjust(palette.$muted, $lightness: 20%);
+
+        &::before {
+            display: inline-block;
+            content: "";
+            width: 0.25rem;
+            height: 0.25rem;
+            margin-right: 0.25rem;
+            background-color: var(--sleek-surface-border-color);
+        }
+    }
+
+    &__head {
+        display: block;
+        padding: 0.5rem 1rem;
+        border-bottom: 1px solid var(--sleek-surface-border-color);
+        background-color: var(--sleek-surface-shade-background-color);
+    }
+
+    &__scroll {
+        width: 450px;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+    }
+}
+
+@media (max-width: 767px) {
+    .bellmenu {
+        &.dropdown__menu,
+        &.dropdown__menu.-left,
+        &.dropdown__menu.-right {
+            right: 10%;
+            left: 10%;
+        }
+
+        .-open & {
+            position: fixed;
+            max-height: 70vh;
+            top: 15%;
+            overflow-y: auto;
+            border-radius: 2px;
+            box-shadow: 0 0.25rem 0.25rem var(--sleek-shadow-color-5);
+
+            &__item > a,
+            &__head {
+                padding: 0.5rem 1rem;
+            }
+
+            &__scroll {
+                width: 80vw;
+            }
+        }
+    }
+}

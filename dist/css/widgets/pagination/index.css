@@ -1,0 +1,26 @@
+.pagination {
+  display: flex;
+  gap: 0.125rem;
+  justify-content: center;
+}
+.pagination__item {
+  padding: 0.25rem 0.5rem;
+  border-radius: 0.25rem;
+  text-decoration: none;
+}
+.pagination__item:hover, .pagination__item:focus {
+  background-color: rgba(53, 152, 220, 0.125);
+  text-decoration: none;
+}
+.pagination__item.-active {
+  background-color: #3598dc;
+  color: white;
+}
+
+@media (max-width: 767px) {
+  .pagination__item.-extra {
+    display: none;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */

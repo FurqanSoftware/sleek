@@ -1,0 +1,32 @@
+// Copyright 2026 Furqan Software Ltd. All Rights Reserved.
+
+@use "sass:color";
+
+:root {
+    --sleek-handle-default-color: #{color.scale(#bbb5ac, $lightness: 15%)};
+    --sleek-handle-sss-color: #{color.scale(#d95e5d, $lightness: 15%)};
+    --sleek-handle-ss-color: #{color.scale(#fca643, $lightness: 15%)};
+    --sleek-handle-s-color: #{color.scale(#fed348, $lightness: 15%)};
+    --sleek-handle-a-color: #{color.scale(#fed348, $lightness: 15%)};
+    --sleek-handle-b-color: #{color.scale(#82ee84, $lightness: 15%)};
+    --sleek-handle-c-color: #{color.scale(#709fdc, $lightness: 15%)};
+    --sleek-handle-e-color: #{color.scale(#ab85e0, $lightness: 15%)};
+
+    --sleek-handle-default-background-color: #{rgba(#bbb5ac, 0.05)};
+    --sleek-handle-sss-background-color: #{rgba(#d95e5d, 0.05)};
+    --sleek-handle-ss-background-color: #{rgba(#fca643, 0.05)};
+    --sleek-handle-s-background-color: #{rgba(#fed348, 0.05)};
+    --sleek-handle-a-background-color: #{rgba(#fed348, 0.05)};
+    --sleek-handle-b-background-color: #{rgba(#82ee84, 0.05)};
+    --sleek-handle-c-background-color: #{rgba(#709fdc, 0.05)};
+    --sleek-handle-e-background-color: #{rgba(#ab85e0, 0.05)};
+
+    --sleek-handle-default-glow-background-color: #{rgba(#bbb5ac, 0.1)};
+    --sleek-handle-sss-glow-background-color: #{rgba(#d95e5d, 0.1)};
+    --sleek-handle-ss-glow-background-color: #{rgba(#fca643, 0.1)};
+    --sleek-handle-s-glow-background-color: #{rgba(#fed348, 0.1)};
+    --sleek-handle-a-glow-background-color: #{rgba(#fed348, 0.1)};
+    --sleek-handle-b-glow-background-color: #{rgba(#82ee84, 0.1)};
+    --sleek-handle-c-glow-background-color: #{rgba(#709fdc, 0.1)};
+    --sleek-handle-e-glow-background-color: #{rgba(#ab85e0, 0.1)};
+}

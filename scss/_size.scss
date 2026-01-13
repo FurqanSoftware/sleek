@@ -1,0 +1,40 @@
+// Copyright 2024 Furqan Software Ltd. All Rights Reserved.
+
+@use "sass:math";
+@use "./responsive";
+
+$kinds: (
+    "w": "width",
+    "mw": "max-width",
+    "nw": "min-width",
+    "h": "height",
+    "mh": "max-height",
+    "nh": "min-height",
+);
+
+@mixin size($ns, $kc, $k) {
+    @each $p in 25, 50, 75, 100 {
+        .#{$ns}#{$kc}-#{$p} {
+            #{$k}: math.percentage(math.div($p, 100));
+        }
+        .#{$ns}#{$kc}v-#{$p} {
+            #{$k}: #{$p}vh;
+        }
+    }
+
+    .#{$ns}#{$kc}-auto {
+        #{$k}: auto;
+    }
+}
+
+@each $kc, $k in $kinds {
+    @include size("", $kc, $k);
+}
+
+@each $bk, $bv in responsive.$breakpoints {
+    @media (min-width: #{$bv}px) {
+        @each $kc, $k in $kinds {
+            @include size("#{$bk}-", $kc, $k);
+        }
+    }
+}

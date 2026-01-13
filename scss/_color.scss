@@ -1,0 +1,29 @@
+// Copyright 2026 Furqan Software Ltd. All Rights Reserved.
+
+@use "./palette";
+
+@mixin color($name, $code) {
+    .bg-#{$name} {
+        background-color: $code !important;
+    }
+
+    .font-#{$name} {
+        color: $code !important;
+    }
+
+    .border-#{$name} {
+        border-color: $code !important;
+    }
+}
+
+@include color("dark", var(--sleek-text-default-color));
+@include color("ebony", palette.$ebony);
+@include color("blue", palette.$blue);
+@include color("green", palette.$green);
+@include color("red", palette.$red);
+@include color("orange", palette.$orange);
+@include color("white", white);
+
+.font-muted {
+    color: var(--sleek-text-muted-color);
+}

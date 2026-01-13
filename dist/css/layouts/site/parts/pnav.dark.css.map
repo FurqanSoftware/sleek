@@ -1,0 +1,1 @@
+{"version":3,"sourceRoot":"","sources":["../../../../../scss/layouts/site/parts/pnav.dark.scss"],"names":[],"mappings":"AAEA;EACI","file":"pnav.dark.css","sourcesContent":["// Copyright 2024 Furqan Software Ltd. All Rights Reserved.\n\n:root {\n    --sleek-pnav-menu-item-hover-background-color: alpha(#232627, 0.75);\n}\n"]}

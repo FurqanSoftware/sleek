@@ -1,0 +1,25 @@
+// Copyright 2026 Furqan Software Ltd. All Rights Reserved.
+
+@use "./palette";
+
+::placeholder {
+    color: palette.$muted;
+    opacity: 1;
+}
+
+label {
+    font-weight: normal;
+}
+
+.hidden {
+    display: none !important;
+}
+
+.dotted {
+    border-bottom: 1px dotted palette.$dark;
+    cursor: pointer;
+}
+
+.scroller {
+    overflow-y: auto;
+}

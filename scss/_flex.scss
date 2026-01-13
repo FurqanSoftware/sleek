@@ -1,0 +1,65 @@
+// Copyright 2024 Furqan Software Ltd. All Rights Reserved.
+
+@use "sass:math";
+@use "./responsive";
+
+.flex {
+    display: flex;
+
+    &.-jc-center {
+        justify-content: center;
+    }
+
+    &.-jc-around {
+        justify-content: space-around;
+    }
+
+    &.-jc-right {
+        justify-content: right;
+    }
+
+    &.-ai-center {
+        align-items: center;
+    }
+}
+
+@mixin flex-utilities($ns: "") {
+    .#{$ns}flex-column {
+        flex-direction: column;
+    }
+    .#{$ns}flex-row {
+        flex-direction: row;
+    }
+
+    .#{$ns}flex-wrap {
+        flex-wrap: wrap;
+    }
+    .#{$ns}flex-nowrap {
+        flex-wrap: nowrap;
+    }
+
+    @for $n from 0 through 5 {
+        .#{$ns}flex-grow-#{$n} {
+            flex-grow: $n;
+        }
+        .#{$ns}flex-shrink-#{$n} {
+            flex-shrink: $n;
+        }
+    }
+
+    .#{$ns}flex-basis-0 {
+        flex-basis: 0;
+    }
+    @each $p in 25, 50, 75, 100 {
+        .#{$ns}flex-basis-#{$p} {
+            flex-basis: math.percentage(math.div($p, 100));
+        }
+    }
+}
+
+@include flex-utilities("");
+@each $bk, $bv in responsive.$breakpoints {
+    @media (min-width: #{$bv}px) {
+        @include flex-utilities("#{$bk}-");
+    }
+}

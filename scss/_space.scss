@@ -1,0 +1,64 @@
+// Copyright 2026 Furqan Software Ltd. All Rights Reserved.
+
+@use "sass:math";
+@use "sass:string";
+@use "sass:map";
+@use "./responsive";
+
+@mixin space($ns: "") {
+    $seen: ();
+
+    @for $n from 0 through 5 {
+        @for $d from 1 through 5 {
+            $v: math.div($n, $d);
+            @if not map.has-key($seen, $v) {
+                $seen: map.merge(
+                    $seen,
+                    (
+                        $v: true,
+                    )
+                );
+
+                $x: if(
+                    sass($d == 1): "#{$n}" ; else: "#{$n}-#{$d}",
+                );
+
+                .#{$ns}gap-#{$x} {
+                    gap: #{$v}rem;
+                }
+
+                @each $k in "margin", "padding" {
+                    $kc: string.slice($k, 1, 1);
+                    .#{$ns}#{$kc}-#{$x} {
+                        #{$k}: #{$v}rem;
+                    }
+
+                    @each $e in top, right, bottom, left {
+                        $ec: string.slice($e, 1, 1);
+                        .#{$ns}#{$kc}#{$ec}-#{$x} {
+                            #{$k}-#{$e}: #{$v}rem;
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    .#{$ns}m-auto {
+        margin: auto;
+    }
+    @each $e in top, right, bottom, left {
+        $ec: string.slice($e, 1, 1);
+        .#{$ns}m#{$ec}-auto {
+            margin-#{$e}: auto;
+        }
+    }
+}
+
+@include space("");
+
+@each $bk, $bv in responsive.$breakpoints {
+    @media (min-width: #{$bv}px) {
+        @include space("#{$bk}-");
+    }
+}

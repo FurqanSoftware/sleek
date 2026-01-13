@@ -1,0 +1,78 @@
+// Copyright 2024 Furqan Software Ltd. All Rights Reserved.
+
+@use "./const";
+@use "./palette";
+
+.alert {
+    position: relative;
+    padding: 1.5rem;
+    margin-bottom: 1.5rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+
+    &.-broadcast {
+        margin: 0;
+        border-width: 0 0 1px;
+        border-radius: 0;
+    }
+
+    &.-closable {
+        padding-right: 4.5rem;
+    }
+
+    &__body {
+        display: flex;
+        align-items: center;
+    }
+
+    &__icon {
+        margin-right: 1rem;
+        font-size: 1.25rem;
+        line-height: 0;
+    }
+
+    &__close {
+        position: absolute;
+        top: 0;
+        right: 0;
+        padding: 1.5rem;
+    }
+}
+
+@each $c in "default" "ebony" "blue" "green" "red" "orange" {
+    .alert.-#{$c} {
+        background-color: var("--sleek-alert-#{$c}-background-color");
+        border-color: var("--sleek-alert-#{$c}-border-color");
+    }
+}
+
+.alert.-subtle {
+    border-color: var(--sleek-surface-border-color-subtle);
+    color: var(--sleek-alert-subtle-color);
+}
+
+a.alert {
+    display: block;
+    text-decoration: none;
+
+    &,
+    &:hover,
+    &:focus,
+    &:active {
+        color: var(--sleek-text-default-color);
+    }
+
+    &.-subtle {
+        &:hover,
+        &:focus {
+            border-color: palette.$blue;
+            color: var(--sleek-alert-subtle-color);
+        }
+    }
+}
+
+a > .alert.-subtle {
+    transition:
+        border-color const.$fast ease-in,
+        color const.$fast ease-in;
+}

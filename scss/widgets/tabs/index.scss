@@ -1,0 +1,78 @@
+// Copyright 2026 Furqan Software Ltd. All Rights Reserved.
+
+@use "../../const";
+@use "../../palette";
+
+.tabs {
+    display: flex;
+
+    &__item {
+        flex: 0 0 auto;
+        border-bottom: 2px solid transparent;
+        color: var(--sleek-text-muted-color);
+        transition: border-bottom-color const.$fast ease-in;
+        text-decoration: none;
+
+        &:not(.-drop),
+        &.-drop > .dropdown__toggle {
+            padding: 0.5rem 1rem;
+        }
+
+        &.-drop > .dropdown__toggle {
+            display: block;
+        }
+
+        &:focus,
+        &:hover {
+            border-bottom-color: palette.$blueglow;
+            color: var(--sleek-text-muted-color);
+            text-decoration: none;
+        }
+
+        > .badge {
+            float: right;
+            margin-left: 0.5rem;
+            color: var(--sleek-text-muted-color);
+        }
+
+        &.-active {
+            border-bottom-color: palette.$blue;
+            color: var(--sleek-text-default-color);
+        }
+
+        &.-disabled {
+            color: var(--sleek-text-muted-color);
+            cursor: default;
+            opacity: 0.75;
+        }
+
+        > .icon + .text {
+            margin-left: 0.5rem;
+        }
+
+        img.icon {
+            margin-top: -2px;
+
+            + .text {
+                margin-left: 5px;
+            }
+        }
+
+        + .tabs__item {
+            margin-left: 2px;
+        }
+    }
+
+    &__divider {
+        margin: 1em;
+        border-right: 1px solid var(--sleek-divider-border-color);
+    }
+}
+
+@media (max-width: 991px) {
+    .tabs {
+        > :not(.-active):not(.-navsm) {
+            display: none;
+        }
+    }
+}

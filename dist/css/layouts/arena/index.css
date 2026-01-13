@@ -1,0 +1,191 @@
+:root {
+  --sleek-arena-body-background-color: palette.$dark;
+  --sleek-arena-pmenu-item-hover-background-color: color.scale(
+      $dark,
+      $lightness: 5%
+  );
+}
+
+body {
+  background-color: var(--sleek-arena-body-background-color);
+}
+body.-staging {
+  border-top: 0.25rem solid transparent;
+  border-image: repeating-linear-gradient(90deg, #fef08a, #fef08a 1rem, #0c0a09 1rem, #0c0a09 2rem) 1;
+}
+
+.phead__logo {
+  float: left;
+  padding: 15px 0;
+}
+
+.pmenu {
+  float: right;
+  display: flex;
+  margin: 1rem 0;
+}
+.pmenu__item {
+  position: relative;
+  display: block;
+}
+.pmenu__item.-user {
+  margin-left: 0.5rem;
+}
+.pmenu__item.-user img {
+  border-radius: 0.25rem;
+}
+.pmenu__item.-link, .pmenu__item.-drop > a {
+  border-radius: 0.25rem;
+  text-decoration: none;
+  transition: background-color 125ms ease-in;
+}
+.pmenu__item:hover, .pmenu__item:focus, .pmenu__item.-open {
+  text-decoration: none;
+  background-color: var(--sleek-arena-pmenu-item-hover-background-color);
+}
+.pmenu__item.-link > img,
+.pmenu__item.-link .dropdown__toggle img, .pmenu__item.-drop > a > img,
+.pmenu__item.-drop > a .dropdown__toggle img {
+  display: block;
+  opacity: 0.35;
+  transition: opacity 125ms ease-in;
+}
+.pmenu__item.-link:hover > img,
+.pmenu__item.-link:hover .dropdown__toggle img, .pmenu__item.-link:focus > img,
+.pmenu__item.-link:focus .dropdown__toggle img, .pmenu__item.-link.-open > img,
+.pmenu__item.-link.-open .dropdown__toggle img, .pmenu__item.-drop > a:hover > img,
+.pmenu__item.-drop > a:hover .dropdown__toggle img, .pmenu__item.-drop > a:focus > img,
+.pmenu__item.-drop > a:focus .dropdown__toggle img, .pmenu__item.-drop > a.-open > img,
+.pmenu__item.-drop > a.-open .dropdown__toggle img {
+  opacity: 0.5;
+}
+.pmenu__item.-link {
+  padding: 8px;
+  line-height: 24px;
+}
+.pmenu__item.-drop > a {
+  display: block;
+  padding: 8px;
+}
+.pmenu__item .badge {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  background-color: rgba(241, 74, 83, 0.75);
+  color: white;
+}
+.pmenu__divider {
+  position: relative;
+  float: left;
+  display: block;
+  height: 40px;
+  margin: 0.75rem;
+  border-right: 1px solid var(--sleek-divider-border-color);
+  height: 1rem;
+}
+
+.pside {
+  width: auto;
+  padding-bottom: 20px;
+  color: white;
+}
+.pside__timer {
+  margin: 22px 18px 11px;
+}
+.pside__timer .progress {
+  height: 5px;
+  border-bottom: 1px solid white;
+  border-radius: 0;
+}
+.pside__timer .progress .progress__bar {
+  background-color: white;
+}
+.pside__link {
+  display: block;
+  position: relative;
+  padding: 0.5rem 1rem;
+  text-decoration: none;
+  background-color: transparent;
+  color: white;
+}
+.pside__link::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  border-left: 5px solid rgba(255, 255, 255, 0.5);
+  transform: scaleY(0);
+  transition: transform 125ms ease-in;
+}
+.pside__link:hover, .pside__link:focus {
+  text-decoration: none;
+  color: white;
+}
+.pside__link:hover::after, .pside__link:focus::after {
+  transform: scaleY(1);
+}
+.pside__link.-disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+.pside__link.-active::after {
+  transform: scaleY(1);
+  border-left-color: white;
+}
+.pside__link .icon {
+  margin: -2px 5px 0 0;
+}
+
+.pfoot {
+  padding: 10px 0;
+  text-align: center;
+  color: #e7ecf1;
+}
+.pfoot a {
+  color: #e7ecf1;
+}
+.pfoot a:hover, .pfoot a:focus {
+  color: rgb(235.8, 239.8, 243.8);
+}
+
+#content {
+  min-height: 100vh;
+  margin-left: 0;
+  padding-top: 15px;
+  border-radius: 0;
+  background-color: var(--sleek-body-background-color);
+}
+
+@media (max-width: 991px) {
+  .pside {
+    display: none;
+    overflow-y: hidden;
+  }
+  .pside.-open {
+    display: block;
+  }
+}
+@media (min-width: 992px) {
+  .pmenu__item.-bars {
+    display: none;
+  }
+  .pside {
+    float: left;
+    width: 275px;
+    padding-bottom: 75px;
+  }
+  .pfoot {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 275px;
+    background-color: var(--sleek-arena-body-background-color);
+  }
+  #content {
+    margin-left: 275px;
+    border-radius: 0.25rem 0 0 0;
+  }
+}
+
+/*# sourceMappingURL=index.css.map */

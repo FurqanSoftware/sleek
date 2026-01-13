@@ -1,0 +1,135 @@
+// Copyright 2026 Furqan Software Ltd. All rights reserved.
+
+@use "pkg:animate.css/source/_vars.css";
+@use "pkg:animate.css/source/_base.css";
+@use "pkg:animate.css/source/attention_seekers/flash.css";
+@use "pkg:animate.css/source/attention_seekers/swing.css";
+@use "pkg:animate.css/source/attention_seekers/tada.css";
+@use "pkg:animate.css/source/bouncing_entrances/bounceIn.css";
+@use "pkg:animate.css/source/fading_entrances/fadeIn.css";
+@use "pkg:animate.css/source/fading_entrances/fadeInLeft.css";
+@use "pkg:animate.css/source/fading_exits/fadeOut.css";
+@use "pkg:animate.css/source/fading_exits/fadeOutDown.css";
+@use "pkg:animate.css/source/fading_exits/fadeOutRight.css";
+@use "pkg:animate.css/source/fading_exits/fadeOutUp.css";
+
+.animated {
+    &.delay-1q {
+        animation-delay: 0.5s;
+    }
+
+    &.delay-2q {
+        animation-delay: 1s;
+    }
+
+    &.delay-3q {
+        animation-delay: 1.5s;
+    }
+
+    &.fastest {
+        animation-duration: 250ms;
+    }
+}
+
+@keyframes fadeInDownSmall {
+    from {
+        opacity: 0;
+        transform: translate3d(0, -2.5%, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.fadeInDownSmall {
+    animation-name: fadeInDownSmall;
+}
+
+@keyframes fadeInLeftSmall {
+    from {
+        opacity: 0;
+        transform: translate3d(-2.5%, 0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.fadeInLeftSmall {
+    animation-name: fadeInLeftSmall;
+}
+
+@keyframes fadeInRightSmall {
+    from {
+        opacity: 0;
+        transform: translate3d(2.5%, 0, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.fadeInRightSmall {
+    animation-name: fadeInRightSmall;
+}
+
+@keyframes fadeInUpSmall {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 2.5%, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.fadeInUpSmall {
+    animation-name: fadeInUpSmall;
+}
+
+@keyframes fadeInUpSmallest {
+    from {
+        opacity: 0;
+        transform: translate3d(0, 2.5%, 0);
+    }
+    to {
+        opacity: 1;
+        transform: translate3d(0, 0, 0);
+    }
+}
+
+.fadeInUpSmallest {
+    animation-name: fadeInUpSmallest;
+}
+
+@keyframes fadeOutDownSmall {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        transform: translate3d(0, 2.5%, 0);
+    }
+}
+
+.fadeOutDownSmall {
+    animation-name: fadeOutDownSmall;
+}
+
+@keyframes fadeOutUpSmall {
+    from {
+        opacity: 1;
+    }
+    to {
+        opacity: 0;
+        transform: translate3d(0, -2.5%, 0);
+    }
+}
+
+.fadeOutUpSmall {
+    animation-name: fadeOutUpSmall;
+}

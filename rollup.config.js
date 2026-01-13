@@ -1,16 +1,16 @@
-import babel from '@rollup/plugin-babel';
-import nodeRoles from '@rollup/plugin-node-resolve';
+import babel from "@rollup/plugin-babel";
+import nodeResolve from "@rollup/plugin-node-resolve";
 
 export default {
-	input: 'src/index.js',
-	output: {
-        file: 'dist/sleek.js',
-		format: 'es'
-	},
-	plugins: [
-		babel({
-			babelHelpers: 'bundled'
-		}),
-        nodeRoles()
-	]
-}
+  input: "js/index.js",
+  output: {
+    file: "dist/js/sleek.js",
+    format: "esm",
+  },
+  plugins: [
+    babel({
+      babelHelpers: "bundled",
+    }),
+    nodeResolve(),
+  ],
+};

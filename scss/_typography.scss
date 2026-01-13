@@ -1,0 +1,186 @@
+// Copyright 2024 Furqan Software Ltd. All Rights Reserved.
+
+@use "sass:map";
+@use "sass:math";
+@use "./const";
+@use "./palette";
+
+body {
+    font-family:
+        Ubuntu,
+        "Hind Siliguri",
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        Roboto,
+        Oxygen-Sans,
+        Cantarell,
+        "Helvetica Neue",
+        sans-serif;
+    font-size: 0.875rem;
+    line-height: 1.75em;
+    color: var(--sleek-text-default-color);
+    direction: "ltr";
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-weight: normal;
+}
+
+h1 {
+    font-size: 1.85em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.35em;
+}
+
+h4 {
+    font-size: 1.2em;
+}
+
+a {
+    text-decoration: none;
+    color: var(--sleek-link-color);
+
+    &:hover,
+    &:focus {
+        text-decoration: underline;
+        color: var(--sleek-link-hover-color);
+    }
+
+    &:active {
+        color: var(--sleek-link-hover-color);
+    }
+
+    &:focus-visible {
+        outline: var(--sleek-link-hover-color) auto 0.25rem;
+        outline-offset: 0.25rem;
+    }
+
+    &:focus,
+    &::-moz-focus-inner {
+        outline: none;
+    }
+
+    &.-dark {
+        &,
+        &:hover,
+        &:focus,
+        &:active {
+            color: var(--sleek-text-default-color);
+        }
+    }
+}
+
+blockquote :last-child {
+    margin-bottom: 0;
+}
+
+summary {
+    font-weight: 500;
+    cursor: pointer;
+
+    .icon {
+        margin: -0.25rem 0.75rem 0 0;
+        transition: transform const.$fast ease-in;
+    }
+
+    [open] > & {
+        .icon {
+            transform: rotate(90deg);
+        }
+    }
+}
+
+ul,
+ol {
+    margin: 0 0 0.5rem;
+}
+
+ul ul,
+ol ul,
+ul ol,
+ol ol {
+    margin-bottom: 0;
+}
+
+dt {
+    margin-bottom: 0.25em;
+    font-weight: 500;
+}
+
+dd {
+    margin-left: 0;
+}
+
+blockquote {
+    margin: 0 0 1.25rem;
+    padding: 0.5rem 1.25rem;
+    border-left: 0.25rem solid palette.$silver;
+}
+
+blockquote {
+    p,
+    ul,
+    ol {
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+}
+
+hr {
+    margin: 1.25rem 0;
+    border: 0;
+    border-top: 1px solid var(--sleek-surface-border-color-subtle);
+}
+
+pre.-scroll {
+    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
+}
+
+.font-mono {
+    font-family: "Ubuntu Mono", "Courier New", monospace;
+}
+
+$_seen: ();
+@for $n from 1 through 5 {
+    @for $d from 1 through 5 {
+        $v: math.div($n, $d);
+        @if not map.has-key($_seen, $v) {
+            $_seen: map.merge(
+                $_seen,
+                (
+                    $v: true,
+                )
+            );
+            $x: if(
+                sass($d == 1): "#{$n}" ; else: "#{$n}-#{$d}",
+            );
+            .font-#{$x} {
+                font-size: #{$v}rem;
+            }
+        }
+    }
+}
+
+small,
+.font-sm {
+    font-size: 0.8125rem;
+}
+
+$font-weights: 300, 400, 500, 600, 700;
+@each $v in $font-weights {
+    .font-#{$v} {
+        font-weight: $v;
+    }
+}

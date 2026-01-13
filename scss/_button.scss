@@ -1,0 +1,261 @@
+// Copyright 2026 Furqan Software Ltd. All Rights Reserved.
+
+@use "sass:color";
+@use "sass:math";
+@use "./const";
+@use "./palette";
+
+.btn {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border: none;
+    border-radius: 0.25rem;
+    text-align: center;
+    text-decoration: none;
+    background-color: transparent;
+
+    &:hover,
+    &:focus {
+        text-decoration: none;
+    }
+
+    &.-disabled,
+    &[disabled] {
+        opacity: 0.65;
+    }
+
+    &.-block {
+        display: block;
+        width: 100%;
+    }
+
+    .icon {
+        margin-top: -0.125rem;
+
+        + .text {
+            margin-left: 0.25rem;
+        }
+    }
+
+    .text + .icon {
+        margin-left: 0.25rem;
+    }
+}
+
+@mixin button-variant($name, $bg, $edge: 20%, $hover: 10%, $active: 20%) {
+    $is-dark: color.channel($bg, "lightness", $space: hsl) < 50%;
+    $text-color: if(
+        sass($is-dark): white; else: palette.$dark,
+    );
+    $icon-filter: if(
+        sass($is-dark): var(--sleek-icon-invert-filter) ;
+            else: var(--sleek-icon-default-filter),
+    );
+
+    .btn {
+        &.-#{$name} {
+            border: 1px solid color.scale($bg, $lightness: -$edge);
+            background-color: $bg;
+            color: $text-color;
+            transition: box-shadow const.$fast ease-in;
+
+            .icon {
+                filter: #{$icon-filter} !important;
+            }
+
+            &:hover,
+            &:focus {
+                $h-bg: color.scale($bg, $lightness: -$hover);
+                $h-is-dark: color.channel($h-bg, "lightness", $space: hsl) < 50%;
+                border-color: color.scale($bg, $lightness: -($edge + $hover));
+                color: if(sass($h-is-dark): white; else: palette.$dark);
+                box-shadow: inset 0 0 0 0.125rem
+                    color.scale($bg, $lightness: -($edge + math.div($hover, 2)));
+
+                .icon {
+                    filter: if(
+                        sass($h-is-dark): var(--sleek-icon-invert-filter) ;
+                            else: var(--sleek-icon-default-filter)
+                    ) !important;
+                }
+            }
+
+            &:focus {
+                outline: var(--sleek-link-hover-color) auto 0.25rem;
+                outline-offset: 0.25rem;
+            }
+
+            &.-active {
+                $a-bg: color.scale($bg, $lightness: -$active);
+                $a-is-dark: color.channel($a-bg, "lightness", $space: hsl) < 50%;
+                border-color: color.scale($bg, $lightness: -($edge + $active));
+                background-color: $a-bg;
+                color: if(sass($a-is-dark): white; else: palette.$dark);
+                box-shadow: inset 0 0 0 0.125rem
+                    color.scale(
+                        $bg,
+                        $lightness: -($edge + math.div($active, 2))
+                    );
+
+                .icon {
+                    filter: if(
+                        sass($a-is-dark): var(--sleek-icon-invert-filter) ;
+                            else: var(--sleek-icon-default-filter)
+                    ) !important;
+                }
+            }
+
+            &.-disabled,
+            &[disabled] {
+                box-shadow: none;
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    .-open > .btn.-#{$name}.-toggle {
+        $a-bg: color.scale($bg, $lightness: -$active);
+        $a-is-dark: color.channel($a-bg, "lightness", $space: hsl) < 50%;
+        border-color: color.scale($bg, $lightness: -($edge + $active));
+        background-color: $a-bg;
+        color: if(sass($a-is-dark): white; else: palette.$dark);
+        box-shadow: inset 0 0 0 0.125rem
+            color.scale($bg, $lightness: -($edge + math.div($active, 2)));
+
+        .icon {
+            filter: if(
+                sass($a-is-dark): var(--sleek-icon-invert-filter) ;
+                    else: var(--sleek-icon-default-filter)
+            ) !important;
+        }
+    }
+}
+
+@include button-variant("red", palette.$red);
+
+@each $x in "default", "blue", "simple" {
+    .btn {
+        &.-#{$x} {
+            border: 1px solid var(--sleek-button-#{$x}-border-color);
+            background-color: var(--sleek-button-#{$x}-background-color);
+            color: var(--sleek-button-#{$x}-color);
+            transition: box-shadow const.$fast ease-in;
+
+            .icon:not(.-custom) {
+                filter: var(--sleek-button-icon-#{$x}-filter) !important;
+            }
+
+            &:hover,
+            &:focus {
+                border-color: var(--sleek-button-#{$x}-hover-border-color);
+                color: var(--sleek-button-#{$x}-hover-color);
+                box-shadow: inset
+                    0
+                    0
+                    0
+                    0.125rem
+                    var(--sleek-button-#{$x}-hover-shadow-color);
+
+                .icon:not(.-custom) {
+                    filter: var(
+                        --sleek-button-icon-#{$x}-hover-filter
+                    ) !important;
+                }
+            }
+
+            &:focus {
+                outline: var(--sleek-link-hover-color) auto 0.25rem;
+                outline-offset: 0.25rem;
+                box-shadow: inset
+                    0
+                    0
+                    0
+                    0.125rem
+                    var(--sleek-button-#{$x}-focus-shadow-color);
+            }
+
+            &.-active {
+                border-color: var(--sleek-button-#{$x}-active-border-color);
+                background-color: var(
+                    --sleek-button-#{$x}-active-background-color
+                );
+                color: var(--sleek-button-#{$x}-active-color);
+                box-shadow: inset
+                    0
+                    0
+                    0
+                    0.125rem
+                    var(--sleek-button-#{$x}-active-shadow-color);
+
+                .icon:not(.-custom) {
+                    filter: var(
+                        --sleek-button-icon-#{$x}-active-filter
+                    ) !important;
+                }
+            }
+
+            &.-disabled,
+            &[disabled] {
+                box-shadow: none;
+                cursor: not-allowed;
+            }
+        }
+    }
+
+    .-open > .btn.-#{$x}.-toggle {
+        border-color: var(--sleek-button-#{$x}-active-border-color);
+        background-color: var(--sleek-button-#{$x}-active-background-color);
+        color: var(--sleek-button-#{$x}-active-color);
+        box-shadow: inset
+            0
+            0
+            0
+            0.125rem
+            var(--sleek-button-icon-#{$x}-active-filter);
+
+        .icon:not(.-custom) {
+            filter: var(--sleek-button-icon-#{$x}-active-filter) !important;
+        }
+    }
+}
+
+.btn.-subtle {
+    border: 1px solid transparent;
+    background-color: transparent;
+    color: var(--sleek-text-default-color);
+
+    &:hover,
+    &:focus {
+        border-color: var(--sleek-button-subtle-hover-border-color);
+        color: var(--sleek-text-default-color);
+    }
+
+    .-open > &.-toggle {
+        border-color: color.scale(white, $lightness: -40%);
+        background-color: color.scale(white, $lightness: -20%);
+        color: var(--sleek-text-default-color);
+    }
+}
+
+.btngroup {
+    display: flex;
+
+    > .btn {
+        ~ .btn {
+            border-left: 0;
+        }
+
+        &:not(:first-child):not(:last-child) {
+            border-radius: 0;
+        }
+
+        &:first-child:not(:last-child):not(.-toggle) {
+            border-radius: 0.25rem 0 0 0.25rem;
+        }
+
+        &:last-child:not(:first-child),
+        &.-toggle:not(:first-child) {
+            border-radius: 0 0.25rem 0.25rem 0;
+        }
+    }
+}

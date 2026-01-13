@@ -1,0 +1,28 @@
+body {
+  background-color: var(--sleek-surface-background-color);
+}
+body.-staging {
+  border-top: 0.25rem solid transparent;
+  border-image: repeating-linear-gradient(90deg, #fef08a, #fef08a 1rem, #0c0a09 1rem, #0c0a09 2rem) 1;
+}
+
+.phead {
+  position: fixed;
+  top: 0;
+  right: 0;
+  left: 0;
+  z-index: 10;
+  padding: 20px;
+  background: var(--sleek-surface-background-color);
+}
+.phead .phead__logo {
+  float: right;
+}
+.phead .phead__orglogo {
+  float: left;
+  margin: 0 20px 0 0;
+  padding-right: 20px;
+  border-right: 1px solid var(--sleek-divider-border-color);
+}
+
+/*# sourceMappingURL=index.css.map */

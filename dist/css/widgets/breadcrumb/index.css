@@ -1,0 +1,27 @@
+@charset "UTF-8";
+.breadcrumb {
+  display: flex;
+  gap: 0.5rem;
+  flex-wrap: wrap;
+  margin: -0.5rem 0 1rem;
+  padding: 0;
+  list-style: none;
+}
+.breadcrumb > li {
+  overflow: hidden;
+  max-width: 12rem;
+  min-width: 0;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  color: var(--sleek-text-muted-color);
+}
+.breadcrumb > li:last-child {
+  max-width: 16rem;
+}
+.breadcrumb > li:not(:first-child)::before {
+  content: "›";
+  margin-right: 0.5rem;
+  color: rgb(165.3, 168.2, 171.4);
+}
+
+/*# sourceMappingURL=index.css.map */

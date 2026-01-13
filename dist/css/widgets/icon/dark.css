@@ -1,0 +1,8 @@
+:root {
+  --sleek-icon-default-filter: invert(100%) sepia(100%) saturate(0%)
+      hue-rotate(125deg) brightness(103%) contrast(103%);
+  --sleek-icon-invert-filter: invert(18%) sepia(3%) saturate(2176%)
+      hue-rotate(169deg) brightness(88%) contrast(88%);
+}
+
+/*# sourceMappingURL=dark.css.map */

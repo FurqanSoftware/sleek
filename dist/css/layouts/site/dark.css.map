@@ -1,0 +1,1 @@
+{"version":3,"sourceRoot":"","sources":["../../../../scss/layouts/site/dark.scss"],"names":[],"mappings":"AAEA;EACI;EACA","file":"dark.css","sourcesContent":["// Copyright 2024 Furqan Software Ltd. All Rights Reserved.\n\n:root {\n    --sleek-site-pmenu-item-hover-background-color: alpha(#232627, 0.75);\n    --sleek-site-pmenu-icon-filter: invert(100%);\n}\n"]}

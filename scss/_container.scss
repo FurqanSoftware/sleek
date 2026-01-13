@@ -1,0 +1,41 @@
+// Copyright 2024 Furqan Software Ltd. All Rights Reserved.
+
+@use "sass:map";
+@use "./responsive";
+
+$container-widths: (
+    "sm": 540,
+    "md": 720,
+    "lg": 960,
+    "xl": 1140,
+    "xx": 1320,
+);
+
+.container {
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+@each $bk, $bv in responsive.$breakpoints {
+    @media (min-width: #{$bv}px) {
+        .container:not(.-fluid) {
+            max-width: #{map.get($container-widths, $bk)}px;
+        }
+    }
+}
+
+.container:before,
+.container:after,
+.row:before,
+.row:after {
+    display: table;
+    content: " ";
+}
+
+.container:after,
+.row:after {
+    clear: both;
+}

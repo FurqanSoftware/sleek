@@ -1,0 +1,175 @@
+:root {
+  --sleek-pnav-menu-item-hover-background-color: rgba(231, 236, 241, 0.75);
+}
+
+.pnav {
+  display: none;
+}
+.pnav.-open {
+  display: block;
+}
+.pnav__group {
+  display: flex;
+}
+.pnav__search {
+  position: relative;
+}
+.pnav__search input {
+  width: 100%;
+  margin: 0;
+  padding: 1rem 0.25rem 1rem 2rem;
+  border: none;
+  background-color: var(--sleek-surface-background-color);
+  color: var(--sleek-text-default-color);
+}
+.pnav__search input:focus {
+  outline: none;
+}
+.pnav__search .icon {
+  position: absolute;
+  top: 50%;
+  left: 0.25rem;
+  margin-top: -0.5rem;
+  line-height: inherit;
+  opacity: 0.75;
+}
+.pnav__item {
+  color: var(--sleek-text-default-color);
+}
+.pnav__item.-link, .pnav__item.-drop > a {
+  text-decoration: none;
+}
+.pnav__item.-link:hover, .pnav__item.-link:focus, .pnav__item.-drop > a:hover, .pnav__item.-drop > a:focus {
+  text-decoration: none;
+  background-color: transparent;
+  color: var(--sleek-text-default-color);
+}
+.pnav__item.-more, .pnav__item.-more:hover, .pnav__item.-more:focus {
+  text-decoration: none;
+}
+.pnav__item .icon {
+  margin-top: 0.25rem;
+}
+
+@media (max-width: 991px) {
+  .pnav {
+    position: absolute;
+    top: 72px;
+    right: 0;
+    left: 0;
+    z-index: 1000;
+    border-bottom: 1px solid var(--sleek-surface-border-color);
+    background-color: var(--sleek-surface-background-color);
+    box-shadow: 0 0.0625rem 0.125rem var(--sleek-shadow-color-1);
+  }
+  .pnav__group {
+    flex-direction: column;
+  }
+  .pnav__search {
+    margin: 1rem 0.75rem;
+  }
+  .pnav__item.-link, .pnav__item.-drop > a, .pnav__menu > a {
+    display: block;
+    padding: 0.5rem 1rem;
+  }
+  .pnav__item.-link.-active, .pnav__item.-drop > a.-active, .pnav__menu > a.-active {
+    border-left: 0.25rem solid #3598dc;
+    padding-left: 0.75rem;
+  }
+  .pnav__item.-drop .pnav__menu {
+    display: none;
+  }
+  .pnav__item.-drop.-open .pnav__menu {
+    display: block;
+  }
+  .pnav__divider {
+    height: 1rem;
+  }
+}
+@media (min-width: 992px) {
+  .pnav {
+    display: block;
+    flex-grow: 1;
+    margin: 0 2rem;
+  }
+  .pnav__search {
+    float: right;
+    width: 11rem;
+    transition: width 0.125s ease-in-out;
+  }
+  .pnav__search input {
+    line-height: 2.5rem;
+  }
+  .pnav__search:focus-within {
+    width: 17rem;
+  }
+  .pnav__item.-link, .pnav__item.-drop > a {
+    position: relative;
+    line-height: 2.5rem;
+    padding: 1rem;
+  }
+  .pnav__item.-drop {
+    position: relative;
+  }
+  .pnav__item.-drop > a {
+    display: inline-block;
+  }
+  .pnav__item.-drop .pnav__menu {
+    display: none;
+    float: left;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    min-width: 150px;
+    min-width: max-content;
+    margin: 5px 0 0;
+    padding: 0.25rem;
+    border: 1px solid var(--sleek-surface-border-color);
+    border-radius: 0.25rem;
+    overflow: hidden;
+    text-align: left;
+    background-color: var(--sleek-surface-background-color);
+    box-shadow: 0 3px 0 rgba(12, 10, 9, 0.05);
+  }
+  .pnav__item.-drop .pnav__menu > a {
+    display: block;
+    padding: 0.5rem 1rem;
+    border-radius: 0.25rem;
+    color: var(--color-text-default);
+    transition: background-color 125ms ease-in;
+  }
+  .pnav__item.-drop .pnav__menu > a:hover, .pnav__item.-drop .pnav__menu > a:focus, .pnav__item.-drop .pnav__menu > a:active {
+    background-color: var(--sleek-pnav-menu-item-hover-background-color);
+  }
+  .pnav__item.-drop.-open .pnav__menu {
+    display: block;
+  }
+  .pnav__item.-open .pnav__menu {
+    display: block;
+  }
+  .pnav__search::after, .pnav__item.-link::after, .pnav__item.-drop > a::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    border-bottom: 0.125rem solid rgba(53, 152, 220, 0.75);
+    transform: scaleX(0);
+    transition: transform 125ms ease-in;
+  }
+  .pnav__search:hover::after, .pnav__search:focus::after, .pnav__search:focus-within::after, .pnav__item.-link:hover::after, .pnav__item.-link:focus::after, .pnav__item.-link:focus-within::after, .pnav__item.-drop > a:hover::after, .pnav__item.-drop > a:focus::after, .pnav__item.-drop > a:focus-within::after {
+    transform: scaleX(1);
+  }
+  .pnav__search.-active::after, .pnav__item.-link.-active::after, .pnav__item.-drop > a.-active::after {
+    transform: scaleX(1);
+    border-bottom-color: #3598dc;
+  }
+  .pnav__divider {
+    height: 1rem;
+    margin: auto 1em;
+    border-left: 1px solid var(--sleek-divider-border-color);
+  }
+}
+
+/*# sourceMappingURL=pnav.css.map */

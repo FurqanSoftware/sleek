@@ -1,0 +1,53 @@
+// Copyright 2026 Furqan Software Ltd. All Rights Reserved.
+
+@use "sass:math";
+@use "sass:string";
+@use "./responsive";
+@use "./palette";
+
+@mixin border-utils($ns: "") {
+    // Base Borders
+    .#{$ns}b-none {
+        border: none;
+    }
+    .#{$ns}b-silver {
+        border: 1px solid palette.$silver;
+    }
+    .#{$ns}b-default {
+        border: 1px solid var(--sleek-surface-border-color);
+    }
+
+    // Directional Borders
+    @each $e in top, right, bottom, left {
+        $ec: string.slice($e, 1, 1);
+
+        .#{$ns}b#{$ec}-none {
+            border-#{$e}: none;
+        }
+        .#{$ns}b#{$ec}-silver {
+            border-#{$e}: 1px solid palette.$silver;
+        }
+        .#{$ns}b#{$ec}-default {
+            border-#{$e}: 1px solid var(--sleek-surface-border-color);
+        }
+    }
+
+    // Border Radius
+    @each $d in 1, 2, 4, 8 {
+        $x: if(
+            sass($d == 1): "1" ; else: "1-#{$d}",
+        );
+
+        .#{$ns}br-#{$x} {
+            border-radius: math.div(1, $d) * 1rem;
+        }
+    }
+}
+
+@include border-utils("");
+
+@each $bk, $bv in responsive.$breakpoints {
+    @media (min-width: #{$bv}px) {
+        @include border-utils("#{$bk}-");
+    }
+}

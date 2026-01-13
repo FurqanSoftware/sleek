@@ -1,0 +1,31 @@
+.flair {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25em 1rem;
+}
+.flair__item {
+  display: flex;
+  align-items: center;
+}
+.flair__item.-hover {
+  display: none;
+}
+.flair.-inline {
+  flex-wrap: nowrap;
+}
+.flair .icon {
+  display: block;
+  text-decoration: none;
+}
+.flair .icon + .text {
+  margin-left: 0.5rem;
+}
+.flair:empty {
+  display: none;
+}
+
+tr:hover .flair > .flair__item.-hover {
+  display: inline-block;
+}
+
+/*# sourceMappingURL=index.css.map */

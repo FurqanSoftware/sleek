@@ -1,0 +1,100 @@
+// Copyright 2026 Furqan Software Ltd. All Rights Reserved.
+
+@use "sass:color";
+@use "../../palette";
+
+:root {
+    --sleek-handle-default-color: #{color.scale(#555555, $lightness: -15%)};
+    --sleek-handle-sss-color: #{color.scale(#ca302f, $lightness: -15%)};
+    --sleek-handle-ss-color: #{color.scale(#e87e04, $lightness: -15%)};
+    --sleek-handle-s-color: #{color.scale(#fcc201, $lightness: -25%)};
+    --sleek-handle-a-color: #{color.scale(#fcc201, $lightness: -25%)};
+    --sleek-handle-b-color: #{color.scale(#138715, $lightness: -15%)};
+    --sleek-handle-c-color: #{color.scale(#304cc8, $lightness: -15%)};
+    --sleek-handle-e-color: #{color.scale(#4e2388, $lightness: -15%)};
+
+    --sleek-handle-default-background-color: #{rgba(#555555, 0.05)};
+    --sleek-handle-sss-background-color: #{rgba(#ca302f, 0.05)};
+    --sleek-handle-ss-background-color: #{rgba(#e87e04, 0.05)};
+    --sleek-handle-s-background-color: #{rgba(#fcc201, 0.05)};
+    --sleek-handle-a-background-color: #{rgba(#fcc201, 0.05)};
+    --sleek-handle-b-background-color: #{rgba(#138715, 0.05)};
+    --sleek-handle-c-background-color: #{rgba(#304cc8, 0.05)};
+    --sleek-handle-e-background-color: #{rgba(#4e2388, 0.05)};
+
+    --sleek-handle-default-glow-background-color: #{rgba(#555555, 0.1)};
+    --sleek-handle-sss-glow-background-color: #{rgba(#ca302f, 0.1)};
+    --sleek-handle-ss-glow-background-color: #{rgba(#e87e04, 0.1)};
+    --sleek-handle-s-glow-background-color: #{rgba(#fcc201, 0.1)};
+    --sleek-handle-a-glow-background-color: #{rgba(#fcc201, 0.1)};
+    --sleek-handle-b-glow-background-color: #{rgba(#138715, 0.1)};
+    --sleek-handle-c-glow-background-color: #{rgba(#304cc8, 0.1)};
+    --sleek-handle-e-glow-background-color: #{rgba(#4e2388, 0.1)};
+}
+
+$ranks: "sss", "ss", "s", "a", "b", "c", "e";
+
+.handle {
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.25rem;
+    background-color: var(--sleek-handle-default-background-color);
+}
+
+.handle,
+.handle:hover,
+.handle:focus {
+    text-decoration: none;
+    color: var(--sleek-handle-default-color);
+
+    @each $r in $ranks {
+        &.-#{$r} {
+            color: var(--sleek-handle-#{$r}-color);
+        }
+    }
+}
+
+.handle {
+    @each $r in $ranks {
+        &.-#{$r} {
+            background-color: var(--sleek-handle-#{$r}-background-color);
+        }
+    }
+}
+
+a.handle:hover,
+a.handle:focus {
+    background-color: var(--sleek-handle-default-glow-background-color);
+
+    @each $r in $ranks {
+        &.-#{$r} {
+            background-color: var(--sleek-handle-#{$r}-glow-background-color);
+        }
+    }
+}
+
+.handle.-gone {
+    &,
+    &:hover,
+    &:focus {
+        background-color: transparent;
+        color: palette.$muted;
+        text-decoration: line-through;
+    }
+}
+
+.mention {
+    .at {
+        display: none;
+    }
+
+    .handle:before {
+        content: "@";
+        color: color.scale(palette.$muted, $lightness: 50%);
+    }
+}
+
+.handleset {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.25rem;
+}

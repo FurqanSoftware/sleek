@@ -1,0 +1,1 @@
+{"version":3,"sourceRoot":"","sources":["../../../../scss/layouts/arena/dark.scss"],"names":[],"mappings":"AAEA;EACI","file":"dark.css","sourcesContent":["// Copyright 2024 Furqan Software Ltd. All Rights Reserved.\n\n:root {\n    --sleek-arena-body-background-color: #1b1d1e;\n}\n"]}

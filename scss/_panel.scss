@@ -1,0 +1,179 @@
+// Copyright 2026 Furqan Software Ltd. All Rights Reserved.
+
+@use "./const";
+
+.panel {
+    margin-bottom: 0.5rem;
+    border: 1px solid var(--sleek-surface-border-color);
+    border-radius: 0.25rem;
+    background-color: var(--sleek-surface-background-color);
+    box-shadow: 0 0.0625rem 0.125rem var(--sleek-shadow-color-1);
+
+    &__cover {
+        position: relative;
+        max-height: 56rem;
+        min-height: 10rem;
+        border-bottom: 1px solid var(--sleek-surface-border-color);
+        border-radius: 0.25rem 0.25rem 0 0;
+        overflow: hidden;
+
+        &.-modest {
+            height: 10rem;
+
+            > picture {
+                opacity: 0.75;
+                transition: opacity const.$fast ease-in;
+
+                img {
+                    width: 100%;
+                }
+            }
+        }
+
+        &.-empty {
+            background-size: auto;
+            background-repeat: repeat;
+            box-shadow: inset 0 -0.25rem 0.125rem var(--sleek-shadow-color-0);
+        }
+
+        > img {
+            display: block;
+            width: 100%;
+            height: auto;
+        }
+
+        .flair {
+            position: absolute;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            padding: 1rem 1.25rem;
+            background-color: transparent;
+            backdrop-filter: blur(0.25rem);
+        }
+    }
+
+    &:hover &__cover.-modest > picture {
+        opacity: 1;
+    }
+
+    &__head {
+        padding: 1rem 1.25rem;
+
+        &::after {
+            content: "";
+            display: block;
+            clear: both;
+        }
+
+        &.-socle {
+            border-bottom: 1px solid var(--sleek-surface-border-color);
+            box-shadow: 0 0.25rem 0.125rem var(--sleek-shadow-color-0);
+
+            .tabsbox {
+                margin-top: 1rem;
+                margin-bottom: -1rem;
+            }
+        }
+    }
+
+    &__drawer {
+        display: none;
+        padding: 1rem 1.25rem 0.5rem;
+        border-top: 1px solid var(--sleek-surface-border-color-subtle);
+        border-bottom: 1px solid var(--sleek-surface-border-color-subtle);
+        box-shadow: inset 0 0.25rem 0.125rem var(--sleek-shadow-color-0);
+
+        &:after {
+            display: table;
+            content: " ";
+            clear: both;
+        }
+
+        &.-open {
+            display: block;
+        }
+
+        .panel__head.-socle + & {
+            box-shadow: none;
+        }
+    }
+
+    &__body {
+        padding: 1rem 1.25rem;
+
+        .progress {
+            margin-bottom: 0;
+        }
+    }
+
+    &__foot {
+        padding: 1rem 1.25rem;
+
+        &.-shade {
+            border-radius: 0 0 0.25rem 0.25rem;
+            background-color: var(--sleek-surface-shade-background-color);
+        }
+    }
+
+    &__title {
+        float: left;
+        line-height: 2.25rem;
+
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            margin: 0;
+            font-size: 1rem;
+        }
+
+        .icon {
+            margin: -2px 5px 0 0;
+            font-size: 1.25rem;
+        }
+    }
+
+    &__actions {
+        float: right;
+        margin: 0 0 0 auto;
+    }
+
+    &.-clipped > &__body {
+        max-height: 190px;
+        overflow: hidden;
+        mask-image: linear-gradient(to top, transparent 1%, white 50%);
+    }
+
+    &.-closed {
+        > .panel__body,
+        > .panel__foot {
+            display: none;
+        }
+    }
+}
+
+a {
+    &:has(> .panel) {
+        color: var(--sleek-text-default-color);
+        text-decoration: none;
+    }
+
+    &:hover > .panel {
+        border-color: var(--sleek-surface-highlight-border-color);
+    }
+
+    > .panel {
+        transition: border-color const.$fast ease-in;
+    }
+}
+
+@media (max-width: 767px) {
+    .panel .panel__actions .btn {
+        .icon + .text {
+            display: none;
+        }
+    }
+}

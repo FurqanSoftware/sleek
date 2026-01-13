@@ -1,0 +1,49 @@
+// Copyright 2024 Furqan Software Ltd. All Rights Reserved.
+
+@use "./const";
+@use "./palette";
+
+.artifact {
+    line-height: 2em;
+
+    &,
+    &__fragment {
+        > * + * {
+            margin-top: 1.5rem;
+        }
+
+        > * > img,
+        > * > picture > img,
+        > * > svg {
+            display: block;
+            margin: 0 auto 0.5rem;
+            max-width: 100%;
+        }
+    }
+
+    h1 {
+        line-height: 1.85em;
+    }
+
+    h2 {
+        line-height: 1.5em;
+    }
+
+    h3 {
+        line-height: 1.35em;
+    }
+
+    h4 {
+        line-height: 1.2em;
+    }
+
+    table {
+        width: 100%;
+        max-width: 100%;
+
+        th,
+        td {
+            vertical-align: top;
+        }
+    }
+}

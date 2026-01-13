@@ -1,0 +1,22 @@
+// Copyright 2025 Furqan Software Ltd. All Rights Reserved.
+
+@use "sass:color";
+
+$dark: #0c0a09;
+$ebony: #22313f;
+$blue: #3598dc;
+$green: #009736;
+$red: #f14a53;
+$orange: #e87e04;
+$silver: #e7ecf1;
+
+$dark500: color.mix($dark, $silver, 10%);
+$dark600: color.mix($dark, $silver, 20%);
+$dark700: color.mix($dark, $silver, 30%);
+
+$muted: color.scale($dark, $lightness: 25%);
+
+$shade: color.scale($silver, $lightness: 50%);
+
+$blueglow: rgba($blue, 75%);
+$silverglow: rgba($silver, 75%);
