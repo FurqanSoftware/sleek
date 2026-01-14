@@ -3,33 +3,45 @@
 @use "sass:color";
 @use "../../palette";
 
+$handle-default: #52525b; // zinc-600
+$handle-sss: #be123c; // rose-700
+$handle-ss: #d97706; // amber-600
+$handle-s: #eab308; // yellow-500
+$handle-a: #eab308; // yellow-500
+$handle-b: #4d7c0f; // lime-700
+$handle-c: #075985; // sky-800
+$handle-e: #4c1d95; // violet-900
+
 :root {
-    --sleek-handle-default-color: #{color.scale(#555555, $lightness: -15%)};
-    --sleek-handle-sss-color: #{color.scale(#ca302f, $lightness: -15%)};
-    --sleek-handle-ss-color: #{color.scale(#e87e04, $lightness: -15%)};
-    --sleek-handle-s-color: #{color.scale(#fcc201, $lightness: -25%)};
-    --sleek-handle-a-color: #{color.scale(#fcc201, $lightness: -25%)};
-    --sleek-handle-b-color: #{color.scale(#138715, $lightness: -15%)};
-    --sleek-handle-c-color: #{color.scale(#304cc8, $lightness: -15%)};
-    --sleek-handle-e-color: #{color.scale(#4e2388, $lightness: -15%)};
+    --sleek-handle-default-color: #{color.scale(
+            $handle-default,
+            $lightness: -15%
+        )};
+    --sleek-handle-sss-color: #{color.scale($handle-sss, $lightness: -15%)};
+    --sleek-handle-ss-color: #{color.scale($handle-ss, $lightness: -15%)};
+    --sleek-handle-s-color: #{color.scale($handle-s, $lightness: -25%)};
+    --sleek-handle-a-color: #{color.scale($handle-a, $lightness: -25%)};
+    --sleek-handle-b-color: #{color.scale($handle-b, $lightness: -15%)};
+    --sleek-handle-c-color: #{color.scale($handle-c, $lightness: -15%)};
+    --sleek-handle-e-color: #{color.scale($handle-e, $lightness: -15%)};
 
-    --sleek-handle-default-background-color: #{rgba(#555555, 0.05)};
-    --sleek-handle-sss-background-color: #{rgba(#ca302f, 0.05)};
-    --sleek-handle-ss-background-color: #{rgba(#e87e04, 0.05)};
-    --sleek-handle-s-background-color: #{rgba(#fcc201, 0.05)};
-    --sleek-handle-a-background-color: #{rgba(#fcc201, 0.05)};
-    --sleek-handle-b-background-color: #{rgba(#138715, 0.05)};
-    --sleek-handle-c-background-color: #{rgba(#304cc8, 0.05)};
-    --sleek-handle-e-background-color: #{rgba(#4e2388, 0.05)};
+    --sleek-handle-default-background-color: #{rgba($handle-default, 0.05)};
+    --sleek-handle-sss-background-color: #{rgba($handle-sss, 0.05)};
+    --sleek-handle-ss-background-color: #{rgba($handle-ss, 0.05)};
+    --sleek-handle-s-background-color: #{rgba($handle-s, 0.05)};
+    --sleek-handle-a-background-color: #{rgba($handle-a, 0.05)};
+    --sleek-handle-b-background-color: #{rgba($handle-b, 0.05)};
+    --sleek-handle-c-background-color: #{rgba($handle-c, 0.05)};
+    --sleek-handle-e-background-color: #{rgba($handle-e, 0.05)};
 
-    --sleek-handle-default-glow-background-color: #{rgba(#555555, 0.1)};
-    --sleek-handle-sss-glow-background-color: #{rgba(#ca302f, 0.1)};
-    --sleek-handle-ss-glow-background-color: #{rgba(#e87e04, 0.1)};
-    --sleek-handle-s-glow-background-color: #{rgba(#fcc201, 0.1)};
-    --sleek-handle-a-glow-background-color: #{rgba(#fcc201, 0.1)};
-    --sleek-handle-b-glow-background-color: #{rgba(#138715, 0.1)};
-    --sleek-handle-c-glow-background-color: #{rgba(#304cc8, 0.1)};
-    --sleek-handle-e-glow-background-color: #{rgba(#4e2388, 0.1)};
+    --sleek-handle-default-glow-background-color: #{rgba($handle-default, 0.1)};
+    --sleek-handle-sss-glow-background-color: #{rgba($handle-sss, 0.1)};
+    --sleek-handle-ss-glow-background-color: #{rgba($handle-ss, 0.1)};
+    --sleek-handle-s-glow-background-color: #{rgba($handle-s, 0.1)};
+    --sleek-handle-a-glow-background-color: #{rgba($handle-a, 0.1)};
+    --sleek-handle-b-glow-background-color: #{rgba($handle-b, 0.1)};
+    --sleek-handle-c-glow-background-color: #{rgba($handle-c, 0.1)};
+    --sleek-handle-e-glow-background-color: #{rgba($handle-e, 0.1)};
 }
 
 $ranks: "sss", "ss", "s", "a", "b", "c", "e";
