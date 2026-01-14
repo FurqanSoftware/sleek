@@ -16,12 +16,15 @@
       "sass": "./scss/sleek.scss",
       "default": "./js/index.js"
     },
-    "./*.scss": {
+    "./*": {
       "sass": "./scss/*.scss"
     },
     "./widgets/*": {
       "sass": "./scss/widgets/*/index.scss",
       "default": "./js/widgets/*/index.js"
+    },
+    "./widgets/*/dark": {
+      "sass": "./scss/widgets/*/dark.scss"
     }
   },
   "dependencies": {
