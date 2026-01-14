@@ -95,26 +95,6 @@ fieldset {
     padding: 30px 20px 0;
     border-top: 1px solid var(--sleek-surface-border-color-subtle);
 
-    // Using & suffix to create .fieldset__head, etc.
-    &__head {
-        margin-bottom: 15px;
-    }
-
-    &__toggle {
-        float: right;
-        margin-top: 0.5em;
-        margin-left: 30px;
-    }
-
-    &__title {
-        text-decoration: underline;
-    }
-
-    &__note {
-        margin-top: 5px;
-        color: palette.$muted;
-    }
-
     &.-closed {
         .fieldset__head {
             margin-bottom: 0;
@@ -135,5 +115,26 @@ fieldset {
             margin-top: 0.5em;
             margin-left: 30px;
         }
+    }
+}
+
+.fieldset {
+    &__head {
+        margin-bottom: 15px;
+    }
+
+    &__toggle {
+        float: right;
+        margin-top: 0.5em;
+        margin-left: 30px;
+    }
+
+    &__title {
+        text-decoration: underline;
+    }
+
+    &__note {
+        margin-top: 5px;
+        color: palette.$muted;
     }
 }
