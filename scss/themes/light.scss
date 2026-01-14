@@ -144,7 +144,7 @@
         saturate(2176%) hue-rotate(169deg) brightness(88%) contrast(88%);
     --sleek-button-subtle-hover-border-color: #{color.scale(
             white,
-            $lightness: 30%
+            $lightness: -30%
         )};
 
     --sleek-table-border-color: #{color.scale(palette.$silver, $lightness: 50%)};
