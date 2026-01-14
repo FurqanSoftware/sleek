@@ -143,7 +143,7 @@ select[multiple] {
   --sleek-button-simple-active-shadow-color: rgb(216.75, 216.75, 216.75);
   --sleek-button-icon-simple-active-filter: invert(18%) sepia(3%)
       saturate(2176%) hue-rotate(169deg) brightness(88%) contrast(88%);
-  --sleek-button-subtle-hover-border-color: white;
+  --sleek-button-subtle-hover-border-color: rgb(178.5, 178.5, 178.5);
   --sleek-table-border-color: rgb(243, 245.5, 248);
   --sleek-table-row-hover-border-color: #3598dc;
   --sleek-alert-default-background-color: rgb(253.8, 254.05, 254.3);
