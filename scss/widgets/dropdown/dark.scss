@@ -1,5 +1,7 @@
 // Copyright 2026 Furqan Software Ltd. All Rights Reserved.
 
+@use "../../palette";
+
 :root {
-    --sleek-dropdown-item-hover-background-color: #{rgba(#232627, 0.75)};
+    --sleek-dropdown-item-hover-background-color: #{palette.$slate-900};
 }

@@ -4,25 +4,16 @@
 @use "../palette";
 
 :root {
-    --sleek-body-background-color: #{color.scale(
-            color.mix(palette.$blue, palette.$silver, 10%),
-            $lightness: 82.5%
-        )};
+    --sleek-body-background-color: #{palette.$gray-50};
 
     --sleek-surface-background-color: white;
-    --sleek-surface-shade-background-color: #{color.scale(
-            palette.$silver,
-            $lightness: 50%
-        )};
-    --sleek-surface-border-color: #{palette.$silver};
-    --sleek-surface-border-color-subtle: #{color.scale(
-            palette.$silver,
-            $lightness: 50%
-        )};
+    --sleek-surface-shade-background-color: #{palette.$neutral-50};
+    --sleek-surface-border-color: #{palette.$stone-200};
+    --sleek-surface-border-color-subtle: #{palette.$stone-100};
     --sleek-surface-highlight-border-color: #{palette.$blue};
 
     --sleek-field-background-color: white;
-    --sleek-field-border-color: #{palette.$dark500};
+    --sleek-field-border-color: #{palette.$stone-300};
     --sleek-field-focus-border-color: #{rgba(palette.$blue, 75%)};
     --sleek-field-disabled-background-color: #{color.scale(
             palette.$silver,
@@ -34,11 +25,8 @@
             $lightness: 50%
         )};
 
-    --sleek-button-default-background-color: #{palette.$silver};
-    --sleek-button-default-border-color: #{color.scale(
-            palette.$silver,
-            $lightness: -20%
-        )};
+    --sleek-button-default-background-color: #{palette.$neutral-200};
+    --sleek-button-default-border-color: #{palette.$neutral-300};
     --sleek-button-default-color: #{palette.$dark};
     --sleek-button-icon-default-filter: invert(18%) sepia(3%) saturate(2176%)
         hue-rotate(169deg) brightness(88%) contrast(88%);
@@ -204,13 +192,13 @@
             palette.$orange,
             $lightness: -30%
         )};
-    --sleek-alert-subtle-color: #{color.scale(palette.$dark, $lightness: 50%)};
+    --sleek-alert-subtle-color: #{palette.$stone-700};
 
-    --sleek-text-default-color: #{palette.$dark};
-    --sleek-text-muted-color: #{palette.$muted};
+    --sleek-text-default-color: #{rgba(palette.$stone-950, 0.9)};
+    --sleek-text-muted-color: #{palette.$stone-700};
 
-    --sleek-link-color: #{color.scale(palette.$blue, $lightness: -19.5%)}; // Achieves 4.5 contrast ratio on white background.;
-    --sleek-link-hover-color: #{color.scale(palette.$blue, $lightness: -39%)};
+    --sleek-link-color: #{palette.$sky-700};
+    --sleek-link-hover-color: #{palette.$sky-900};
     --sleek-link-muted-color: #{palette.$muted};
     --sleek-link-muted-hover-color: #{palette.$dark};
 
@@ -219,10 +207,10 @@
             $lightness: 25%
         )};
 
-    --sleek-shadow-color-0: #{color.scale(palette.$dark, $lightness: 97.5%)}; // Form fields.
-    --sleek-shadow-color-1: #{color.scale(palette.$dark, $lightness: 95%)}; // Regular panels, closest to page.
-    --sleek-shadow-color-2: #{color.scale(palette.$dark, $lightness: 90%)}; // Important panels, above regular panels.
-    --sleek-shadow-color-3: #{color.scale(palette.$dark, $lightness: 85%)}; // Dropdowns.
-    --sleek-shadow-color-5: #{color.scale(palette.$dark, $lightness: 80%)}; // Modals, bell menu.
-    --sleek-shadow-color-7: #{color.scale(palette.$dark, $lightness: 75%)}; // ?
+    --sleek-shadow-color-0: #{color.scale(palette.$stone-100, $lightness: 2.5%)}; // Form fields.
+    --sleek-shadow-color-1: #{color.scale(palette.$stone-100, $lightness: 5%)}; // Regular panels, closest to page.
+    --sleek-shadow-color-2: #{color.scale(palette.$stone-100, $lightness: 10%)}; // Important panels, above regular panels.
+    --sleek-shadow-color-3: #{color.scale(palette.$stone-100, $lightness: 15%)}; // Dropdowns.
+    --sleek-shadow-color-5: #{color.scale(palette.$stone-100, $lightness: 20%)}; // Modals, bell menu.
+    --sleek-shadow-color-7: #{color.scale(palette.$stone-100, $lightness: 25%)}; // ?
 }

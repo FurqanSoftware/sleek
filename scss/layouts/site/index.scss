@@ -4,7 +4,7 @@
 @use "../../palette";
 
 :root {
-    --sleek-site-pmenu-item-hover-background-color: #{palette.$silverglow};
+    --sleek-site-pmenu-item-hover-background-color: #{palette.$slate-100};
     --sleek-site-pmenu-icon-filter: none;
 }
 
@@ -44,7 +44,7 @@ body {
 
     &.-shade {
         border-bottom: 1px solid var(--sleek-surface-border-color);
-        box-shadow: 0 0.0625rem 0.125rem var(--sleek-shadow-color-1);
+        box-shadow: 0 0.0625rem 0.125rem var(--sleek-shadow-color-0);
     }
 }
 

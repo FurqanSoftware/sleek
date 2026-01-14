@@ -4,7 +4,7 @@
 @use "../../../palette";
 
 :root {
-    --sleek-pnav-menu-item-hover-background-color: #{palette.$silverglow};
+    --sleek-pnav-menu-item-hover-background-color: #{palette.$slate-100};
 }
 
 .pnav {
@@ -209,7 +209,7 @@
                 left: 0;
                 bottom: 0;
                 width: 100%;
-                border-bottom: 0.125rem solid palette.$blueglow;
+                border-bottom: 0.125rem solid palette.$blue-glow;
                 transform: scaleX(0);
                 transition: transform const.$fast ease-in;
             }

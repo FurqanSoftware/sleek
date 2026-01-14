@@ -21,7 +21,7 @@
         border-radius: 0.25rem;
         background-color: var(--sleek-surface-background-color);
         color: var(--sleek-text-default-color);
-        box-shadow: inset 0 0.25rem 0.125rem var(--sleek-shadow-color-0);
+        box-shadow: inset 0 0.125rem 0.125rem var(--sleek-shadow-color-0);
         transition:
             border-color const.$fast ease-in,
             box-shadow const.$fast ease-in;
@@ -30,7 +30,7 @@
             border-color: palette.$blue;
             outline: 0;
             box-shadow:
-                inset 0 0.25rem 0.125rem var(--sleek-shadow-color-0),
+                inset 0 0.125rem 0.125rem var(--sleek-shadow-color-0),
                 0 0 0 0.25rem var(--sleek-field-focus-border-color);
         }
     }
@@ -39,12 +39,12 @@
     &__field[disabled] {
         background-color: var(--sleek-field-disabled-background-color);
         color: var(--sleek-field-disabled-color);
-        box-shadow: inset 0 0.25rem 0.125rem var(--sleek-shadow-color-1);
+        box-shadow: inset 0 0.125rem 0.125rem var(--sleek-shadow-color-1);
 
         &:focus {
             border-color: color.mix(palette.$dark, palette.$silver, 20%);
             box-shadow:
-                inset 0 0.25rem 0.125rem var(--sleek-shadow-color-1),
+                inset 0 0.125rem 0.125rem var(--sleek-shadow-color-1),
                 0 0 0 0.25rem var(--sleek-field-disabled-focus-border-color);
         }
     }
@@ -78,7 +78,7 @@
 
     &__hint {
         margin-top: 5px;
-        color: palette.$muted;
+        color: var(--sleek-text-muted-color);
 
         &.-green {
             color: palette.$green;
@@ -135,6 +135,6 @@ fieldset {
 
     &__note {
         margin-top: 5px;
-        color: palette.$muted;
+        color: var(--sleek-text-muted-color);
     }
 }

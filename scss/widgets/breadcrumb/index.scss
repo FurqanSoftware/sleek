@@ -25,7 +25,7 @@
         &:not(:first-child)::before {
             content: "\203A";
             margin-right: 0.5rem;
-            color: palette.$dark700;
+            color: palette.$stone-700;
         }
     }
 }

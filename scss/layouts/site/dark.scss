@@ -1,6 +1,8 @@
 // Copyright 2026 Furqan Software Ltd. All Rights Reserved.
 
+@use "../../palette";
+
 :root {
-    --sleek-site-pmenu-item-hover-background-color: #{rgba(#232627, 0.75)};
+    --sleek-site-pmenu-item-hover-background-color: #{palette.$slate-900};
     --sleek-site-pmenu-icon-filter: invert(100%);
 }

@@ -14,6 +14,11 @@ $modal-widths: (
     "xx": 1260,
 );
 
+:root {
+    --sleek-modal-shadow-color: #{palette.$stone-400};
+    --sleek-modal-curtain-color: #{rgba(palette.$stone-900, 0.25)};
+}
+
 .modal {
     position: fixed;
     top: 0;
@@ -34,7 +39,7 @@ $modal-widths: (
         bottom: 0;
         left: 0;
         opacity: 0;
-        background-color: rgba(palette.$dark, 0.25);
+        background-color: var(--sleek-modal-curtain-color);
         transition: opacity const.$fast ease-in;
     }
 
@@ -66,7 +71,7 @@ $modal-widths: (
         border: 1px solid var(--sleek-surface-border-color);
         border-radius: 0.25rem;
         background-color: var(--sleek-surface-background-color);
-        box-shadow: 0 0.5rem 1rem var(--sleek-shadow-color-5);
+        box-shadow: 0 0.5rem 1rem var(--sleek-modal-shadow-color);
     }
 
     &__head {

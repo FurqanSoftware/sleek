@@ -2,21 +2,93 @@
 
 @use "sass:color";
 
-$dark: #0c0a09;
+$sky-50: #f0f9ff;
+$sky-100: #e0f2fe;
+$sky-200: #bae6fd;
+$sky-300: #7dd3fc;
+$sky-400: #38bdf8;
+$sky-500: #0ea5e9;
+$sky-600: #0284c7;
+$sky-700: #0369a1;
+$sky-800: #075985;
+$sky-900: #0c4a6e;
+$sky-950: #082f49;
+
+$blue-50: #eff6ff;
+$blue-100: #dbeafe;
+$blue-200: #bfdbfe;
+$blue-300: #93c5fd;
+$blue-400: #60a5fa;
+$blue-500: #3b82f6;
+$blue-600: #2563eb;
+$blue-700: #1d4ed8;
+$blue-800: #1e40af;
+$blue-900: #1e3a8a;
+$blue-950: #172554;
+
+$slate-50: #f8fafc;
+$slate-100: #f1f5f9;
+$slate-200: #e2e8f0;
+$slate-300: #cbd5e1;
+$slate-400: #94a3b8;
+$slate-500: #64748b;
+$slate-600: #475569;
+$slate-700: #334155;
+$slate-800: #1e293b;
+$slate-900: #0f172a;
+$slate-950: #020617;
+
+$gray-50: #f9fafb;
+$gray-100: #f3f4f6;
+$gray-200: #e5e7eb;
+$gray-300: #d1d5db;
+$gray-400: #9ca3af;
+$gray-500: #6b7280;
+$gray-600: #4b5563;
+$gray-700: #374151;
+$gray-800: #1f2937;
+$gray-900: #111827;
+$gray-950: #030712;
+
+$neutral-50: #fafafa;
+$neutral-100: #f5f5f5;
+$neutral-200: #e5e5e5;
+$neutral-300: #d4d4d4;
+$neutral-400: #a3a3a3;
+$neutral-500: #737373;
+$neutral-600: #525252;
+$neutral-700: #404040;
+$neutral-800: #262626;
+$neutral-900: #171717;
+$neutral-950: #0a0a0a;
+
+$stone-50: #fafaf9;
+$stone-100: #f5f5f4;
+$stone-200: #e7e5e4;
+$stone-300: #d6d3d1;
+$stone-400: #a8a29e;
+$stone-500: #78716c;
+$stone-600: #57534e;
+$stone-700: #44403c;
+$stone-800: #292524;
+$stone-900: #1c1917;
+$stone-950: #0c0a09;
+
+$dark: $stone-950;
 $ebony: #22313f;
 $blue: #3598dc;
-$green: #009736;
-$red: #f14a53;
-$orange: #e87e04;
-$silver: #e7ecf1;
+$green: #16a34a;
+$red: #e11d48;
+$orange: #ea580c;
+$silver: $stone-200;
 
-$dark500: color.mix($dark, $silver, 10%);
-$dark600: color.mix($dark, $silver, 20%);
-$dark700: color.mix($dark, $silver, 30%);
-
-$muted: color.scale($dark, $lightness: 25%);
+$muted: $stone-600;
 
 $shade: color.scale($silver, $lightness: 50%);
 
-$blueglow: rgba($blue, 75%);
-$silverglow: rgba($silver, 75%);
+$blue-glow: rgba($blue, 75%);
+$silver-glow: rgba($silver, 75%);
+
+$logo-blue: #3598dc;
+$logo-ebony: #22313f;
+$logo-silver: #e7ecf1;

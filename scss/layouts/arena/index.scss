@@ -5,12 +5,12 @@
 @use "../../palette";
 
 :root {
-    --sleek-arena-body-background-color: palette.$dark;
+    --sleek-arena-body-background-color: #{palette.$gray-900};
 
-    --sleek-arena-pmenu-item-hover-background-color: color.scale(
-        $dark,
-        $lightness: 5%
-    );
+    --sleek-arena-pmenu-item-hover-background-color: #{color.scale(
+            palette.$dark,
+            $lightness: 5%
+        )};
 }
 
 body {

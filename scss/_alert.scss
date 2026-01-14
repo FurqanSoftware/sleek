@@ -41,8 +41,8 @@
 
 @each $c in "default" "ebony" "blue" "green" "red" "orange" {
     .alert.-#{$c} {
-        background-color: var("--sleek-alert-#{$c}-background-color");
-        border-color: var("--sleek-alert-#{$c}-border-color");
+        background-color: var(--sleek-alert-#{$c}-background-color);
+        border-color: var(--sleek-alert-#{$c}-border-color);
     }
 }
 

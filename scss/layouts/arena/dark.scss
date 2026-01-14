@@ -1,5 +1,7 @@
 // Copyright 2026 Furqan Software Ltd. All Rights Reserved.
 
+@use "../../palette";
+
 :root {
-    --sleek-arena-body-background-color: #1b1d1e;
+    --sleek-arena-body-background-color: #{palette.$gray-950};
 }
