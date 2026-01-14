@@ -1,4 +1,36 @@
 // Copyright 2024 Furqan Software Ltd. All Rights Reserved.
 
+$font-family-sans-serif:
+    Ubuntu,
+    "Hind Siliguri",
+    // Cross-platform generic font family (default user interface font)
+    system-ui,
+    // Safari for macOS and iOS (San Francisco)
+    -apple-system,
+    // Windows
+    "Segoe UI",
+    // Android
+    Roboto,
+    // older macOS and iOS
+    "Helvetica Neue",
+    // Linux
+    "Noto Sans",
+    "Liberation Sans",
+    // Basic web fallback
+    Arial,
+    // Sans serif fallback
+    sans-serif,
+    // Emoji fonts
+    "Apple Color Emoji",
+    "Segoe UI Emoji",
+    "Segoe UI Symbol",
+    "Noto Color Emoji" !default;
+$font-family-monospace: "Ubuntu Mono", "Courier New", monospace !default;
+
+$font-size-root: null !default;
+$font-size-base: 1rem !default;
+$font-size-sm: $font-size-base * 0.875 !default;
+$font-size-lg: $font-size-base * 1.25 !default;
+
 $slow: 500ms;
 $fast: 125ms;
