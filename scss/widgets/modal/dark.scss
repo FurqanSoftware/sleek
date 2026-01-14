@@ -1,0 +1,8 @@
+// Copyright 2026 Furqan Software Ltd. All Rights Reserved.
+
+@use "../../palette";
+
+:root {
+    --sleek-modal-shadow-color: #{palette.$stone-900};
+    --sleek-modal-curtain-color: #{rgba(palette.$stone-900, 0.75)};
+}
