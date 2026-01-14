@@ -37,108 +37,108 @@
     --sleek-button-default-background-color: #{palette.$silver};
     --sleek-button-default-border-color: #{color.scale(
             palette.$silver,
-            $lightness: 20%
+            $lightness: -20%
         )};
     --sleek-button-default-color: #{palette.$dark};
     --sleek-button-icon-default-filter: invert(18%) sepia(3%) saturate(2176%)
         hue-rotate(169deg) brightness(88%) contrast(88%);
     --sleek-button-default-hover-border-color: #{color.scale(
             palette.$silver,
-            $lightness: 30%
+            $lightness: -30%
         )};
     --sleek-button-default-hover-color: #{palette.$dark};
     --sleek-button-default-hover-shadow-color: #{color.scale(
             palette.$silver,
-            $lightness: 15%
+            $lightness: -15%
         )};
     --sleek-button-icon-default-hover-filter: invert(18%) sepia(3%)
         saturate(2176%) hue-rotate(169deg) brightness(88%) contrast(88%);
     --sleek-button-default-focus-shadow-color: #{color.scale(
             palette.$silver,
-            $lightness: 15%
+            $lightness: -15%
         )};
     --sleek-button-default-active-background-color: #{color.scale(
             palette.$silver,
-            $lightness: 20%
+            $lightness: -20%
         )};
     --sleek-button-default-active-border-color: #{color.scale(
             palette.$silver,
-            $lightness: 40%
+            $lightness: -40%
         )};
     --sleek-button-default-active-color: #{palette.$dark};
     --sleek-button-default-active-shadow-color: #{color.scale(
             palette.$silver,
-            $lightness: 15%
+            $lightness: -15%
         )};
     --sleek-button-icon-default-active-filter: invert(18%) sepia(3%)
         saturate(2176%) hue-rotate(169deg) brightness(88%) contrast(88%);
     --sleek-button-blue-background-color: #{palette.$blue};
     --sleek-button-blue-border-color: #{color.scale(
             palette.$blue,
-            $lightness: 20%
+            $lightness: -20%
         )};
     --sleek-button-blue-color: #{rgba(white, 0.9)};
     --sleek-button-icon-blue-filter: invert(100%) sepia(100%) saturate(0%)
         hue-rotate(125deg) brightness(103%) contrast(103%);
     --sleek-button-blue-hover-border-color: #{color.scale(
             palette.$blue,
-            $lightness: 30%
+            $lightness: -30%
         )};
     --sleek-button-blue-hover-color: #{rgba(white, 0.9)};
     --sleek-button-blue-hover-shadow-color: #{color.scale(
             palette.$blue,
-            $lightness: 15%
+            $lightness: -15%
         )};
     --sleek-button-icon-blue-hover-filter: invert(100%) sepia(100%) saturate(0%)
         hue-rotate(125deg) brightness(103%) contrast(103%);
     --sleek-button-blue-focus-shadow-color: #{color.scale(
             palette.$blue,
-            $lightness: 15%
+            $lightness: -15%
         )};
     --sleek-button-blue-active-background-color: #{palette.$blue};
     --sleek-button-blue-active-border-color: #{color.scale(
             palette.$blue,
-            $lightness: 40%
+            $lightness: -40%
         )};
     --sleek-button-blue-active-color: #{rgba(white, 0.9)};
     --sleek-button-blue-active-shadow-color: #{color.scale(
             palette.$blue,
-            $lightness: 15%
+            $lightness: -15%
         )};
     --sleek-button-icon-blue-active-filter: invert(100%) sepia(100%)
         saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%);
     --sleek-button-simple-background-color: white;
-    --sleek-button-simple-border-color: #{color.scale(white, $lightness: 20%)};
+    --sleek-button-simple-border-color: #{color.scale(white, $lightness: -20%)};
     --sleek-button-simple-color: #{palette.$dark};
     --sleek-button-icon-simple-filter: invert(18%) sepia(3%) saturate(2176%)
         hue-rotate(169deg) brightness(88%) contrast(88%);
     --sleek-button-simple-hover-border-color: #{color.scale(
             white,
-            $lightness: 30%
+            $lightness: -30%
         )};
     --sleek-button-simple-hover-color: #{palette.$dark};
     --sleek-button-simple-hover-shadow-color: #{color.scale(
             white,
-            $lightness: 15%
+            $lightness: -15%
         )};
     --sleek-button-icon-simple-hover-filter: invert(18%) sepia(3%)
         saturate(2176%) hue-rotate(169deg) brightness(88%) contrast(88%);
     --sleek-button-simple-focus-shadow-color: #{color.scale(
             white,
-            $lightness: 15%
+            $lightness: -15%
         )};
     --sleek-button-simple-active-background-color: #{color.scale(
             white,
-            $lightness: 20%
+            $lightness: -20%
         )};
     --sleek-button-simple-active-border-color: #{color.scale(
             white,
-            $lightness: 40%
+            $lightness: -40%
         )};
     --sleek-button-simple-active-color: #{palette.$dark};
     --sleek-button-simple-active-shadow-color: #{color.scale(
             white,
-            $lightness: 15%
+            $lightness: -15%
         )};
     --sleek-button-icon-simple-active-filter: invert(18%) sepia(3%)
         saturate(2176%) hue-rotate(169deg) brightness(88%) contrast(88%);
@@ -157,7 +157,7 @@
     --sleek-alert-default-border-color: #{palette.$silver};
     --sleek-alert-link-default-hover-border-color: #{color.scale(
             palette.$silver,
-            $lightness: 30%
+            $lightness: -30%
         )};
     --sleek-alert-ebony-background-color: #{color.scale(
             palette.$ebony,
@@ -166,7 +166,7 @@
     --sleek-alert-ebony-border-color: #{palette.$ebony};
     --sleek-alert-link-ebony-hover-border-color: #{color.scale(
             palette.$ebony,
-            $lightness: 30%
+            $lightness: -30%
         )};
     --sleek-alert-blue-background-color: #{color.scale(
             palette.$blue,
@@ -175,7 +175,7 @@
     --sleek-alert-blue-border-color: #{palette.$blue};
     --sleek-alert-link-blue-hover-border-color: #{color.scale(
             palette.$blue,
-            $lightness: 30%
+            $lightness: -30%
         )};
     --sleek-alert-green-background-color: #{color.scale(
             palette.$green,
@@ -184,7 +184,7 @@
     --sleek-alert-green-border-color: #{palette.$green};
     --sleek-alert-link-green-hover-border-color: #{color.scale(
             palette.$green,
-            $lightness: 30%
+            $lightness: -30%
         )};
     --sleek-alert-red-background-color: #{color.scale(
             palette.$red,
@@ -193,7 +193,7 @@
     --sleek-alert-red-border-color: #{palette.$red};
     --sleek-alert-link-red-hover-border-color: #{color.scale(
             palette.$red,
-            $lightness: 30%
+            $lightness: -30%
         )};
     --sleek-alert-orange-background-color: #{color.scale(
             palette.$orange,
@@ -202,15 +202,15 @@
     --sleek-alert-orange-border-color: #{palette.$orange};
     --sleek-alert-link-orange-hover-border-color: #{color.scale(
             palette.$orange,
-            $lightness: 30%
+            $lightness: -30%
         )};
     --sleek-alert-subtle-color: #{color.scale(palette.$dark, $lightness: 50%)};
 
     --sleek-text-default-color: #{palette.$dark};
     --sleek-text-muted-color: #{palette.$muted};
 
-    --sleek-link-color: #{color.scale(palette.$blue, $lightness: 19.5%)}; // Achieves 4.5 contrast ratio on white background.;
-    --sleek-link-hover-color: #{color.scale(palette.$blue, $lightness: 39%)};
+    --sleek-link-color: #{color.scale(palette.$blue, $lightness: -19.5%)}; // Achieves 4.5 contrast ratio on white background.;
+    --sleek-link-hover-color: #{color.scale(palette.$blue, $lightness: -39%)};
     --sleek-link-muted-color: #{palette.$muted};
     --sleek-link-muted-hover-color: #{palette.$dark};
 
