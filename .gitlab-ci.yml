@@ -1,0 +1,25 @@
+stages:
+  - build
+  - production
+
+default:
+  before_script:
+    - echo -e "machine gitlab.furqansoftware.net\nlogin gitlab-ci-token\npassword ${CI_JOB_TOKEN}" > ~/.netrc
+    - echo "@toph:registry=https://gitlab.furqansoftware.net/api/v4/packages/npm/" > ~/.npmrc &&
+      echo "//gitlab.furqansoftware.net/api/v4/packages/npm/:_authToken=${CI_JOB_TOKEN}" >> ~/.npmrc &&
+      echo "//gitlab.furqansoftware.net/api/v4/projects/179/packages/npm/:_authToken=${CI_JOB_TOKEN}" >> ~/.npmrc
+
+build:
+  image: cardboard/node:24.5
+  stage: build
+  script:
+    - npm install --also=dev --cache .npm --prefer-offline
+    - NODE_ENV=production npm run build
+  artifacts:
+    expire_in: 1 day
+    paths:
+      - public/
+  cache:
+    key: npm
+    paths:
+      - ".npm"
