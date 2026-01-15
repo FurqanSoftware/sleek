@@ -128,7 +128,7 @@
         saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%);
     --sleek-button-subtle-hover-border-color: #454b4e;
 
-    --sleek-table-border-color: #{color.scale(#2a3948, $lightness: -42.5%)};
+    --sleek-table-border-color: #{palette.$stone-900};
     --sleek-table-row-hover-border-color: #{palette.$blue};
 
     --sleek-alert-default-background-color: #{color.scale(

@@ -135,7 +135,7 @@
             $lightness: -30%
         )};
 
-    --sleek-table-border-color: #{color.scale(palette.$silver, $lightness: 50%)};
+    --sleek-table-border-color: #{palette.$stone-100};
     --sleek-table-row-hover-border-color: #{palette.$blue};
 
     --sleek-alert-default-background-color: #{color.scale(
