@@ -93,7 +93,8 @@
             palette.$blue,
             $lightness: -15%
         )};
-    --sleek-button-blue-faint-background-color: #{palette.$blue-300};
+    --sleek-button-blue-faint-background-color: #{palette.$slate-100};
+    --sleek-button-blue-faint-border-color: #{palette.$blue-200};
     --sleek-button-icon-blue-active-filter: invert(100%) sepia(100%)
         saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%);
     --sleek-button-simple-background-color: white;

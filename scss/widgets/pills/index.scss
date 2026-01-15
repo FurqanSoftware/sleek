@@ -25,7 +25,7 @@
         &:focus,
         &:hover {
             text-decoration: none;
-            background-color: rgba(palette.$blue, 0.1);
+            background-color: var(--sleek-button-blue-faint-background-color);
         }
 
         > .badge {
