@@ -1,7 +1,58 @@
 // Copyright 2026 Furqan Software Ltd. All Rights Reserved.
 
-@each $v in block inline inline-block {
+@each $v in none block inline inline-block {
     .d-#{$v} {
         display: #{$v};
+    }
+}
+
+@media (max-width: 767px) {
+    .xs-d-none {
+        display: none !important;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 991px) {
+    .sm-d-none {
+        display: none !important;
+    }
+}
+
+@media (min-width: 992px) and (max-width: 1199px) {
+    .md-d-none {
+        display: none !important;
+    }
+}
+
+@media (min-width: 1200px) {
+    .lg-d-none {
+        display: none !important;
+    }
+}
+
+.xs-d-block,
+.sm-d-block,
+.md-d-block,
+.lg-d-block {
+    display: none !important;
+}
+@media (max-width: 767px) {
+    .xs-d-block {
+        display: block !important;
+    }
+}
+@media (min-width: 768px) and (max-width: 991px) {
+    .sm-d-block {
+        display: block !important;
+    }
+}
+@media (min-width: 992px) and (max-width: 1199px) {
+    .md-d-block {
+        display: block !important;
+    }
+}
+@media (min-width: 1200px) {
+    .lg-d-block {
+        display: block !important;
     }
 }
