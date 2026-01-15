@@ -1,5 +1,5 @@
 :root {
-  --sleek-site-pmenu-item-hover-background-color: rgba(231, 236, 241, 0.75);
+  --sleek-site-pmenu-item-hover-background-color: #f1f5f9;
   --sleek-site-pmenu-icon-filter: none;
 }
 
@@ -29,7 +29,7 @@ body.-staging {
 }
 .phead.-shade {
   border-bottom: 1px solid var(--sleek-surface-border-color);
-  box-shadow: 0 0.0625rem 0.125rem var(--sleek-shadow-color-1);
+  box-shadow: 0 0.0625rem 0.125rem var(--sleek-shadow-color-0);
 }
 
 .pmenu {
@@ -86,7 +86,7 @@ body.-staging {
   position: absolute;
   bottom: 0;
   right: 0;
-  background-color: rgba(241, 74, 83, 0.75);
+  background-color: rgba(244, 63, 94, 0.75);
   color: white;
 }
 .pmenu__divider {

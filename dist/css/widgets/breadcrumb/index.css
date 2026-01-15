@@ -21,7 +21,7 @@
 .breadcrumb > li:not(:first-child)::before {
   content: "›";
   margin-right: 0.5rem;
-  color: rgb(165.3, 168.2, 171.4);
+  color: #44403c;
 }
 
 /*# sourceMappingURL=index.css.map */

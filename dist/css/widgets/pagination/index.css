@@ -4,17 +4,22 @@
   justify-content: center;
 }
 .pagination__item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 2rem;
+  min-height: 2rem;
   padding: 0.25rem 0.5rem;
   border-radius: 0.25rem;
   text-decoration: none;
 }
 .pagination__item:hover, .pagination__item:focus {
-  background-color: rgba(53, 152, 220, 0.125);
+  background-color: var(--sleek-button-blue-faint-background-color);
   text-decoration: none;
 }
 .pagination__item.-active {
-  background-color: #3598dc;
-  color: white;
+  background-color: var(--sleek-button-blue-background-color);
+  color: var(--sleek-button-blue-color);
 }
 
 @media (max-width: 767px) {

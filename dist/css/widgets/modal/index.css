@@ -1,3 +1,8 @@
+:root {
+  --sleek-modal-shadow-color: #a8a29e;
+  --sleek-modal-curtain-color: rgba(28, 25, 23, 0.25);
+}
+
 .modal {
   position: fixed;
   top: 0;
@@ -18,7 +23,7 @@
   bottom: 0;
   left: 0;
   opacity: 0;
-  background-color: rgba(12, 10, 9, 0.25);
+  background-color: var(--sleek-modal-curtain-color);
   transition: opacity 125ms ease-in;
 }
 .modal.-open::before {
@@ -41,7 +46,7 @@
   border: 1px solid var(--sleek-surface-border-color);
   border-radius: 0.25rem;
   background-color: var(--sleek-surface-background-color);
-  box-shadow: 0 0.5rem 1rem var(--sleek-shadow-color-5);
+  box-shadow: 0 0.5rem 1rem var(--sleek-modal-shadow-color);
 }
 .modal__head {
   padding: 1rem 1.25rem;

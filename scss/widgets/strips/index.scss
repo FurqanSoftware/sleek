@@ -20,7 +20,8 @@
         &:hover {
             text-decoration: none;
             color: var(--sleek-text-default-color);
-            box-shadow: inset 0.5rem 0 0 -0.25rem palette.$blue-glow;
+            box-shadow: inset 0.5rem 0 0 -0.25rem
+                var(--sleek-button-blue-faint-background-color);
         }
 
         &:last-child {

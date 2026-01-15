@@ -209,7 +209,8 @@
                 left: 0;
                 bottom: 0;
                 width: 100%;
-                border-bottom: 0.125rem solid palette.$blue-glow;
+                border-bottom: 0.125rem solid
+                    var(--sleek-button-blue-faint-background-color);
                 transform: scaleX(0);
                 transition: transform const.$fast ease-in;
             }

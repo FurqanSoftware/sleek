@@ -9,19 +9,24 @@
     justify-content: center;
 
     &__item {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 2rem;
+        min-height: 2rem;
         padding: 0.25rem 0.5rem;
         border-radius: 0.25rem;
         text-decoration: none;
 
         &:hover,
         &:focus {
-            background-color: rgba(palette.$blue, 0.125);
+            background-color: var(--sleek-button-blue-faint-background-color);
             text-decoration: none;
         }
 
         &.-active {
-            background-color: palette.$blue;
-            color: white;
+            background-color: var(--sleek-button-blue-background-color);
+            color: var(--sleek-button-blue-color);
         }
     }
 }

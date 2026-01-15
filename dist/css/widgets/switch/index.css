@@ -3,7 +3,7 @@
   display: inline-block;
 }
 .switch--readonly .switch__toggle::after {
-  background-color: #e7ecf1;
+  background-color: #e7e5e4;
   box-shadow: none;
   cursor: default;
 }

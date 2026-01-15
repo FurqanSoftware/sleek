@@ -1,9 +1,6 @@
 :root {
-  --sleek-arena-body-background-color: palette.$dark;
-  --sleek-arena-pmenu-item-hover-background-color: color.scale(
-      $dark,
-      $lightness: 5%
-  );
+  --sleek-arena-body-background-color: #111827;
+  --sleek-arena-pmenu-item-hover-background-color: rgb(25.9714285714, 21.6428571429, 19.4785714286);
 }
 
 body {
@@ -71,7 +68,7 @@ body.-staging {
   position: absolute;
   bottom: 0;
   right: 0;
-  background-color: rgba(241, 74, 83, 0.75);
+  background-color: rgba(244, 63, 94, 0.75);
   color: white;
 }
 .pmenu__divider {
@@ -140,13 +137,13 @@ body.-staging {
 .pfoot {
   padding: 10px 0;
   text-align: center;
-  color: #e7ecf1;
+  color: #e7e5e4;
 }
 .pfoot a {
-  color: #e7ecf1;
+  color: #e7e5e4;
 }
 .pfoot a:hover, .pfoot a:focus {
-  color: rgb(235.8, 239.8, 243.8);
+  color: rgb(235.8, 234.2, 233.4);
 }
 
 #content {

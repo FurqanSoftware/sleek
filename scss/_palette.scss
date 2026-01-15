@@ -14,18 +14,6 @@ $sky-800: #075985;
 $sky-900: #0c4a6e;
 $sky-950: #082f49;
 
-$blue-50: #eff6ff;
-$blue-100: #dbeafe;
-$blue-200: #bfdbfe;
-$blue-300: #93c5fd;
-$blue-400: #60a5fa;
-$blue-500: #3b82f6;
-$blue-600: #2563eb;
-$blue-700: #1d4ed8;
-$blue-800: #1e40af;
-$blue-900: #1e3a8a;
-$blue-950: #172554;
-
 $slate-50: #f8fafc;
 $slate-100: #f1f5f9;
 $slate-200: #e2e8f0;
@@ -74,21 +62,28 @@ $stone-800: #292524;
 $stone-900: #1c1917;
 $stone-950: #0c0a09;
 
+$blue-50: #d1e8f7;
+$blue-100: #c0dff4;
+$blue-200: #9dcdee;
+$blue-300: #7bbbe8;
+$blue-400: #58aae2;
+$blue-500: #3598dc;
+$blue-600: #207bb9;
+$blue-700: #185b89;
+$blue-800: #0f3b59;
+$blue-900: #071b29;
+$blue-950: #030c12;
+
+$logo-blue: #3598dc;
+$logo-ebony: #22313f;
+$logo-silver: #e7ecf1;
+
 $dark: $stone-950;
 $ebony: #22313f;
-$blue: #3598dc;
+$blue: $blue-500;
 $green: #15803d; // green-700
 $red: #f43f5e; // red-500
 $orange: #ea580c;
 $silver: $stone-200;
 
 $muted: $stone-600;
-
-$shade: color.scale($silver, $lightness: 50%);
-
-$blue-glow: rgba($blue, 75%);
-$silver-glow: rgba($silver, 75%);
-
-$logo-blue: #3598dc;
-$logo-ebony: #22313f;
-$logo-silver: #e7ecf1;

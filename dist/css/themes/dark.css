@@ -1,18 +1,18 @@
 :root {
-  --sleek-body-background-color: #1b1d1e;
-  --sleek-surface-background-color: #181a1b;
-  --sleek-surface-shade-background-color: rgba(35, 38, 39, 0.75);
-  --sleek-surface-border-color: rgb(31.5, 42.75, 54);
-  --sleek-surface-border-color-subtle: rgb(23.1, 31.35, 39.6);
-  --sleek-surface-highlight-border-color: palette.$blue;
+  --sleek-body-background-color: #030712;
+  --sleek-surface-background-color: black;
+  --sleek-surface-shade-background-color: #0a0a0a;
+  --sleek-surface-border-color: #292524;
+  --sleek-surface-border-color-subtle: #1c1917;
+  --sleek-surface-highlight-border-color: #3598dc;
   --sleek-field-background-color: #181a1b;
-  --sleek-field-border-color: rgb(31.5, 42.75, 54);
+  --sleek-field-border-color: #44403c;
   --sleek-field-focus-border-color: rgba(53, 152, 220, 0.75);
   --sleek-field-disabled-background-color: #181a1b;
   --sleek-field-disabled-color: rgba(255, 255, 255, 0.5);
   --sleek-field-disabled-focus-border-color: rgb(31.5, 42.75, 54);
-  --sleek-button-default-background-color: #232627;
-  --sleek-button-default-border-color: #34475a;
+  --sleek-button-default-background-color: #262626;
+  --sleek-button-default-border-color: #404040;
   --sleek-button-default-color: rgba(255, 255, 255, 0.9);
   --sleek-button-icon-default-filter: invert(100%) sepia(100%) saturate(0%)
       hue-rotate(125deg) brightness(103%) contrast(103%);
@@ -28,7 +28,7 @@
   --sleek-button-default-active-shadow-color: rgb(58.738028169, 80.2, 101.661971831);
   --sleek-button-icon-default-active-filter: invert(100%) sepia(100%)
       saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%);
-  --sleek-button-blue-background-color: palette.$blue;
+  --sleek-button-blue-background-color: #3598dc;
   --sleek-button-blue-border-color: rgb(32.253164557, 123.4835443038, 186.146835443);
   --sleek-button-blue-color: rgba(255, 255, 255, 0.9);
   --sleek-button-icon-blue-filter: invert(100%) sepia(100%) saturate(0%)
@@ -39,10 +39,11 @@
   --sleek-button-icon-blue-hover-filter: invert(100%) sepia(100%) saturate(0%)
       hue-rotate(125deg) brightness(103%) contrast(103%);
   --sleek-button-blue-focus-shadow-color: rgb(34.2689873418, 131.2012658228, 197.7810126582);
-  --sleek-button-blue-active-background-color: palette.$blue;
+  --sleek-button-blue-active-background-color: #3598dc;
   --sleek-button-blue-active-border-color: rgb(24.1898734177, 92.6126582278, 139.6101265823);
   --sleek-button-blue-active-color: rgba(255, 255, 255, 0.9);
   --sleek-button-blue-active-shadow-color: rgb(34.2689873418, 131.2012658228, 197.7810126582);
+  --sleek-button-blue-faint-background-color: #185b89;
   --sleek-button-icon-blue-active-filter: invert(100%) sepia(100%)
       saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%);
   --sleek-button-simple-background-color: #181a1b;
@@ -63,8 +64,8 @@
   --sleek-button-icon-simple-active-filter: invert(100%) sepia(100%)
       saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%);
   --sleek-button-subtle-hover-border-color: #454b4e;
-  --sleek-table-border-color: rgb(24.15, 32.775, 41.4);
-  --sleek-table-row-hover-border-color: palette.$blue;
+  --sleek-table-border-color: #1c1917;
+  --sleek-table-row-hover-border-color: #3598dc;
   --sleek-alert-default-background-color: rgb(1.575, 2.1375, 2.7);
   --sleek-alert-default-border-color: rgb(31.5, 42.75, 54);
   --sleek-alert-link-default-hover-border-color: rgb(47.1394736842, 63.975, 80.8105263158);
@@ -80,20 +81,20 @@
   --sleek-alert-orange-background-color: #3b2000;
   --sleek-alert-orange-border-color: #b56203;
   --sleek-alert-link-orange-hover-border-color: rgb(213.0684782609, 115.3630434783, 3.5315217391);
-  --sleek-alert-subtle-color: rgba(255, 255, 255, 0.7);
-  --sleek-text-default-color: rgba(255, 255, 255, 0.9);
-  --sleek-text-muted-color: rgba(255, 255, 255, 0.7);
-  --sleek-link-color: palette.$blue;
-  --sleek-link-hover-color: rgb(92.39, 172.085, 226.825);
+  --sleek-alert-subtle-color: #d6d3d1;
+  --sleek-text-default-color: rgba(250, 250, 249, 0.9);
+  --sleek-text-muted-color: #d6d3d1;
+  --sleek-link-color: #7dd3fc;
+  --sleek-link-hover-color: #e0f2fe;
   --sleek-link-muted-color: rgba(255, 255, 255, 0.7);
   --sleek-link-muted-hover-color: rgba(255, 255, 255, 0.9);
   --sleek-divider-border-color: #283344;
-  --sleek-shadow-color-0: rgb(23.4, 25.35, 26.325);
-  --sleek-shadow-color-1: rgb(22.8, 24.7, 25.65);
-  --sleek-shadow-color-2: rgb(21.6, 23.4, 24.3);
-  --sleek-shadow-color-3: rgb(20.4, 22.1, 22.95);
-  --sleek-shadow-color-5: rgb(19.2, 20.8, 21.6);
-  --sleek-shadow-color-7: rgb(18, 19.5, 20.25);
+  --sleek-shadow-color-0: rgb(27.3, 24.375, 22.425);
+  --sleek-shadow-color-1: rgb(26.6, 23.75, 21.85);
+  --sleek-shadow-color-2: rgb(25.2, 22.5, 20.7);
+  --sleek-shadow-color-3: rgb(23.8, 21.25, 19.55);
+  --sleek-shadow-color-5: rgb(22.4, 20, 18.4);
+  --sleek-shadow-color-7: rgb(21, 18.75, 17.25);
 }
 
 /*# sourceMappingURL=dark.css.map */

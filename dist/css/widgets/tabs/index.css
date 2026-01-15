@@ -15,7 +15,7 @@
   display: block;
 }
 .tabs__item:focus, .tabs__item:hover {
-  border-bottom-color: rgba(53, 152, 220, 0.75);
+  border-bottom-color: var(--sleek-button-blue-faint-background-color);
   color: var(--sleek-text-muted-color);
   text-decoration: none;
 }

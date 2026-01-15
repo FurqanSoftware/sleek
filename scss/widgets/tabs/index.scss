@@ -24,7 +24,9 @@
 
         &:focus,
         &:hover {
-            border-bottom-color: palette.$blue-glow;
+            border-bottom-color: var(
+                --sleek-button-blue-faint-background-color
+            );
             color: var(--sleek-text-muted-color);
             text-decoration: none;
         }

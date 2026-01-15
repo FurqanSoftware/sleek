@@ -30,7 +30,7 @@
   color: white;
 }
 .pills__item.-disabled {
-  color: rgb(81.8571428571, 68.2142857143, 61.3928571429);
+  color: #57534e;
   background-color: transparent;
   cursor: default;
   opacity: 0.75;
