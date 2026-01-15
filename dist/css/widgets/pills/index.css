@@ -15,7 +15,7 @@
 }
 .pills__item:focus, .pills__item:hover {
   text-decoration: none;
-  background-color: rgba(53, 152, 220, 0.1);
+  background-color: var(--sleek-button-blue-faint-background-color);
 }
 .pills__item > .badge {
   float: right;

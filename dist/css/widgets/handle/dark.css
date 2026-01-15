@@ -7,22 +7,22 @@
   --sleek-handle-b-color: rgb(176.8, 233.75, 83.3);
   --sleek-handle-c-color: rgb(44.1208502024, 180.7850202429, 242.3291497976);
   --sleek-handle-e-color: rgb(180.2, 156.4, 250.75);
-  --sleek-handle-default-background-color: rgba(161, 161, 170, 0.05);
-  --sleek-handle-sss-background-color: rgba(244, 63, 94, 0.05);
-  --sleek-handle-ss-background-color: rgba(245, 158, 11, 0.05);
-  --sleek-handle-s-background-color: rgba(250, 204, 21, 0.05);
-  --sleek-handle-a-background-color: rgba(254, 211, 72, 0.05);
-  --sleek-handle-b-background-color: rgba(163, 230, 53, 0.05);
-  --sleek-handle-c-background-color: rgba(14, 165, 233, 0.05);
-  --sleek-handle-e-background-color: rgba(167, 139, 250, 0.05);
-  --sleek-handle-default-glow-background-color: rgba(161, 161, 170, 0.1);
-  --sleek-handle-sss-glow-background-color: rgba(244, 63, 94, 0.1);
-  --sleek-handle-ss-glow-background-color: rgba(245, 158, 11, 0.1);
-  --sleek-handle-s-glow-background-color: rgba(250, 204, 21, 0.1);
-  --sleek-handle-a-glow-background-color: rgba(254, 211, 72, 0.1);
-  --sleek-handle-b-glow-background-color: rgba(163, 230, 53, 0.1);
-  --sleek-handle-c-glow-background-color: rgba(14, 165, 233, 0.1);
-  --sleek-handle-e-glow-background-color: rgba(167, 139, 250, 0.1);
+  --sleek-handle-default-background-color: rgba(161, 161, 170, 0.15);
+  --sleek-handle-sss-background-color: rgba(244, 63, 94, 0.15);
+  --sleek-handle-ss-background-color: rgba(245, 158, 11, 0.15);
+  --sleek-handle-s-background-color: rgba(250, 204, 21, 0.15);
+  --sleek-handle-a-background-color: rgba(254, 211, 72, 0.15);
+  --sleek-handle-b-background-color: rgba(163, 230, 53, 0.15);
+  --sleek-handle-c-background-color: rgba(14, 165, 233, 0.15);
+  --sleek-handle-e-background-color: rgba(167, 139, 250, 0.15);
+  --sleek-handle-default-glow-background-color: rgba(161, 161, 170, 0.2);
+  --sleek-handle-sss-glow-background-color: rgba(244, 63, 94, 0.2);
+  --sleek-handle-ss-glow-background-color: rgba(245, 158, 11, 0.2);
+  --sleek-handle-s-glow-background-color: rgba(250, 204, 21, 0.2);
+  --sleek-handle-a-glow-background-color: rgba(254, 211, 72, 0.2);
+  --sleek-handle-b-glow-background-color: rgba(163, 230, 53, 0.2);
+  --sleek-handle-c-glow-background-color: rgba(14, 165, 233, 0.2);
+  --sleek-handle-e-glow-background-color: rgba(167, 139, 250, 0.2);
 }
 
 /*# sourceMappingURL=dark.css.map */

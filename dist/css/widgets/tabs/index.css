@@ -15,7 +15,7 @@
   display: block;
 }
 .tabs__item:focus, .tabs__item:hover {
-  border-bottom-color: var(--sleek-button-blue-faint-background-color);
+  border-bottom-color: var(--sleek-button-blue-faint-border-color);
   color: var(--sleek-text-muted-color);
   text-decoration: none;
 }

@@ -43,7 +43,8 @@
   --sleek-button-blue-active-border-color: rgb(24.1898734177, 92.6126582278, 139.6101265823);
   --sleek-button-blue-active-color: rgba(255, 255, 255, 0.9);
   --sleek-button-blue-active-shadow-color: rgb(34.2689873418, 131.2012658228, 197.7810126582);
-  --sleek-button-blue-faint-background-color: #7bbbe8;
+  --sleek-button-blue-faint-background-color: #f1f5f9;
+  --sleek-button-blue-faint-border-color: #9dcdee;
   --sleek-button-icon-blue-active-filter: invert(100%) sepia(100%)
       saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%);
   --sleek-button-simple-background-color: white;

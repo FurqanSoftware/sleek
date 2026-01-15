@@ -14,7 +14,7 @@
 .strips__item:focus, .strips__item:hover {
   text-decoration: none;
   color: var(--sleek-text-default-color);
-  box-shadow: inset 0.5rem 0 0 -0.25rem var(--sleek-button-blue-faint-background-color);
+  box-shadow: inset 0.5rem 0 0 -0.25rem var(--sleek-button-blue-faint-border-color);
 }
 .strips__item:last-child {
   border-bottom: none;
