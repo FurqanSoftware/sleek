@@ -14,16 +14,15 @@
 
     --sleek-field-background-color: white;
     --sleek-field-border-color: #{palette.$stone-300};
-    --sleek-field-focus-border-color: #{rgba(palette.$blue, 75%)};
+    --sleek-field-focus-border-color: #{palette.$blue};
+    --sleek-field-focus-glow-color: #{palette.$blue-200};
     --sleek-field-disabled-background-color: #{color.scale(
-            palette.$silver,
+            palette.$stone-200,
             $lightness: 50%
         )};
     --sleek-field-disabled-color: #{rgba(palette.$dark, 0.75)};
-    --sleek-field-disabled-focus-border-color: #{color.scale(
-            palette.$silver,
-            $lightness: 50%
-        )};
+    --sleek-field-disabled-focus-border-color: #{palette.$stone-400};
+    --sleek-field-disabled-focus-glow-color: #{palette.$stone-100};
 
     --sleek-button-default-background-color: #{palette.$neutral-200};
     --sleek-button-default-border-color: #{palette.$neutral-300};
@@ -31,31 +30,31 @@
     --sleek-button-icon-default-filter: invert(18%) sepia(3%) saturate(2176%)
         hue-rotate(169deg) brightness(88%) contrast(88%);
     --sleek-button-default-hover-border-color: #{color.scale(
-            palette.$silver,
+            palette.$stone-200,
             $lightness: -30%
         )};
     --sleek-button-default-hover-color: #{palette.$dark};
     --sleek-button-default-hover-shadow-color: #{color.scale(
-            palette.$silver,
+            palette.$stone-200,
             $lightness: -15%
         )};
     --sleek-button-icon-default-hover-filter: invert(18%) sepia(3%)
         saturate(2176%) hue-rotate(169deg) brightness(88%) contrast(88%);
     --sleek-button-default-focus-shadow-color: #{color.scale(
-            palette.$silver,
+            palette.$stone-200,
             $lightness: -15%
         )};
     --sleek-button-default-active-background-color: #{color.scale(
-            palette.$silver,
+            palette.$stone-200,
             $lightness: -20%
         )};
     --sleek-button-default-active-border-color: #{color.scale(
-            palette.$silver,
+            palette.$stone-200,
             $lightness: -40%
         )};
     --sleek-button-default-active-color: #{palette.$dark};
     --sleek-button-default-active-shadow-color: #{color.scale(
-            palette.$silver,
+            palette.$stone-200,
             $lightness: -15%
         )};
     --sleek-button-icon-default-active-filter: invert(18%) sepia(3%)
@@ -141,12 +140,12 @@
     --sleek-table-row-hover-border-color: #{palette.$blue};
 
     --sleek-alert-default-background-color: #{color.scale(
-            palette.$silver,
+            palette.$stone-200,
             $lightness: 95%
         )};
-    --sleek-alert-default-border-color: #{palette.$silver};
+    --sleek-alert-default-border-color: #{palette.$stone-200};
     --sleek-alert-link-default-hover-border-color: #{color.scale(
-            palette.$silver,
+            palette.$stone-200,
             $lightness: -30%
         )};
     --sleek-alert-ebony-background-color: #{color.scale(
@@ -205,7 +204,7 @@
     --sleek-link-muted-hover-color: #{palette.$dark};
 
     --sleek-divider-border-color: #{color.scale(
-            palette.$silver,
+            palette.$stone-200,
             $lightness: 25%
         )};
 

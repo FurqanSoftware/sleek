@@ -9,7 +9,7 @@
 
     &--readonly {
         .switch__toggle::after {
-            background-color: palette.$silver;
+            background-color: palette.$stone-200;
             box-shadow: none;
             cursor: default;
         }

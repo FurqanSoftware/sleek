@@ -16,13 +16,12 @@
 
     --sleek-field-background-color: #181a1b;
     --sleek-field-border-color: #{palette.$stone-700};
-    --sleek-field-focus-border-color: #{rgba(palette.$blue, 75%)};
+    --sleek-field-focus-border-color: #{palette.$blue};
+    --sleek-field-focus-glow-color: #{palette.$blue-800};
     --sleek-field-disabled-background-color: #181a1b;
     --sleek-field-disabled-color: #{rgba(white, 50%)};
-    --sleek-field-disabled-focus-border-color: #{color.scale(
-            #2a3948,
-            $lightness: -25%
-        )};
+    --sleek-field-disabled-focus-border-color: #{palette.$stone-600};
+    --sleek-field-disabled-focus-glow-color: #{palette.$stone-900};
 
     --sleek-button-default-background-color: #{palette.$neutral-800};
     --sleek-button-default-border-color: #{palette.$neutral-700};

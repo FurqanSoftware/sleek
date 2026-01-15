@@ -27,11 +27,11 @@
             box-shadow const.$fast ease-in;
 
         &:focus {
-            border-color: palette.$blue;
+            border-color: var(--sleek-field-focus-border-color);
             outline: 0;
             box-shadow:
                 inset 0 0.125rem 0.125rem var(--sleek-shadow-color-0),
-                0 0 0 0.25rem var(--sleek-field-focus-border-color);
+                0 0 0 0.25rem var(--sleek-field-focus-glow-color);
         }
     }
 
@@ -42,10 +42,10 @@
         box-shadow: inset 0 0.125rem 0.125rem var(--sleek-shadow-color-1);
 
         &:focus {
-            border-color: color.mix(palette.$dark, palette.$silver, 20%);
+            border-color: var(--sleek-field-disabled-focus-border-color);
             box-shadow:
                 inset 0 0.125rem 0.125rem var(--sleek-shadow-color-1),
-                0 0 0 0.25rem var(--sleek-field-disabled-focus-border-color);
+                0 0 0 0.25rem var(--sleek-field-disabled-focus-glow-color);
         }
     }
 

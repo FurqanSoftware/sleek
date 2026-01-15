@@ -67,23 +67,49 @@ $blue-100: #c0dff4;
 $blue-200: #9dcdee;
 $blue-300: #7bbbe8;
 $blue-400: #58aae2;
-$blue-500: #3598dc;
+$blue-500: #3598dc; // Base
 $blue-600: #207bb9;
 $blue-700: #185b89;
 $blue-800: #0f3b59;
 $blue-900: #071b29;
 $blue-950: #030c12;
 
-$logo-blue: #3598dc;
-$logo-ebony: #22313f;
-$logo-silver: #e7ecf1;
+$ebony-50: #bacad9;
+$ebony-100: #acc0d2;
+$ebony-200: #92acc4;
+$ebony-300: #7798b6;
+$ebony-400: #5d83a7;
+$ebony-500: #4d6f8e;
+$ebony-600: #3f5a74;
+$ebony-700: #304659;
+$ebony-800: #22313f; // Base
+$ebony-900: #0e151b;
+$ebony-950: #050608;
+
+$silver-50: #f2f5f8;
+$silver-100: #e7ecf1; // Base
+$silver-200: #c7d3de;
+$silver-300: #a7b9cb;
+$silver-400: #86a0b9;
+$silver-500: #6686a6;
+$silver-600: #506d89;
+$silver-700: #3d5369;
+$silver-800: #2a3a49;
+$silver-900: #182028;
+$silver-950: #0e1318;
 
 $dark: $stone-950;
-$ebony: #22313f;
+$ebony: $ebony-800;
 $blue: $blue-500;
 $green: #15803d; // green-700
 $red: #f43f5e; // red-500
-$orange: #ea580c;
-$silver: $stone-200;
+$orange: #ea580c; // orange-600
+$silver: $silver-100;
 
 $muted: $stone-600;
+
+$logo-colors: (
+    "blue": $blue-500,
+    "ebony": $ebony-800,
+    "silver": $silver-100,
+);

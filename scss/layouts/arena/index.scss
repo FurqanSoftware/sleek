@@ -187,14 +187,14 @@ body {
 .pfoot {
     padding: 10px 0;
     text-align: center;
-    color: palette.$silver;
+    color: palette.$stone-200;
 
     a {
-        color: palette.$silver;
+        color: palette.$stone-200;
 
         &:hover,
         &:focus {
-            color: color.scale(palette.$silver, $lightness: 20%);
+            color: color.scale(palette.$stone-200, $lightness: 20%);
         }
     }
 }

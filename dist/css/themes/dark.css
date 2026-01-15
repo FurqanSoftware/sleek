@@ -7,10 +7,12 @@
   --sleek-surface-highlight-border-color: #3598dc;
   --sleek-field-background-color: #181a1b;
   --sleek-field-border-color: #44403c;
-  --sleek-field-focus-border-color: rgba(53, 152, 220, 0.75);
+  --sleek-field-focus-border-color: #3598dc;
+  --sleek-field-focus-glow-color: #0f3b59;
   --sleek-field-disabled-background-color: #181a1b;
   --sleek-field-disabled-color: rgba(255, 255, 255, 0.5);
-  --sleek-field-disabled-focus-border-color: rgb(31.5, 42.75, 54);
+  --sleek-field-disabled-focus-border-color: #57534e;
+  --sleek-field-disabled-focus-glow-color: #1c1917;
   --sleek-button-default-background-color: #262626;
   --sleek-button-default-border-color: #404040;
   --sleek-button-default-color: rgba(255, 255, 255, 0.9);
