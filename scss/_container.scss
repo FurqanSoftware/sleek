@@ -15,8 +15,8 @@ $container-widths: (
     width: 100%;
     margin-left: auto;
     margin-right: auto;
-    padding-left: 15px;
-    padding-right: 15px;
+    padding-left: 1rem;
+    padding-right: 1rem;
 }
 
 @each $bk, $bv in responsive.$breakpoints {

@@ -32,7 +32,7 @@ body {
 .phead {
     &__logo {
         float: left;
-        padding: 15px 0;
+        padding: 1rem 0;
     }
 }
 
@@ -127,7 +127,7 @@ body {
         margin: 22px 18px 11px;
 
         .progress {
-            height: 5px;
+            height: 0.25rem;
             border-bottom: 1px solid white;
             border-radius: 0;
 
@@ -151,7 +151,7 @@ body {
             top: 0;
             left: 0;
             height: 100%;
-            border-left: 5px solid rgba(white, 50%);
+            border-left: 0.25rem solid rgba(white, 50%);
             transform: scaleY(0);
             transition: transform const.$fast ease-in;
         }
@@ -179,7 +179,7 @@ body {
         }
 
         .icon {
-            margin: -2px 5px 0 0;
+            margin: -0.125rem 0.25rem 0 0;
         }
     }
 }
@@ -202,7 +202,7 @@ body {
 #content {
     min-height: 100vh;
     margin-left: 0;
-    padding-top: 15px;
+    padding-top: 1rem;
     border-radius: 0;
     background-color: var(--sleek-body-background-color);
 }
