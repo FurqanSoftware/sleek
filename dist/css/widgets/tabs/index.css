@@ -40,7 +40,7 @@
   margin-top: -2px;
 }
 .tabs__item img.icon + .text {
-  margin-left: 5px;
+  margin-left: 0.25rem;
 }
 .tabs__item + .tabs__item {
   margin-left: 2px;

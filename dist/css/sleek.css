@@ -217,7 +217,7 @@ optgroup {
   --sleek-alert-link-orange-hover-border-color: rgb(163.8, 61.6, 8.4);
   --sleek-alert-subtle-color: #44403c;
   --sleek-text-default-color: rgba(12, 10, 9, 0.9);
-  --sleek-text-muted-color: #44403c;
+  --sleek-text-muted-color: #57534e;
   --sleek-link-color: #0369a1;
   --sleek-link-hover-color: #0c4a6e;
   --sleek-link-muted-color: #57534e;
@@ -235,8 +235,8 @@ optgroup {
   width: 100%;
   margin-left: auto;
   margin-right: auto;
-  padding-left: 15px;
-  padding-right: 15px;
+  padding-left: 1rem;
+  padding-right: 1rem;
 }
 
 @media (min-width: 576px) {
@@ -325,7 +325,7 @@ optgroup {
   padding-left: 0.25rem;
 }
 
-[class^=col-xs-] {
+.col-xs-1, .col-xs-2, .col-xs-3, .col-xs-4, .col-xs-5, .col-xs-6, .col-xs-7, .col-xs-8, .col-xs-9, .col-xs-10, .col-xs-11, .col-xs-12 {
   float: left;
 }
 
@@ -378,7 +378,7 @@ optgroup {
 }
 
 @media (min-width: 768px) {
-  [class^=col-sm-] {
+  .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
     float: left;
   }
   .col-sm-1 {
@@ -458,7 +458,7 @@ optgroup {
   }
 }
 @media (min-width: 992px) {
-  [class^=col-md-] {
+  .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
     float: left;
   }
   .col-md-1 {
@@ -1347,11 +1347,11 @@ code {
 .form__brace .form__addon {
   display: table-cell;
   width: 0.1%;
-  padding-right: 10px;
+  padding-right: 0.5rem;
   vertical-align: middle;
 }
 .form__hint {
-  margin-top: 5px;
+  margin-top: 0.25rem;
   color: var(--sleek-text-muted-color);
 }
 .form__hint.-green {
@@ -1373,27 +1373,27 @@ fieldset.-closed .form__group {
   display: none;
 }
 fieldset.-flags .form__group {
-  margin-bottom: 20px;
+  margin-bottom: 1.25rem;
 }
 fieldset.-flags .switch {
   float: right;
   margin-top: 0.5em;
-  margin-left: 30px;
+  margin-left: 2rem;
 }
 
 .fieldset__head {
-  margin-bottom: 15px;
+  margin-bottom: 1rem;
 }
 .fieldset__toggle {
   float: right;
   margin-top: 0.5em;
-  margin-left: 30px;
+  margin-left: 2rem;
 }
 .fieldset__title {
   text-decoration: underline;
 }
 .fieldset__note {
-  margin-top: 5px;
+  margin-top: 0.25rem;
   color: var(--sleek-text-muted-color);
 }
 
@@ -1460,7 +1460,7 @@ fieldset.-flags .switch {
 @media screen and (max-width: 767px) {
   .tablebox {
     width: 100%;
-    margin-bottom: 15px;
+    margin-bottom: 1rem;
     overflow-y: hidden;
     border: 1px solid var(--sleek-table-border-color);
   }
@@ -1884,7 +1884,7 @@ fieldset.-flags .switch {
   font-size: 1rem;
 }
 .panel__title .icon {
-  margin: -2px 5px 0 0;
+  margin: -1.25rem 0.25rem 0 0;
   font-size: 1.25rem;
 }
 .panel__actions {

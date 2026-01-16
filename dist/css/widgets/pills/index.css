@@ -45,7 +45,7 @@
   margin-top: -2px;
 }
 .pills__item img.icon + .text {
-  margin-left: 5px;
+  margin-left: 0.25rem;
 }
 .pills__item + .pills__item {
   margin-left: 2px;
@@ -62,7 +62,7 @@
   }
   .pillsbox {
     display: inline-block;
-    margin-bottom: 25px;
+    margin-bottom: 2rem;
   }
   .pillsbox > .panel {
     display: none;
