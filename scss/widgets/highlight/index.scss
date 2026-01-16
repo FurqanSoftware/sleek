@@ -1,11 +1,17 @@
 // Copyright 2026 Furqan Software Ltd. All Rights Reserved.
 
+@use "../../palette";
+
+:root {
+    --sleek-highlight-background-color: #272822;
+}
+
 .highlight {
     margin-bottom: 1rem;
     padding: 0.5rem 0.25rem;
     border-radius: 0.25rem;
     overflow: auto;
-    background-color: #272822;
+    background-color: var(--sleek-highlight-background-color);
 
     pre {
         display: block;
