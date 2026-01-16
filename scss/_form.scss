@@ -71,13 +71,13 @@
         .form__addon {
             display: table-cell;
             width: 0.1%;
-            padding-right: 10px;
+            padding-right: 0.5rem;
             vertical-align: middle;
         }
     }
 
     &__hint {
-        margin-top: 5px;
+        margin-top: 0.25rem;
         color: var(--sleek-text-muted-color);
 
         &.-green {
@@ -107,26 +107,26 @@ fieldset {
 
     &.-flags {
         .form__group {
-            margin-bottom: 20px;
+            margin-bottom: 1.25rem;
         }
 
         .switch {
             float: right;
             margin-top: 0.5em;
-            margin-left: 30px;
+            margin-left: 2rem;
         }
     }
 }
 
 .fieldset {
     &__head {
-        margin-bottom: 15px;
+        margin-bottom: 1rem;
     }
 
     &__toggle {
         float: right;
         margin-top: 0.5em;
-        margin-left: 30px;
+        margin-left: 2rem;
     }
 
     &__title {
@@ -134,7 +134,7 @@ fieldset {
     }
 
     &__note {
-        margin-top: 5px;
+        margin-top: 0.25rem;
         color: var(--sleek-text-muted-color);
     }
 }
