@@ -138,6 +138,11 @@ pre.-scroll {
     -webkit-overflow-scrolling: touch;
 }
 
+small,
+.small {
+    font-size: 0.8125em;
+}
+
 .font-mono {
     font-family: const.$font-family-monospace;
 }
@@ -163,8 +168,6 @@ $_seen: ();
     }
 }
 
-small,
-.small,
 .font-sm {
     font-size: 0.8125rem;
 }
