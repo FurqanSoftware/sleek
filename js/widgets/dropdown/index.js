@@ -246,10 +246,7 @@ class Dropdown {
     for (const child of select.childNodes) {
       switch (child.tagName) {
         case "OPTGROUP":
-          const head = document.createElement("div");
-          dom.addClass(head, "dropdown__head");
-          dom.setText(head, child.getAttribute("label"));
-          menu.appendChild(head);
+          menu.appendChild(this.makeHeadOptgroup(child, select));
 
           for (const option of dom.$$("option", child))
             menu.appendChild(this.makeItemOption(option, select));
@@ -344,6 +341,21 @@ class Dropdown {
     return item;
   }
 
+  makeHead(data) {
+    const head = document.createElement("div");
+    dom.addClass(head, "dropdown__head");
+
+    const tpl = this.settings.headTemplate || "%{label}";
+    head.innerHTML = this.executeTemplate(tpl, data);
+
+    return head;
+  }
+
+  makeHeadOptgroup(optgroup, select) {
+    const data = this.extractOptgroupData(optgroup);
+    return this.makeHead(data);
+  }
+
   makeToolText(label) {
     const item = document.createElement("span");
     dom.setText(item, label);
@@ -371,6 +383,18 @@ class Dropdown {
       ...data,
       label: dom.getText(option),
       value: option.getAttribute("value"),
+    };
+    return data;
+  }
+
+  extractOptgroupData(optgroup) {
+    let data = {};
+    const { extra, empty } = optgroup.dataset;
+    if (extra) data = { ...data, ...JSON.parse(extra) };
+    if (empty) data = { ...data, empty };
+    data = {
+      ...data,
+      label: optgroup.getAttribute("label"),
     };
     return data;
   }
