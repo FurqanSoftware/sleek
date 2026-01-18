@@ -152,7 +152,7 @@ optgroup {
   --sleek-button-icon-default-hover-filter: invert(18%) sepia(3%)
       saturate(2176%) hue-rotate(169deg) brightness(88%) contrast(88%);
   --sleek-button-default-focus-shadow-color: #d4d4d4;
-  --sleek-button-default-active-background-color: #e5e5e5;
+  --sleek-button-default-active-background-color: #d4d4d4;
   --sleek-button-default-active-border-color: #404040;
   --sleek-button-default-active-color: rgba(12, 10, 9, 0.9);
   --sleek-button-default-active-shadow-color: #d4d4d4;
@@ -169,7 +169,7 @@ optgroup {
   --sleek-button-icon-blue-hover-filter: invert(100%) sepia(100%) saturate(0%)
       hue-rotate(125deg) brightness(103%) contrast(103%);
   --sleek-button-blue-focus-shadow-color: #207bb9;
-  --sleek-button-blue-active-background-color: #3598dc;
+  --sleek-button-blue-active-background-color: #207bb9;
   --sleek-button-blue-active-border-color: #030c12;
   --sleek-button-blue-active-color: rgba(255, 255, 255, 0.9);
   --sleek-button-blue-active-shadow-color: #207bb9;
@@ -188,7 +188,7 @@ optgroup {
   --sleek-button-icon-simple-hover-filter: invert(18%) sepia(3%)
       saturate(2176%) hue-rotate(169deg) brightness(88%) contrast(88%);
   --sleek-button-simple-focus-shadow-color: #e5e5e5;
-  --sleek-button-simple-active-background-color: #fafafa;
+  --sleek-button-simple-active-background-color: #e5e5e5;
   --sleek-button-simple-active-border-color: #262626;
   --sleek-button-simple-active-color: rgba(12, 10, 9, 0.9);
   --sleek-button-simple-active-shadow-color: #e5e5e5;
@@ -1505,7 +1505,7 @@ fieldset.-flags .switch {
   text-decoration: none;
   background-color: transparent;
 }
-.btn:hover, .btn:focus, .btn:active {
+.btn:hover, .btn:focus, .btn:active, .btn.-active {
   position: relative;
   z-index: 2;
   text-decoration: none;
@@ -1548,13 +1548,13 @@ fieldset.-flags .switch {
   outline: var(--sleek-link-hover-color) auto 0.25rem;
   outline-offset: 0.25rem;
 }
-.btn.-red.-active {
+.btn.-red:active, .btn.-red.-active {
   border-color: rgb(174.2187192118, 9.9812807882, 38.1103448276);
   background-color: rgb(232.2916256158, 13.3083743842, 50.8137931034);
   color: white;
   box-shadow: inset 0 0 0 0.125rem rgb(203.2551724138, 11.6448275862, 44.4620689655);
 }
-.btn.-red.-active .icon {
+.btn.-red:active .icon, .btn.-red.-active .icon {
   filter: var(--sleek-icon-invert-filter) !important;
 }
 .btn.-red.-disabled, .btn.-red[disabled] {
@@ -1594,13 +1594,13 @@ fieldset.-flags .switch {
   outline-offset: 0.25rem;
   box-shadow: inset 0 0 0 0.125rem var(--sleek-button-default-focus-shadow-color);
 }
-.btn.-default.-active {
+.btn.-default:active, .btn.-default.-active {
   border-color: var(--sleek-button-default-active-border-color);
   background-color: var(--sleek-button-default-active-background-color);
   color: var(--sleek-button-default-active-color);
   box-shadow: inset 0 0 0 0.125rem var(--sleek-button-default-active-shadow-color);
 }
-.btn.-default.-active .icon:not(.-custom) {
+.btn.-default:active .icon:not(.-custom), .btn.-default.-active .icon:not(.-custom) {
   filter: var(--sleek-button-icon-default-active-filter) !important;
 }
 .btn.-default.-disabled, .btn.-default[disabled] {
@@ -1640,13 +1640,13 @@ fieldset.-flags .switch {
   outline-offset: 0.25rem;
   box-shadow: inset 0 0 0 0.125rem var(--sleek-button-blue-focus-shadow-color);
 }
-.btn.-blue.-active {
+.btn.-blue:active, .btn.-blue.-active {
   border-color: var(--sleek-button-blue-active-border-color);
   background-color: var(--sleek-button-blue-active-background-color);
   color: var(--sleek-button-blue-active-color);
   box-shadow: inset 0 0 0 0.125rem var(--sleek-button-blue-active-shadow-color);
 }
-.btn.-blue.-active .icon:not(.-custom) {
+.btn.-blue:active .icon:not(.-custom), .btn.-blue.-active .icon:not(.-custom) {
   filter: var(--sleek-button-icon-blue-active-filter) !important;
 }
 .btn.-blue.-disabled, .btn.-blue[disabled] {
@@ -1686,13 +1686,13 @@ fieldset.-flags .switch {
   outline-offset: 0.25rem;
   box-shadow: inset 0 0 0 0.125rem var(--sleek-button-simple-focus-shadow-color);
 }
-.btn.-simple.-active {
+.btn.-simple:active, .btn.-simple.-active {
   border-color: var(--sleek-button-simple-active-border-color);
   background-color: var(--sleek-button-simple-active-background-color);
   color: var(--sleek-button-simple-active-color);
   box-shadow: inset 0 0 0 0.125rem var(--sleek-button-simple-active-shadow-color);
 }
-.btn.-simple.-active .icon:not(.-custom) {
+.btn.-simple:active .icon:not(.-custom), .btn.-simple.-active .icon:not(.-custom) {
   filter: var(--sleek-button-icon-simple-active-filter) !important;
 }
 .btn.-simple.-disabled, .btn.-simple[disabled] {
