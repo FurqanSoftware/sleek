@@ -128,73 +128,73 @@ optgroup {
 
 :root {
   --sleek-body-background-color: #f9fafb;
-  --sleek-surface-background-color: white;
-  --sleek-surface-shade-background-color: #fafafa;
+  --sleek-surface-background-color: #fafafa;
+  --sleek-surface-shade-background-color: #f5f5f5;
   --sleek-surface-border-color: #e7e5e4;
   --sleek-surface-border-color-subtle: #f5f5f4;
   --sleek-surface-highlight-border-color: #3598dc;
-  --sleek-field-background-color: white;
+  --sleek-field-background-color: #fafafa;
   --sleek-field-border-color: #d6d3d1;
   --sleek-field-focus-border-color: #3598dc;
   --sleek-field-focus-glow-color: #9dcdee;
-  --sleek-field-disabled-background-color: rgb(243, 242, 241.5);
-  --sleek-field-disabled-color: rgba(12, 10, 9, 0.75);
+  --sleek-field-disabled-background-color: #e7e5e4;
+  --sleek-field-disabled-color: #57534e;
   --sleek-field-disabled-focus-border-color: #a8a29e;
   --sleek-field-disabled-focus-glow-color: #f5f5f4;
   --sleek-button-default-background-color: #e5e5e5;
   --sleek-button-default-border-color: #d4d4d4;
-  --sleek-button-default-color: #0c0a09;
+  --sleek-button-default-color: rgba(12, 10, 9, 0.9);
   --sleek-button-icon-default-filter: invert(18%) sepia(3%) saturate(2176%)
       hue-rotate(169deg) brightness(88%) contrast(88%);
-  --sleek-button-default-hover-border-color: rgb(166.2, 158.8, 155.1);
-  --sleek-button-default-hover-color: #0c0a09;
-  --sleek-button-default-hover-shadow-color: rgb(198.6, 193.9, 191.55);
+  --sleek-button-default-hover-border-color: #737373;
+  --sleek-button-default-hover-color: rgba(12, 10, 9, 0.9);
+  --sleek-button-default-hover-shadow-color: #d4d4d4;
   --sleek-button-icon-default-hover-filter: invert(18%) sepia(3%)
       saturate(2176%) hue-rotate(169deg) brightness(88%) contrast(88%);
-  --sleek-button-default-focus-shadow-color: rgb(198.6, 193.9, 191.55);
-  --sleek-button-default-active-background-color: rgb(187.8, 182.2, 179.4);
-  --sleek-button-default-active-border-color: rgb(144.6, 135.4, 130.8);
-  --sleek-button-default-active-color: #0c0a09;
-  --sleek-button-default-active-shadow-color: rgb(198.6, 193.9, 191.55);
+  --sleek-button-default-focus-shadow-color: #d4d4d4;
+  --sleek-button-default-active-background-color: #e5e5e5;
+  --sleek-button-default-active-border-color: #404040;
+  --sleek-button-default-active-color: rgba(12, 10, 9, 0.9);
+  --sleek-button-default-active-shadow-color: #d4d4d4;
   --sleek-button-icon-default-active-filter: invert(18%) sepia(3%)
       saturate(2176%) hue-rotate(169deg) brightness(88%) contrast(88%);
   --sleek-button-blue-background-color: #3598dc;
-  --sleek-button-blue-border-color: rgb(32.253164557, 123.4835443038, 186.146835443);
+  --sleek-button-blue-border-color: #207bb9;
   --sleek-button-blue-color: rgba(255, 255, 255, 0.9);
   --sleek-button-icon-blue-filter: invert(100%) sepia(100%) saturate(0%)
       hue-rotate(125deg) brightness(103%) contrast(103%);
-  --sleek-button-blue-hover-border-color: rgb(28.2215189873, 108.0481012658, 162.8784810127);
+  --sleek-button-blue-hover-border-color: #0f3b59;
   --sleek-button-blue-hover-color: rgba(255, 255, 255, 0.9);
-  --sleek-button-blue-hover-shadow-color: rgb(34.2689873418, 131.2012658228, 197.7810126582);
+  --sleek-button-blue-hover-shadow-color: #207bb9;
   --sleek-button-icon-blue-hover-filter: invert(100%) sepia(100%) saturate(0%)
       hue-rotate(125deg) brightness(103%) contrast(103%);
-  --sleek-button-blue-focus-shadow-color: rgb(34.2689873418, 131.2012658228, 197.7810126582);
+  --sleek-button-blue-focus-shadow-color: #207bb9;
   --sleek-button-blue-active-background-color: #3598dc;
-  --sleek-button-blue-active-border-color: rgb(24.1898734177, 92.6126582278, 139.6101265823);
+  --sleek-button-blue-active-border-color: #030c12;
   --sleek-button-blue-active-color: rgba(255, 255, 255, 0.9);
-  --sleek-button-blue-active-shadow-color: rgb(34.2689873418, 131.2012658228, 197.7810126582);
-  --sleek-button-blue-faint-background-color: #f1f5f9;
-  --sleek-button-blue-faint-border-color: #9dcdee;
+  --sleek-button-blue-active-shadow-color: #207bb9;
   --sleek-button-icon-blue-active-filter: invert(100%) sepia(100%)
       saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%);
-  --sleek-button-simple-background-color: white;
-  --sleek-button-simple-border-color: #cccccc;
-  --sleek-button-simple-color: #0c0a09;
+  --sleek-button-blue-faint-background-color: #f1f5f9;
+  --sleek-button-blue-faint-border-color: #9dcdee;
+  --sleek-button-simple-background-color: #fafafa;
+  --sleek-button-simple-border-color: #e5e5e5;
+  --sleek-button-simple-color: rgba(12, 10, 9, 0.9);
   --sleek-button-icon-simple-filter: invert(18%) sepia(3%) saturate(2176%)
       hue-rotate(169deg) brightness(88%) contrast(88%);
-  --sleek-button-simple-hover-border-color: rgb(178.5, 178.5, 178.5);
-  --sleek-button-simple-hover-color: #0c0a09;
-  --sleek-button-simple-hover-shadow-color: rgb(216.75, 216.75, 216.75);
+  --sleek-button-simple-hover-border-color: #a3a3a3;
+  --sleek-button-simple-hover-color: rgba(12, 10, 9, 0.9);
+  --sleek-button-simple-hover-shadow-color: #e5e5e5;
   --sleek-button-icon-simple-hover-filter: invert(18%) sepia(3%)
       saturate(2176%) hue-rotate(169deg) brightness(88%) contrast(88%);
-  --sleek-button-simple-focus-shadow-color: rgb(216.75, 216.75, 216.75);
-  --sleek-button-simple-active-background-color: #cccccc;
-  --sleek-button-simple-active-border-color: #999999;
-  --sleek-button-simple-active-color: #0c0a09;
-  --sleek-button-simple-active-shadow-color: rgb(216.75, 216.75, 216.75);
+  --sleek-button-simple-focus-shadow-color: #e5e5e5;
+  --sleek-button-simple-active-background-color: #fafafa;
+  --sleek-button-simple-active-border-color: #262626;
+  --sleek-button-simple-active-color: rgba(12, 10, 9, 0.9);
+  --sleek-button-simple-active-shadow-color: #e5e5e5;
   --sleek-button-icon-simple-active-filter: invert(18%) sepia(3%)
       saturate(2176%) hue-rotate(169deg) brightness(88%) contrast(88%);
-  --sleek-button-subtle-hover-border-color: rgb(178.5, 178.5, 178.5);
+  --sleek-button-subtle-hover-border-color: #a3a3a3;
   --sleek-table-border-color: #f5f5f4;
   --sleek-table-row-hover-border-color: #3598dc;
   --sleek-alert-default-background-color: rgb(253.8, 253.7, 253.65);
@@ -222,7 +222,7 @@ optgroup {
   --sleek-link-hover-color: #0c4a6e;
   --sleek-link-muted-color: #57534e;
   --sleek-link-muted-hover-color: #0c0a09;
-  --sleek-divider-border-color: rgb(237, 235.5, 234.75);
+  --sleek-divider-border-color: #e7e5e4;
   --sleek-shadow-color-0: rgb(245.25, 245.25, 244.275);
   --sleek-shadow-color-1: rgb(245.5, 245.5, 244.55);
   --sleek-shadow-color-2: rgb(246, 246, 245.1);
@@ -1181,6 +1181,11 @@ pre.-scroll {
   -webkit-overflow-scrolling: touch;
 }
 
+small,
+.small {
+  font-size: 0.8125em;
+}
+
 .font-mono {
   font-family: "Ubuntu Mono", "Courier New", monospace;
 }
@@ -1261,8 +1266,6 @@ pre.-scroll {
   font-size: 1.25rem;
 }
 
-small,
-.small,
 .font-sm {
   font-size: 0.8125rem;
 }

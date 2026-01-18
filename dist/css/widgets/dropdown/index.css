@@ -1,5 +1,6 @@
 :root {
   --sleek-dropdown-item-hover-background-color: #f1f5f9;
+  --sleek-dropdown-divider-border-color: #f1f5f9;
 }
 
 .dropdown {
@@ -135,7 +136,7 @@
 }
 .dropdown__divider {
   margin: 0.25rem -0.25rem;
-  border-bottom: 1px solid var(--sleek-divider-border-color);
+  border-bottom: 1px solid var(--sleek-dropdown-divider-border-color);
 }
 .dropdown__divider:first-child, .dropdown__divider:last-child {
   display: none;

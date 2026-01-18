@@ -1,16 +1,16 @@
 :root {
   --sleek-body-background-color: #030712;
-  --sleek-surface-background-color: black;
-  --sleek-surface-shade-background-color: #0a0a0a;
+  --sleek-surface-background-color: #0a0a0a;
+  --sleek-surface-shade-background-color: #171717;
   --sleek-surface-border-color: #292524;
   --sleek-surface-border-color-subtle: #1c1917;
   --sleek-surface-highlight-border-color: #3598dc;
-  --sleek-field-background-color: #181a1b;
+  --sleek-field-background-color: #0a0a0a;
   --sleek-field-border-color: #44403c;
   --sleek-field-focus-border-color: #3598dc;
   --sleek-field-focus-glow-color: #0f3b59;
-  --sleek-field-disabled-background-color: #181a1b;
-  --sleek-field-disabled-color: rgba(255, 255, 255, 0.5);
+  --sleek-field-disabled-background-color: #292524;
+  --sleek-field-disabled-color: #a8a29e;
   --sleek-field-disabled-focus-border-color: #57534e;
   --sleek-field-disabled-focus-glow-color: #1c1917;
   --sleek-button-default-background-color: #262626;
@@ -18,55 +18,55 @@
   --sleek-button-default-color: rgba(255, 255, 255, 0.9);
   --sleek-button-icon-default-filter: invert(100%) sepia(100%) saturate(0%)
       hue-rotate(125deg) brightness(103%) contrast(103%);
-  --sleek-button-default-hover-border-color: rgb(65.476056338, 89.4, 113.323943662);
+  --sleek-button-default-hover-border-color: #737373;
   --sleek-button-default-hover-color: rgba(255, 255, 255, 0.9);
-  --sleek-button-default-hover-shadow-color: rgb(58.738028169, 80.2, 101.661971831);
+  --sleek-button-default-hover-shadow-color: #404040;
   --sleek-button-icon-default-hover-filter: invert(100%) sepia(100%)
       saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%);
-  --sleek-button-default-focus-shadow-color: rgb(58.738028169, 80.2, 101.661971831);
-  --sleek-button-default-active-background-color: #34475a;
-  --sleek-button-default-active-border-color: rgb(78.9521126761, 107.8, 136.6478873239);
+  --sleek-button-default-focus-shadow-color: #404040;
+  --sleek-button-default-active-background-color: #262626;
+  --sleek-button-default-active-border-color: #d4d4d4;
   --sleek-button-default-active-color: rgba(255, 255, 255, 0.9);
-  --sleek-button-default-active-shadow-color: rgb(58.738028169, 80.2, 101.661971831);
+  --sleek-button-default-active-shadow-color: #404040;
   --sleek-button-icon-default-active-filter: invert(100%) sepia(100%)
       saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%);
   --sleek-button-blue-background-color: #3598dc;
-  --sleek-button-blue-border-color: rgb(32.253164557, 123.4835443038, 186.146835443);
+  --sleek-button-blue-border-color: #58aae2;
   --sleek-button-blue-color: rgba(255, 255, 255, 0.9);
   --sleek-button-icon-blue-filter: invert(100%) sepia(100%) saturate(0%)
       hue-rotate(125deg) brightness(103%) contrast(103%);
-  --sleek-button-blue-hover-border-color: rgb(28.2215189873, 108.0481012658, 162.8784810127);
+  --sleek-button-blue-hover-border-color: #9dcdee;
   --sleek-button-blue-hover-color: rgba(255, 255, 255, 0.9);
-  --sleek-button-blue-hover-shadow-color: rgb(34.2689873418, 131.2012658228, 197.7810126582);
+  --sleek-button-blue-hover-shadow-color: #58aae2;
   --sleek-button-icon-blue-hover-filter: invert(100%) sepia(100%) saturate(0%)
       hue-rotate(125deg) brightness(103%) contrast(103%);
-  --sleek-button-blue-focus-shadow-color: rgb(34.2689873418, 131.2012658228, 197.7810126582);
+  --sleek-button-blue-focus-shadow-color: #58aae2;
   --sleek-button-blue-active-background-color: #3598dc;
-  --sleek-button-blue-active-border-color: rgb(24.1898734177, 92.6126582278, 139.6101265823);
+  --sleek-button-blue-active-border-color: #d1e8f7;
   --sleek-button-blue-active-color: rgba(255, 255, 255, 0.9);
-  --sleek-button-blue-active-shadow-color: rgb(34.2689873418, 131.2012658228, 197.7810126582);
-  --sleek-button-blue-faint-background-color: #0f172a;
-  --sleek-button-blue-faint-border-color: #0f3b59;
+  --sleek-button-blue-active-shadow-color: #58aae2;
   --sleek-button-icon-blue-active-filter: invert(100%) sepia(100%)
       saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%);
-  --sleek-button-simple-background-color: #181a1b;
-  --sleek-button-simple-border-color: rgb(67.2, 72.8, 75.6);
+  --sleek-button-blue-faint-background-color: #0f172a;
+  --sleek-button-blue-faint-border-color: #0f3b59;
+  --sleek-button-simple-background-color: #0a0a0a;
+  --sleek-button-simple-border-color: #262626;
   --sleek-button-simple-color: rgba(255, 255, 255, 0.9);
   --sleek-button-icon-simple-filter: invert(100%) sepia(100%) saturate(0%)
       hue-rotate(125deg) brightness(103%) contrast(103%);
-  --sleek-button-simple-hover-border-color: rgb(88.8, 96.2, 99.9);
+  --sleek-button-simple-hover-border-color: #525252;
   --sleek-button-simple-hover-color: rgba(255, 255, 255, 0.9);
-  --sleek-button-simple-hover-shadow-color: rgb(56.4, 61.1, 63.45);
+  --sleek-button-simple-hover-shadow-color: #262626;
   --sleek-button-icon-simple-hover-filter: invert(100%) sepia(100%)
       saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%);
-  --sleek-button-simple-focus-shadow-color: rgb(56.4, 61.1, 63.45);
-  --sleek-button-simple-active-background-color: rgb(67.2, 72.8, 75.6);
-  --sleek-button-simple-active-border-color: rgb(110.4, 119.6, 124.2);
+  --sleek-button-simple-focus-shadow-color: #262626;
+  --sleek-button-simple-active-background-color: #0a0a0a;
+  --sleek-button-simple-active-border-color: #e5e5e5;
   --sleek-button-simple-active-color: rgba(255, 255, 255, 0.9);
-  --sleek-button-simple-active-shadow-color: rgb(56.4, 61.1, 63.45);
+  --sleek-button-simple-active-shadow-color: #262626;
   --sleek-button-icon-simple-active-filter: invert(100%) sepia(100%)
       saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%);
-  --sleek-button-subtle-hover-border-color: #454b4e;
+  --sleek-button-subtle-hover-border-color: #525252;
   --sleek-table-border-color: #1c1917;
   --sleek-table-row-hover-border-color: #3598dc;
   --sleek-alert-default-background-color: rgb(1.575, 2.1375, 2.7);
@@ -91,7 +91,7 @@
   --sleek-link-hover-color: #e0f2fe;
   --sleek-link-muted-color: rgba(255, 255, 255, 0.7);
   --sleek-link-muted-hover-color: rgba(255, 255, 255, 0.9);
-  --sleek-divider-border-color: #283344;
+  --sleek-divider-border-color: #292524;
   --sleek-shadow-color-0: rgb(27.3, 24.375, 22.425);
   --sleek-shadow-color-1: rgb(26.6, 23.75, 21.85);
   --sleek-shadow-color-2: rgb(25.2, 22.5, 20.7);
