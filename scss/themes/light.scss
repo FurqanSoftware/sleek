@@ -32,7 +32,7 @@
     --sleek-button-icon-default-hover-filter: invert(18%) sepia(3%)
         saturate(2176%) hue-rotate(169deg) brightness(88%) contrast(88%);
     --sleek-button-default-focus-shadow-color: #{palette.$neutral-300};
-    --sleek-button-default-active-background-color: #{palette.$neutral-200};
+    --sleek-button-default-active-background-color: #{palette.$neutral-300};
     --sleek-button-default-active-border-color: #{palette.$neutral-700};
     --sleek-button-default-active-color: #{rgba(palette.$stone-950, 0.9)};
     --sleek-button-default-active-shadow-color: #{palette.$neutral-300};
@@ -50,7 +50,7 @@
     --sleek-button-icon-blue-hover-filter: invert(100%) sepia(100%) saturate(0%)
         hue-rotate(125deg) brightness(103%) contrast(103%);
     --sleek-button-blue-focus-shadow-color: #{palette.$blue-600};
-    --sleek-button-blue-active-background-color: #{palette.$blue-500};
+    --sleek-button-blue-active-background-color: #{palette.$blue-600};
     --sleek-button-blue-active-border-color: #{palette.$blue-950};
     --sleek-button-blue-active-color: #{rgba(white, 0.9)};
     --sleek-button-blue-active-shadow-color: #{palette.$blue-600};
@@ -71,7 +71,7 @@
     --sleek-button-icon-simple-hover-filter: invert(18%) sepia(3%)
         saturate(2176%) hue-rotate(169deg) brightness(88%) contrast(88%);
     --sleek-button-simple-focus-shadow-color: #{palette.$neutral-200};
-    --sleek-button-simple-active-background-color: #{palette.$neutral-50};
+    --sleek-button-simple-active-background-color: #{palette.$neutral-200};
     --sleek-button-simple-active-border-color: #{palette.$neutral-800};
     --sleek-button-simple-active-color: #{rgba(palette.$stone-950, 0.9)};
     --sleek-button-simple-active-shadow-color: #{palette.$neutral-200};

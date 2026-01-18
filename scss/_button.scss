@@ -16,7 +16,8 @@
 
     &:hover,
     &:focus,
-    &:active {
+    &:active,
+    &.-active {
         position: relative;
         z-index: 2;
         text-decoration: none;
@@ -88,6 +89,7 @@
                 outline-offset: 0.25rem;
             }
 
+            &:active,
             &.-active {
                 $a-bg: color.scale($bg, $lightness: -$active);
                 $a-is-dark: color.channel($a-bg, "lightness", $space: hsl) < 50%;
@@ -177,6 +179,7 @@
                     var(--sleek-button-#{$x}-focus-shadow-color);
             }
 
+            &:active,
             &.-active {
                 border-color: var(--sleek-button-#{$x}-active-border-color);
                 background-color: var(
