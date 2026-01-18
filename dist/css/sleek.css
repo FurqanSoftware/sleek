@@ -1505,7 +1505,9 @@ fieldset.-flags .switch {
   text-decoration: none;
   background-color: transparent;
 }
-.btn:hover, .btn:focus {
+.btn:hover, .btn:focus, .btn:active {
+  position: relative;
+  z-index: 2;
   text-decoration: none;
 }
 .btn.-disabled, .btn[disabled] {
@@ -1727,7 +1729,7 @@ fieldset.-flags .switch {
   display: flex;
 }
 .btngroup > .btn ~ .btn {
-  border-left: 0;
+  margin-left: -1px;
 }
 .btngroup > .btn:not(:first-child):not(:last-child) {
   border-radius: 0;
