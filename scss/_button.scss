@@ -15,7 +15,10 @@
     background-color: transparent;
 
     &:hover,
-    &:focus {
+    &:focus,
+    &:active {
+        position: relative;
+        z-index: 2;
         text-decoration: none;
     }
 
@@ -242,7 +245,7 @@
 
     > .btn {
         ~ .btn {
-            border-left: 0;
+            margin-left: -1px;
         }
 
         &:not(:first-child):not(:last-child) {
