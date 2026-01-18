@@ -129,7 +129,7 @@
     --sleek-link-muted-color: #{rgba(white, 0.7)};
     --sleek-link-muted-hover-color: #{rgba(white, 0.9)};
 
-    --sleek-divider-border-color: #283344;
+    --sleek-divider-border-color: #{palette.$stone-800};
 
     --sleek-shadow-color-0: #{color.scale(
             palette.$stone-900,

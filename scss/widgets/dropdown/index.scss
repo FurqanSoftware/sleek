@@ -6,6 +6,7 @@
 
 :root {
     --sleek-dropdown-item-hover-background-color: #{palette.$slate-100};
+    --sleek-dropdown-divider-border-color: #{palette.$slate-100};
 }
 
 .dropdown {
@@ -174,7 +175,7 @@
 
     &__divider {
         margin: 0.25rem -0.25rem;
-        border-bottom: 1px solid var(--sleek-divider-border-color);
+        border-bottom: 1px solid var(--sleek-dropdown-divider-border-color);
 
         &:first-child,
         &:last-child {

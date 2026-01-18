@@ -147,10 +147,7 @@
     --sleek-link-muted-color: #{palette.$muted};
     --sleek-link-muted-hover-color: #{palette.$dark};
 
-    --sleek-divider-border-color: #{color.scale(
-            palette.$stone-200,
-            $lightness: 25%
-        )};
+    --sleek-divider-border-color: #{palette.$stone-200};
 
     --sleek-shadow-color-0: #{color.scale(palette.$stone-100, $lightness: 2.5%)}; // Form fields.
     --sleek-shadow-color-1: #{color.scale(palette.$stone-100, $lightness: 5%)}; // Regular panels, closest to page.
