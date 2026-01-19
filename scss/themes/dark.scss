@@ -95,12 +95,9 @@
             color.scale(#2a3948, $lightness: -25%),
             $lightness: 10%
         )};
-    --sleek-alert-blue-background-color: #1b1e1f;
-    --sleek-alert-blue-border-color: #1a6294;
-    --sleek-alert-link-blue-hover-border-color: #{color.scale(
-            #1a6294,
-            $lightness: -30%
-        )};
+    --sleek-alert-blue-background-color: #{palette.$blue-950};
+    --sleek-alert-blue-border-color: #{palette.$blue-500};
+    --sleek-alert-link-blue-hover-border-color: #{palette.$blue-300};
     --sleek-alert-green-background-color: #083326;
     --sleek-alert-green-border-color: #1e9b67;
     --sleek-alert-link-green-hover-border-color: #{color.scale(

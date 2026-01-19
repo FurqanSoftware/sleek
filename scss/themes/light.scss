@@ -101,15 +101,9 @@
             palette.$ebony,
             $lightness: -30%
         )};
-    --sleek-alert-blue-background-color: #{color.scale(
-            palette.$blue,
-            $lightness: 95%
-        )};
-    --sleek-alert-blue-border-color: #{palette.$blue};
-    --sleek-alert-link-blue-hover-border-color: #{color.scale(
-            palette.$blue,
-            $lightness: -30%
-        )};
+    --sleek-alert-blue-background-color: #{palette.$blue-50};
+    --sleek-alert-blue-border-color: #{palette.$blue-500};
+    --sleek-alert-link-blue-hover-border-color: #{palette.$blue-700};
     --sleek-alert-green-background-color: #{color.scale(
             palette.$green,
             $lightness: 95%
