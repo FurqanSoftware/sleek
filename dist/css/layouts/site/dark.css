@@ -1,6 +1,8 @@
 :root {
   --sleek-site-pmenu-item-hover-background-color: #0f172a;
   --sleek-site-pmenu-icon-filter: invert(100%);
+  --sleek-site-pmenu-item-label-background-color: rgba(248, 113, 113, 0.75);
+  --sleek-site-pmenu-item-label-color: rgba(255, 255, 255, 0.9);
 }
 
 /*# sourceMappingURL=dark.css.map */

@@ -19,10 +19,12 @@
   color: var(--sleek-text-muted-color);
   text-decoration: none;
 }
-.tabs__item > .badge {
-  float: right;
-  margin-left: 0.5rem;
+.tabs__item > .label {
+  padding: 0 0.5rem;
   color: var(--sleek-text-muted-color);
+}
+.tabs__item > .label.-right {
+  margin-left: 0.5rem;
 }
 .tabs__item.-active {
   border-bottom-color: #3598dc;

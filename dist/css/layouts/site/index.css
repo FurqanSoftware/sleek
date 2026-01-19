@@ -1,6 +1,8 @@
 :root {
   --sleek-site-pmenu-item-hover-background-color: #f1f5f9;
   --sleek-site-pmenu-icon-filter: none;
+  --sleek-site-pmenu-item-label-background-color: rgba(220, 38, 38, 0.75);
+  --sleek-site-pmenu-item-label-color: rgba(255, 255, 255, 0.9);
 }
 
 body {
@@ -82,12 +84,13 @@ body.-staging {
   display: block;
   padding: 8px;
 }
-.pmenu__item .badge {
+.pmenu__item .label {
   position: absolute;
   bottom: 0;
   right: 0;
-  background-color: rgba(244, 63, 94, 0.75);
-  color: white;
+  padding: 0 0.5rem;
+  background-color: var(--sleek-site-pmenu-item-label-background-color);
+  color: var(--sleek-site-pmenu-item-label-color);
 }
 .pmenu__divider {
   position: relative;

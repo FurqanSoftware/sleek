@@ -206,17 +206,18 @@ optgroup {
   --sleek-alert-blue-background-color: #e5f2fb;
   --sleek-alert-blue-border-color: #3598dc;
   --sleek-alert-link-blue-hover-border-color: #185b89;
-  --sleek-alert-green-background-color: rgb(239.4939597315, 252.4560402685, 244.3395973154);
-  --sleek-alert-green-border-color: #15803d;
-  --sleek-alert-link-green-hover-border-color: rgb(14.7, 89.6, 42.7);
-  --sleek-alert-red-background-color: rgb(254.45, 245.4, 246.95);
-  --sleek-alert-red-border-color: #f43f5e;
-  --sleek-alert-link-red-hover-border-color: rgb(203.2551724138, 11.6448275862, 44.4620689655);
-  --sleek-alert-orange-background-color: rgb(254.356097561, 246.5219512195, 242.443902439);
-  --sleek-alert-orange-border-color: #ea580c;
-  --sleek-alert-link-orange-hover-border-color: rgb(163.8, 61.6, 8.4);
+  --sleek-alert-green-background-color: #f0fdf4;
+  --sleek-alert-green-border-color: #22c55e;
+  --sleek-alert-link-green-hover-border-color: #15803d;
+  --sleek-alert-red-background-color: #fef2f2;
+  --sleek-alert-red-border-color: #ef4444;
+  --sleek-alert-link-red-hover-border-color: #b91c1c;
+  --sleek-alert-orange-background-color: #fff7ed;
+  --sleek-alert-orange-border-color: #f97316;
+  --sleek-alert-link-orange-hover-border-color: #c2410c;
   --sleek-alert-subtle-color: #44403c;
   --sleek-label-default-background-color: rgba(80, 109, 137, 0.1);
+  --sleek-label-default-color: rgba(12, 10, 9, 0.9);
   --sleek-text-default-color: rgba(12, 10, 9, 0.9);
   --sleek-text-muted-color: #57534e;
   --sleek-link-color: #0369a1;
@@ -224,6 +225,11 @@ optgroup {
   --sleek-link-muted-color: #57534e;
   --sleek-link-muted-hover-color: #0c0a09;
   --sleek-divider-border-color: #e7e5e4;
+  --sleek-border-color-dark: rgba(12, 10, 9, 0.9);
+  --sleek-border-color-blue: #3598dc;
+  --sleek-border-color-green: #22c55e;
+  --sleek-border-color-red: #ef4444;
+  --sleek-border-color-orange: #f97316;
   --sleek-shadow-color-0: rgb(245.25, 245.25, 244.275);
   --sleek-shadow-color-1: rgb(245.5, 245.5, 244.55);
   --sleek-shadow-color-2: rgb(246, 246, 245.1);
@@ -1485,18 +1491,6 @@ fieldset.-flags .switch {
   padding-right: 0;
 }
 
-.badge {
-  display: inline-block;
-  padding: 0 0.5rem;
-  border-radius: 0.25rem;
-  background-color: var(--sleek-surface-shade-background-color);
-  color: var(--sleek-text-muted-color);
-  transition: background-color 125ms ease-in;
-}
-.badge:empty {
-  display: none;
-}
-
 .btn {
   display: inline-block;
   padding: 0.25rem 0.5rem;
@@ -1529,8 +1523,8 @@ fieldset.-flags .switch {
 }
 
 .btn.-red {
-  border: 1px solid rgb(232.2916256158, 13.3083743842, 50.8137931034);
-  background-color: #f43f5e;
+  border: 1px solid rgb(226.242364532, 19.357635468, 19.357635468);
+  background-color: #ef4444;
   color: #0c0a09;
   transition: box-shadow 125ms ease-in;
 }
@@ -1538,9 +1532,9 @@ fieldset.-flags .switch {
   filter: var(--sleek-icon-default-filter) !important;
 }
 .btn.-red:hover, .btn.-red:focus {
-  border-color: rgb(203.2551724138, 11.6448275862, 44.4620689655);
+  border-color: rgb(197.9620689655, 16.9379310345, 16.9379310345);
   color: #0c0a09;
-  box-shadow: inset 0 0 0 0.125rem rgb(217.7733990148, 12.4766009852, 47.6379310345);
+  box-shadow: inset 0 0 0 0.125rem rgb(212.1022167488, 18.1477832512, 18.1477832512);
 }
 .btn.-red:hover .icon, .btn.-red:focus .icon {
   filter: var(--sleek-icon-default-filter) !important;
@@ -1550,10 +1544,10 @@ fieldset.-flags .switch {
   outline-offset: 0.25rem;
 }
 .btn.-red:active, .btn.-red.-active {
-  border-color: rgb(174.2187192118, 9.9812807882, 38.1103448276);
-  background-color: rgb(232.2916256158, 13.3083743842, 50.8137931034);
+  border-color: rgb(169.681773399, 14.518226601, 14.518226601);
+  background-color: rgb(226.242364532, 19.357635468, 19.357635468);
   color: white;
-  box-shadow: inset 0 0 0 0.125rem rgb(203.2551724138, 11.6448275862, 44.4620689655);
+  box-shadow: inset 0 0 0 0.125rem rgb(197.9620689655, 16.9379310345, 16.9379310345);
 }
 .btn.-red:active .icon, .btn.-red.-active .icon {
   filter: var(--sleek-icon-invert-filter) !important;
@@ -1564,10 +1558,10 @@ fieldset.-flags .switch {
 }
 
 .-open > .btn.-red.-toggle {
-  border-color: rgb(174.2187192118, 9.9812807882, 38.1103448276);
-  background-color: rgb(232.2916256158, 13.3083743842, 50.8137931034);
+  border-color: rgb(169.681773399, 14.518226601, 14.518226601);
+  background-color: rgb(226.242364532, 19.357635468, 19.357635468);
   color: white;
-  box-shadow: inset 0 0 0 0.125rem rgb(203.2551724138, 11.6448275862, 44.4620689655);
+  box-shadow: inset 0 0 0 0.125rem rgb(197.9620689655, 16.9379310345, 16.9379310345);
 }
 .-open > .btn.-red.-toggle .icon {
   filter: var(--sleek-icon-invert-filter) !important;
@@ -1743,9 +1737,17 @@ fieldset.-flags .switch {
 }
 
 .label {
+  display: inline-block;
   padding: 0.125rem 0.25rem;
   border-radius: 0.25rem;
   background-color: var(--sleek-label-default-background-color);
+  color: var(--sleek-label-default-color);
+}
+.label.-right {
+  float: right;
+}
+.label:empty {
+  display: none;
 }
 
 .avatar {
@@ -7927,32 +7929,12 @@ a > .alert.-subtle {
   color: var(--sleek-text-default-color) !important;
 }
 
-.border-dark {
-  border-color: var(--sleek-text-default-color) !important;
-}
-
-.bg-ebony {
-  background-color: #22313f !important;
-}
-
-.font-ebony {
-  color: #22313f !important;
-}
-
-.border-ebony {
-  border-color: #22313f !important;
-}
-
 .bg-blue {
   background-color: #3598dc !important;
 }
 
 .font-blue {
   color: #3598dc !important;
-}
-
-.border-blue {
-  border-color: #3598dc !important;
 }
 
 .bg-green {
@@ -7963,20 +7945,12 @@ a > .alert.-subtle {
   color: #15803d !important;
 }
 
-.border-green {
-  border-color: #15803d !important;
-}
-
 .bg-red {
-  background-color: #f43f5e !important;
+  background-color: #ef4444 !important;
 }
 
 .font-red {
-  color: #f43f5e !important;
-}
-
-.border-red {
-  border-color: #f43f5e !important;
+  color: #ef4444 !important;
 }
 
 .bg-orange {
@@ -7987,10 +7961,6 @@ a > .alert.-subtle {
   color: #ea580c !important;
 }
 
-.border-orange {
-  border-color: #ea580c !important;
-}
-
 .bg-white {
   background-color: white !important;
 }
@@ -7999,8 +7969,24 @@ a > .alert.-subtle {
   color: white !important;
 }
 
-.border-white {
-  border-color: white !important;
+.border-dark {
+  border-color: var(--sleek-border-color-dark) !important;
+}
+
+.border-blue {
+  border-color: var(--sleek-border-color-blue) !important;
+}
+
+.border-green {
+  border-color: var(--sleek-border-color-green) !important;
+}
+
+.border-red {
+  border-color: var(--sleek-border-color-red) !important;
+}
+
+.border-orange {
+  border-color: var(--sleek-border-color-orange) !important;
 }
 
 .font-muted {

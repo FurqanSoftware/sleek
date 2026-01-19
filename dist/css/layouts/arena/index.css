@@ -64,11 +64,12 @@ body.-staging {
   display: block;
   padding: 8px;
 }
-.pmenu__item .badge {
+.pmenu__item .label {
   position: absolute;
   bottom: 0;
   right: 0;
-  background-color: rgba(244, 63, 94, 0.75);
+  padding: 0 0.5rem;
+  background-color: rgba(239, 68, 68, 0.75);
   color: white;
 }
 .pmenu__divider {
@@ -132,6 +133,10 @@ body.-staging {
 }
 .pside__link .icon {
   margin: -0.125rem 0.25rem 0 0;
+}
+.pside__link .label {
+  padding: 0 0.5rem;
+  color: white;
 }
 
 .pfoot {

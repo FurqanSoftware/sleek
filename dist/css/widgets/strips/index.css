@@ -40,10 +40,13 @@
 .strips__item .text + .icon {
   margin-left: 0.5rem;
 }
+.strips__item .label {
+  padding: 0 0.5rem;
+}
 
 @media (max-width: 991px) {
   .strips > :not(.-active),
-  .strips .badge {
+  .strips .label {
     display: none;
   }
   .stripsbox {

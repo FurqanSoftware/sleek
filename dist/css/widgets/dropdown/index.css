@@ -111,8 +111,10 @@
 .dropdown__item .icon + .text {
   margin-left: 0.25rem;
 }
-.dropdown__item .badge {
-  float: right;
+.dropdown__item .label {
+  padding: 0 0.5rem;
+}
+.dropdown__item .label.-right {
   margin-left: 2rem;
 }
 .dropdown__head {
