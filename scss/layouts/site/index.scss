@@ -6,6 +6,11 @@
 :root {
     --sleek-site-pmenu-item-hover-background-color: #{palette.$slate-100};
     --sleek-site-pmenu-icon-filter: none;
+    --sleek-site-pmenu-item-label-background-color: #{rgba(
+            palette.$red-600,
+            0.75
+        )};
+    --sleek-site-pmenu-item-label-color: #{rgba(white, 0.9)};
 }
 
 body {
@@ -113,12 +118,15 @@ body {
             padding: 8px;
         }
 
-        .badge {
+        .label {
             position: absolute;
             bottom: 0;
             right: 0;
-            background-color: rgba(palette.$red, 75%);
-            color: white;
+            padding: 0 0.5rem;
+            background-color: var(
+                --sleek-site-pmenu-item-label-background-color
+            );
+            color: var(--sleek-site-pmenu-item-label-color);
         }
     }
 

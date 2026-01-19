@@ -98,27 +98,19 @@
     --sleek-alert-blue-background-color: #{palette.$blue-950};
     --sleek-alert-blue-border-color: #{palette.$blue-500};
     --sleek-alert-link-blue-hover-border-color: #{palette.$blue-300};
-    --sleek-alert-green-background-color: #083326;
-    --sleek-alert-green-border-color: #1e9b67;
-    --sleek-alert-link-green-hover-border-color: #{color.scale(
-            #1e9b67,
-            $lightness: 10%
-        )};
-    --sleek-alert-red-background-color: #320606;
-    --sleek-alert-red-border-color: #891817;
-    --sleek-alert-link-red-hover-border-color: #{color.scale(
-            #891817,
-            $lightness: 10%
-        )};
-    --sleek-alert-orange-background-color: #3b2000;
-    --sleek-alert-orange-border-color: #b56203;
-    --sleek-alert-link-orange-hover-border-color: #{color.scale(
-            #b56203,
-            $lightness: 10%
-        )};
+    --sleek-alert-green-background-color: #{palette.$green-950};
+    --sleek-alert-green-border-color: #{palette.$green-500};
+    --sleek-alert-link-green-hover-border-color: #{palette.$green-300};
+    --sleek-alert-red-background-color: #{palette.$red-950};
+    --sleek-alert-red-border-color: #{palette.$red-500};
+    --sleek-alert-link-red-hover-border-color: #{palette.$red-300};
+    --sleek-alert-orange-background-color: #{palette.$orange-950};
+    --sleek-alert-orange-border-color: #{palette.$orange-500};
+    --sleek-alert-link-orange-hover-border-color: #{palette.$orange-300};
     --sleek-alert-subtle-color: #{palette.$stone-300};
 
     --sleek-label-default-background-color: #{rgba(palette.$silver-400, 0.2)};
+    --sleek-label-default-color: #{rgba(palette.$stone-50, 0.9)};
 
     --sleek-text-default-color: #{rgba(palette.$stone-50, 0.9)};
     --sleek-text-muted-color: #{palette.$stone-400};
@@ -129,6 +121,12 @@
     --sleek-link-muted-hover-color: #{rgba(white, 0.9)};
 
     --sleek-divider-border-color: #{palette.$stone-800};
+
+    --sleek-border-color-dark: #{rgba(palette.$stone-50, 0.9)};
+    --sleek-border-color-blue: #{palette.$blue-500};
+    --sleek-border-color-green: #{palette.$green-500};
+    --sleek-border-color-red: #{palette.$red-500};
+    --sleek-border-color-orange: #{palette.$orange-500};
 
     --sleek-shadow-color-0: #{color.scale(
             palette.$stone-900,

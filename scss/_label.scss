@@ -1,7 +1,17 @@
 // Copyright 2026 Furqan Software Ltd. All Rights Reserved.
 
 .label {
+    display: inline-block;
     padding: 0.125rem 0.25rem;
     border-radius: 0.25rem;
     background-color: var(--sleek-label-default-background-color);
+    color: var(--sleek-label-default-color);
+
+    &.-right {
+        float: right;
+    }
+
+    &:empty {
+        display: none;
+    }
 }

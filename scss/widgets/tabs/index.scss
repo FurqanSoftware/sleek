@@ -29,10 +29,13 @@
             text-decoration: none;
         }
 
-        > .badge {
-            float: right;
-            margin-left: 0.5rem;
+        > .label {
+            padding: 0 0.5rem;
             color: var(--sleek-text-muted-color);
+
+            &.-right {
+                margin-left: 0.5rem;
+            }
         }
 
         &.-active {

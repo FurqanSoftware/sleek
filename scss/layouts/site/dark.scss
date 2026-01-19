@@ -5,4 +5,9 @@
 :root {
     --sleek-site-pmenu-item-hover-background-color: #{palette.$slate-900};
     --sleek-site-pmenu-icon-filter: invert(100%);
+    --sleek-site-pmenu-item-label-background-color: #{rgba(
+            palette.$red-400,
+            0.75
+        )};
+    --sleek-site-pmenu-item-label-color: #{rgba(white, 0.9)};
 }

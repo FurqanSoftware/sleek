@@ -28,16 +28,19 @@
             background-color: var(--sleek-button-blue-faint-background-color);
         }
 
-        > .badge {
-            float: right;
-            margin-left: 0.5rem;
+        > .label {
+            padding: 0 0.5rem;
+
+            &.-right {
+                margin-left: 0.5rem;
+            }
         }
 
         &.-active {
             color: white;
             background-color: palette.$blue;
 
-            .badge {
+            .label {
                 background-color: rgba(white, 0.125);
                 color: white;
             }

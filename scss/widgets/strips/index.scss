@@ -54,13 +54,17 @@
         .text + .icon {
             margin-left: 0.5rem;
         }
+
+        .label {
+            padding: 0 0.5rem;
+        }
     }
 }
 
 @media (max-width: 991px) {
     .strips {
         > :not(.-active),
-        .badge {
+        .label {
             display: none;
         }
     }

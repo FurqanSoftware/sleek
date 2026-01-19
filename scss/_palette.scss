@@ -2,6 +2,30 @@
 
 @use "sass:color";
 
+$red-50: #fef2f2;
+$red-100: #fee2e2;
+$red-200: #fecaca;
+$red-300: #fca5a5;
+$red-400: #f87171;
+$red-500: #ef4444;
+$red-600: #dc2626;
+$red-700: #b91c1c;
+$red-800: #991b1b;
+$red-900: #7f1d1d;
+$red-950: #450a0a;
+
+$orange-50: #fff7ed;
+$orange-100: #ffedd5;
+$orange-200: #fed7aa;
+$orange-300: #fdba74;
+$orange-400: #fb923c;
+$orange-500: #f97316;
+$orange-600: #ea580c;
+$orange-700: #c2410c;
+$orange-800: #9a3412;
+$orange-900: #7c2d12;
+$orange-950: #431407;
+
 $amber-50: #fffbeb;
 $amber-100: #fef3c7;
 $amber-200: #fde68a;
@@ -149,9 +173,9 @@ $silver-950: #0e1318;
 $dark: $stone-950;
 $ebony: $ebony-800;
 $blue: $blue-500;
-$green: #15803d; // green-700
-$red: #f43f5e; // red-500
-$orange: #ea580c; // orange-600
+$green: $green-700;
+$red: $red-500;
+$orange: $orange-600;
 $silver: $silver-100;
 
 $muted: $stone-600;

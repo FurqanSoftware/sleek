@@ -146,9 +146,12 @@
             margin-left: 0.25rem;
         }
 
-        .badge {
-            float: right;
-            margin-left: 2rem;
+        .label {
+            padding: 0 0.5rem;
+
+            &.-right {
+                margin-left: 2rem;
+            }
         }
     }
 

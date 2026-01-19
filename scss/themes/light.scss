@@ -104,36 +104,19 @@
     --sleek-alert-blue-background-color: #{palette.$blue-50};
     --sleek-alert-blue-border-color: #{palette.$blue-500};
     --sleek-alert-link-blue-hover-border-color: #{palette.$blue-700};
-    --sleek-alert-green-background-color: #{color.scale(
-            palette.$green,
-            $lightness: 95%
-        )};
-    --sleek-alert-green-border-color: #{palette.$green};
-    --sleek-alert-link-green-hover-border-color: #{color.scale(
-            palette.$green,
-            $lightness: -30%
-        )};
-    --sleek-alert-red-background-color: #{color.scale(
-            palette.$red,
-            $lightness: 95%
-        )};
-    --sleek-alert-red-border-color: #{palette.$red};
-    --sleek-alert-link-red-hover-border-color: #{color.scale(
-            palette.$red,
-            $lightness: -30%
-        )};
-    --sleek-alert-orange-background-color: #{color.scale(
-            palette.$orange,
-            $lightness: 95%
-        )};
-    --sleek-alert-orange-border-color: #{palette.$orange};
-    --sleek-alert-link-orange-hover-border-color: #{color.scale(
-            palette.$orange,
-            $lightness: -30%
-        )};
+    --sleek-alert-green-background-color: #{palette.$green-50};
+    --sleek-alert-green-border-color: #{palette.$green-500};
+    --sleek-alert-link-green-hover-border-color: #{palette.$green-700};
+    --sleek-alert-red-background-color: #{palette.$red-50};
+    --sleek-alert-red-border-color: #{palette.$red-500};
+    --sleek-alert-link-red-hover-border-color: #{palette.$red-700};
+    --sleek-alert-orange-background-color: #{palette.$orange-50};
+    --sleek-alert-orange-border-color: #{palette.$orange-500};
+    --sleek-alert-link-orange-hover-border-color: #{palette.$orange-700};
     --sleek-alert-subtle-color: #{palette.$stone-700};
 
     --sleek-label-default-background-color: #{rgba(palette.$silver-600, 0.1)};
+    --sleek-label-default-color: #{rgba(palette.$stone-950, 0.9)};
 
     --sleek-text-default-color: #{rgba(palette.$stone-950, 0.9)};
     --sleek-text-muted-color: #{palette.$stone-600};
@@ -144,6 +127,12 @@
     --sleek-link-muted-hover-color: #{palette.$dark};
 
     --sleek-divider-border-color: #{palette.$stone-200};
+
+    --sleek-border-color-dark: #{rgba(palette.$stone-950, 0.9)};
+    --sleek-border-color-blue: #{palette.$blue-500};
+    --sleek-border-color-green: #{palette.$green-500};
+    --sleek-border-color-red: #{palette.$red-500};
+    --sleek-border-color-orange: #{palette.$orange-500};
 
     --sleek-shadow-color-0: #{color.scale(palette.$stone-100, $lightness: 2.5%)}; // Form fields.
     --sleek-shadow-color-1: #{color.scale(palette.$stone-100, $lightness: 5%)}; // Regular panels, closest to page.
