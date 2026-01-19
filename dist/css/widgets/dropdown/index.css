@@ -120,6 +120,10 @@
   color: rgb(150.2142857143, 126.9285714286, 115.2857142857);
   font-size: 0.95em;
 }
+.dropdown__hint {
+  text-align: center;
+  color: var(--sleek-text-muted-color);
+}
 .dropdown__tool {
   display: none;
   flex-direction: column;

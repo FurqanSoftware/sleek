@@ -275,6 +275,10 @@ class Dropdown {
     });
     dom.on(input, "keyup", event => applySearch(input.value));
     dom.on(input, "paste", event => fn.defer(() => applySearch(input.value)));
+    if (this.settings.emptyQueryHint) {
+      const menu = dom.$(".dropdown__menu", this.el);
+      menu.appendChild(this.makeHint(this.settings.emptyQueryHint));
+    }
   }
   applySearch(query) {
     if (this.searchXhr) {
@@ -290,6 +294,7 @@ class Dropdown {
       }
       const items = JSON.parse(data);
       const menu = dom.$(".dropdown__menu", this.el);
+      for (const el of dom.$$(".dropdown__hint", menu)) dom.detach(el);
       for (const el of dom.$$(".dropdown__item", menu)) dom.detach(el);
       const select = dom.$("select", this.el);
       const addItem = data => {
@@ -334,16 +339,20 @@ class Dropdown {
           });
         }
       };
-      if (select && (select.multiple || dom.$("option[data-empty]", select))) addItem({
-        label: "None",
-        value: "",
-        empty: true
-      });
-      for (const item of items) addItem({
-        ...item,
-        label: item.text,
-        value: item.id
-      });
+      if (items.length === 0 && this.settings.zeroResultsHint) {
+        menu.appendChild(this.makeHint(this.settings.zeroResultsHint));
+      } else {
+        if (select && (select.multiple || dom.$("option[data-empty]", select))) addItem({
+          label: "None",
+          value: "",
+          empty: true
+        });
+        for (const item of items) addItem({
+          ...item,
+          label: item.text,
+          value: item.id
+        });
+      }
       this.reposition();
       this.renderActiveItems();
     });
@@ -374,6 +383,10 @@ class Dropdown {
       this.renderActiveItems();
     });
     dom.on(input, "paste", event => fn.defer(() => applyDynamic(input.value)));
+    if (this.settings.emptyValueHint) {
+      const menu = dom.$(".dropdown__menu", this.el);
+      menu.appendChild(this.makeHint(this.settings.emptyValueHint));
+    }
   }
   selectAll() {
     for (const option of dom.$$("select option", this.el)) option.selected = true;
@@ -514,6 +527,12 @@ class Dropdown {
       action();
     });
     return item;
+  }
+  makeHint(text) {
+    const hint = document.createElement("div");
+    dom.addClass(hint, "dropdown__hint");
+    dom.setText(hint, text);
+    return hint;
   }
   extractOptionData(option) {
     let data = {};

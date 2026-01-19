@@ -31,20 +31,20 @@
   --sleek-button-icon-default-active-filter: invert(100%) sepia(100%)
       saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%);
   --sleek-button-blue-background-color: #3598dc;
-  --sleek-button-blue-border-color: #58aae2;
+  --sleek-button-blue-border-color: #5cace3;
   --sleek-button-blue-color: rgba(255, 255, 255, 0.9);
   --sleek-button-icon-blue-filter: invert(100%) sepia(100%) saturate(0%)
       hue-rotate(125deg) brightness(103%) contrast(103%);
-  --sleek-button-blue-hover-border-color: #9dcdee;
+  --sleek-button-blue-hover-border-color: #aad4f0;
   --sleek-button-blue-hover-color: rgba(255, 255, 255, 0.9);
-  --sleek-button-blue-hover-shadow-color: #58aae2;
+  --sleek-button-blue-hover-shadow-color: #5cace3;
   --sleek-button-icon-blue-hover-filter: invert(100%) sepia(100%) saturate(0%)
       hue-rotate(125deg) brightness(103%) contrast(103%);
-  --sleek-button-blue-focus-shadow-color: #58aae2;
+  --sleek-button-blue-focus-shadow-color: #5cace3;
   --sleek-button-blue-active-background-color: #3598dc;
-  --sleek-button-blue-active-border-color: #d1e8f7;
+  --sleek-button-blue-active-border-color: #e5f2fb;
   --sleek-button-blue-active-color: rgba(255, 255, 255, 0.9);
-  --sleek-button-blue-active-shadow-color: #58aae2;
+  --sleek-button-blue-active-shadow-color: #5cace3;
   --sleek-button-icon-blue-active-filter: invert(100%) sepia(100%)
       saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%);
   --sleek-button-blue-faint-background-color: #0f172a;
@@ -72,9 +72,9 @@
   --sleek-alert-default-background-color: rgb(1.575, 2.1375, 2.7);
   --sleek-alert-default-border-color: rgb(31.5, 42.75, 54);
   --sleek-alert-link-default-hover-border-color: rgb(47.1394736842, 63.975, 80.8105263158);
-  --sleek-alert-blue-background-color: #1b1e1f;
-  --sleek-alert-blue-border-color: #1a6294;
-  --sleek-alert-link-blue-hover-border-color: rgb(18.2, 68.6, 103.6);
+  --sleek-alert-blue-background-color: #030c12;
+  --sleek-alert-blue-border-color: #3598dc;
+  --sleek-alert-link-blue-hover-border-color: #83c0ea;
   --sleek-alert-green-background-color: #083326;
   --sleek-alert-green-border-color: #1e9b67;
   --sleek-alert-link-green-hover-border-color: rgb(35.2702702703, 182.2297297297, 121.0945945946);
