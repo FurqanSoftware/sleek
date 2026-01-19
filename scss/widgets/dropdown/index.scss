@@ -158,6 +158,11 @@
         font-size: 0.95em;
     }
 
+    &__hint {
+        text-align: center;
+        color: var(--sleek-text-muted-color);
+    }
+
     &__tool {
         display: none;
         flex-direction: column;
