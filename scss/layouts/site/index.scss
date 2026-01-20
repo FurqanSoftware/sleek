@@ -75,18 +75,6 @@ body {
             text-decoration: none;
             transition: background-color const.$fast ease-in;
 
-            &:hover,
-            &:focus,
-            &.-open {
-                text-decoration: none;
-                background-color: var(
-                    --sleek-site-pmenu-item-hover-background-color
-                );
-            }
-        }
-
-        &.-link,
-        &.-drop > a {
             > img,
             .dropdown__toggle img {
                 display: block;
@@ -99,12 +87,28 @@ body {
             }
 
             &:hover,
-            &:focus,
-            &.-open {
+            &:focus {
+                text-decoration: none;
+                background-color: var(
+                    --sleek-site-pmenu-item-hover-background-color
+                );
+
                 > img,
                 .dropdown__toggle img {
                     opacity: 0.5;
                 }
+            }
+        }
+
+        &.-drop.-open > a {
+            text-decoration: none;
+            background-color: var(
+                --sleek-site-pmenu-item-hover-background-color
+            );
+
+            > img,
+            .dropdown__toggle img {
+                opacity: 0.5;
             }
         }
 
