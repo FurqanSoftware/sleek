@@ -53,10 +53,6 @@ body.-staging {
   text-decoration: none;
   transition: background-color 125ms ease-in;
 }
-.pmenu__item.-link:hover, .pmenu__item.-link:focus, .pmenu__item.-link.-open, .pmenu__item.-drop > a:hover, .pmenu__item.-drop > a:focus, .pmenu__item.-drop > a.-open {
-  text-decoration: none;
-  background-color: var(--sleek-site-pmenu-item-hover-background-color);
-}
 .pmenu__item.-link > img,
 .pmenu__item.-link .dropdown__toggle img, .pmenu__item.-drop > a > img,
 .pmenu__item.-drop > a .dropdown__toggle img {
@@ -67,13 +63,23 @@ body.-staging {
 .pmenu__item.-link .icon, .pmenu__item.-drop > a .icon {
   filter: var(--sleek-site-pmenu-icon-filter);
 }
+.pmenu__item.-link:hover, .pmenu__item.-link:focus, .pmenu__item.-drop > a:hover, .pmenu__item.-drop > a:focus {
+  text-decoration: none;
+  background-color: var(--sleek-site-pmenu-item-hover-background-color);
+}
 .pmenu__item.-link:hover > img,
 .pmenu__item.-link:hover .dropdown__toggle img, .pmenu__item.-link:focus > img,
-.pmenu__item.-link:focus .dropdown__toggle img, .pmenu__item.-link.-open > img,
-.pmenu__item.-link.-open .dropdown__toggle img, .pmenu__item.-drop > a:hover > img,
+.pmenu__item.-link:focus .dropdown__toggle img, .pmenu__item.-drop > a:hover > img,
 .pmenu__item.-drop > a:hover .dropdown__toggle img, .pmenu__item.-drop > a:focus > img,
-.pmenu__item.-drop > a:focus .dropdown__toggle img, .pmenu__item.-drop > a.-open > img,
-.pmenu__item.-drop > a.-open .dropdown__toggle img {
+.pmenu__item.-drop > a:focus .dropdown__toggle img {
+  opacity: 0.5;
+}
+.pmenu__item.-drop.-open > a {
+  text-decoration: none;
+  background-color: var(--sleek-site-pmenu-item-hover-background-color);
+}
+.pmenu__item.-drop.-open > a > img,
+.pmenu__item.-drop.-open > a .dropdown__toggle img {
   opacity: 0.5;
 }
 .pmenu__item.-link {
