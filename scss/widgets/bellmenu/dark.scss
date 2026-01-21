@@ -1,0 +1,8 @@
+// Copyright 2026 Furqan Software Ltd. All Rights Reserved.
+
+@use "../../palette";
+
+:root {
+    --sleek-bellmenu-item-unseen-background-color: #{palette.$slate-950};
+    --sleek-bellmenu-item-unseen-hover-background-color: #{palette.$slate-900};
+}

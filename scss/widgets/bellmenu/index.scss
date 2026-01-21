@@ -3,6 +3,11 @@
 @use "sass:color";
 @use "../../palette";
 
+:root {
+    --sleek-bellmenu-item-unseen-background-color: #{palette.$slate-50};
+    --sleek-bellmenu-item-unseen-hover-background-color: #{palette.$slate-100};
+}
+
 .bellmenu {
     &.dropdown__menu {
         padding: 0;
@@ -32,12 +37,16 @@
 
         &.-unseen > a {
             padding-left: 0.75rem;
-            border-left: 0.25rem solid #{palette.$blue};
-            background-color: rgba(palette.$blue, 0.025);
+            border-left: 0.25rem solid #{palette.$blue-500};
+            background-color: var(
+                --sleek-bellmenu-item-unseen-background-color
+            );
 
             &:hover,
             &:focus {
-                background-color: rgba(palette.$blue, 0.075);
+                background-color: var(
+                    --sleek-bellmenu-item-unseen-hover-background-color
+                );
             }
         }
     }
