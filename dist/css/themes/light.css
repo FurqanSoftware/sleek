@@ -96,7 +96,13 @@
   --sleek-link-hover-color: #0c4a6e;
   --sleek-link-muted-color: #57534e;
   --sleek-link-muted-hover-color: #0c0a09;
+  --sleek-progress-background-color: #e7e5e4;
   --sleek-divider-border-color: #e7e5e4;
+  --sleek-background-color-dark: rgba(12, 10, 9, 0.9);
+  --sleek-background-color-blue: #3598dc;
+  --sleek-background-color-green: #22c55e;
+  --sleek-background-color-red: #ef4444;
+  --sleek-background-color-orange: #f97316;
   --sleek-border-color-dark: rgba(12, 10, 9, 0.9);
   --sleek-border-color-blue: #3598dc;
   --sleek-border-color-green: #22c55e;

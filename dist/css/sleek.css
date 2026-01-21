@@ -224,7 +224,13 @@ optgroup {
   --sleek-link-hover-color: #0c4a6e;
   --sleek-link-muted-color: #57534e;
   --sleek-link-muted-hover-color: #0c0a09;
+  --sleek-progress-background-color: #e7e5e4;
   --sleek-divider-border-color: #e7e5e4;
+  --sleek-background-color-dark: rgba(12, 10, 9, 0.9);
+  --sleek-background-color-blue: #3598dc;
+  --sleek-background-color-green: #22c55e;
+  --sleek-background-color-red: #ef4444;
+  --sleek-background-color-orange: #f97316;
   --sleek-border-color-dark: rgba(12, 10, 9, 0.9);
   --sleek-border-color-blue: #3598dc;
   --sleek-border-color-green: #22c55e;
@@ -2158,7 +2164,7 @@ a > .alert.-subtle {
   display: flex;
   height: 1rem;
   overflow: hidden;
-  box-shadow: inset 0 0.0625rem 0.125rem rgba(12, 10, 9, 0.125);
+  background-color: var(--sleek-progress-background-color);
 }
 .progress__bar {
   width: 0;
@@ -7921,48 +7927,24 @@ a > .alert.-subtle {
     border-radius: 0.125rem;
   }
 }
-.bg-dark {
-  background-color: var(--sleek-text-default-color) !important;
-}
-
 .font-dark {
   color: var(--sleek-text-default-color) !important;
-}
-
-.bg-blue {
-  background-color: #3598dc !important;
 }
 
 .font-blue {
   color: #3598dc !important;
 }
 
-.bg-green {
-  background-color: #15803d !important;
-}
-
 .font-green {
   color: #15803d !important;
-}
-
-.bg-red {
-  background-color: #ef4444 !important;
 }
 
 .font-red {
   color: #ef4444 !important;
 }
 
-.bg-orange {
-  background-color: #ea580c !important;
-}
-
 .font-orange {
   color: #ea580c !important;
-}
-
-.bg-white {
-  background-color: white !important;
 }
 
 .font-white {
@@ -7973,20 +7955,40 @@ a > .alert.-subtle {
   border-color: var(--sleek-border-color-dark) !important;
 }
 
+.bg-dark {
+  background-color: var(--sleek-background-color-dark) !important;
+}
+
 .border-blue {
   border-color: var(--sleek-border-color-blue) !important;
+}
+
+.bg-blue {
+  background-color: var(--sleek-background-color-blue) !important;
 }
 
 .border-green {
   border-color: var(--sleek-border-color-green) !important;
 }
 
+.bg-green {
+  background-color: var(--sleek-background-color-green) !important;
+}
+
 .border-red {
   border-color: var(--sleek-border-color-red) !important;
 }
 
+.bg-red {
+  background-color: var(--sleek-background-color-red) !important;
+}
+
 .border-orange {
   border-color: var(--sleek-border-color-orange) !important;
+}
+
+.bg-orange {
+  background-color: var(--sleek-background-color-orange) !important;
 }
 
 .font-muted {

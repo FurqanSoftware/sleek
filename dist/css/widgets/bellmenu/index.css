@@ -1,3 +1,8 @@
+:root {
+  --sleek-bellmenu-item-unseen-background-color: #f8fafc;
+  --sleek-bellmenu-item-unseen-hover-background-color: #f1f5f9;
+}
+
 .bellmenu.dropdown__menu {
   padding: 0;
 }
@@ -19,10 +24,10 @@
 .bellmenu__item.-unseen > a {
   padding-left: 0.75rem;
   border-left: 0.25rem solid #3598dc;
-  background-color: rgba(53, 152, 220, 0.025);
+  background-color: var(--sleek-bellmenu-item-unseen-background-color);
 }
 .bellmenu__item.-unseen > a:hover, .bellmenu__item.-unseen > a:focus {
-  background-color: rgba(53, 152, 220, 0.075);
+  background-color: var(--sleek-bellmenu-item-unseen-hover-background-color);
 }
 .bellmenu__note {
   margin-bottom: 0.25rem;

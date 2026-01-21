@@ -94,6 +94,7 @@ body.-staging {
   height: 0.25rem;
   border-bottom: 1px solid white;
   border-radius: 0;
+  background-color: transparent;
 }
 .pside__timer .progress .progress__bar {
   background-color: white;
