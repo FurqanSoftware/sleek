@@ -130,6 +130,12 @@
 
     --sleek-divider-border-color: #{palette.$stone-200};
 
+    --sleek-background-color-dark: #{rgba(palette.$stone-950, 0.9)};
+    --sleek-background-color-blue: #{palette.$blue-500};
+    --sleek-background-color-green: #{palette.$green-500};
+    --sleek-background-color-red: #{palette.$red-500};
+    --sleek-background-color-orange: #{palette.$orange-500};
+
     --sleek-border-color-dark: #{rgba(palette.$stone-950, 0.9)};
     --sleek-border-color-blue: #{palette.$blue-500};
     --sleek-border-color-green: #{palette.$green-500};

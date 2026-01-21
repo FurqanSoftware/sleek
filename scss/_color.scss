@@ -3,10 +3,6 @@
 @use "./palette";
 
 @mixin color($name, $code) {
-    .bg-#{$name} {
-        background-color: $code !important;
-    }
-
     .font-#{$name} {
         color: $code !important;
     }
@@ -22,6 +18,10 @@
 @each $c in "dark" "blue" "green" "red" "orange" {
     .border-#{$c} {
         border-color: var(--sleek-border-color-#{$c}) !important;
+    }
+
+    .bg-#{$c} {
+        background-color: var(--sleek-background-color-#{$c}) !important;
     }
 }
 
