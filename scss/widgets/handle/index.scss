@@ -3,45 +3,42 @@
 @use "sass:color";
 @use "../../palette";
 
-$handle-default: #52525b; // zinc-600
-$handle-sss: #be123c; // rose-700
-$handle-ss: #d97706; // amber-600
-$handle-s: #eab308; // yellow-500
-$handle-a: #eab308; // yellow-500
-$handle-b: #4d7c0f; // lime-700
-$handle-c: #075985; // sky-800
-$handle-e: #4c1d95; // violet-900
-
 :root {
-    --sleek-handle-default-color: #{color.scale(
-            $handle-default,
-            $lightness: -15%
-        )};
-    --sleek-handle-sss-color: #{color.scale($handle-sss, $lightness: -15%)};
-    --sleek-handle-ss-color: #{color.scale($handle-ss, $lightness: -15%)};
-    --sleek-handle-s-color: #{color.scale($handle-s, $lightness: -25%)};
-    --sleek-handle-a-color: #{color.scale($handle-a, $lightness: -25%)};
-    --sleek-handle-b-color: #{color.scale($handle-b, $lightness: -15%)};
-    --sleek-handle-c-color: #{color.scale($handle-c, $lightness: -15%)};
-    --sleek-handle-e-color: #{color.scale($handle-e, $lightness: -15%)};
+    --sleek-handle-default-color: #{palette.$zinc-700};
+    --sleek-handle-sss-color: #{palette.$rose-700};
+    --sleek-handle-ss-color: #{palette.$amber-700};
+    --sleek-handle-s-color: #{palette.$yellow-700};
+    --sleek-handle-a-color: #{palette.$yellow-700};
+    --sleek-handle-b-color: #{palette.$lime-700};
+    --sleek-handle-c-color: #{palette.$sky-700};
+    --sleek-handle-e-color: #{palette.$violet-700};
 
-    --sleek-handle-default-background-color: #{rgba($handle-default, 0.05)};
-    --sleek-handle-sss-background-color: #{rgba($handle-sss, 0.05)};
-    --sleek-handle-ss-background-color: #{rgba($handle-ss, 0.05)};
-    --sleek-handle-s-background-color: #{rgba($handle-s, 0.05)};
-    --sleek-handle-a-background-color: #{rgba($handle-a, 0.05)};
-    --sleek-handle-b-background-color: #{rgba($handle-b, 0.05)};
-    --sleek-handle-c-background-color: #{rgba($handle-c, 0.05)};
-    --sleek-handle-e-background-color: #{rgba($handle-e, 0.05)};
+    --sleek-handle-default-background-color: #{palette.$zinc-50};
+    --sleek-handle-sss-background-color: #{palette.$rose-50};
+    --sleek-handle-ss-background-color: #{palette.$amber-50};
+    --sleek-handle-s-background-color: #{palette.$yellow-50};
+    --sleek-handle-a-background-color: #{palette.$yellow-50};
+    --sleek-handle-b-background-color: #{palette.$lime-50};
+    --sleek-handle-c-background-color: #{palette.$sky-50};
+    --sleek-handle-e-background-color: #{palette.$violet-50};
 
-    --sleek-handle-default-glow-background-color: #{rgba($handle-default, 0.1)};
-    --sleek-handle-sss-glow-background-color: #{rgba($handle-sss, 0.1)};
-    --sleek-handle-ss-glow-background-color: #{rgba($handle-ss, 0.1)};
-    --sleek-handle-s-glow-background-color: #{rgba($handle-s, 0.1)};
-    --sleek-handle-a-glow-background-color: #{rgba($handle-a, 0.1)};
-    --sleek-handle-b-glow-background-color: #{rgba($handle-b, 0.1)};
-    --sleek-handle-c-glow-background-color: #{rgba($handle-c, 0.1)};
-    --sleek-handle-e-glow-background-color: #{rgba($handle-e, 0.1)};
+    --sleek-handle-default-hover-color: #{palette.$zinc-800};
+    --sleek-handle-sss-hover-color: #{palette.$rose-800};
+    --sleek-handle-ss-hover-color: #{palette.$amber-800};
+    --sleek-handle-s-hover-color: #{palette.$yellow-800};
+    --sleek-handle-a-hover-color: #{palette.$yellow-800};
+    --sleek-handle-b-hover-color: #{palette.$lime-800};
+    --sleek-handle-c-hover-color: #{palette.$sky-800};
+    --sleek-handle-e-hover-color: #{palette.$violet-800};
+
+    --sleek-handle-default-hover-background-color: #{palette.$zinc-100};
+    --sleek-handle-sss-hover-background-color: #{palette.$rose-100};
+    --sleek-handle-ss-hover-background-color: #{palette.$amber-100};
+    --sleek-handle-s-hover-background-color: #{palette.$yellow-100};
+    --sleek-handle-a-hover-background-color: #{palette.$yellow-100};
+    --sleek-handle-b-hover-background-color: #{palette.$lime-100};
+    --sleek-handle-c-hover-background-color: #{palette.$sky-100};
+    --sleek-handle-e-hover-background-color: #{palette.$violet-100};
 }
 
 $ranks: "sss", "ss", "s", "a", "b", "c", "e";
@@ -75,11 +72,13 @@ $ranks: "sss", "ss", "s", "a", "b", "c", "e";
 
 a.handle:hover,
 a.handle:focus {
-    background-color: var(--sleek-handle-default-glow-background-color);
+    background-color: var(--sleek-handle-default-hover-background-color);
+    color: var(--sleek-handle-default-hover-color);
 
     @each $r in $ranks {
         &.-#{$r} {
-            background-color: var(--sleek-handle-#{$r}-glow-background-color);
+            background-color: var(--sleek-handle-#{$r}-hover-background-color);
+            color: var(--sleek-handle-#{$r}-hover-color);
         }
     }
 }
@@ -89,7 +88,7 @@ a.handle:focus {
     &:hover,
     &:focus {
         background-color: transparent;
-        color: palette.$muted;
+        color: var(--sleek-text-muted-color);
         text-decoration: line-through;
     }
 }
@@ -101,7 +100,7 @@ a.handle:focus {
 
     .handle:before {
         content: "@";
-        color: color.scale(palette.$muted, $lightness: 50%);
+        color: var(--sleek-text-muted-color);
     }
 }
 
