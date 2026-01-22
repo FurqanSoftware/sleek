@@ -4,7 +4,7 @@
 @use "../../palette";
 
 :root {
-    --sleek-handle-default-color: #{palette.$zinc-300};
+    --sleek-handle-default-color: #{palette.$slate-300};
     --sleek-handle-sss-color: #{palette.$rose-300};
     --sleek-handle-ss-color: #{palette.$amber-300};
     --sleek-handle-s-color: #{palette.$yellow-300};
@@ -13,16 +13,16 @@
     --sleek-handle-c-color: #{palette.$sky-300};
     --sleek-handle-e-color: #{palette.$violet-300};
 
-    --sleek-handle-default-background-color: #{palette.$zinc-950};
-    --sleek-handle-sss-background-color: #{palette.$rose-950};
-    --sleek-handle-ss-background-color: #{palette.$amber-950};
-    --sleek-handle-s-background-color: #{palette.$yellow-950};
-    --sleek-handle-a-background-color: #{palette.$yellow-950};
-    --sleek-handle-b-background-color: #{palette.$lime-950};
-    --sleek-handle-c-background-color: #{palette.$sky-950};
-    --sleek-handle-e-background-color: #{palette.$violet-950};
+    --sleek-handle-default-background-color: #{rgba(palette.$slate-900, 0.75)};
+    --sleek-handle-sss-background-color: #{rgba(palette.$rose-900, 0.75)};
+    --sleek-handle-ss-background-color: #{rgba(palette.$amber-900, 0.75)};
+    --sleek-handle-s-background-color: #{rgba(palette.$yellow-900, 0.75)};
+    --sleek-handle-a-background-color: #{rgba(palette.$yellow-900, 0.75)};
+    --sleek-handle-b-background-color: #{rgba(palette.$lime-900, 0.75)};
+    --sleek-handle-c-background-color: #{rgba(palette.$sky-900, 0.75)};
+    --sleek-handle-e-background-color: #{rgba(palette.$violet-900, 0.75)};
 
-    --sleek-handle-default-hover-color: #{palette.$zinc-200};
+    --sleek-handle-default-hover-color: #{palette.$slate-200};
     --sleek-handle-sss-hover-color: #{palette.$rose-200};
     --sleek-handle-ss-hover-color: #{palette.$amber-200};
     --sleek-handle-s-hover-color: #{palette.$yellow-200};
@@ -31,12 +31,15 @@
     --sleek-handle-c-hover-color: #{palette.$sky-200};
     --sleek-handle-e-hover-color: #{palette.$violet-200};
 
-    --sleek-handle-default-hover-background-color: #{palette.$zinc-900};
-    --sleek-handle-sss-hover-background-color: #{palette.$rose-900};
-    --sleek-handle-ss-hover-background-color: #{palette.$amber-900};
-    --sleek-handle-s-hover-background-color: #{palette.$yellow-900};
-    --sleek-handle-a-hover-background-color: #{palette.$yellow-900};
-    --sleek-handle-b-hover-background-color: #{palette.$lime-900};
-    --sleek-handle-c-hover-background-color: #{palette.$sky-900};
-    --sleek-handle-e-hover-background-color: #{palette.$violet-900};
+    --sleek-handle-default-hover-background-color: #{rgba(
+            palette.$slate-800,
+            0.75
+        )};
+    --sleek-handle-sss-hover-background-color: #{rgba(palette.$rose-800, 0.75)};
+    --sleek-handle-ss-hover-background-color: #{rgba(palette.$amber-800, 0.75)};
+    --sleek-handle-s-hover-background-color: #{rgba(palette.$yellow-800, 0.75)};
+    --sleek-handle-a-hover-background-color: #{rgba(palette.$yellow-800, 0.75)};
+    --sleek-handle-b-hover-background-color: #{rgba(palette.$lime-800, 0.75)};
+    --sleek-handle-c-hover-background-color: #{rgba(palette.$sky-800, 0.75)};
+    --sleek-handle-e-hover-background-color: #{rgba(palette.$violet-800, 0.75)};
 }
