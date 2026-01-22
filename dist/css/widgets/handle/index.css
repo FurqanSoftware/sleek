@@ -1,28 +1,36 @@
 :root {
-  --sleek-handle-default-color: rgb(69.7, 69.7, 77.35);
-  --sleek-handle-sss-color: rgb(161.5, 15.3, 51);
-  --sleek-handle-ss-color: rgb(184.45, 101.15, 5.1);
-  --sleek-handle-s-color: rgb(175.5, 134.25, 6);
-  --sleek-handle-a-color: rgb(175.5, 134.25, 6);
-  --sleek-handle-b-color: rgb(65.45, 105.4, 12.75);
-  --sleek-handle-c-color: rgb(5.95, 75.65, 113.05);
-  --sleek-handle-e-color: rgb(64.6, 24.65, 126.65);
-  --sleek-handle-default-background-color: rgba(82, 82, 91, 0.05);
-  --sleek-handle-sss-background-color: rgba(190, 18, 60, 0.05);
-  --sleek-handle-ss-background-color: rgba(217, 119, 6, 0.05);
-  --sleek-handle-s-background-color: rgba(234, 179, 8, 0.05);
-  --sleek-handle-a-background-color: rgba(234, 179, 8, 0.05);
-  --sleek-handle-b-background-color: rgba(77, 124, 15, 0.05);
-  --sleek-handle-c-background-color: rgba(7, 89, 133, 0.05);
-  --sleek-handle-e-background-color: rgba(76, 29, 149, 0.05);
-  --sleek-handle-default-glow-background-color: rgba(82, 82, 91, 0.1);
-  --sleek-handle-sss-glow-background-color: rgba(190, 18, 60, 0.1);
-  --sleek-handle-ss-glow-background-color: rgba(217, 119, 6, 0.1);
-  --sleek-handle-s-glow-background-color: rgba(234, 179, 8, 0.1);
-  --sleek-handle-a-glow-background-color: rgba(234, 179, 8, 0.1);
-  --sleek-handle-b-glow-background-color: rgba(77, 124, 15, 0.1);
-  --sleek-handle-c-glow-background-color: rgba(7, 89, 133, 0.1);
-  --sleek-handle-e-glow-background-color: rgba(76, 29, 149, 0.1);
+  --sleek-handle-default-color: #334155;
+  --sleek-handle-sss-color: #be123c;
+  --sleek-handle-ss-color: #b45309;
+  --sleek-handle-s-color: #a16207;
+  --sleek-handle-a-color: #a16207;
+  --sleek-handle-b-color: #4d7c0f;
+  --sleek-handle-c-color: #0369a1;
+  --sleek-handle-e-color: #6d28d9;
+  --sleek-handle-default-background-color: rgba(241, 245, 249, 0.75);
+  --sleek-handle-sss-background-color: rgba(255, 228, 230, 0.75);
+  --sleek-handle-ss-background-color: rgba(254, 243, 199, 0.75);
+  --sleek-handle-s-background-color: rgba(254, 249, 195, 0.75);
+  --sleek-handle-a-background-color: rgba(254, 249, 195, 0.75);
+  --sleek-handle-b-background-color: rgba(236, 252, 203, 0.75);
+  --sleek-handle-c-background-color: rgba(224, 242, 254, 0.75);
+  --sleek-handle-e-background-color: rgba(237, 233, 254, 0.75);
+  --sleek-handle-default-hover-color: #1e293b;
+  --sleek-handle-sss-hover-color: #9f1239;
+  --sleek-handle-ss-hover-color: #92400e;
+  --sleek-handle-s-hover-color: #854d0e;
+  --sleek-handle-a-hover-color: #854d0e;
+  --sleek-handle-b-hover-color: #3f6212;
+  --sleek-handle-c-hover-color: #075985;
+  --sleek-handle-e-hover-color: #5b21b6;
+  --sleek-handle-default-hover-background-color: rgba(226, 232, 240, 0.75);
+  --sleek-handle-sss-hover-background-color: rgba(254, 205, 211, 0.75);
+  --sleek-handle-ss-hover-background-color: rgba(253, 230, 138, 0.75);
+  --sleek-handle-s-hover-background-color: rgba(254, 240, 138, 0.75);
+  --sleek-handle-a-hover-background-color: rgba(254, 240, 138, 0.75);
+  --sleek-handle-b-hover-background-color: rgba(217, 249, 157, 0.75);
+  --sleek-handle-c-hover-background-color: rgba(186, 230, 253, 0.75);
+  --sleek-handle-e-hover-background-color: rgba(221, 214, 254, 0.75);
 }
 
 .handle {
@@ -97,40 +105,48 @@
 
 a.handle:hover,
 a.handle:focus {
-  background-color: var(--sleek-handle-default-glow-background-color);
+  background-color: var(--sleek-handle-default-hover-background-color);
+  color: var(--sleek-handle-default-hover-color);
 }
 a.handle:hover.-sss,
 a.handle:focus.-sss {
-  background-color: var(--sleek-handle-sss-glow-background-color);
+  background-color: var(--sleek-handle-sss-hover-background-color);
+  color: var(--sleek-handle-sss-hover-color);
 }
 a.handle:hover.-ss,
 a.handle:focus.-ss {
-  background-color: var(--sleek-handle-ss-glow-background-color);
+  background-color: var(--sleek-handle-ss-hover-background-color);
+  color: var(--sleek-handle-ss-hover-color);
 }
 a.handle:hover.-s,
 a.handle:focus.-s {
-  background-color: var(--sleek-handle-s-glow-background-color);
+  background-color: var(--sleek-handle-s-hover-background-color);
+  color: var(--sleek-handle-s-hover-color);
 }
 a.handle:hover.-a,
 a.handle:focus.-a {
-  background-color: var(--sleek-handle-a-glow-background-color);
+  background-color: var(--sleek-handle-a-hover-background-color);
+  color: var(--sleek-handle-a-hover-color);
 }
 a.handle:hover.-b,
 a.handle:focus.-b {
-  background-color: var(--sleek-handle-b-glow-background-color);
+  background-color: var(--sleek-handle-b-hover-background-color);
+  color: var(--sleek-handle-b-hover-color);
 }
 a.handle:hover.-c,
 a.handle:focus.-c {
-  background-color: var(--sleek-handle-c-glow-background-color);
+  background-color: var(--sleek-handle-c-hover-background-color);
+  color: var(--sleek-handle-c-hover-color);
 }
 a.handle:hover.-e,
 a.handle:focus.-e {
-  background-color: var(--sleek-handle-e-glow-background-color);
+  background-color: var(--sleek-handle-e-hover-background-color);
+  color: var(--sleek-handle-e-hover-color);
 }
 
 .handle.-gone, .handle.-gone:hover, .handle.-gone:focus {
   background-color: transparent;
-  color: #57534e;
+  color: var(--sleek-text-muted-color);
   text-decoration: line-through;
 }
 
@@ -139,7 +155,7 @@ a.handle:focus.-e {
 }
 .mention .handle:before {
   content: "@";
-  color: rgb(173.4545454545, 169.2727272727, 164.0454545455);
+  color: var(--sleek-text-muted-color);
 }
 
 .handleset {
