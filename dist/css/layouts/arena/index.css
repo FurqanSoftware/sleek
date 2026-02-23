@@ -170,6 +170,12 @@ body.-staging {
   }
 }
 @media (min-width: 992px) {
+  .phead {
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    background-color: var(--sleek-arena-body-background-color);
+  }
   .pmenu__item.-bars {
     display: none;
   }
