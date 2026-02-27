@@ -90,7 +90,7 @@
     }
 }
 
-:not(.tablebox) > table {
+table:not(.tablebox table) {
     tr > :first-child {
         padding-left: 0;
     }
