@@ -1490,10 +1490,10 @@ fieldset.-flags .switch {
   }
 }
 
-:not(.tablebox) > table tr > :first-child {
+table:not(.tablebox table) tr > :first-child {
   padding-left: 0;
 }
-:not(.tablebox) > table tr > :last-child {
+table:not(.tablebox table) tr > :last-child {
   padding-right: 0;
 }
 
