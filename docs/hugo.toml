@@ -1,0 +1,21 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'Sleek'
+disableKinds = ["RSS"]
+
+[[menu.main]]
+identifier = "components"
+title = "Components"
+url = "/components/"
+weight = 10
+
+[[menu.main]]
+identifier = "about"
+title = "About"
+url = "/about/"
+weight = 20
+
+[markup]
+    [markup.goldmark]
+        [markup.goldmark.renderer]
+            unsafe = true

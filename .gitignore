@@ -1,1 +1,6 @@
 node_modules/
+
+/docs/public/
+/docs/resources/_gen/
+/docs/hugo_stats.json
+/docs/.hugo_build.lock

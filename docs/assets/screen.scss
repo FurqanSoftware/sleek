@@ -1,0 +1,36 @@
+@import "./sleek/css/sleek";
+@import "./sleek/css/themes/light";
+@import "./sleek/css/layouts/site/index";
+@import "./sleek/css/layouts/site/parts/pblip";
+@import "./sleek/css/layouts/site/parts/pnav";
+@import "./sleek/css/widgets/dropdown/index";
+@import "./sleek/css/widgets/modal/index";
+@import "./sleek/css/widgets/pagination/index";
+@import "./sleek/css/widgets/strips/index";
+
+p code,
+pre code,
+pre,
+code {
+    font-size: 0.925rem;
+    line-height: 1.25rem;
+}
+
+.highlight {
+    margin-bottom: 1rem;
+    padding: 0.5rem 0.25rem;
+    border-radius: 0.25rem;
+    overflow: auto;
+    background-color: #272822;
+
+    pre {
+        display: block;
+        margin: 0;
+        padding: 0.25rem 0.5rem;
+        line-height: 1rem;
+    }
+
+    table td:first-child pre {
+        padding: 0.25rem 0 0.25rem 0.25rem;
+    }
+}
