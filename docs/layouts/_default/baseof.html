@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<title>{{if not .IsHome}}{{or .Params.htmltitle .Title}} {{if eq .Kind "term"}}Posts {{end}}| {{.Site.Title}}{{else}}{{.Title}}{{end}}</title>
+
+	<meta name="viewport" content="width=device-width,initial-scale=1">
+
+	{{with .Params.htmldescription}}
+		<meta name=description content="{{.}}">
+	{{end}}
+
+	{{template "_internal/opengraph.html" .}}
+	{{template "_internal/twitter_cards.html" .}}
+
+	<link rel="canonical" href="{{with .Params.canonicalhref}}{{.}}{{else}}{{.Permalink}}{{end}}">
+
+	<link rel="icon" type="image/svg+xml" href="/favicon.svg">
+	<link rel="icon" type="image/png" href="/favicon.png">
+
+	{{$screencss := resources.Get "screen.scss" | toCSS | minify | fingerprint}}
+	<link rel="stylesheet" href="{{$screencss.RelPermalink}}">
+	{{$darkmodecss := resources.Get "darkmode.scss" | toCSS | minify | fingerprint}}
+	<link rel="stylesheet" href="{{$darkmodecss.RelPermalink}}" media="screen and (prefers-color-scheme: dark)">
+
+	{{$sleekjs := resources.Get "./sleek/js/sleek.js" | js.Build | minify | fingerprint}}
+	<script type="text/javascript" src="{{$sleekjs.RelPermalink}}"></script>
+</head>
+<body>
+	<header class="phead -shade">
+		<div class="container">
+			<div class="phead__body">
+				<a class="phead__logo" href="/">
+					<picture>
+						{{$logopng := resources.Get "logo.png" | fingerprint}}
+						{{$logo2xpng := resources.Get "logo@2x.png" | fingerprint}}
+						{{$logowhitepng := resources.Get "logo-white.png" | fingerprint}}
+						{{$logowhite2xpng := resources.Get "logo-white@2x.png" | fingerprint}}
+						<source media="screen and (prefers-color-scheme: dark)" srcset="{{$logowhitepng.RelPermalink}} 1x, {{$logowhite2xpng.RelPermalink}} 2x">
+						<img src="{{$logo2xpng.RelPermalink}}" srcset="{{$logopng.RelPermalink}} 1x, {{$logo2xpng.RelPermalink}} 2x" alt="Sleek" height="40">
+					</picture>
+				</a>
+
+				<nav class="pnav animated fastest">
+					<div class="pnav__group">
+						{{range .Site.Menus.main}}
+							<a href="{{.URL}}" class="pnav__item -link {{if eq $.RelPermalink .URL}}-active{{end}}">{{.Title}}</a>
+						{{end}}
+					</div>
+				</nav>
+
+				<div class="pmenu"></div>
+			</div>
+		</div>
+	</header>
+
+	<div class="{{block "contentclass" .}}{{end}}">
+		{{template "main" .}}
+	</div>
+
+	<footer class="pfoot">
+		<div class="container">
+			<div class="pfoot__upper">
+				<div class="flow">
+					<div class="pfoot__logo">
+						<a href="/">
+							<picture>
+								{{$logopng := resources.Get "logo.png" | fingerprint}}
+								{{$logo2xpng := resources.Get "logo@2x.png" | fingerprint}}
+								{{$logowhitepng := resources.Get "logo-white.png" | fingerprint}}
+								{{$logowhite2xpng := resources.Get "logo-white@2x.png" | fingerprint}}
+								<source media="screen and (prefers-color-scheme: dark)" srcset="{{$logowhitepng.RelPermalink}} 1x, {{$logowhite2xpng.RelPermalink}} 2x">
+								<img src="{{$logo2xpng.RelPermalink}}" srcset="{{$logopng.RelPermalink}} 1x, {{$logo2xpng.RelPermalink}} 2x" alt="Sleek" height="40">
+							</picture>
+						</a>
+					</div>
+					<div>A design system by <a href="https://furqansoftware.com">Furqan Software</a>.</div>
+				</div>
+
+				<div class="pfoot__nav">
+					<div class="row">
+						<div class="col-xs-6">
+							<ul>
+								<li>
+									<a href="{{.Site.Params.tophBaseURL}}">Toph</a>
+								</li>
+								<li>
+									<a href="{{.Site.Params.draftsBaseURL}}">Drafts</a>
+								</li>
+								<li>
+									<a href="{{.Site.Params.communityBaseURL}}">Community</a>
+								</li>
+								<li>
+									<a href="{{.Site.Params.statusPageURL}}">Status</a>
+								</li>
+							</ul>
+						</div>
+						<div class="col-xs-6">
+							<ul>
+								<li>
+									<a href="{{.Site.Params.tophBaseURL}}/about">About Us</a>
+								</li>
+								<li>
+									<a href="{{.Site.Params.companyBaseURL}}">Company</a>
+								</li>
+								<li>
+									<a href="{{.Site.Params.companyBaseURL}}/careers/">Career</a>
+								</li>
+								<li>
+									<a href="{{.Site.Params.tophBaseURL}}/branding">Branding</a>
+								</li>
+								<li>
+									<a href="{{.Site.Params.tophBaseURL}}/contact">Contact Us</a>
+								</li>
+							</ul>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<br>
+
+		<div class="container">
+			<!-- <div class="pfoot__legal">
+				<a href="/privacy">Privacy Policy</a>
+				<a href="/terms">Terms of Service</a>
+			</div> -->
+			<div class="pfoot__rights">&copy; {{now.Year}} Toph | <a href="{{.Params.companyBaseURL}}">Furqan Software</a></div>
+		</div>
+	</footer>
+</body>
+</html>
