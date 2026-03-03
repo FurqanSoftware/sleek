@@ -3,12 +3,14 @@
   "version": "2.4.3",
   "description": "Toph's base stylesheets",
   "scripts": {
-    "build": "npm-run-all build-css build-js",
-    "build-css": "sass --style expanded --source-map --embed-sources --no-error-css --pkg-importer node scss/:dist/css/",
-    "build-js": "rollup -c rollup.config.js",
-    "lint": "npm-run-all lint-js lint-css",
-    "lint-js": "eslint js/",
-    "lint-css": "stylelint \"scss/**/*.scss\""
+    "build": "npm-run-all build:css build:js",
+    "build:css": "sass --style expanded --source-map --embed-sources --no-error-css --pkg-importer node scss/:dist/css/",
+    "build:js": "rollup -c rollup.config.js",
+    "lint": "npm-run-all lint:js lint:css",
+    "lint:js": "eslint js/",
+    "lint:css": "stylelint \"scss/**/*.scss\"",
+    "docs": "npm-run-all build && hugo server --source docs/",
+    "docs:build": "npm-run-all build && hugo --source docs/"
   },
   "main": "dist/js/sleek.js",
   "module": "dist/js/sleek.esm.js",
