@@ -148,9 +148,11 @@ small,
 }
 
 $_seen: ();
+
 @for $n from 1 through 5 {
     @for $d from 1 through 5 {
         $v: math.div($n, $d);
+
         @if not map.has-key($_seen, $v) {
             $_seen: map.merge(
                 $_seen,
@@ -173,6 +175,7 @@ $_seen: ();
 }
 
 $font-weights: 300, 400, 500, 600, 700;
+
 @each $v in $font-weights {
     .font-#{$v} {
         font-weight: $v;

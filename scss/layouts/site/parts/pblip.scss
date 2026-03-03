@@ -130,7 +130,7 @@
     }
 }
 
-@media (min-width: 992px) {
+@media (width >= 992px) {
     .pblip.-cover {
         &:not(.-empty) {
             .pblip__foot {

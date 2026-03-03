@@ -11,6 +11,7 @@
     @for $n from 0 through 5 {
         @for $d from 1 through 5 {
             $v: math.div($n, $d);
+
             @if not map.has-key($seen, $v) {
                 $seen: map.merge(
                     $seen,
@@ -18,7 +19,6 @@
                         $v: true,
                     )
                 );
-
                 $x: if(
                     sass($d == 1): "#{$n}" ; else: "#{$n}-#{$d}",
                 );
@@ -47,6 +47,7 @@
     .#{$ns}m-auto {
         margin: auto;
     }
+
     @each $e in top, right, bottom, left {
         $ec: string.slice($e, 1, 1);
         .#{$ns}m#{$ec}-auto {

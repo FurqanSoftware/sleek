@@ -31,7 +31,7 @@
     }
 }
 
-@media (max-width: 767px) {
+@media (width <= 767px) {
     .pagination {
         &__item.-extra {
             display: none;

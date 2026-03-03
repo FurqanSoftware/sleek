@@ -70,14 +70,14 @@
     margin-bottom: 20px;
     overflow-x: auto;
 
-    @media screen and (max-width: 767px) {
+    @media screen and (width <= 767px) {
         width: 100%;
         margin-bottom: 1rem;
         overflow-y: hidden;
         border: 1px solid var(--sleek-table-border-color);
     }
 
-    @media screen and (min-width: 768px) {
+    @media screen and (width >= 768px) {
         > table {
             tr > :first-child {
                 padding-left: 0;

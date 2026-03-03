@@ -12,7 +12,6 @@
     --sleek-handle-b-color: #{palette.$lime-700};
     --sleek-handle-c-color: #{palette.$sky-700};
     --sleek-handle-e-color: #{palette.$violet-700};
-
     --sleek-handle-default-background-color: #{rgba(palette.$slate-100, 0.75)};
     --sleek-handle-sss-background-color: #{rgba(palette.$rose-100, 0.75)};
     --sleek-handle-ss-background-color: #{rgba(palette.$amber-100, 0.75)};
@@ -21,7 +20,6 @@
     --sleek-handle-b-background-color: #{rgba(palette.$lime-100, 0.75)};
     --sleek-handle-c-background-color: #{rgba(palette.$sky-100, 0.75)};
     --sleek-handle-e-background-color: #{rgba(palette.$violet-100, 0.75)};
-
     --sleek-handle-default-hover-color: #{palette.$slate-800};
     --sleek-handle-sss-hover-color: #{palette.$rose-800};
     --sleek-handle-ss-hover-color: #{palette.$amber-800};
@@ -30,7 +28,6 @@
     --sleek-handle-b-hover-color: #{palette.$lime-800};
     --sleek-handle-c-hover-color: #{palette.$sky-800};
     --sleek-handle-e-hover-color: #{palette.$violet-800};
-
     --sleek-handle-default-hover-background-color: #{rgba(
             palette.$slate-200,
             0.75
@@ -101,7 +98,7 @@ a.handle:focus {
         display: none;
     }
 
-    .handle:before {
+    .handle::before {
         content: "@";
         color: var(--sleek-text-muted-color);
     }

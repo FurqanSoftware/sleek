@@ -41,7 +41,7 @@
             background-color: palette.$blue;
 
             .label {
-                background-color: rgba(white, 0.125);
+                background-color: rgb(white, 0.125);
                 color: white;
             }
         }
@@ -81,9 +81,9 @@
     }
 }
 
-@media (max-width: 991px) {
+@media (width <= 991px) {
     .pills {
-        > :not(.-active):not(.-navsm) {
+        > :not(.-active, .-navsm) {
             display: none;
         }
     }

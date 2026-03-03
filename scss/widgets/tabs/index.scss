@@ -72,9 +72,9 @@
     }
 }
 
-@media (max-width: 991px) {
+@media (width <= 991px) {
     .tabs {
-        > :not(.-active):not(.-navsm) {
+        > :not(.-active, .-navsm) {
             display: none;
         }
     }

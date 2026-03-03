@@ -4,7 +4,7 @@
 @use "../../palette";
 
 .strips {
-    margin: -1rem -1.25rem -1rem;
+    margin: -1rem -1.25rem;
     border-top: 1px solid var(--sleek-surface-border-color-subtle);
 
     &__item {
@@ -61,7 +61,7 @@
     }
 }
 
-@media (max-width: 991px) {
+@media (width <= 991px) {
     .strips {
         > :not(.-active),
         .label {

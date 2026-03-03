@@ -85,7 +85,7 @@
     }
 }
 
-@media (max-width: 767px) {
+@media (width <= 767px) {
     .bellmenu {
         &.dropdown__menu,
         &.dropdown__menu.-left,

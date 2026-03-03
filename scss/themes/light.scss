@@ -5,13 +5,11 @@
 
 :root {
     --sleek-body-background-color: #{palette.$gray-50};
-
     --sleek-surface-background-color: #{palette.$neutral-50};
     --sleek-surface-shade-background-color: #{palette.$neutral-100};
     --sleek-surface-border-color: #{palette.$stone-200};
     --sleek-surface-border-color-subtle: #{palette.$stone-100};
     --sleek-surface-highlight-border-color: #{palette.$blue};
-
     --sleek-field-background-color: #{palette.$neutral-50};
     --sleek-field-border-color: #{palette.$stone-300};
     --sleek-field-focus-border-color: #{palette.$blue};
@@ -20,7 +18,6 @@
     --sleek-field-disabled-color: #{palette.$stone-600};
     --sleek-field-disabled-focus-border-color: #{palette.$stone-400};
     --sleek-field-disabled-focus-glow-color: #{palette.$stone-100};
-
     --sleek-button-default-background-color: #{palette.$neutral-200};
     --sleek-button-default-border-color: #{palette.$neutral-300};
     --sleek-button-default-color: #{rgba(palette.$stone-950, 0.9)};
@@ -38,7 +35,6 @@
     --sleek-button-default-active-shadow-color: #{palette.$neutral-300};
     --sleek-button-icon-default-active-filter: invert(18%) sepia(3%)
         saturate(2176%) hue-rotate(169deg) brightness(88%) contrast(88%);
-
     --sleek-button-blue-background-color: #{palette.$blue-500};
     --sleek-button-blue-border-color: #{palette.$blue-600};
     --sleek-button-blue-color: #{rgba(white, 0.9)};
@@ -56,10 +52,8 @@
     --sleek-button-blue-active-shadow-color: #{palette.$blue-600};
     --sleek-button-icon-blue-active-filter: invert(100%) sepia(100%)
         saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%);
-
     --sleek-button-blue-faint-background-color: #{palette.$slate-100};
     --sleek-button-blue-faint-border-color: #{palette.$blue-200};
-
     --sleek-button-simple-background-color: #{palette.$neutral-50};
     --sleek-button-simple-border-color: #{palette.$neutral-200};
     --sleek-button-simple-color: #{rgba(palette.$stone-950, 0.9)};
@@ -77,12 +71,9 @@
     --sleek-button-simple-active-shadow-color: #{palette.$neutral-200};
     --sleek-button-icon-simple-active-filter: invert(18%) sepia(3%)
         saturate(2176%) hue-rotate(169deg) brightness(88%) contrast(88%);
-
     --sleek-button-subtle-hover-border-color: #{palette.$neutral-400};
-
     --sleek-table-border-color: #{palette.$stone-100};
     --sleek-table-row-hover-border-color: #{palette.$blue};
-
     --sleek-alert-default-background-color: #{color.scale(
             palette.$stone-200,
             $lightness: 95%
@@ -114,34 +105,26 @@
     --sleek-alert-orange-border-color: #{palette.$orange-500};
     --sleek-alert-link-orange-hover-border-color: #{palette.$orange-700};
     --sleek-alert-subtle-color: #{palette.$stone-700};
-
     --sleek-label-default-background-color: #{rgba(palette.$silver-600, 0.1)};
     --sleek-label-default-color: #{rgba(palette.$stone-950, 0.9)};
-
     --sleek-text-default-color: #{rgba(palette.$stone-950, 0.9)};
     --sleek-text-muted-color: #{palette.$stone-600};
-
     --sleek-link-color: #{palette.$sky-700};
     --sleek-link-hover-color: #{palette.$sky-900};
     --sleek-link-muted-color: #{palette.$muted};
     --sleek-link-muted-hover-color: #{palette.$dark};
-
     --sleek-progress-background-color: #{palette.$stone-200};
-
     --sleek-divider-border-color: #{palette.$stone-200};
-
     --sleek-background-color-dark: #{rgba(palette.$stone-950, 0.9)};
     --sleek-background-color-blue: #{palette.$blue-500};
     --sleek-background-color-green: #{palette.$green-500};
     --sleek-background-color-red: #{palette.$red-500};
     --sleek-background-color-orange: #{palette.$orange-500};
-
     --sleek-border-color-dark: #{rgba(palette.$stone-950, 0.9)};
     --sleek-border-color-blue: #{palette.$blue-500};
     --sleek-border-color-green: #{palette.$green-500};
     --sleek-border-color-red: #{palette.$red-500};
     --sleek-border-color-orange: #{palette.$orange-500};
-
     --sleek-shadow-color-0: #{color.scale(palette.$stone-100, $lightness: 2.5%)}; // Form fields.
     --sleek-shadow-color-1: #{color.scale(palette.$stone-100, $lightness: 5%)}; // Regular panels, closest to page.
     --sleek-shadow-color-2: #{color.scale(palette.$stone-100, $lightness: 10%)}; // Important panels, above regular panels.

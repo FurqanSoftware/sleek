@@ -50,6 +50,7 @@
     .#{$ns}flex-basis-0 {
         flex-basis: 0;
     }
+
     @each $p in 25, 50, 75, 100 {
         .#{$ns}flex-basis-#{$p} {
             flex-basis: math.percentage(math.div($p, 100));
@@ -58,6 +59,7 @@
 }
 
 @include flex-utilities("");
+
 @each $bk, $bv in responsive.$breakpoints {
     @media (min-width: #{$bv}px) {
         @include flex-utilities("#{$bk}-");

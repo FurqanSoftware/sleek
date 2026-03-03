@@ -27,15 +27,15 @@ $container-widths: (
     }
 }
 
-.container:before,
-.container:after,
-.row:before,
-.row:after {
+.container::before,
+.container::after,
+.row::before,
+.row::after {
     display: table;
     content: " ";
 }
 
-.container:after,
-.row:after {
+.container::after,
+.row::after {
     clear: both;
 }
