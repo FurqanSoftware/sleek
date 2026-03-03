@@ -273,8 +273,8 @@ class Dropdown {
       if (event.keyCode !== 13) return;
       event.preventDefault();
     });
-    dom.on(input, "keyup", event => applySearch(input.value));
-    dom.on(input, "paste", event => fn.defer(() => applySearch(input.value)));
+    dom.on(input, "keyup", () => applySearch(input.value));
+    dom.on(input, "paste", () => fn.defer(() => applySearch(input.value)));
     if (this.settings.emptyQueryHint) {
       const menu = dom.$(".dropdown__menu", this.el);
       menu.appendChild(this.makeHint(this.settings.emptyQueryHint));
@@ -382,7 +382,6 @@ class Dropdown {
       this.renderItemsSelect();
       this.renderActiveItems();
     });
-    dom.on(input, "paste", event => fn.defer(() => applyDynamic(input.value)));
     if (this.settings.emptyValueHint) {
       const menu = dom.$(".dropdown__menu", this.el);
       menu.appendChild(this.makeHint(this.settings.emptyValueHint));
@@ -438,12 +437,14 @@ class Dropdown {
     for (const child of select.childNodes) {
       switch (child.tagName) {
         case "OPTGROUP":
-          menu.appendChild(this.makeHeadOptgroup(child, select));
-          for (const option of dom.$$("option", child)) menu.appendChild(this.makeItemOption(option, select));
-          const divider = document.createElement("div");
-          dom.addClass(divider, "dropdown__divider");
-          menu.appendChild(divider);
-          break;
+          {
+            menu.appendChild(this.makeHeadOptgroup(child));
+            for (const option of dom.$$("option", child)) menu.appendChild(this.makeItemOption(option, select));
+            const divider = document.createElement("div");
+            dom.addClass(divider, "dropdown__divider");
+            menu.appendChild(divider);
+            break;
+          }
         case "OPTION":
           menu.appendChild(this.makeItemOption(child, select));
           break;
@@ -508,7 +509,7 @@ class Dropdown {
     head.innerHTML = this.executeTemplate(tpl, data);
     return head;
   }
-  makeHeadOptgroup(optgroup, select) {
+  makeHeadOptgroup(optgroup) {
     const data = this.extractOptgroupData(optgroup);
     return this.makeHead(data);
   }
@@ -578,7 +579,7 @@ class Dropdown {
   executeTemplate(tpl, data) {
     if (typeof tpl === "function") return tpl(data);
     if (tpl.match(/^\*[a-zA-Z]+$/)) return this.executeTemplate(this.settings.templates[tpl.substr(1)], data);
-    return tpl.replace(/%\{([a-z]+)\}/g, (match, key) => data[key]);
+    return tpl.replace(/%\{([a-z]+)\}/g, (_match, key) => data[key]);
   }
   open() {
     if (dom.hasClass(this.el, "-open")) return;
@@ -774,7 +775,7 @@ class Dropdown {
     }
     return false;
   }
-  _onWindowResize(event) {
+  _onWindowResize() {
     this.reposition();
   }
 }
