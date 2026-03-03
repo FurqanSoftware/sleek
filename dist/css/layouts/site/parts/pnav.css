@@ -51,7 +51,7 @@
   margin-top: 0.25rem;
 }
 
-@media (max-width: 991px) {
+@media (width <= 991px) {
   .pnav {
     position: absolute;
     top: 72px;
@@ -86,7 +86,7 @@
     height: 1rem;
   }
 }
-@media (min-width: 992px) {
+@media (width >= 992px) {
   .pnav {
     display: block;
     flex-grow: 1;

@@ -52,8 +52,8 @@
   border-right: 1px solid var(--sleek-divider-border-color);
 }
 
-@media (max-width: 991px) {
-  .tabs > :not(.-active):not(.-navsm) {
+@media (width <= 991px) {
+  .tabs > :not(.-active, .-navsm) {
     display: none;
   }
 }

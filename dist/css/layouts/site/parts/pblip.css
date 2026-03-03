@@ -101,7 +101,7 @@
   background-color: transparent;
 }
 
-@media (min-width: 992px) {
+@media (width >= 992px) {
   .pblip.-cover:not(.-empty) .pblip__foot {
     bottom: 7.5rem;
   }

@@ -76,7 +76,6 @@ body.-staging {
   position: relative;
   float: left;
   display: block;
-  height: 40px;
   margin: 0.75rem;
   border-right: 1px solid var(--sleek-divider-border-color);
   height: 1rem;
@@ -160,7 +159,7 @@ body.-staging {
   background-color: var(--sleek-body-background-color);
 }
 
-@media (max-width: 991px) {
+@media (width <= 991px) {
   .pside {
     display: none;
     overflow-y: hidden;
@@ -169,7 +168,7 @@ body.-staging {
     display: block;
   }
 }
-@media (min-width: 992px) {
+@media (width >= 992px) {
   .phead {
     position: sticky;
     top: 0;
@@ -193,7 +192,7 @@ body.-staging {
   }
   #content {
     margin-left: 275px;
-    border-radius: 0.25rem 0 0 0;
+    border-radius: 0.25rem 0 0;
   }
 }
 

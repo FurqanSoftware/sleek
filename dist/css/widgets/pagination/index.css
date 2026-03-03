@@ -22,7 +22,7 @@
   color: var(--sleek-button-blue-color);
 }
 
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .pagination__item.-extra {
     display: none;
   }

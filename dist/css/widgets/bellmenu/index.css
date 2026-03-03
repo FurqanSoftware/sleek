@@ -58,7 +58,7 @@
   -webkit-overflow-scrolling: touch;
 }
 
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .bellmenu.dropdown__menu, .bellmenu.dropdown__menu.-left, .bellmenu.dropdown__menu.-right {
     right: 10%;
     left: 10%;

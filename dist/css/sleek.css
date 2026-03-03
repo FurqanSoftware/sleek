@@ -65,7 +65,7 @@ button,
 html input[type=button],
 input[type=reset],
 input[type=submit] {
-  -webkit-appearance: button;
+  appearance: auto;
   cursor: pointer;
 }
 
@@ -86,8 +86,6 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
   height: auto;
 }
 input[type=search] {
-  -webkit-box-sizing: border-box;
-  -moz-box-sizing: border-box;
   box-sizing: border-box;
 }
 input[type=file] {
@@ -277,16 +275,16 @@ optgroup {
     max-width: 1320px;
   }
 }
-.container:before,
-.container:after,
-.row:before,
-.row:after {
+.container::before,
+.container::after,
+.row::before,
+.row::after {
   display: table;
   content: " ";
 }
 
-.container:after,
-.row:after {
+.container::after,
+.row::after {
   clear: both;
 }
 
@@ -390,7 +388,7 @@ optgroup {
   width: 100%;
 }
 
-@media (min-width: 768px) {
+@media (width >= 768px) {
   .col-sm-1, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-10, .col-sm-11, .col-sm-12 {
     float: left;
   }
@@ -470,7 +468,7 @@ optgroup {
     margin-left: 100%;
   }
 }
-@media (min-width: 992px) {
+@media (width >= 992px) {
   .col-md-1, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-10, .col-md-11, .col-md-12 {
     float: left;
   }
@@ -980,56 +978,56 @@ optgroup {
 }
 
 @font-face {
-  font-family: "Ubuntu";
+  font-family: Ubuntu;
   font-style: normal;
   font-weight: 300;
   font-display: swap;
   src: local("Ubuntu Light"), local("Ubuntu-Light"), url("../fonts/ubuntu-l-webfont.woff2") format("woff2"), url("../fonts/ubuntu-l-webfont.woff") format("woff");
 }
 @font-face {
-  font-family: "Ubuntu";
+  font-family: Ubuntu;
   font-style: normal;
   font-weight: 400;
   font-display: swap;
   src: local("Ubuntu"), url("../fonts/ubuntu-r-webfont.woff2") format("woff2"), url("../fonts/ubuntu-r-webfont.woff") format("woff");
 }
 @font-face {
-  font-family: "Ubuntu";
+  font-family: Ubuntu;
   font-style: normal;
   font-weight: 500;
   font-display: swap;
   src: local("Ubuntu Medium"), local("Ubuntu-Medium"), url("../fonts/ubuntu-m-webfont.woff2") format("woff2"), url("../fonts/ubuntu-m-webfont.woff") format("woff");
 }
 @font-face {
-  font-family: "Ubuntu";
+  font-family: Ubuntu;
   font-style: normal;
   font-weight: 700;
   font-display: swap;
   src: local("Ubuntu Bold"), local("Ubuntu-Bold"), url("../fonts/ubuntu-b-webfont.woff2") format("woff2"), url("../fonts/ubuntu-b-webfont.woff") format("woff");
 }
 @font-face {
-  font-family: "Ubuntu";
+  font-family: Ubuntu;
   font-style: italic;
   font-weight: 300;
   font-display: swap;
   src: local("Ubuntu Light Italic"), local("Ubuntu-LightItalic"), url("../fonts/ubuntu-li-webfont.woff2") format("woff2"), url("../fonts/ubuntu-li-webfont.woff") format("woff");
 }
 @font-face {
-  font-family: "Ubuntu";
+  font-family: Ubuntu;
   font-style: italic;
   font-weight: 400;
   font-display: swap;
   src: local("Ubuntu Italic"), local("Ubuntu-Italic"), url("../fonts/ubuntu-ri-webfont.woff2") format("woff2"), url("../fonts/ubuntu-ri-webfont.woff") format("woff");
 }
 @font-face {
-  font-family: "Ubuntu";
+  font-family: Ubuntu;
   font-style: italic;
   font-weight: 500;
   font-display: swap;
   src: local("Ubuntu Medium Italic"), local("Ubuntu-MediumItalic"), url("../fonts/ubuntu-mi-webfont.woff2") format("woff2"), url("../fonts/ubuntu-mi-webfont.woff") format("woff");
 }
 @font-face {
-  font-family: "Ubuntu";
+  font-family: Ubuntu;
   font-style: italic;
   font-weight: 700;
   font-display: swap;
@@ -1082,7 +1080,7 @@ optgroup {
   unicode-range: U+00-FF, U+980-9FF;
 }
 body {
-  font-family: Ubuntu, "Hind Siliguri", system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: ubuntu, "Hind Siliguri", system-ui, -apple-system, "Segoe UI", roboto, "Helvetica Neue", "Noto Sans", "Liberation Sans", arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   font-size: 0.875rem;
   line-height: 1.75em;
   color: var(--sleek-text-default-color);
@@ -1473,7 +1471,7 @@ fieldset.-flags .switch {
   margin-bottom: 20px;
   overflow-x: auto;
 }
-@media screen and (max-width: 767px) {
+@media screen and (width <= 767px) {
   .tablebox {
     width: 100%;
     margin-bottom: 1rem;
@@ -1481,7 +1479,7 @@ fieldset.-flags .switch {
     border: 1px solid var(--sleek-table-border-color);
   }
 }
-@media screen and (min-width: 768px) {
+@media screen and (width >= 768px) {
   .tablebox > table tr > :first-child {
     padding-left: 0;
   }
@@ -1732,10 +1730,10 @@ table:not(.tablebox table) tr > :last-child {
 .btngroup > .btn ~ .btn {
   margin-left: -1px;
 }
-.btngroup > .btn:not(:first-child):not(:last-child) {
+.btngroup > .btn:not(:first-child, :last-child) {
   border-radius: 0;
 }
-.btngroup > .btn:first-child:not(:last-child):not(.-toggle) {
+.btngroup > .btn:first-child:not(:last-child, .-toggle) {
   border-radius: 0.25rem 0 0 0.25rem;
 }
 .btngroup > .btn:last-child:not(:first-child), .btngroup > .btn.-toggle:not(:first-child) {
@@ -1861,7 +1859,7 @@ table:not(.tablebox table) tr > :last-child {
   border-bottom: 1px solid var(--sleek-surface-border-color-subtle);
   box-shadow: inset 0 0.125rem 0.125rem var(--sleek-shadow-color-0);
 }
-.panel__drawer:after {
+.panel__drawer::after {
   display: table;
   content: " ";
   clear: both;
@@ -1927,7 +1925,7 @@ a > .panel {
   transition: border-color 125ms ease-in;
 }
 
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .panel .panel__actions .btn .icon + .text {
     display: none;
   }
@@ -2188,22 +2186,22 @@ a > .alert.-subtle {
   display: inline-block;
 }
 
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .xs-d-none {
     display: none !important;
   }
 }
-@media (min-width: 768px) and (max-width: 991px) {
+@media (width >= 768px) and (width <= 991px) {
   .sm-d-none {
     display: none !important;
   }
 }
-@media (min-width: 992px) and (max-width: 1199px) {
+@media (width >= 992px) and (width <= 1199px) {
   .md-d-none {
     display: none !important;
   }
 }
-@media (min-width: 1200px) {
+@media (width >= 1200px) {
   .lg-d-none {
     display: none !important;
   }
@@ -2215,22 +2213,22 @@ a > .alert.-subtle {
   display: none !important;
 }
 
-@media (max-width: 767px) {
+@media (width <= 767px) {
   .xs-d-block {
     display: block !important;
   }
 }
-@media (min-width: 768px) and (max-width: 991px) {
+@media (width >= 768px) and (width <= 991px) {
   .sm-d-block {
     display: block !important;
   }
 }
-@media (min-width: 992px) and (max-width: 1199px) {
+@media (width >= 992px) and (width <= 1199px) {
   .md-d-block {
     display: block !important;
   }
 }
-@media (min-width: 1200px) {
+@media (width >= 1200px) {
   .lg-d-block {
     display: block !important;
   }
