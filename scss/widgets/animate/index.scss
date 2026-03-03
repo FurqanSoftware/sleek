@@ -31,6 +31,7 @@
     }
 }
 
+/* stylelint-disable-next-line keyframes-name-pattern */
 @keyframes fadeInDownSmall {
     from {
         opacity: 0;
@@ -47,6 +48,7 @@
     animation-name: fadeInDownSmall;
 }
 
+/* stylelint-disable-next-line keyframes-name-pattern */
 @keyframes fadeInLeftSmall {
     from {
         opacity: 0;
@@ -63,6 +65,7 @@
     animation-name: fadeInLeftSmall;
 }
 
+/* stylelint-disable-next-line keyframes-name-pattern */
 @keyframes fadeInRightSmall {
     from {
         opacity: 0;
@@ -79,6 +82,7 @@
     animation-name: fadeInRightSmall;
 }
 
+/* stylelint-disable-next-line keyframes-name-pattern */
 @keyframes fadeInUpSmall {
     from {
         opacity: 0;
@@ -95,6 +99,7 @@
     animation-name: fadeInUpSmall;
 }
 
+/* stylelint-disable-next-line keyframes-name-pattern */
 @keyframes fadeInUpSmallest {
     from {
         opacity: 0;
@@ -111,6 +116,7 @@
     animation-name: fadeInUpSmallest;
 }
 
+/* stylelint-disable-next-line keyframes-name-pattern */
 @keyframes fadeOutDownSmall {
     from {
         opacity: 1;
@@ -126,6 +132,7 @@
     animation-name: fadeOutDownSmall;
 }
 
+/* stylelint-disable-next-line keyframes-name-pattern */
 @keyframes fadeOutUpSmall {
     from {
         opacity: 1;
