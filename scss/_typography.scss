@@ -147,15 +147,15 @@ small,
     font-family: const.$font-family-monospace;
 }
 
-$_seen: ();
+$seen: ();
 
 @for $n from 1 through 5 {
     @for $d from 1 through 5 {
         $v: math.div($n, $d);
 
-        @if not map.has-key($_seen, $v) {
-            $_seen: map.merge(
-                $_seen,
+        @if not map.has-key($seen, $v) {
+            $seen: map.merge(
+                $seen,
                 (
                     $v: true,
                 )
