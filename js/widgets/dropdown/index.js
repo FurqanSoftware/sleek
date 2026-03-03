@@ -62,8 +62,8 @@ class Dropdown {
       if (event.keyCode !== 13) return;
       event.preventDefault();
     });
-    dom.on(input, "keyup", (event) => applySearch(input.value));
-    dom.on(input, "paste", (event) => fn.defer(() => applySearch(input.value)));
+    dom.on(input, "keyup", () => applySearch(input.value));
+    dom.on(input, "paste", () => fn.defer(() => applySearch(input.value)));
 
     if (this.settings.emptyQueryHint) {
       const menu = dom.$(".dropdown__menu", this.el);
@@ -186,9 +186,6 @@ class Dropdown {
       this.renderItemsSelect();
       this.renderActiveItems();
     });
-    dom.on(input, "paste", (event) =>
-      fn.defer(() => applyDynamic(input.value)),
-    );
 
     if (this.settings.emptyValueHint) {
       const menu = dom.$(".dropdown__menu", this.el);
@@ -263,8 +260,8 @@ class Dropdown {
 
     for (const child of select.childNodes) {
       switch (child.tagName) {
-        case "OPTGROUP":
-          menu.appendChild(this.makeHeadOptgroup(child, select));
+        case "OPTGROUP": {
+          menu.appendChild(this.makeHeadOptgroup(child));
 
           for (const option of dom.$$("option", child))
             menu.appendChild(this.makeItemOption(option, select));
@@ -273,6 +270,7 @@ class Dropdown {
           dom.addClass(divider, "dropdown__divider");
           menu.appendChild(divider);
           break;
+        }
 
         case "OPTION":
           menu.appendChild(this.makeItemOption(child, select));
@@ -369,7 +367,7 @@ class Dropdown {
     return head;
   }
 
-  makeHeadOptgroup(optgroup, select) {
+  makeHeadOptgroup(optgroup) {
     const data = this.extractOptgroupData(optgroup);
     return this.makeHead(data);
   }
@@ -428,7 +426,7 @@ class Dropdown {
     if (typeof tpl === "function") return tpl(data);
     if (tpl.match(/^\*[a-zA-Z]+$/))
       return this.executeTemplate(this.settings.templates[tpl.substr(1)], data);
-    return tpl.replace(/%\{([a-z]+)\}/g, (match, key) => data[key]);
+    return tpl.replace(/%\{([a-z]+)\}/g, (_match, key) => data[key]);
   }
 
   open() {
@@ -655,7 +653,7 @@ class Dropdown {
     return false;
   }
 
-  _onWindowResize(event) {
+  _onWindowResize() {
     this.reposition();
   }
 }
