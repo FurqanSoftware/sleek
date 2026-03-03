@@ -2038,7 +2038,7 @@ a.dashlet:hover, a.dashlet:focus {
   border-color: var(--sleek-surface-highlight-border-color);
 }
 a.dashlet:hover .dashlet__mark, a.dashlet:focus .dashlet__mark {
-  opacity: 0.09375;
+  opacity: 0.0938;
 }
 
 .artifact {
@@ -8038,7 +8038,7 @@ label {
   padding: 0;
   margin: -1px;
   overflow: hidden;
-  clip: rect(0, 0, 0, 0);
+  clip-path: rect(0 0 0 0);
   border: 0;
 }
 

@@ -23,7 +23,6 @@
   width: 52px;
   height: 29px;
   text-indent: -150%;
-  clip: rect(0 0 0 0);
   color: transparent;
   user-select: none;
 }
