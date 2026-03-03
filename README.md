@@ -98,8 +98,8 @@ npm run build
 Build only CSS or only JavaScript:
 
 ```sh
-npm run build-css
-npm run build-js
+npm run build:css
+npm run build:js
 ```
 
 To run the demo locally:
