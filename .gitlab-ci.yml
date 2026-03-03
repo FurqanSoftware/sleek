@@ -1,4 +1,5 @@
 stages:
+  - lint
   - build
   - production
 
@@ -8,6 +9,18 @@ default:
     - echo "@toph:registry=https://gitlab.furqansoftware.net/api/v4/packages/npm/" > ~/.npmrc &&
       echo "//gitlab.furqansoftware.net/api/v4/packages/npm/:_authToken=${CI_JOB_TOKEN}" >> ~/.npmrc &&
       echo "//gitlab.furqansoftware.net/api/v4/projects/179/packages/npm/:_authToken=${CI_JOB_TOKEN}" >> ~/.npmrc
+
+lint:
+  image: cardboard/node:24.5
+  stage: lint
+  allow_failure: true
+  script:
+    - npm install --also=dev --cache .npm --prefer-offline
+    - npm run lint
+  cache:
+    key: npm
+    paths:
+      - ".npm"
 
 build:
   image: cardboard/node:24.5
