@@ -234,7 +234,7 @@ class Dropdown {
   constructor(el, settings = {}) {
     this.el = el;
     this.settings = settings;
-    this._onWindowResize = this._onWindowResize.bind(this);
+    this._onWindowResize = () => this.reposition();
     this.init();
   }
   init() {
@@ -315,7 +315,7 @@ class Dropdown {
               this.close();
               return;
             }
-            if (!select.multiple) {
+            if (!select.multiple && !this.settings.allowEmpty) {
               select.innerHTML = "";
             } else {
               for (const option of select.selectedOptions) {
@@ -330,11 +330,12 @@ class Dropdown {
             const option = document.createElement("option");
             option.setAttribute(`data-extra`, JSON.stringify(rest));
             option.setAttribute("value", value);
-            option.setAttribute("selected", true);
+            option.selected = true;
             dom.setText(option, label);
             select.appendChild(option);
             this.renderToggle();
             this.renderActiveItems();
+            this.dispatchSelectChangeEvent();
             if (!select.multiple) this.close();else dom.$(".dropdown__search input", this.el).focus();
           });
         }
@@ -375,7 +376,7 @@ class Dropdown {
       const select = dom.$("select", this.el);
       const option = document.createElement("option");
       option.setAttribute("value", value);
-      option.setAttribute("selected", true);
+      option.selected = true;
       dom.setText(option, value);
       select.appendChild(option);
       this.renderToggle();
@@ -391,11 +392,26 @@ class Dropdown {
     for (const option of dom.$$("select option", this.el)) option.selected = true;
     this.renderToggle();
     this.renderActiveItems();
+    this.dispatchSelectChangeEvent();
   }
   selectNone() {
     for (const option of dom.$$("select option", this.el)) option.selected = false;
     this.renderToggle();
     this.renderActiveItems();
+    this.dispatchSelectChangeEvent();
+  }
+  selectClear() {
+    const select = dom.$("select", this.el);
+    select.innerHTML = "";
+    this.renderToggle();
+    this.renderActiveItems();
+    this.dispatchSelectChangeEvent();
+  }
+  dispatchSelectChangeEvent() {
+    const select = dom.$("select", this.el);
+    select.dispatchEvent(new Event("change", {
+      bubbles: true
+    }));
   }
   renderToggle() {
     if (dom.hasClass(this.el, "-select")) this.renderToggleSelect();
@@ -467,10 +483,16 @@ class Dropdown {
     const tool = dom.$(".dropdown__tool", this.el);
     if (!tool) return;
     tool.innerHTML = "";
-    tool.appendChild(this.makeToolText("Select: "));
-    tool.appendChild(this.makeToolItem("All", () => this.selectAll()));
-    tool.appendChild(this.makeToolText(", "));
-    tool.appendChild(this.makeToolItem("None", () => this.selectNone()));
+    const select = dom.$("select", this.el);
+    if (select.multiple) {
+      tool.appendChild(this.makeToolText("Select: "));
+      tool.appendChild(this.makeToolItem("All", () => this.selectAll()));
+      tool.appendChild(this.makeToolText(", "));
+      tool.appendChild(this.makeToolItem("None", () => this.selectNone()));
+    }
+    if ((this.settings.search || this.settings.dynamic) && this.settings.allowEmpty) {
+      tool.appendChild(this.makeToolItem("Clear", () => this.selectClear()));
+    }
   }
   makeItem(data) {
     const item = document.createElement("a");
@@ -493,11 +515,21 @@ class Dropdown {
         option.selected = true;
         for (const option of currentSelected) option.selected = false;
       } else {
-        if (!select.multiple) option.selected = true;else option.selected = !option.selected;
+        if (!select.multiple) {
+          if (option.selected && (this.settings.search || this.settings.dynamic) && this.settings.allowEmpty) {
+            dom.detach(option);
+            option.selected = false;
+          } else {
+            if (!option.parentNode) select.appendChild(option);
+            option.selected = true;
+          }
+        } else {
+          option.selected = !option.selected;
+        }
       }
-      select.dispatchEvent(new Event("change", {
-        bubbles: true
-      }));
+      this.renderToggle();
+      this.renderActiveItems();
+      this.dispatchSelectChangeEvent();
       if (!select.multiple) this.close();
     });
     return item;
@@ -578,7 +610,7 @@ class Dropdown {
   }
   executeTemplate(tpl, data) {
     if (typeof tpl === "function") return tpl(data);
-    if (tpl.match(/^\*[a-zA-Z]+$/)) return this.executeTemplate(this.settings.templates[tpl.substr(1)], data);
+    if (tpl.match(/^\*[a-zA-Z]+$/)) return this.executeTemplate(this.settings.templates[tpl.slice(1)], data);
     return tpl.replace(/%\{([a-z]+)\}/g, (_match, key) => data[key]);
   }
   open() {
@@ -770,13 +802,10 @@ class Dropdown {
   isChildOf(other) {
     let target = this.el;
     while (target && target.parentNode) {
-      if (target.parentNode == other.el) return true;
+      if (target.parentNode === other.el) return true;
       target = target.parentNode;
     }
     return false;
-  }
-  _onWindowResize() {
-    this.reposition();
   }
 }
 class Root {
