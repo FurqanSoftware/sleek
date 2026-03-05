@@ -8,7 +8,7 @@ class Dropdown {
   constructor(el, settings = {}) {
     this.el = el;
     this.settings = settings;
-    this._onWindowResize = this._onWindowResize.bind(this);
+    this._onWindowResize = () => this.reposition();
     this.init();
   }
 
@@ -128,12 +128,13 @@ class Dropdown {
               const option = document.createElement("option");
               option.setAttribute(`data-extra`, JSON.stringify(rest));
               option.setAttribute("value", value);
-              option.setAttribute("selected", true);
+              option.selected = true;
               dom.setText(option, label);
               select.appendChild(option);
 
               this.renderToggle();
               this.renderActiveItems();
+              this.dispatchSelectChangeEvent();
 
               if (!select.multiple) this.close();
               else dom.$(".dropdown__search input", this.el).focus();
@@ -179,7 +180,7 @@ class Dropdown {
       const select = dom.$("select", this.el);
       const option = document.createElement("option");
       option.setAttribute("value", value);
-      option.setAttribute("selected", true);
+      option.selected = true;
       dom.setText(option, value);
       select.appendChild(option);
       this.renderToggle();
@@ -198,6 +199,7 @@ class Dropdown {
       option.selected = true;
     this.renderToggle();
     this.renderActiveItems();
+    this.dispatchSelectChangeEvent();
   }
 
   selectNone() {
@@ -205,6 +207,7 @@ class Dropdown {
       option.selected = false;
     this.renderToggle();
     this.renderActiveItems();
+    this.dispatchSelectChangeEvent();
   }
 
   selectClear() {
@@ -212,6 +215,16 @@ class Dropdown {
     select.innerHTML = "";
     this.renderToggle();
     this.renderActiveItems();
+    this.dispatchSelectChangeEvent();
+  }
+
+  dispatchSelectChangeEvent() {
+    const select = dom.$("select", this.el);
+    select.dispatchEvent(
+      new Event("change", {
+        bubbles: true,
+      }),
+    );
   }
 
   renderToggle() {
@@ -378,12 +391,7 @@ class Dropdown {
 
       this.renderToggle();
       this.renderActiveItems();
-
-      select.dispatchEvent(
-        new Event("change", {
-          bubbles: true,
-        }),
-      );
+      this.dispatchSelectChangeEvent();
 
       if (!select.multiple) this.close();
     });
@@ -459,7 +467,7 @@ class Dropdown {
   executeTemplate(tpl, data) {
     if (typeof tpl === "function") return tpl(data);
     if (tpl.match(/^\*[a-zA-Z]+$/))
-      return this.executeTemplate(this.settings.templates[tpl.substr(1)], data);
+      return this.executeTemplate(this.settings.templates[tpl.slice(1)], data);
     return tpl.replace(/%\{([a-z]+)\}/g, (_match, key) => data[key]);
   }
 
@@ -681,14 +689,10 @@ class Dropdown {
   isChildOf(other) {
     let target = this.el;
     while (target && target.parentNode) {
-      if (target.parentNode == other.el) return true;
+      if (target.parentNode === other.el) return true;
       target = target.parentNode;
     }
     return false;
-  }
-
-  _onWindowResize() {
-    this.reposition();
   }
 }
 
