@@ -112,7 +112,7 @@ class Dropdown {
                 return;
               }
 
-              if (!select.multiple) {
+              if (!select.multiple && !this.settings.allowEmpty) {
                 select.innerHTML = "";
               } else {
                 for (const option of select.selectedOptions) {
@@ -359,9 +359,25 @@ class Dropdown {
         option.selected = true;
         for (const option of currentSelected) option.selected = false;
       } else {
-        if (!select.multiple) option.selected = true;
-        else option.selected = !option.selected;
+        if (!select.multiple) {
+          if (
+            option.selected &&
+            (this.settings.search || this.settings.dynamic) &&
+            this.settings.allowEmpty
+          ) {
+            dom.detach(option);
+            option.selected = false;
+          } else {
+            if (!option.parentNode) select.appendChild(option);
+            option.selected = true;
+          }
+        } else {
+          option.selected = !option.selected;
+        }
       }
+
+      this.renderToggle();
+      this.renderActiveItems();
 
       select.dispatchEvent(
         new Event("change", {
