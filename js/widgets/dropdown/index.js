@@ -207,6 +207,13 @@ class Dropdown {
     this.renderActiveItems();
   }
 
+  selectClear() {
+    const select = dom.$("select", this.el);
+    select.innerHTML = "";
+    this.renderToggle();
+    this.renderActiveItems();
+  }
+
   renderToggle() {
     if (dom.hasClass(this.el, "-select")) this.renderToggleSelect();
   }
@@ -301,10 +308,21 @@ class Dropdown {
     if (!tool) return;
     tool.innerHTML = "";
 
-    tool.appendChild(this.makeToolText("Select: "));
-    tool.appendChild(this.makeToolItem("All", () => this.selectAll()));
-    tool.appendChild(this.makeToolText(", "));
-    tool.appendChild(this.makeToolItem("None", () => this.selectNone()));
+    const select = dom.$("select", this.el);
+
+    if (select.multiple) {
+      tool.appendChild(this.makeToolText("Select: "));
+      tool.appendChild(this.makeToolItem("All", () => this.selectAll()));
+      tool.appendChild(this.makeToolText(", "));
+      tool.appendChild(this.makeToolItem("None", () => this.selectNone()));
+    }
+
+    if (
+      (this.settings.search || this.settings.dynamic) &&
+      this.settings.allowEmpty
+    ) {
+      tool.appendChild(this.makeToolItem("Clear", () => this.selectClear()));
+    }
   }
 
   makeItem(data) {
