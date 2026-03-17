@@ -44,31 +44,31 @@
 
 @include iconcolor(
     "muted",
-    "invert(39%) sepia(15%) saturate(430%) hue-rotate(167deg) brightness(96%) contrast(86%)"
+    "brightness(0) saturate(100%) invert(29%) sepia(18%) saturate(182%) hue-rotate(353deg) brightness(99%) contrast(87%)"
 );
 @include iconcolor(
     "ebony",
-    "invert(16%) sepia(13%) saturate(1446%) hue-rotate(168deg) brightness(94%) contrast(92%)"
+    "brightness(0) saturate(100%) invert(13%) sepia(11%) saturate(2371%) hue-rotate(168deg) brightness(95%) contrast(85%)"
 );
 @include iconcolor(
     "blue",
-    "invert(60%) sepia(14%) saturate(5798%) hue-rotate(178deg) brightness(90%) contrast(91%)"
+    "brightness(0) saturate(100%) invert(51%) sepia(85%) saturate(936%) hue-rotate(178deg) brightness(90%) contrast(90%)"
 );
 @include iconcolor(
     "green",
-    "invert(72%) sepia(11%) saturate(2723%) hue-rotate(101deg) brightness(86%) contrast(86%)"
+    "brightness(0) saturate(100%) invert(60%) sepia(93%) saturate(395%) hue-rotate(88deg) brightness(86%) contrast(92%)"
 );
 @include iconcolor(
     "red",
-    "invert(58%) sepia(41%) saturate(6111%) hue-rotate(327deg) brightness(97%) contrast(84%)"
+    "brightness(0) saturate(100%) invert(47%) sepia(69%) saturate(4257%) hue-rotate(334deg) brightness(106%) contrast(118%)"
 );
 @include iconcolor(
     "orange",
-    "invert(51%) sepia(77%) saturate(1714%) hue-rotate(3deg) brightness(95%) contrast(97%)"
+    "brightness(0) saturate(100%) invert(69%) sepia(60%) saturate(6175%) hue-rotate(353deg) brightness(102%) contrast(95%)"
 );
 @include iconcolor(
     "silver",
-    "invert(94%) sepia(11%) saturate(94%) hue-rotate(169deg) brightness(100%) contrast(91%)"
+    "brightness(0) saturate(100%) invert(95%) sepia(13%) saturate(113%) hue-rotate(180deg) brightness(98%) contrast(92%)"
 );
 
 .icon.white:not(.-custom) {
