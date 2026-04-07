@@ -235,11 +235,13 @@ class Dropdown {
     this.el = el;
     this.settings = settings;
     this._onWindowResize = () => this.reposition();
-    if (this.settings.source === "select") dom.addClass(this.el, "-select");
     this.init();
   }
+  canSourceSelect() {
+    return dom.hasClass(this.el, "-select") && !!dom.$("select", this.el);
+  }
   init() {
-    if (this.settings.source === "select") this.initSelect();
+    if (this.canSourceSelect()) this.initSelect();
     if (this.settings.search) this.initSearch();
     if (this.settings.dynamic) this.initDynamic();
     const toggle = dom.$(".dropdown__toggle", this.el);
@@ -415,7 +417,7 @@ class Dropdown {
     }));
   }
   renderToggle() {
-    if (this.settings.source === "select") this.renderToggleSelect();
+    if (this.canSourceSelect()) this.renderToggleSelect();
   }
   renderToggleSelect() {
     const toggle = dom.$(".dropdown__toggle", this.el);
@@ -469,7 +471,7 @@ class Dropdown {
     }
   }
   renderActiveItems() {
-    if (this.settings.source === "select") this.renderActiveItemsSelect();
+    if (this.canSourceSelect()) this.renderActiveItemsSelect();
   }
   renderActiveItemsSelect() {
     const select = dom.$("select", this.el);
@@ -643,7 +645,7 @@ class Dropdown {
     }
     if (this.settings.search) {
       const search = this.searchEl;
-      if (this.settings.source === "select") {
+      if (this.canSourceSelect()) {
         const toggle = dom.$(".dropdown__toggle", this.el);
         dom.addClass(toggle, "hidden");
         toggle.insertAdjacentElement("afterend", search);
@@ -661,7 +663,7 @@ class Dropdown {
     }
     if (this.settings.dynamic) {
       const dynamic = this.dynamicEl;
-      if (this.settings.source === "select") {
+      if (this.canSourceSelect()) {
         const toggle = dom.$(".dropdown__toggle", this.el);
         dom.addClass(toggle, "hidden");
         toggle.insertAdjacentElement("afterend", dynamic);
@@ -710,13 +712,13 @@ class Dropdown {
     dom.off(window, "resize", this._onWindowResize);
   }
   refresh() {
-    if (this.settings.source === "select") this.initSelect();
+    if (this.canSourceSelect()) this.initSelect();
   }
   reposition() {
     const menu = dom.$(".dropdown__menu", this.el);
     if (!menu) return;
     if (dom.hasClass(menu, "-left") || dom.hasClass(menu, "-right")) return;
-    if (this.settings.source === "select" || !dom.closest(menu.parentNode, ".dropdown__menu")) this.repositionY();
+    if (this.canSourceSelect() || !dom.closest(menu.parentNode, ".dropdown__menu")) this.repositionY();
     if (dom.closest(menu.parentNode, ".dropdown__menu")) this.repositionXY();
     const tool = dom.$(".dropdown__tool", this.el);
     if (tool) {
