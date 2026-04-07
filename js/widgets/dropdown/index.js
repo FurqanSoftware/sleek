@@ -9,11 +9,12 @@ class Dropdown {
     this.el = el;
     this.settings = settings;
     this._onWindowResize = () => this.reposition();
+    if (this.settings.source === "select") dom.addClass(this.el, "-select");
     this.init();
   }
 
   init() {
-    if (dom.hasClass(this.el, "-select")) this.initSelect();
+    if (this.settings.source === "select") this.initSelect();
     if (this.settings.search) this.initSearch();
     if (this.settings.dynamic) this.initDynamic();
 
@@ -228,7 +229,7 @@ class Dropdown {
   }
 
   renderToggle() {
-    if (dom.hasClass(this.el, "-select")) this.renderToggleSelect();
+    if (this.settings.source === "select") this.renderToggleSelect();
   }
 
   renderToggleSelect() {
@@ -300,7 +301,7 @@ class Dropdown {
   }
 
   renderActiveItems() {
-    if (dom.hasClass(this.el, "-select")) this.renderActiveItemsSelect();
+    if (this.settings.source === "select") this.renderActiveItemsSelect();
   }
 
   renderActiveItemsSelect() {
@@ -507,7 +508,7 @@ class Dropdown {
 
     if (this.settings.search) {
       const search = this.searchEl;
-      if (dom.hasClass(this.el, "-select")) {
+      if (this.settings.source === "select") {
         const toggle = dom.$(".dropdown__toggle", this.el);
         dom.addClass(toggle, "hidden");
         toggle.insertAdjacentElement("afterend", search);
@@ -526,7 +527,7 @@ class Dropdown {
 
     if (this.settings.dynamic) {
       const dynamic = this.dynamicEl;
-      if (dom.hasClass(this.el, "-select")) {
+      if (this.settings.source === "select") {
         const toggle = dom.$(".dropdown__toggle", this.el);
         dom.addClass(toggle, "hidden");
         toggle.insertAdjacentElement("afterend", dynamic);
@@ -583,7 +584,7 @@ class Dropdown {
   }
 
   refresh() {
-    if (dom.hasClass(this.el, "-select")) this.initSelect();
+    if (this.settings.source === "select") this.initSelect();
   }
 
   reposition() {
@@ -591,7 +592,7 @@ class Dropdown {
     if (!menu) return;
     if (dom.hasClass(menu, "-left") || dom.hasClass(menu, "-right")) return;
     if (
-      dom.hasClass(this.el, "-select") ||
+      this.settings.source === "select" ||
       !dom.closest(menu.parentNode, ".dropdown__menu")
     )
       this.repositionY();
@@ -736,8 +737,9 @@ class Root {
   }
 
   makeUnder() {
-    for (const dropdownEl of dom.$$(".dropdown.-select", this.el))
+    for (const dropdownEl of dom.$$(".dropdown[data-dropdown]", this.el)) {
       this.make(dropdownEl);
+    }
   }
 
   make(dropdownEl) {
