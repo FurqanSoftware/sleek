@@ -740,9 +740,8 @@ class Root {
   }
 
   makeUnder() {
-    for (const dropdownEl of dom.$$(".dropdown[data-dropdown]", this.el)) {
+    for (const dropdownEl of dom.$$(".dropdown", this.el))
       this.make(dropdownEl);
-    }
   }
 
   make(dropdownEl) {
