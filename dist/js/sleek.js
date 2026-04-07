@@ -235,10 +235,11 @@ class Dropdown {
     this.el = el;
     this.settings = settings;
     this._onWindowResize = () => this.reposition();
+    if (this.settings.source === "select") dom.addClass(this.el, "-select");
     this.init();
   }
   init() {
-    if (dom.hasClass(this.el, "-select")) this.initSelect();
+    if (this.settings.source === "select") this.initSelect();
     if (this.settings.search) this.initSearch();
     if (this.settings.dynamic) this.initDynamic();
     const toggle = dom.$(".dropdown__toggle", this.el);
@@ -414,7 +415,7 @@ class Dropdown {
     }));
   }
   renderToggle() {
-    if (dom.hasClass(this.el, "-select")) this.renderToggleSelect();
+    if (this.settings.source === "select") this.renderToggleSelect();
   }
   renderToggleSelect() {
     const toggle = dom.$(".dropdown__toggle", this.el);
@@ -468,7 +469,7 @@ class Dropdown {
     }
   }
   renderActiveItems() {
-    if (dom.hasClass(this.el, "-select")) this.renderActiveItemsSelect();
+    if (this.settings.source === "select") this.renderActiveItemsSelect();
   }
   renderActiveItemsSelect() {
     const select = dom.$("select", this.el);
@@ -642,7 +643,7 @@ class Dropdown {
     }
     if (this.settings.search) {
       const search = this.searchEl;
-      if (dom.hasClass(this.el, "-select")) {
+      if (this.settings.source === "select") {
         const toggle = dom.$(".dropdown__toggle", this.el);
         dom.addClass(toggle, "hidden");
         toggle.insertAdjacentElement("afterend", search);
@@ -660,7 +661,7 @@ class Dropdown {
     }
     if (this.settings.dynamic) {
       const dynamic = this.dynamicEl;
-      if (dom.hasClass(this.el, "-select")) {
+      if (this.settings.source === "select") {
         const toggle = dom.$(".dropdown__toggle", this.el);
         dom.addClass(toggle, "hidden");
         toggle.insertAdjacentElement("afterend", dynamic);
@@ -709,13 +710,13 @@ class Dropdown {
     dom.off(window, "resize", this._onWindowResize);
   }
   refresh() {
-    if (dom.hasClass(this.el, "-select")) this.initSelect();
+    if (this.settings.source === "select") this.initSelect();
   }
   reposition() {
     const menu = dom.$(".dropdown__menu", this.el);
     if (!menu) return;
     if (dom.hasClass(menu, "-left") || dom.hasClass(menu, "-right")) return;
-    if (dom.hasClass(this.el, "-select") || !dom.closest(menu.parentNode, ".dropdown__menu")) this.repositionY();
+    if (this.settings.source === "select" || !dom.closest(menu.parentNode, ".dropdown__menu")) this.repositionY();
     if (dom.closest(menu.parentNode, ".dropdown__menu")) this.repositionXY();
     const tool = dom.$(".dropdown__tool", this.el);
     if (tool) {
@@ -832,7 +833,9 @@ class Root {
     });
   }
   makeUnder() {
-    for (const dropdownEl of dom.$$(".dropdown.-select", this.el)) this.make(dropdownEl);
+    for (const dropdownEl of dom.$$(".dropdown[data-dropdown]", this.el)) {
+      this.make(dropdownEl);
+    }
   }
   make(dropdownEl) {
     if (this.dropdowns.has(dropdownEl)) return;
