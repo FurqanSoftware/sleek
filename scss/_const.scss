@@ -32,3 +32,10 @@ $font-size-sm: $font-size-base * 0.875 !default;
 $font-size-lg: $font-size-base * 1.25 !default;
 $slow: 500ms;
 $fast: 125ms;
+
+$z-index-sticky: 100;
+$z-index-fixed: 200;
+$z-index-dropdown: 300;
+$z-index-tooltip: 400;
+$z-index-modal: 500;
+$z-index-toast: 600;

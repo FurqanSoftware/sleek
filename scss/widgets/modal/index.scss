@@ -22,7 +22,7 @@ $modal-widths: (
 .modal {
     position: fixed;
     inset: 0;
-    z-index: 1050;
+    z-index: var(--sleek-z-index-modal);
     display: none;
     overflow: hidden;
     -webkit-overflow-scrolling: touch;

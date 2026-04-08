@@ -1,0 +1,12 @@
+// Copyright 2026 Furqan Software Ltd. All Rights Reserved.
+
+@use "const";
+
+:root {
+    --sleek-z-index-sticky: #{const.$z-index-sticky};
+    --sleek-z-index-fixed: #{const.$z-index-fixed};
+    --sleek-z-index-dropdown: #{const.$z-index-dropdown};
+    --sleek-z-index-tooltip: #{const.$z-index-tooltip};
+    --sleek-z-index-modal: #{const.$z-index-modal};
+    --sleek-z-index-toast: #{const.$z-index-toast};
+}
