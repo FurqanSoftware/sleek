@@ -11,7 +11,7 @@ body.-staging {
   top: 0;
   right: 0;
   left: 0;
-  z-index: 10;
+  z-index: var(--sleek-z-index-fixed);
   padding: 20px;
   background: var(--sleek-surface-background-color);
 }

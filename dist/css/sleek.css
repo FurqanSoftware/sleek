@@ -7993,6 +7993,15 @@ a > .alert.-subtle {
   color: var(--sleek-text-muted-color);
 }
 
+:root {
+  --sleek-z-index-sticky: 100;
+  --sleek-z-index-fixed: 200;
+  --sleek-z-index-dropdown: 300;
+  --sleek-z-index-tooltip: 400;
+  --sleek-z-index-modal: 500;
+  --sleek-z-index-toast: 600;
+}
+
 ::placeholder {
   color: #57534e;
   opacity: 1;

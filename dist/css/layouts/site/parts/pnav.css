@@ -57,7 +57,7 @@
     top: 72px;
     right: 0;
     left: 0;
-    z-index: 1000;
+    z-index: var(--sleek-z-index-dropdown);
     border-bottom: 1px solid var(--sleek-surface-border-color);
     background-color: var(--sleek-surface-background-color);
     box-shadow: 0 0.0625rem 0.125rem var(--sleek-shadow-color-1);
@@ -120,7 +120,7 @@
     position: absolute;
     top: 100%;
     left: 0;
-    z-index: 1000;
+    z-index: var(--sleek-z-index-dropdown);
     min-width: 150px;
     min-width: max-content;
     margin: 0.25rem 0 0;
