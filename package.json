@@ -1,6 +1,6 @@
 {
   "name": "sleek",
-  "version": "2.7.1",
+  "version": "2.8.0",
   "description": "Toph's base stylesheets",
   "scripts": {
     "build": "npm-run-all build:css build:js",
