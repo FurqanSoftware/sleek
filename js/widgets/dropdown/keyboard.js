@@ -46,13 +46,26 @@ export default {
   focusItemByChar(char, items) {
     if (!items) items = this.getNavigableItems();
     if (!items.length) return;
-    const c = char.toLowerCase();
+
+    const now = Date.now();
+    if (this._charSearchTimeout) clearTimeout(this._charSearchTimeout);
+    if (now - (this._charSearchTime || 0) < 500) {
+      this._charSearchBuf += char.toLowerCase();
+    } else {
+      this._charSearchBuf = char.toLowerCase();
+    }
+    this._charSearchTime = now;
+    this._charSearchTimeout = setTimeout(() => {
+      this._charSearchBuf = "";
+    }, 500);
+
+    const query = this._charSearchBuf;
     const current = items.indexOf(document.activeElement);
-    const start = current >= 0 ? current + 1 : 0;
+    const start = query.length === 1 ? (current >= 0 ? current + 1 : 0) : 0;
     for (let i = 0; i < items.length; i++) {
       const item = items[(start + i) % items.length];
       const text = (dom.getText(item) || "").trimStart();
-      if (text.toLowerCase().startsWith(c)) {
+      if (text.toLowerCase().startsWith(query)) {
         item.focus();
         return;
       }
