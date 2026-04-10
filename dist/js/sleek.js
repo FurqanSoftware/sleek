@@ -201,6 +201,7 @@ var elementMethods = {
     dom.addClass(item, "dropdown__item", "-link");
     item.setAttribute("href", "javascript:;");
     item.setAttribute("tabindex", "0");
+    item.setAttribute("role", "option");
     item.setAttribute("data-value", data.value);
     const tpl = (!data.empty ? this.settings.itemTemplate : this.settings.emptyItemTemplate) || "%{label}";
     item.innerHTML = this.executeTemplate(tpl, data);
@@ -389,7 +390,13 @@ var selectMethods = {
     for (const option of select.selectedOptions) selected[option.value] = true;
     const menu = dom.$(".dropdown__menu", this.el);
     for (const item of dom.$$(".dropdown__item", menu)) {
-      if (selected[item.dataset.value]) dom.addClass(item, "-active");else dom.removeClass(item, "-active");
+      if (selected[item.dataset.value]) {
+        dom.addClass(item, "-active");
+        item.setAttribute("aria-selected", "true");
+      } else {
+        dom.removeClass(item, "-active");
+        item.setAttribute("aria-selected", "false");
+      }
     }
   },
   renderToolSelect() {
@@ -780,6 +787,11 @@ class Dropdown {
     if (this.settings.dynamic) this.initDynamic();
     const toggle = dom.$(".dropdown__toggle", this.el);
     toggle.setAttribute("tabindex", "0");
+    toggle.setAttribute("role", "button");
+    toggle.setAttribute("aria-haspopup", "listbox");
+    toggle.setAttribute("aria-expanded", "false");
+    const menu = dom.$(".dropdown__menu", this.el);
+    if (menu) menu.setAttribute("role", "listbox");
     dom.on(this.el, "keyup", event => {
       if (event.key === "Escape" && dom.hasClass(this.el, "-open")) {
         this.close();
@@ -836,6 +848,8 @@ class Dropdown {
   open() {
     if (dom.hasClass(this.el, "-open")) return;
     dom.addClass(this.el, "-open");
+    const toggle = dom.$(".dropdown__toggle", this.el);
+    toggle.setAttribute("aria-expanded", "true");
     const menu = dom.$(".dropdown__menu", this.el);
     if (menu) {
       dom.addClass(menu, "animated", "fadeInUpSmallest", "fastest");
@@ -900,6 +914,8 @@ class Dropdown {
   }
   close() {
     if (!dom.hasClass(this.el, "-open")) return;
+    const toggle = dom.$(".dropdown__toggle", this.el);
+    toggle.setAttribute("aria-expanded", "false");
     const menu = dom.$(".dropdown__menu", this.el);
     if (!menu) {
       dom.removeClass(this.el, "-open");
