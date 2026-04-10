@@ -12,6 +12,7 @@ export default {
     dom.addClass(item, "dropdown__item", "-link");
     item.setAttribute("href", "javascript:;");
     item.setAttribute("tabindex", "0");
+    item.setAttribute("role", "option");
     item.setAttribute("data-value", data.value);
 
     const tpl =

@@ -29,6 +29,12 @@ class Dropdown {
 
     const toggle = dom.$(".dropdown__toggle", this.el);
     toggle.setAttribute("tabindex", "0");
+    toggle.setAttribute("role", "button");
+    toggle.setAttribute("aria-haspopup", "listbox");
+    toggle.setAttribute("aria-expanded", "false");
+
+    const menu = dom.$(".dropdown__menu", this.el);
+    if (menu) menu.setAttribute("role", "listbox");
 
     dom.on(this.el, "keyup", (event) => {
       if (event.key === "Escape" && dom.hasClass(this.el, "-open")) {
@@ -99,6 +105,8 @@ class Dropdown {
     if (dom.hasClass(this.el, "-open")) return;
 
     dom.addClass(this.el, "-open");
+    const toggle = dom.$(".dropdown__toggle", this.el);
+    toggle.setAttribute("aria-expanded", "true");
 
     const menu = dom.$(".dropdown__menu", this.el);
     if (menu) {
@@ -173,6 +181,10 @@ class Dropdown {
 
   close() {
     if (!dom.hasClass(this.el, "-open")) return;
+
+    const toggle = dom.$(".dropdown__toggle", this.el);
+    toggle.setAttribute("aria-expanded", "false");
+
     const menu = dom.$(".dropdown__menu", this.el);
     if (!menu) {
       dom.removeClass(this.el, "-open");

@@ -98,8 +98,13 @@ export default {
 
     const menu = dom.$(".dropdown__menu", this.el);
     for (const item of dom.$$(".dropdown__item", menu)) {
-      if (selected[item.dataset.value]) dom.addClass(item, "-active");
-      else dom.removeClass(item, "-active");
+      if (selected[item.dataset.value]) {
+        dom.addClass(item, "-active");
+        item.setAttribute("aria-selected", "true");
+      } else {
+        dom.removeClass(item, "-active");
+        item.setAttribute("aria-selected", "false");
+      }
     }
   },
 

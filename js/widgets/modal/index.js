@@ -3,19 +3,46 @@
 import fn from '@toph/kernel.js/fn'
 import dom from '@toph/kernel.js/dom'
 
+const FOCUSABLE_SELECTOR = 'a[href], button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), [tabindex]:not([tabindex="-1"])'
+
 class Modal {
 	constructor(el, root = document.body) {
 		this.el = el
 		this.root = root
 		this.attached = !!el.parentNode
+		this._previousFocus = null
+
+		el.setAttribute('role', 'dialog')
+		el.setAttribute('aria-modal', 'true')
+		el.setAttribute('tabindex', '-1')
 
 		dom.on(el, 'click', event => {
 			if (event.target != el && !dom.between(event.target, el, '[data-dismiss="modal"]')) return
 			this.hide()
 		})
+
+		dom.on(el, 'keydown', event => {
+			if (event.key !== 'Tab') return
+
+			const focusable = [...el.querySelectorAll(FOCUSABLE_SELECTOR)].filter(el => el.offsetParent !== null)
+			if (!focusable.length) return
+
+			const first = focusable[0]
+			const last = focusable[focusable.length - 1]
+
+			if (event.shiftKey && document.activeElement === first) {
+				event.preventDefault()
+				last.focus()
+			} else if (!event.shiftKey && document.activeElement === last) {
+				event.preventDefault()
+				first.focus()
+			}
+		})
 	}
 
 	show() {
+		this._previousFocus = document.activeElement
+
 		this.root.appendChild(this.el)
 
 		dom.addClass(this.el, '-opening')
@@ -27,7 +54,9 @@ class Modal {
 
 		blockScroll(this.root)
 
-		dom.$('[data-autofocus="modal:open"]', this.el)?.focus()
+		const autofocus = dom.$('[data-autofocus="modal:open"]', this.el)
+		if (autofocus) autofocus.focus()
+		else this.el.focus()
 	}
 
 	hide() {
@@ -41,6 +70,10 @@ class Modal {
 			dom.removeClass(this.el, '-opening', '-open', '-closing')
 			dom.removeClass(dialog, 'animated', 'fadeOut', 'faster')
 			if (!this.attached) dom.detach(this.el)
+			if (this._previousFocus) {
+				this._previousFocus.focus()
+				this._previousFocus = null
+			}
 		})
 
 		if (isLast) unblockScroll(this.root)
@@ -58,7 +91,7 @@ class Root {
 
 			const el = dom.$(toggle.getAttribute('data-target'))
 			if (!el) return
-			
+
 			this.makeOnce(el)
 
 			const modal = this.modals.get(el)
