@@ -27,7 +27,64 @@ class Dropdown {
     dom.on(this.el, "keyup", (event) => {
       if (event.key === "Escape" && dom.hasClass(this.el, "-open")) {
         this.close();
+        toggle.focus();
         event.stopPropagation();
+      }
+    });
+
+    dom.on(this.el, "keydown", (event) => {
+      const isOpen = dom.hasClass(this.el, "-open");
+
+      if (!isOpen) {
+        if (
+          event.target === toggle &&
+          (event.key === "Enter" ||
+            event.key === " " ||
+            event.key === "ArrowDown")
+        ) {
+          event.preventDefault();
+          this.open();
+        }
+        return;
+      }
+
+      const items = this.getNavigableItems();
+      if (!items.length) return;
+
+      switch (event.key) {
+        case "ArrowDown": {
+          event.preventDefault();
+          this.focusNextItem();
+          break;
+        }
+        case "ArrowUp": {
+          event.preventDefault();
+          this.focusPreviousItem();
+          break;
+        }
+        case "Home": {
+          event.preventDefault();
+          this.focusItemByIndex(0);
+          break;
+        }
+        case "End": {
+          event.preventDefault();
+          this.focusItemByIndex(items.length - 1);
+          break;
+        }
+        default: {
+          if (
+            this.canSourceSelect() &&
+            event.key.length === 1 &&
+            !event.ctrlKey &&
+            !event.metaKey &&
+            !event.altKey &&
+            !this.isInputFocused()
+          ) {
+            this.focusItemByChar(event.key, items);
+          }
+          break;
+        }
       }
     });
   }
@@ -475,6 +532,63 @@ class Dropdown {
     return tpl.replace(/%\{([a-z]+)\}/g, (_match, key) => data[key]);
   }
 
+  getNavigableItems() {
+    const menu = dom.$(".dropdown__menu", this.el);
+    if (!menu) return [];
+    return [...dom.$$(".dropdown__item:not(.-disabled)", menu)].filter(
+      (item) => item.offsetParent !== null,
+    );
+  }
+
+  focusFirstItem() {
+    const items = this.getNavigableItems();
+    if (!items.length) return;
+    const active = items.find((item) => dom.hasClass(item, "-active"));
+    (active || items[0]).focus();
+  }
+
+  focusNextItem() {
+    const items = this.getNavigableItems();
+    if (!items.length) return;
+    const index = items.indexOf(document.activeElement);
+    const next = index < items.length - 1 ? index + 1 : 0;
+    items[next].focus();
+  }
+
+  focusPreviousItem() {
+    const items = this.getNavigableItems();
+    if (!items.length) return;
+    const index = items.indexOf(document.activeElement);
+    const prev = index > 0 ? index - 1 : items.length - 1;
+    items[prev].focus();
+  }
+
+  focusItemByIndex(index) {
+    const items = this.getNavigableItems();
+    if (index >= 0 && index < items.length) items[index].focus();
+  }
+
+  focusItemByChar(char, items) {
+    if (!items) items = this.getNavigableItems();
+    if (!items.length) return;
+    const c = char.toLowerCase();
+    const current = items.indexOf(document.activeElement);
+    const start = current >= 0 ? current + 1 : 0;
+    for (let i = 0; i < items.length; i++) {
+      const item = items[(start + i) % items.length];
+      const text = (dom.getText(item) || "").trimStart();
+      if (text.toLowerCase().startsWith(c)) {
+        item.focus();
+        return;
+      }
+    }
+  }
+
+  isInputFocused() {
+    const tag = document.activeElement && document.activeElement.tagName;
+    return tag === "INPUT" || tag === "TEXTAREA";
+  }
+
   open() {
     if (dom.hasClass(this.el, "-open")) return;
 
@@ -541,6 +655,10 @@ class Dropdown {
       const input = dom.$("input", dynamic);
       input.focus();
       input.select();
+    }
+
+    if (!this.settings.search && !this.settings.dynamic) {
+      fn.defer(() => this.focusFirstItem());
     }
 
     this.reposition();
