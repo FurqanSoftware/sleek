@@ -52,7 +52,7 @@ a {
 
     &:focus-visible {
         outline: var(--sleek-link-hover-color) auto 0.25rem;
-        outline-offset: 0.25rem;
+        outline-offset: 1px;
     }
 
     &:focus,
