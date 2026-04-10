@@ -194,6 +194,250 @@ var fn = {
   }
 };
 
+// Copyright 2026 Furqan Software Ltd. All Rights Reserved.
+var elementMethods = {
+  makeItem(data) {
+    const item = document.createElement("a");
+    dom.addClass(item, "dropdown__item", "-link");
+    item.setAttribute("href", "javascript:;");
+    item.setAttribute("tabindex", "0");
+    item.setAttribute("data-value", data.value);
+    const tpl = (!data.empty ? this.settings.itemTemplate : this.settings.emptyItemTemplate) || "%{label}";
+    item.innerHTML = this.executeTemplate(tpl, data);
+    if (this.settings.navigate) item.setAttribute("href", this.executeTemplate(this.settings.navigate.urlTemplate, data));
+    return item;
+  },
+  makeHead(data) {
+    const head = document.createElement("div");
+    dom.addClass(head, "dropdown__head");
+    const tpl = this.settings.headTemplate || "%{label}";
+    head.innerHTML = this.executeTemplate(tpl, data);
+    return head;
+  },
+  makeHeadOptgroup(optgroup) {
+    const data = this.extractOptgroupData(optgroup);
+    return this.makeHead(data);
+  },
+  makeToolText(label) {
+    const item = document.createElement("span");
+    dom.setText(item, label);
+    return item;
+  },
+  makeToolItem(label, action) {
+    const item = document.createElement("a");
+    item.setAttribute("href", "javascript:;");
+    item.setAttribute("tabindex", "0");
+    dom.setText(item, label);
+    dom.on(item, "click", event => {
+      event.preventDefault();
+      action();
+    });
+    return item;
+  },
+  makeHint(text) {
+    const hint = document.createElement("div");
+    dom.addClass(hint, "dropdown__hint");
+    dom.setText(hint, text);
+    return hint;
+  },
+  extractOptionData(option) {
+    let data = {};
+    const {
+      extra,
+      empty
+    } = option.dataset;
+    if (extra) data = {
+      ...data,
+      ...JSON.parse(extra)
+    };
+    if (empty) data = {
+      ...data,
+      empty
+    };
+    data = {
+      ...data,
+      label: dom.getText(option),
+      value: option.getAttribute("value")
+    };
+    return data;
+  },
+  extractOptgroupData(optgroup) {
+    let data = {};
+    const {
+      extra,
+      empty
+    } = optgroup.dataset;
+    if (extra) data = {
+      ...data,
+      ...JSON.parse(extra)
+    };
+    if (empty) data = {
+      ...data,
+      empty
+    };
+    data = {
+      ...data,
+      label: optgroup.getAttribute("label")
+    };
+    return data;
+  },
+  executeTemplate(tpl, data) {
+    if (typeof tpl === "function") return tpl(data);
+    if (tpl.match(/^\*[a-zA-Z]+$/)) return this.executeTemplate(this.settings.templates[tpl.slice(1)], data);
+    return tpl.replace(/%\{([a-z]+)\}/g, (_match, key) => data[key]);
+  },
+  renderToggle() {
+    if (this.canSourceSelect()) this.renderToggleSelect();
+  },
+  renderToggleSelect() {
+    const toggle = dom.$(".dropdown__toggle", this.el);
+    toggle.innerHTML = "";
+    if (dom.hasClass(toggle, "form__field")) {
+      if (dom.hasClass(this.el, "-readonly")) toggle.setAttribute("readonly", true);else toggle.removeAttribute("readonly");
+    }
+    const select = dom.$("select", this.el);
+    if (select.selectedOptions.length == 0 || select.selectedOptions.length == 1 && select.selectedOptions[0].dataset.empty) {
+      this.renderTogglePlaceholder();
+      return;
+    }
+    const tpl = this.settings.selectedTemplate || "%{label}";
+    let first = true;
+    for (const option of select.selectedOptions) {
+      const data = this.extractOptionData(option);
+      const span = document.createElement("span");
+      span.innerHTML = this.executeTemplate(tpl, data);
+      if (!first) toggle.appendChild(document.createTextNode(", "));
+      toggle.appendChild(span);
+      first = false;
+    }
+  },
+  renderTogglePlaceholder() {
+    const toggle = dom.$(".dropdown__toggle", this.el);
+    toggle.innerHTML = "";
+    const span = document.createElement("span");
+    dom.addClass(span, "font-muted");
+    span.innerHTML = this.settings.placeholder || "&nbsp;";
+    toggle.appendChild(span);
+  }
+};
+
+// Copyright 2026 Furqan Software Ltd. All Rights Reserved.
+var selectMethods = {
+  initSelect() {
+    const select = dom.$("select", this.el);
+    this.renderItemsSelect();
+    dom.on(select, "change", () => {
+      this.renderToggle();
+      this.renderActiveItems();
+    });
+    this.renderToggle();
+    this.renderActiveItems();
+    this.renderToolSelect();
+  },
+  selectAll() {
+    for (const option of dom.$$("select option", this.el)) option.selected = true;
+    this.renderToggle();
+    this.renderActiveItems();
+    this.dispatchSelectChangeEvent();
+  },
+  selectNone() {
+    for (const option of dom.$$("select option", this.el)) option.selected = false;
+    this.renderToggle();
+    this.renderActiveItems();
+    this.dispatchSelectChangeEvent();
+  },
+  selectClear() {
+    const select = dom.$("select", this.el);
+    select.innerHTML = "";
+    this.renderToggle();
+    this.renderActiveItems();
+    this.dispatchSelectChangeEvent();
+  },
+  dispatchSelectChangeEvent() {
+    const select = dom.$("select", this.el);
+    select.dispatchEvent(new Event("change", {
+      bubbles: true
+    }));
+  },
+  renderItemsSelect() {
+    const menu = dom.$(".dropdown__menu", this.el);
+    menu.innerHTML = "";
+    const select = dom.$("select", this.el);
+    for (const child of select.childNodes) {
+      switch (child.tagName) {
+        case "OPTGROUP":
+          {
+            menu.appendChild(this.makeHeadOptgroup(child));
+            for (const option of dom.$$("option", child)) menu.appendChild(this.makeItemOption(option, select));
+            const divider = document.createElement("div");
+            dom.addClass(divider, "dropdown__divider");
+            menu.appendChild(divider);
+            break;
+          }
+        case "OPTION":
+          menu.appendChild(this.makeItemOption(child, select));
+          break;
+      }
+    }
+  },
+  renderActiveItems() {
+    if (this.canSourceSelect()) this.renderActiveItemsSelect();
+  },
+  renderActiveItemsSelect() {
+    const select = dom.$("select", this.el);
+    const selected = {};
+    for (const option of select.selectedOptions) selected[option.value] = true;
+    const menu = dom.$(".dropdown__menu", this.el);
+    for (const item of dom.$$(".dropdown__item", menu)) {
+      if (selected[item.dataset.value]) dom.addClass(item, "-active");else dom.removeClass(item, "-active");
+    }
+  },
+  renderToolSelect() {
+    const tool = dom.$(".dropdown__tool", this.el);
+    if (!tool) return;
+    tool.innerHTML = "";
+    const select = dom.$("select", this.el);
+    if (select.multiple) {
+      tool.appendChild(this.makeToolText("Select: "));
+      tool.appendChild(this.makeToolItem("All", () => this.selectAll()));
+      tool.appendChild(this.makeToolText(", "));
+      tool.appendChild(this.makeToolItem("None", () => this.selectNone()));
+    }
+    if ((this.settings.search || this.settings.dynamic) && this.settings.allowEmpty) {
+      tool.appendChild(this.makeToolItem("Clear", () => this.selectClear()));
+    }
+  },
+  makeItemOption(option, select) {
+    const data = this.extractOptionData(option);
+    const item = this.makeItem(data);
+    dom.on(item, "click", () => {
+      if (dom.hasClass(this.el, "-readonly")) return;
+      if (option.dataset.empty) {
+        const currentSelected = [...select.selectedOptions];
+        option.selected = true;
+        for (const option of currentSelected) option.selected = false;
+      } else {
+        if (!select.multiple) {
+          if (option.selected && (this.settings.search || this.settings.dynamic) && this.settings.allowEmpty) {
+            dom.detach(option);
+            option.selected = false;
+          } else {
+            if (!option.parentNode) select.appendChild(option);
+            option.selected = true;
+          }
+        } else {
+          option.selected = !option.selected;
+        }
+      }
+      this.renderToggle();
+      this.renderActiveItems();
+      this.dispatchSelectChangeEvent();
+      if (!select.multiple) this.close();
+    });
+    return item;
+  }
+};
+
 // Copyright 2021 Furqan Software Ltd. All rights reserved.
 function send(method, url, body, options, done) {
   var r = new XMLHttpRequest();
@@ -229,87 +473,8 @@ var http = {
   }
 };
 
-// Copyright 2024 Furqan Software Ltd. All Rights Reserved.
-class Dropdown {
-  constructor(el, settings = {}) {
-    this.el = el;
-    this.settings = settings;
-    this._onWindowResize = () => this.reposition();
-    this.init();
-  }
-  canSourceSelect() {
-    return dom.hasClass(this.el, "-select") && !!dom.$("select", this.el);
-  }
-  init() {
-    if (this.canSourceSelect()) this.initSelect();
-    if (this.settings.search) this.initSearch();
-    if (this.settings.dynamic) this.initDynamic();
-    const toggle = dom.$(".dropdown__toggle", this.el);
-    toggle.setAttribute("tabindex", "0");
-    dom.on(this.el, "keyup", event => {
-      if (event.key === "Escape" && dom.hasClass(this.el, "-open")) {
-        this.close();
-        toggle.focus();
-        event.stopPropagation();
-      }
-    });
-    dom.on(this.el, "keydown", event => {
-      const isOpen = dom.hasClass(this.el, "-open");
-      if (!isOpen) {
-        if (event.target === toggle && (event.key === "Enter" || event.key === " " || event.key === "ArrowDown")) {
-          event.preventDefault();
-          this.open();
-        }
-        return;
-      }
-      const items = this.getNavigableItems();
-      if (!items.length) return;
-      switch (event.key) {
-        case "ArrowDown":
-          {
-            event.preventDefault();
-            this.focusNextItem();
-            break;
-          }
-        case "ArrowUp":
-          {
-            event.preventDefault();
-            this.focusPreviousItem();
-            break;
-          }
-        case "Home":
-          {
-            event.preventDefault();
-            this.focusItemByIndex(0);
-            break;
-          }
-        case "End":
-          {
-            event.preventDefault();
-            this.focusItemByIndex(items.length - 1);
-            break;
-          }
-        default:
-          {
-            if (this.canSourceSelect() && event.key.length === 1 && !event.ctrlKey && !event.metaKey && !event.altKey && !this.isInputFocused()) {
-              this.focusItemByChar(event.key, items);
-            }
-            break;
-          }
-      }
-    });
-  }
-  initSelect() {
-    const select = dom.$("select", this.el);
-    this.renderItemsSelect();
-    dom.on(select, "change", () => {
-      this.renderToggle();
-      this.renderActiveItems();
-    });
-    this.renderToggle();
-    this.renderActiveItems();
-    this.renderToolSelect();
-  }
+// Copyright 2026 Furqan Software Ltd. All Rights Reserved.
+var searchMethods = {
   initSearch() {
     const search = document.createElement("div");
     dom.addClass(search, "dropdown__search");
@@ -328,7 +493,7 @@ class Dropdown {
       const menu = dom.$(".dropdown__menu", this.el);
       menu.appendChild(this.makeHint(this.settings.emptyQueryHint));
     }
-  }
+  },
   applySearch(query) {
     if (this.searchXhr) {
       this.searchXhr.abort();
@@ -407,6 +572,62 @@ class Dropdown {
       this.renderActiveItems();
     });
   }
+};
+
+// Copyright 2026 Furqan Software Ltd. All Rights Reserved.
+var keyboardMethods = {
+  getNavigableItems() {
+    const menu = dom.$(".dropdown__menu", this.el);
+    if (!menu) return [];
+    return [...dom.$$(".dropdown__item:not(.-disabled)", menu)].filter(item => item.offsetParent !== null);
+  },
+  focusFirstItem() {
+    const items = this.getNavigableItems();
+    if (!items.length) return;
+    const active = items.find(item => dom.hasClass(item, "-active"));
+    (active || items[0]).focus();
+  },
+  focusNextItem() {
+    const items = this.getNavigableItems();
+    if (!items.length) return;
+    const index = items.indexOf(document.activeElement);
+    const next = index < items.length - 1 ? index + 1 : 0;
+    items[next].focus();
+  },
+  focusPreviousItem() {
+    const items = this.getNavigableItems();
+    if (!items.length) return;
+    const index = items.indexOf(document.activeElement);
+    const prev = index > 0 ? index - 1 : items.length - 1;
+    items[prev].focus();
+  },
+  focusItemByIndex(index) {
+    const items = this.getNavigableItems();
+    if (index >= 0 && index < items.length) items[index].focus();
+  },
+  focusItemByChar(char, items) {
+    if (!items) items = this.getNavigableItems();
+    if (!items.length) return;
+    const c = char.toLowerCase();
+    const current = items.indexOf(document.activeElement);
+    const start = current >= 0 ? current + 1 : 0;
+    for (let i = 0; i < items.length; i++) {
+      const item = items[(start + i) % items.length];
+      const text = (dom.getText(item) || "").trimStart();
+      if (text.toLowerCase().startsWith(c)) {
+        item.focus();
+        return;
+      }
+    }
+  },
+  isInputFocused() {
+    const tag = document.activeElement && document.activeElement.tagName;
+    return tag === "INPUT" || tag === "TEXTAREA";
+  }
+};
+
+// Copyright 2026 Furqan Software Ltd. All Rights Reserved.
+var dynamicMethods = {
   initDynamic() {
     const dynamic = document.createElement("div");
     dom.addClass(dynamic, "dropdown__dynamic");
@@ -437,278 +658,169 @@ class Dropdown {
       menu.appendChild(this.makeHint(this.settings.emptyValueHint));
     }
   }
-  selectAll() {
-    for (const option of dom.$$("select option", this.el)) option.selected = true;
-    this.renderToggle();
-    this.renderActiveItems();
-    this.dispatchSelectChangeEvent();
-  }
-  selectNone() {
-    for (const option of dom.$$("select option", this.el)) option.selected = false;
-    this.renderToggle();
-    this.renderActiveItems();
-    this.dispatchSelectChangeEvent();
-  }
-  selectClear() {
-    const select = dom.$("select", this.el);
-    select.innerHTML = "";
-    this.renderToggle();
-    this.renderActiveItems();
-    this.dispatchSelectChangeEvent();
-  }
-  dispatchSelectChangeEvent() {
-    const select = dom.$("select", this.el);
-    select.dispatchEvent(new Event("change", {
-      bubbles: true
-    }));
-  }
-  renderToggle() {
-    if (this.canSourceSelect()) this.renderToggleSelect();
-  }
-  renderToggleSelect() {
-    const toggle = dom.$(".dropdown__toggle", this.el);
-    toggle.innerHTML = "";
-    if (dom.hasClass(toggle, "form__field")) {
-      if (dom.hasClass(this.el, "-readonly")) toggle.setAttribute("readonly", true);else toggle.removeAttribute("readonly");
-    }
-    const select = dom.$("select", this.el);
-    if (select.selectedOptions.length == 0 || select.selectedOptions.length == 1 && select.selectedOptions[0].dataset.empty) {
-      this.renderTogglePlaceholder();
-      return;
-    }
-    const tpl = this.settings.selectedTemplate || "%{label}";
-    let first = true;
-    for (const option of select.selectedOptions) {
-      const data = this.extractOptionData(option);
-      const span = document.createElement("span");
-      span.innerHTML = this.executeTemplate(tpl, data);
-      if (!first) toggle.appendChild(document.createTextNode(", "));
-      toggle.appendChild(span);
-      first = false;
-    }
-  }
-  renderTogglePlaceholder() {
-    const toggle = dom.$(".dropdown__toggle", this.el);
-    toggle.innerHTML = "";
-    const span = document.createElement("span");
-    dom.addClass(span, "font-muted");
-    span.innerHTML = this.settings.placeholder || "&nbsp;";
-    toggle.appendChild(span);
-  }
-  renderItemsSelect() {
+};
+
+// Copyright 2026 Furqan Software Ltd. All Rights Reserved.
+var positionMethods = {
+  reposition() {
     const menu = dom.$(".dropdown__menu", this.el);
-    menu.innerHTML = "";
-    const select = dom.$("select", this.el);
-    for (const child of select.childNodes) {
-      switch (child.tagName) {
-        case "OPTGROUP":
-          {
-            menu.appendChild(this.makeHeadOptgroup(child));
-            for (const option of dom.$$("option", child)) menu.appendChild(this.makeItemOption(option, select));
-            const divider = document.createElement("div");
-            dom.addClass(divider, "dropdown__divider");
-            menu.appendChild(divider);
-            break;
-          }
-        case "OPTION":
-          menu.appendChild(this.makeItemOption(child, select));
-          break;
-      }
-    }
-  }
-  renderActiveItems() {
-    if (this.canSourceSelect()) this.renderActiveItemsSelect();
-  }
-  renderActiveItemsSelect() {
-    const select = dom.$("select", this.el);
-    const selected = {};
-    for (const option of select.selectedOptions) selected[option.value] = true;
-    const menu = dom.$(".dropdown__menu", this.el);
-    for (const item of dom.$$(".dropdown__item", menu)) {
-      if (selected[item.dataset.value]) dom.addClass(item, "-active");else dom.removeClass(item, "-active");
-    }
-  }
-  renderToolSelect() {
+    if (!menu) return;
+    if (dom.hasClass(menu, "-left") || dom.hasClass(menu, "-right")) return;
+    if (this.canSourceSelect() || !dom.closest(menu.parentNode, ".dropdown__menu")) this.repositionY();
+    if (dom.closest(menu.parentNode, ".dropdown__menu")) this.repositionXY();
     const tool = dom.$(".dropdown__tool", this.el);
-    if (!tool) return;
-    tool.innerHTML = "";
-    const select = dom.$("select", this.el);
-    if (select.multiple) {
-      tool.appendChild(this.makeToolText("Select: "));
-      tool.appendChild(this.makeToolItem("All", () => this.selectAll()));
-      tool.appendChild(this.makeToolText(", "));
-      tool.appendChild(this.makeToolItem("None", () => this.selectNone()));
-    }
-    if ((this.settings.search || this.settings.dynamic) && this.settings.allowEmpty) {
-      tool.appendChild(this.makeToolItem("Clear", () => this.selectClear()));
-    }
-  }
-  makeItem(data) {
-    const item = document.createElement("a");
-    dom.addClass(item, "dropdown__item", "-link");
-    item.setAttribute("href", "javascript:;");
-    item.setAttribute("tabindex", "0");
-    item.setAttribute("data-value", data.value);
-    const tpl = (!data.empty ? this.settings.itemTemplate : this.settings.emptyItemTemplate) || "%{label}";
-    item.innerHTML = this.executeTemplate(tpl, data);
-    if (this.settings.navigate) item.setAttribute("href", this.executeTemplate(this.settings.navigate.urlTemplate, data));
-    return item;
-  }
-  makeItemOption(option, select) {
-    const data = this.extractOptionData(option);
-    const item = this.makeItem(data);
-    dom.on(item, "click", () => {
-      if (dom.hasClass(this.el, "-readonly")) return;
-      if (option.dataset.empty) {
-        const currentSelected = [...select.selectedOptions];
-        option.selected = true;
-        for (const option of currentSelected) option.selected = false;
+    if (tool) {
+      if (menu.style.top === "100%") {
+        dom.setStyles(tool, {
+          top: "auto",
+          bottom: "100%"
+        });
       } else {
-        if (!select.multiple) {
-          if (option.selected && (this.settings.search || this.settings.dynamic) && this.settings.allowEmpty) {
-            dom.detach(option);
-            option.selected = false;
-          } else {
-            if (!option.parentNode) select.appendChild(option);
-            option.selected = true;
-          }
-        } else {
-          option.selected = !option.selected;
-        }
+        dom.setStyles(tool, {
+          top: "100%",
+          bottom: "auto"
+        });
       }
-      this.renderToggle();
-      this.renderActiveItems();
-      this.dispatchSelectChangeEvent();
-      if (!select.multiple) this.close();
-    });
-    return item;
-  }
-  makeHead(data) {
-    const head = document.createElement("div");
-    dom.addClass(head, "dropdown__head");
-    const tpl = this.settings.headTemplate || "%{label}";
-    head.innerHTML = this.executeTemplate(tpl, data);
-    return head;
-  }
-  makeHeadOptgroup(optgroup) {
-    const data = this.extractOptgroupData(optgroup);
-    return this.makeHead(data);
-  }
-  makeToolText(label) {
-    const item = document.createElement("span");
-    dom.setText(item, label);
-    return item;
-  }
-  makeToolItem(label, action) {
-    const item = document.createElement("a");
-    item.setAttribute("href", "javascript:;");
-    item.setAttribute("tabindex", "0");
-    dom.setText(item, label);
-    dom.on(item, "click", event => {
-      event.preventDefault();
-      action();
-    });
-    return item;
-  }
-  makeHint(text) {
-    const hint = document.createElement("div");
-    dom.addClass(hint, "dropdown__hint");
-    dom.setText(hint, text);
-    return hint;
-  }
-  extractOptionData(option) {
-    let data = {};
-    const {
-      extra,
-      empty
-    } = option.dataset;
-    if (extra) data = {
-      ...data,
-      ...JSON.parse(extra)
-    };
-    if (empty) data = {
-      ...data,
-      empty
-    };
-    data = {
-      ...data,
-      label: dom.getText(option),
-      value: option.getAttribute("value")
-    };
-    return data;
-  }
-  extractOptgroupData(optgroup) {
-    let data = {};
-    const {
-      extra,
-      empty
-    } = optgroup.dataset;
-    if (extra) data = {
-      ...data,
-      ...JSON.parse(extra)
-    };
-    if (empty) data = {
-      ...data,
-      empty
-    };
-    data = {
-      ...data,
-      label: optgroup.getAttribute("label")
-    };
-    return data;
-  }
-  executeTemplate(tpl, data) {
-    if (typeof tpl === "function") return tpl(data);
-    if (tpl.match(/^\*[a-zA-Z]+$/)) return this.executeTemplate(this.settings.templates[tpl.slice(1)], data);
-    return tpl.replace(/%\{([a-z]+)\}/g, (_match, key) => data[key]);
-  }
-  getNavigableItems() {
+    }
+  },
+  repositionY() {
     const menu = dom.$(".dropdown__menu", this.el);
-    if (!menu) return [];
-    return [...dom.$$(".dropdown__item:not(.-disabled)", menu)].filter(item => item.offsetParent !== null);
+    dom.setStyles(menu, {
+      height: "auto"
+    });
+    const pos = this.el.getBoundingClientRect();
+    if (pos.bottom + dom.getHeight(menu) < window.innerHeight) {
+      // Fits below
+      dom.setStyles(menu, {
+        top: "100%",
+        bottom: "auto"
+      });
+    } else if (dom.getHeight(menu) < pos.top) {
+      // Fits above
+      dom.setStyles(menu, {
+        top: "auto",
+        bottom: "100%"
+      });
+    } else if (window.innerHeight - pos.bottom > pos.top) {
+      // More space below
+      dom.setStyles(menu, {
+        top: "100%",
+        bottom: "auto",
+        height: Math.floor((window.innerHeight - pos.bottom) / window.innerHeight * 100) + "vh"
+      });
+    } else {
+      // Assume more space above
+      dom.setStyles(menu, {
+        top: "auto",
+        bottom: "100%",
+        height: Math.floor(pos.top / window.innerHeight * 100) + "vh"
+      });
+    }
+  },
+  repositionXY() {
+    const menu = dom.$(".dropdown__menu", this.el);
+    const pos = this.el.getBoundingClientRect();
+    const elWidth = dom.getWidth(this.el);
+    const elHeight = dom.getHeight(this.el);
+    const menuWidth = dom.getWidth(menu);
+    const menuHeight = dom.getHeight(menu);
+    let top = "0px";
+    let bottom = "auto";
+    let right = "auto";
+    let left = "100%";
+    if (pos.left + elWidth + menuWidth > document.documentElement.clientWidth) {
+      if (pos.left > menuWidth) {
+        [left, right] = [right, left];
+      } else if (pos.left + menuWidth < document.documentElement.clientWidth) {
+        top = `${elHeight}px`;
+        right = "auto";
+        left = "1rem";
+      } else {
+        left = `-${pos.left}px`;
+        right = "auto";
+      }
+    }
+    if (pos.top + menuHeight > document.documentElement.clientHeight) {
+      [top, bottom] = [bottom, top];
+    }
+    dom.setStyles(menu, {
+      top,
+      right,
+      bottom,
+      left
+    });
   }
-  focusFirstItem() {
-    const items = this.getNavigableItems();
-    if (!items.length) return;
-    const active = items.find(item => dom.hasClass(item, "-active"));
-    (active || items[0]).focus();
+};
+
+// Copyright 2026 Furqan Software Ltd. All Rights Reserved.
+class Dropdown {
+  constructor(el, settings = {}) {
+    this.el = el;
+    this.settings = settings;
+    this._onWindowResize = () => this.reposition();
+    this.init();
   }
-  focusNextItem() {
-    const items = this.getNavigableItems();
-    if (!items.length) return;
-    const index = items.indexOf(document.activeElement);
-    const next = index < items.length - 1 ? index + 1 : 0;
-    items[next].focus();
+  canSourceSelect() {
+    return dom.hasClass(this.el, "-select") && !!dom.$("select", this.el);
   }
-  focusPreviousItem() {
-    const items = this.getNavigableItems();
-    if (!items.length) return;
-    const index = items.indexOf(document.activeElement);
-    const prev = index > 0 ? index - 1 : items.length - 1;
-    items[prev].focus();
-  }
-  focusItemByIndex(index) {
-    const items = this.getNavigableItems();
-    if (index >= 0 && index < items.length) items[index].focus();
-  }
-  focusItemByChar(char, items) {
-    if (!items) items = this.getNavigableItems();
-    if (!items.length) return;
-    const c = char.toLowerCase();
-    const current = items.indexOf(document.activeElement);
-    const start = current >= 0 ? current + 1 : 0;
-    for (let i = 0; i < items.length; i++) {
-      const item = items[(start + i) % items.length];
-      const text = (dom.getText(item) || "").trimStart();
-      if (text.toLowerCase().startsWith(c)) {
-        item.focus();
+  init() {
+    if (this.canSourceSelect()) this.initSelect();
+    if (this.settings.search) this.initSearch();
+    if (this.settings.dynamic) this.initDynamic();
+    const toggle = dom.$(".dropdown__toggle", this.el);
+    toggle.setAttribute("tabindex", "0");
+    dom.on(this.el, "keyup", event => {
+      if (event.key === "Escape" && dom.hasClass(this.el, "-open")) {
+        this.close();
+        toggle.focus();
+        event.stopPropagation();
+      }
+    });
+    dom.on(this.el, "keydown", event => {
+      const isOpen = dom.hasClass(this.el, "-open");
+      if (!isOpen) {
+        if (event.target === toggle && (event.key === "Enter" || event.key === " " || event.key === "ArrowDown")) {
+          event.preventDefault();
+          this.open();
+        }
         return;
       }
-    }
-  }
-  isInputFocused() {
-    const tag = document.activeElement && document.activeElement.tagName;
-    return tag === "INPUT" || tag === "TEXTAREA";
+      const items = this.getNavigableItems();
+      if (!items.length) return;
+      switch (event.key) {
+        case "ArrowDown":
+          {
+            event.preventDefault();
+            this.focusNextItem();
+            break;
+          }
+        case "ArrowUp":
+          {
+            event.preventDefault();
+            this.focusPreviousItem();
+            break;
+          }
+        case "Home":
+          {
+            event.preventDefault();
+            this.focusItemByIndex(0);
+            break;
+          }
+        case "End":
+          {
+            event.preventDefault();
+            this.focusItemByIndex(items.length - 1);
+            break;
+          }
+        default:
+          {
+            if (this.canSourceSelect() && event.key.length === 1 && !event.ctrlKey && !event.metaKey && !event.altKey && !this.isInputFocused()) {
+              this.focusItemByChar(event.key, items);
+            }
+            break;
+          }
+      }
+    });
   }
   open() {
     if (dom.hasClass(this.el, "-open")) return;
@@ -811,94 +923,6 @@ class Dropdown {
   refresh() {
     if (this.canSourceSelect()) this.initSelect();
   }
-  reposition() {
-    const menu = dom.$(".dropdown__menu", this.el);
-    if (!menu) return;
-    if (dom.hasClass(menu, "-left") || dom.hasClass(menu, "-right")) return;
-    if (this.canSourceSelect() || !dom.closest(menu.parentNode, ".dropdown__menu")) this.repositionY();
-    if (dom.closest(menu.parentNode, ".dropdown__menu")) this.repositionXY();
-    const tool = dom.$(".dropdown__tool", this.el);
-    if (tool) {
-      if (menu.style.top === "100%") {
-        dom.setStyles(tool, {
-          top: "auto",
-          bottom: "100%"
-        });
-      } else {
-        dom.setStyles(tool, {
-          top: "100%",
-          bottom: "auto"
-        });
-      }
-    }
-  }
-  repositionY() {
-    const menu = dom.$(".dropdown__menu", this.el);
-    dom.setStyles(menu, {
-      height: "auto"
-    });
-    const pos = this.el.getBoundingClientRect();
-    if (pos.bottom + dom.getHeight(menu) < window.innerHeight) {
-      // Fits below
-      dom.setStyles(menu, {
-        top: "100%",
-        bottom: "auto"
-      });
-    } else if (dom.getHeight(menu) < pos.top) {
-      // Fits above
-      dom.setStyles(menu, {
-        top: "auto",
-        bottom: "100%"
-      });
-    } else if (window.innerHeight - pos.bottom > pos.top) {
-      // More space below
-      dom.setStyles(menu, {
-        top: "100%",
-        bottom: "auto",
-        height: Math.floor((window.innerHeight - pos.bottom) / window.innerHeight * 100) + "vh"
-      });
-    } else {
-      // Assume more space above
-      dom.setStyles(menu, {
-        top: "auto",
-        bottom: "100%",
-        height: Math.floor(pos.top / window.innerHeight * 100) + "vh"
-      });
-    }
-  }
-  repositionXY() {
-    const menu = dom.$(".dropdown__menu", this.el);
-    const pos = this.el.getBoundingClientRect();
-    const elWidth = dom.getWidth(this.el);
-    const elHeight = dom.getHeight(this.el);
-    const menuWidth = dom.getWidth(menu);
-    const menuHeight = dom.getHeight(menu);
-    let top = "0px";
-    let bottom = "auto";
-    let right = "auto";
-    let left = "100%";
-    if (pos.left + elWidth + menuWidth > document.documentElement.clientWidth) {
-      if (pos.left > menuWidth) {
-        [left, right] = [right, left];
-      } else if (pos.left + menuWidth < document.documentElement.clientWidth) {
-        top = `${elHeight}px`;
-        right = "auto";
-        left = "1rem";
-      } else {
-        left = `-${pos.left}px`;
-        right = "auto";
-      }
-    }
-    if (pos.top + menuHeight > document.documentElement.clientHeight) {
-      [top, bottom] = [bottom, top];
-    }
-    dom.setStyles(menu, {
-      top,
-      right,
-      bottom,
-      left
-    });
-  }
   isChildOf(other) {
     let target = this.el;
     while (target && target.parentNode) {
@@ -908,6 +932,12 @@ class Dropdown {
     return false;
   }
 }
+Object.assign(Dropdown.prototype, elementMethods);
+Object.assign(Dropdown.prototype, selectMethods);
+Object.assign(Dropdown.prototype, searchMethods);
+Object.assign(Dropdown.prototype, dynamicMethods);
+Object.assign(Dropdown.prototype, keyboardMethods);
+Object.assign(Dropdown.prototype, positionMethods);
 class Root {
   constructor(el = document.body, settings = {}) {
     this.el = el;
