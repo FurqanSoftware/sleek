@@ -74,6 +74,7 @@
     --sleek-button-subtle-hover-border-color: #{palette.$neutral-600};
     --sleek-table-border-color: #{palette.$stone-900};
     --sleek-table-row-hover-border-color: #{palette.$blue};
+    --sleek-table-row-shade-background-color: #{palette.$slate-900};
     --sleek-alert-default-background-color: #{color.scale(
             color.scale(#2a3948, $lightness: -25%),
             $lightness: -95%
