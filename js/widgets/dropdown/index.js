@@ -64,11 +64,15 @@ class Dropdown {
       if (!items.length) return;
 
       switch (event.key) {
+        case "ArrowRight":
+          if (!this.settings.horizontalArrows) break;
         case "ArrowDown": {
           event.preventDefault();
           this.focusNextItem();
           break;
         }
+        case "ArrowLeft":
+          if (!this.settings.horizontalArrows) break;
         case "ArrowUp": {
           event.preventDefault();
           this.focusPreviousItem();
