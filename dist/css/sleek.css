@@ -195,6 +195,7 @@ optgroup {
   --sleek-button-subtle-hover-border-color: #a3a3a3;
   --sleek-table-border-color: #f5f5f4;
   --sleek-table-row-hover-border-color: #3598dc;
+  --sleek-table-row-shade-background-color: #f1f5f9;
   --sleek-alert-default-background-color: rgb(253.8, 253.7, 253.65);
   --sleek-alert-default-border-color: #e7e5e4;
   --sleek-alert-link-default-hover-border-color: rgb(166.2, 158.8, 155.1);
