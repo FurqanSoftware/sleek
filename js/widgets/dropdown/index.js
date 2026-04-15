@@ -118,7 +118,7 @@ class Dropdown {
       dom.once(menu, "animationend", () => {
         dom.removeClass(menu, "animated", "fadeInUpSmallest", "fastest");
       });
-      const active = dom.$(".dropdown__item.-active", menu);
+      const active = dom.$('[role="option"][aria-selected="true"]', menu);
       if (active) {
         fn.defer(() => {
           const top = Math.max(

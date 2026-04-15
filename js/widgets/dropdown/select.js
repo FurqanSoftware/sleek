@@ -97,7 +97,7 @@ export default {
     for (const option of select.selectedOptions) selected[option.value] = true;
 
     const menu = dom.$(".dropdown__menu", this.el);
-    for (const item of dom.$$(".dropdown__item", menu)) {
+    for (const item of dom.$$('[role="option"]', menu)) {
       if (selected[item.dataset.value]) {
         dom.addClass(item, "-active");
         item.setAttribute("aria-selected", "true");

@@ -10,9 +10,9 @@ export default {
   getNavigableItems() {
     const menu = dom.$(".dropdown__menu", this.el);
     if (!menu) return [];
-    return [...dom.$$(".dropdown__item:not(.-disabled)", menu)].filter(
-      (item) => item.offsetParent !== null,
-    );
+    return [
+      ...dom.$$('[role="option"]:not([aria-disabled="true"]), [role="menuitem"]:not([aria-disabled="true"])', menu),
+    ].filter((item) => item.offsetParent !== null);
   },
 
   focusFirstItem() {
