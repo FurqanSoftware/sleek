@@ -18,6 +18,9 @@
     --sleek-field-disabled-color: #{palette.$stone-600};
     --sleek-field-disabled-focus-border-color: #{palette.$stone-400};
     --sleek-field-disabled-focus-glow-color: #{palette.$stone-100};
+    --sleek-field-invalid-border-color: #{palette.$red-500};
+    --sleek-field-invalid-focus-border-color: #{palette.$red-600};
+    --sleek-field-invalid-focus-glow-color: #{palette.$red-200};
     --sleek-button-default-background-color: #{palette.$neutral-200};
     --sleek-button-default-border-color: #{palette.$neutral-300};
     --sleek-button-default-color: #{rgba(palette.$stone-950, 0.9)};

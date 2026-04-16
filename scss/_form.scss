@@ -11,6 +11,11 @@
 
     &__label {
         margin-bottom: 0.25rem;
+
+        &.-required::after {
+            content: " *";
+            color: var(--sleek-field-invalid-border-color);
+        }
     }
 
     &__field {
@@ -32,6 +37,18 @@
             box-shadow:
                 inset 0 0.125rem 0.125rem var(--sleek-shadow-color-0),
                 0 0 0 0.25rem var(--sleek-field-focus-glow-color);
+        }
+    }
+
+    &__field:user-invalid,
+    &__field[aria-invalid="true"] {
+        border-color: var(--sleek-field-invalid-border-color);
+
+        &:focus {
+            border-color: var(--sleek-field-invalid-focus-border-color);
+            box-shadow:
+                inset 0 0.125rem 0.125rem var(--sleek-shadow-color-0),
+                0 0 0 0.25rem var(--sleek-field-invalid-focus-glow-color);
         }
     }
 
