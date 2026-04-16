@@ -15,3 +15,10 @@
         display: none;
     }
 }
+
+@each $c in "blue" "green" "red" "orange" {
+    .label.-#{$c} {
+        background-color: var(--sleek-label-#{$c}-background-color);
+        color: var(--sleek-label-#{$c}-color);
+    }
+}

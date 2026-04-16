@@ -109,8 +109,16 @@
     --sleek-alert-orange-border-color: #{palette.$orange-500};
     --sleek-alert-link-orange-hover-border-color: #{palette.$orange-700};
     --sleek-alert-subtle-color: #{palette.$stone-700};
-    --sleek-label-default-background-color: #{rgba(palette.$silver-600, 0.1)};
-    --sleek-label-default-color: #{rgba(palette.$stone-950, 0.9)};
+    --sleek-label-default-background-color: #{palette.$stone-200};
+    --sleek-label-default-color: #{palette.$stone-800};
+    --sleek-label-blue-background-color: #{palette.$blue-100};
+    --sleek-label-blue-color: #{palette.$blue-800};
+    --sleek-label-green-background-color: #{palette.$green-100};
+    --sleek-label-green-color: #{palette.$green-800};
+    --sleek-label-red-background-color: #{palette.$red-100};
+    --sleek-label-red-color: #{palette.$red-800};
+    --sleek-label-orange-background-color: #{palette.$orange-100};
+    --sleek-label-orange-color: #{palette.$orange-800};
     --sleek-text-default-color: #{rgba(palette.$stone-950, 0.9)};
     --sleek-text-muted-color: #{palette.$stone-600};
     --sleek-link-color: #{palette.$sky-700};
