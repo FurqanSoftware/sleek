@@ -389,7 +389,7 @@ var selectMethods = {
     const selected = {};
     for (const option of select.selectedOptions) selected[option.value] = true;
     const menu = dom.$(".dropdown__menu", this.el);
-    for (const item of dom.$$(".dropdown__item", menu)) {
+    for (const item of dom.$$('[role="option"]', menu)) {
       if (selected[item.dataset.value]) {
         dom.addClass(item, "-active");
         item.setAttribute("aria-selected", "true");
@@ -586,7 +586,7 @@ var keyboardMethods = {
   getNavigableItems() {
     const menu = dom.$(".dropdown__menu", this.el);
     if (!menu) return [];
-    return [...dom.$$(".dropdown__item:not(.-disabled)", menu)].filter(item => item.offsetParent !== null);
+    return [...dom.$$('[role="option"]:not([aria-disabled="true"]), [role="menuitem"]:not([aria-disabled="true"])', menu)].filter(item => item.offsetParent !== null);
   },
   focusFirstItem() {
     const items = this.getNavigableItems();
@@ -860,7 +860,7 @@ class Dropdown {
       dom.once(menu, "animationend", () => {
         dom.removeClass(menu, "animated", "fadeInUpSmallest", "fastest");
       });
-      const active = dom.$(".dropdown__item.-active", menu);
+      const active = dom.$('[role="option"][aria-selected="true"]', menu);
       if (active) {
         fn.defer(() => {
           const top = Math.max(0, Math.floor(active.offsetTop - dom.getHeight(menu) / 3));

@@ -139,6 +139,9 @@ optgroup {
   --sleek-field-disabled-color: #57534e;
   --sleek-field-disabled-focus-border-color: #a8a29e;
   --sleek-field-disabled-focus-glow-color: #f5f5f4;
+  --sleek-field-invalid-border-color: #ef4444;
+  --sleek-field-invalid-focus-border-color: #dc2626;
+  --sleek-field-invalid-focus-glow-color: #fecaca;
   --sleek-button-default-background-color: #e5e5e5;
   --sleek-button-default-border-color: #d4d4d4;
   --sleek-button-default-color: rgba(12, 10, 9, 0.9);
@@ -215,8 +218,16 @@ optgroup {
   --sleek-alert-orange-border-color: #f97316;
   --sleek-alert-link-orange-hover-border-color: #c2410c;
   --sleek-alert-subtle-color: #44403c;
-  --sleek-label-default-background-color: rgba(80, 109, 137, 0.1);
-  --sleek-label-default-color: rgba(12, 10, 9, 0.9);
+  --sleek-label-default-background-color: #e7e5e4;
+  --sleek-label-default-color: #292524;
+  --sleek-label-blue-background-color: #d1e8f7;
+  --sleek-label-blue-color: #0f3b59;
+  --sleek-label-green-background-color: #dcfce7;
+  --sleek-label-green-color: #166534;
+  --sleek-label-red-background-color: #fee2e2;
+  --sleek-label-red-color: #991b1b;
+  --sleek-label-orange-background-color: #ffedd5;
+  --sleek-label-orange-color: #9a3412;
   --sleek-text-default-color: rgba(12, 10, 9, 0.9);
   --sleek-text-muted-color: #57534e;
   --sleek-link-color: #0369a1;
@@ -1318,6 +1329,10 @@ code {
 .form__label {
   margin-bottom: 0.25rem;
 }
+.form__label.-required::after {
+  content: " *";
+  color: var(--sleek-field-invalid-border-color);
+}
 .form__field {
   display: block;
   width: 100%;
@@ -1333,6 +1348,13 @@ code {
   border-color: var(--sleek-field-focus-border-color);
   outline: 0;
   box-shadow: inset 0 0.125rem 0.125rem var(--sleek-shadow-color-0), 0 0 0 0.25rem var(--sleek-field-focus-glow-color);
+}
+.form__field:user-invalid, .form__field[aria-invalid=true] {
+  border-color: var(--sleek-field-invalid-border-color);
+}
+.form__field:user-invalid:focus, .form__field[aria-invalid=true]:focus {
+  border-color: var(--sleek-field-invalid-focus-border-color);
+  box-shadow: inset 0 0.125rem 0.125rem var(--sleek-shadow-color-0), 0 0 0 0.25rem var(--sleek-field-invalid-focus-glow-color);
 }
 .form__field[readonly], .form__field[disabled] {
   background-color: var(--sleek-field-disabled-background-color);
@@ -1753,6 +1775,26 @@ table:not(.tablebox table) tr > :last-child {
 }
 .label:empty {
   display: none;
+}
+
+.label.-blue {
+  background-color: var(--sleek-label-blue-background-color);
+  color: var(--sleek-label-blue-color);
+}
+
+.label.-green {
+  background-color: var(--sleek-label-green-background-color);
+  color: var(--sleek-label-green-color);
+}
+
+.label.-red {
+  background-color: var(--sleek-label-red-background-color);
+  color: var(--sleek-label-red-color);
+}
+
+.label.-orange {
+  background-color: var(--sleek-label-orange-background-color);
+  color: var(--sleek-label-orange-color);
 }
 
 .avatar {

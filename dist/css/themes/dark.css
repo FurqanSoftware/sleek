@@ -13,6 +13,9 @@
   --sleek-field-disabled-color: #a8a29e;
   --sleek-field-disabled-focus-border-color: #57534e;
   --sleek-field-disabled-focus-glow-color: #1c1917;
+  --sleek-field-invalid-border-color: #ef4444;
+  --sleek-field-invalid-focus-border-color: #f87171;
+  --sleek-field-invalid-focus-glow-color: #991b1b;
   --sleek-button-default-background-color: #262626;
   --sleek-button-default-border-color: #404040;
   --sleek-button-default-color: rgba(255, 255, 255, 0.9);
@@ -86,8 +89,16 @@
   --sleek-alert-orange-border-color: #f97316;
   --sleek-alert-link-orange-hover-border-color: #fdba74;
   --sleek-alert-subtle-color: #d6d3d1;
-  --sleek-label-default-background-color: rgba(134, 160, 185, 0.2);
-  --sleek-label-default-color: rgba(250, 250, 249, 0.9);
+  --sleek-label-default-background-color: #44403c;
+  --sleek-label-default-color: #e7e5e4;
+  --sleek-label-blue-background-color: #071b29;
+  --sleek-label-blue-color: #aad4f0;
+  --sleek-label-green-background-color: #14532d;
+  --sleek-label-green-color: #bbf7d0;
+  --sleek-label-red-background-color: #7f1d1d;
+  --sleek-label-red-color: #fecaca;
+  --sleek-label-orange-background-color: #7c2d12;
+  --sleek-label-orange-color: #fed7aa;
   --sleek-text-default-color: rgba(250, 250, 249, 0.9);
   --sleek-text-muted-color: #a8a29e;
   --sleek-link-color: #7dd3fc;
