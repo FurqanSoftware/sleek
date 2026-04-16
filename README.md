@@ -14,10 +14,10 @@ Sleek is the UI library powering [Toph](https://toph.co/) and related products. 
 Sleek separates concerns across three layers, and each layer uses the selector that matches its purpose:
 
 - **HTML → semantic elements + ARIA.** Use `<fieldset>`, `<label>`, `<button>`, and the right `role` for what an element *is*. Accessibility is a prerequisite, not an afterthought.
-- **CSS → BEM classes only.** Style through classes like `.form__field`, never bare element selectors. Classes are a styling contract; elements are a semantic one, and mixing them creates specificity and scope-bleed problems.
+- **CSS → BEM classes for appearance, ARIA attributes for state.** Style visual variants through classes like `.form__field` and `.panel.-modest`, never bare element selectors. For state that has an accessibility meaning — open/closed, selected, invalid, pressed, expanded — key CSS off the ARIA attribute (`[aria-expanded="false"]`, `[aria-invalid="true"]`, `[hidden]`) so the ARIA is the single source of truth. Purely visual state with no accessibility equivalent (`-loading`, `-compact`) stays as BEM modifiers.
 - **JS behavior → ARIA roles.** Keyboard navigation and interactive behavior query by `[role="option"]`, `[role="menuitem"]`, etc. — not by CSS class. This couples behavior to meaning rather than appearance, and makes accessible markup a prerequisite for features to work.
 
-The practical upshot: a widget's markup must be semantically correct for its JS to work, its styling is isolated through classes, and renaming a class never silently breaks behavior.
+The practical upshot: a widget's markup must be semantically correct for its JS to work *and* for its state to render correctly. Styling variants stay isolated through classes, and renaming a class never silently breaks behavior or accessibility.
 
 ## Usage
 
