@@ -9,6 +9,16 @@ Sleek is the UI library powering [Toph](https://toph.co/) and related products. 
 - **Theme support** — light and dark themes with CSS custom properties
 - **Modular** — import only what you need, per component
 
+## Philosophy
+
+Sleek separates concerns across three layers, and each layer uses the selector that matches its purpose:
+
+- **HTML → semantic elements + ARIA.** Use `<fieldset>`, `<label>`, `<button>`, and the right `role` for what an element *is*. Accessibility is a prerequisite, not an afterthought.
+- **CSS → BEM classes only.** Style through classes like `.form__field`, never bare element selectors. Classes are a styling contract; elements are a semantic one, and mixing them creates specificity and scope-bleed problems.
+- **JS behavior → ARIA roles.** Keyboard navigation and interactive behavior query by `[role="option"]`, `[role="menuitem"]`, etc. — not by CSS class. This couples behavior to meaning rather than appearance, and makes accessible markup a prerequisite for features to work.
+
+The practical upshot: a widget's markup must be semantically correct for its JS to work, its styling is isolated through classes, and renaming a class never silently breaks behavior.
+
 ## Usage
 
 ### CSS
