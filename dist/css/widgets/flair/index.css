@@ -13,10 +13,6 @@
 .flair.-inline {
   flex-wrap: nowrap;
 }
-.flair .icon {
-  display: block;
-  text-decoration: none;
-}
 .flair .icon + .text {
   margin-left: 0.5rem;
 }
