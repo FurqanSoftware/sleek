@@ -1373,19 +1373,15 @@ code {
   color: var(--sleek-text-default-color);
 }
 .form__brace {
-  display: table;
-  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
 }
-.form__brace > .form__field {
-  display: table-cell;
-  width: 100%;
-  vertical-align: middle;
+.form__brace > * {
+  flex: 1;
 }
-.form__brace .form__addon {
-  display: table-cell;
-  width: 0.1%;
-  padding-right: 0.5rem;
-  vertical-align: middle;
+.form__brace > .form__addon {
+  flex: 0 0 auto;
 }
 .form__hint {
   margin-top: 0.25rem;
@@ -2085,7 +2081,7 @@ a.dashlet:hover .dashlet__mark, a.dashlet:focus .dashlet__mark {
 }
 
 .artifact {
-  line-height: 2em;
+  line-height: 1.75;
 }
 .artifact > * + *, .artifact__fragment > * + * {
   margin-top: 1.5rem;
@@ -2099,17 +2095,16 @@ a.dashlet:hover .dashlet__mark, a.dashlet:focus .dashlet__mark {
   margin: 0 auto 0.5rem;
   max-width: 100%;
 }
-.artifact h1 {
-  line-height: 1.85em;
+.artifact :is(h1, h2, h3, h4) {
+  line-height: 1.25;
 }
-.artifact h2 {
-  line-height: 1.5em;
+.artifact ul,
+.artifact ol {
+  padding-left: 1.5rem;
 }
-.artifact h3 {
-  line-height: 1.35em;
-}
-.artifact h4 {
-  line-height: 1.2em;
+.artifact pre {
+  max-width: 100%;
+  overflow-x: auto;
 }
 .artifact table {
   width: 100%;
