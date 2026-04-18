@@ -1,99 +1,86 @@
 // Copyright 2026 Furqan Software Ltd. All Rights Reserved.
 
-:root {
-    --sleek-icon-default-filter: invert(18%) sepia(3%) saturate(2176%)
-        hue-rotate(169deg) brightness(88%) contrast(88%);
-    --sleek-icon-invert-filter: invert(100%) sepia(100%) saturate(0%)
-        hue-rotate(125deg) brightness(103%) contrast(103%);
-}
+@use "../../palette";
+
+// Icons are rendered as <span class="icon icon-foo"></span>, where the
+// .icon-foo class sets --sleek-icon-src to the SVG's URL. The SVG is used
+// as a mask over a currentColor background, so icons inherit the surrounding
+// text color automatically — no filter tinting, no per-context overrides.
 
 .icon {
+    display: inline-block;
     width: 1em;
     height: 1em;
+    vertical-align: middle;
+    background-color: currentColor;
+    mask-image: var(--sleek-icon-src);
+    mask-size: contain;
+    mask-repeat: no-repeat;
+    mask-position: center;
+    -webkit-mask-image: var(--sleek-icon-src);
+    -webkit-mask-size: contain;
+    -webkit-mask-repeat: no-repeat;
+    -webkit-mask-position: center;
     -webkit-touch-callout: none;
     user-select: none;
 
-    &:not(.-custom) {
-        filter: var(--sleek-icon-default-filter);
+    &.-custom {
+        background-color: transparent;
+        mask-image: none;
+        -webkit-mask-image: none;
+        background-image: var(--sleek-icon-src);
+        background-size: contain;
+        background-repeat: no-repeat;
+        background-position: center;
     }
 
     &.-spin {
-        animation-name: spin;
-        animation-duration: 5000ms;
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
+        animation: spin 5000ms linear infinite;
     }
 
     &.-pulse {
-        animation-name: pulse;
-        animation-duration: 2500ms;
-        animation-iteration-count: infinite;
-        animation-timing-function: linear;
-    }
-}
-
-@mixin iconcolor($name, $filter) {
-    .icon.#{$name} {
-        filter: #{$filter} !important;
+        animation: pulse 2500ms linear infinite;
     }
 
-    .btn.-#{$name} .icon:not(.-custom) {
-        filter: #{$filter};
+    &.-sm {
+        font-size: 0.95em;
     }
-}
 
-@include iconcolor(
-    "muted",
-    "brightness(0) saturate(100%) invert(29%) sepia(18%) saturate(182%) hue-rotate(353deg) brightness(99%) contrast(87%)"
-);
-@include iconcolor(
-    "ebony",
-    "brightness(0) saturate(100%) invert(13%) sepia(11%) saturate(2371%) hue-rotate(168deg) brightness(95%) contrast(85%)"
-);
-@include iconcolor(
-    "blue",
-    "brightness(0) saturate(100%) invert(51%) sepia(85%) saturate(936%) hue-rotate(178deg) brightness(90%) contrast(90%)"
-);
-@include iconcolor(
-    "green",
-    "brightness(0) saturate(100%) invert(60%) sepia(93%) saturate(395%) hue-rotate(88deg) brightness(86%) contrast(92%)"
-);
-@include iconcolor(
-    "red",
-    "brightness(0) saturate(100%) invert(47%) sepia(69%) saturate(4257%) hue-rotate(334deg) brightness(106%) contrast(118%)"
-);
-@include iconcolor(
-    "orange",
-    "brightness(0) saturate(100%) invert(69%) sepia(60%) saturate(6175%) hue-rotate(353deg) brightness(102%) contrast(95%)"
-);
-@include iconcolor(
-    "silver",
-    "brightness(0) saturate(100%) invert(95%) sepia(13%) saturate(113%) hue-rotate(180deg) brightness(98%) contrast(92%)"
-);
+    &.-x2 {
+        font-size: 2em;
+    }
 
-.icon.white:not(.-custom) {
-    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(125deg)
-        brightness(103%) contrast(103%) !important;
-}
+    &.-muted {
+        color: var(--sleek-text-muted-color);
+    }
 
-.btn.-default .icon:not(.-custom),
-.btn.-white .icon:not(.-custom) {
-    filter: invert(39%) sepia(15%) saturate(430%) hue-rotate(167deg)
-        brightness(96%) contrast(86%);
-}
+    &.-ebony {
+        color: palette.$ebony;
+    }
 
-.btn.-blue .icon:not(.-custom),
-.btn.-red .icon:not(.-custom) {
-    filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(125deg)
-        brightness(103%) contrast(103%);
-}
+    &.-blue {
+        color: palette.$blue;
+    }
 
-.icon.sm {
-    font-size: 0.95em;
-}
+    &.-green {
+        color: palette.$green;
+    }
 
-.icon.x2 {
-    font-size: 2em;
+    &.-red {
+        color: palette.$red;
+    }
+
+    &.-orange {
+        color: palette.$orange;
+    }
+
+    &.-silver {
+        color: palette.$silver;
+    }
+
+    &.-white {
+        color: white;
+    }
 }
 
 @keyframes spin {
