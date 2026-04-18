@@ -76,20 +76,16 @@
     }
 
     &__brace {
-        display: table;
-        width: 100%;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
 
-        > .form__field {
-            display: table-cell;
-            width: 100%;
-            vertical-align: middle;
+        > * {
+            flex: 1;
         }
 
-        .form__addon {
-            display: table-cell;
-            width: 0.1%;
-            padding-right: 0.5rem;
-            vertical-align: middle;
+        > .form__addon {
+            flex: 0 0 auto;
         }
     }
 
