@@ -1,108 +1,64 @@
-:root {
-  --sleek-icon-default-filter: invert(18%) sepia(3%) saturate(2176%)
-      hue-rotate(169deg) brightness(88%) contrast(88%);
-  --sleek-icon-invert-filter: invert(100%) sepia(100%) saturate(0%)
-      hue-rotate(125deg) brightness(103%) contrast(103%);
-}
-
 .icon {
+  display: inline-block;
   width: 1em;
   height: 1em;
+  vertical-align: middle;
+  background-color: currentColor;
+  mask-image: var(--sleek-icon-src);
+  mask-size: contain;
+  mask-repeat: no-repeat;
+  mask-position: center;
+  -webkit-mask-image: var(--sleek-icon-src);
+  -webkit-mask-size: contain;
+  -webkit-mask-repeat: no-repeat;
+  -webkit-mask-position: center;
   -webkit-touch-callout: none;
   user-select: none;
 }
-.icon:not(.-custom) {
-  filter: var(--sleek-icon-default-filter);
+.icon.-custom {
+  background-color: transparent;
+  mask-image: none;
+  -webkit-mask-image: none;
+  background-image: var(--sleek-icon-src);
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: center;
 }
 .icon.-spin {
-  animation-name: spin;
-  animation-duration: 5000ms;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
+  animation: spin 5000ms linear infinite;
 }
 .icon.-pulse {
-  animation-name: pulse;
-  animation-duration: 2500ms;
-  animation-iteration-count: infinite;
-  animation-timing-function: linear;
+  animation: pulse 2500ms linear infinite;
 }
-
-.icon.muted {
-  filter: brightness(0) saturate(100%) invert(29%) sepia(18%) saturate(182%) hue-rotate(353deg) brightness(99%) contrast(87%) !important;
-}
-
-.btn.-muted .icon:not(.-custom) {
-  filter: brightness(0) saturate(100%) invert(29%) sepia(18%) saturate(182%) hue-rotate(353deg) brightness(99%) contrast(87%);
-}
-
-.icon.ebony {
-  filter: brightness(0) saturate(100%) invert(13%) sepia(11%) saturate(2371%) hue-rotate(168deg) brightness(95%) contrast(85%) !important;
-}
-
-.btn.-ebony .icon:not(.-custom) {
-  filter: brightness(0) saturate(100%) invert(13%) sepia(11%) saturate(2371%) hue-rotate(168deg) brightness(95%) contrast(85%);
-}
-
-.icon.blue {
-  filter: brightness(0) saturate(100%) invert(51%) sepia(85%) saturate(936%) hue-rotate(178deg) brightness(90%) contrast(90%) !important;
-}
-
-.btn.-blue .icon:not(.-custom) {
-  filter: brightness(0) saturate(100%) invert(51%) sepia(85%) saturate(936%) hue-rotate(178deg) brightness(90%) contrast(90%);
-}
-
-.icon.green {
-  filter: brightness(0) saturate(100%) invert(60%) sepia(93%) saturate(395%) hue-rotate(88deg) brightness(86%) contrast(92%) !important;
-}
-
-.btn.-green .icon:not(.-custom) {
-  filter: brightness(0) saturate(100%) invert(60%) sepia(93%) saturate(395%) hue-rotate(88deg) brightness(86%) contrast(92%);
-}
-
-.icon.red {
-  filter: brightness(0) saturate(100%) invert(47%) sepia(69%) saturate(4257%) hue-rotate(334deg) brightness(106%) contrast(118%) !important;
-}
-
-.btn.-red .icon:not(.-custom) {
-  filter: brightness(0) saturate(100%) invert(47%) sepia(69%) saturate(4257%) hue-rotate(334deg) brightness(106%) contrast(118%);
-}
-
-.icon.orange {
-  filter: brightness(0) saturate(100%) invert(69%) sepia(60%) saturate(6175%) hue-rotate(353deg) brightness(102%) contrast(95%) !important;
-}
-
-.btn.-orange .icon:not(.-custom) {
-  filter: brightness(0) saturate(100%) invert(69%) sepia(60%) saturate(6175%) hue-rotate(353deg) brightness(102%) contrast(95%);
-}
-
-.icon.silver {
-  filter: brightness(0) saturate(100%) invert(95%) sepia(13%) saturate(113%) hue-rotate(180deg) brightness(98%) contrast(92%) !important;
-}
-
-.btn.-silver .icon:not(.-custom) {
-  filter: brightness(0) saturate(100%) invert(95%) sepia(13%) saturate(113%) hue-rotate(180deg) brightness(98%) contrast(92%);
-}
-
-.icon.white:not(.-custom) {
-  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%) !important;
-}
-
-.btn.-default .icon:not(.-custom),
-.btn.-white .icon:not(.-custom) {
-  filter: invert(39%) sepia(15%) saturate(430%) hue-rotate(167deg) brightness(96%) contrast(86%);
-}
-
-.btn.-blue .icon:not(.-custom),
-.btn.-red .icon:not(.-custom) {
-  filter: invert(100%) sepia(100%) saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%);
-}
-
-.icon.sm {
+.icon.-sm {
   font-size: 0.95em;
 }
-
-.icon.x2 {
+.icon.-x2 {
   font-size: 2em;
+}
+.icon.-muted {
+  color: var(--sleek-text-muted-color);
+}
+.icon.-ebony {
+  color: #22313f;
+}
+.icon.-blue {
+  color: #3598dc;
+}
+.icon.-green {
+  color: #15803d;
+}
+.icon.-red {
+  color: #ef4444;
+}
+.icon.-orange {
+  color: #ea580c;
+}
+.icon.-silver {
+  color: #e7ecf1;
+}
+.icon.-white {
+  color: white;
 }
 
 @keyframes spin {

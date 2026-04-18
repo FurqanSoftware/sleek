@@ -145,56 +145,38 @@ optgroup {
   --sleek-button-default-background-color: #e5e5e5;
   --sleek-button-default-border-color: #d4d4d4;
   --sleek-button-default-color: rgba(12, 10, 9, 0.9);
-  --sleek-button-icon-default-filter: invert(18%) sepia(3%) saturate(2176%)
-      hue-rotate(169deg) brightness(88%) contrast(88%);
   --sleek-button-default-hover-border-color: #737373;
   --sleek-button-default-hover-color: rgba(12, 10, 9, 0.9);
   --sleek-button-default-hover-shadow-color: #d4d4d4;
-  --sleek-button-icon-default-hover-filter: invert(18%) sepia(3%)
-      saturate(2176%) hue-rotate(169deg) brightness(88%) contrast(88%);
   --sleek-button-default-focus-shadow-color: #d4d4d4;
   --sleek-button-default-active-background-color: #d4d4d4;
   --sleek-button-default-active-border-color: #404040;
   --sleek-button-default-active-color: rgba(12, 10, 9, 0.9);
   --sleek-button-default-active-shadow-color: #d4d4d4;
-  --sleek-button-icon-default-active-filter: invert(18%) sepia(3%)
-      saturate(2176%) hue-rotate(169deg) brightness(88%) contrast(88%);
   --sleek-button-blue-background-color: #3598dc;
   --sleek-button-blue-border-color: #207bb9;
   --sleek-button-blue-color: rgba(255, 255, 255, 0.9);
-  --sleek-button-icon-blue-filter: invert(100%) sepia(100%) saturate(0%)
-      hue-rotate(125deg) brightness(103%) contrast(103%);
   --sleek-button-blue-hover-border-color: #0f3b59;
   --sleek-button-blue-hover-color: rgba(255, 255, 255, 0.9);
   --sleek-button-blue-hover-shadow-color: #207bb9;
-  --sleek-button-icon-blue-hover-filter: invert(100%) sepia(100%) saturate(0%)
-      hue-rotate(125deg) brightness(103%) contrast(103%);
   --sleek-button-blue-focus-shadow-color: #207bb9;
   --sleek-button-blue-active-background-color: #207bb9;
   --sleek-button-blue-active-border-color: #030c12;
   --sleek-button-blue-active-color: rgba(255, 255, 255, 0.9);
   --sleek-button-blue-active-shadow-color: #207bb9;
-  --sleek-button-icon-blue-active-filter: invert(100%) sepia(100%)
-      saturate(0%) hue-rotate(125deg) brightness(103%) contrast(103%);
   --sleek-button-blue-faint-background-color: #f1f5f9;
   --sleek-button-blue-faint-border-color: #aad4f0;
   --sleek-button-simple-background-color: #fafafa;
   --sleek-button-simple-border-color: #e5e5e5;
   --sleek-button-simple-color: rgba(12, 10, 9, 0.9);
-  --sleek-button-icon-simple-filter: invert(18%) sepia(3%) saturate(2176%)
-      hue-rotate(169deg) brightness(88%) contrast(88%);
   --sleek-button-simple-hover-border-color: #a3a3a3;
   --sleek-button-simple-hover-color: rgba(12, 10, 9, 0.9);
   --sleek-button-simple-hover-shadow-color: #e5e5e5;
-  --sleek-button-icon-simple-hover-filter: invert(18%) sepia(3%)
-      saturate(2176%) hue-rotate(169deg) brightness(88%) contrast(88%);
   --sleek-button-simple-focus-shadow-color: #e5e5e5;
   --sleek-button-simple-active-background-color: #e5e5e5;
   --sleek-button-simple-active-border-color: #262626;
   --sleek-button-simple-active-color: rgba(12, 10, 9, 0.9);
   --sleek-button-simple-active-shadow-color: #e5e5e5;
-  --sleek-button-icon-simple-active-filter: invert(18%) sepia(3%)
-      saturate(2176%) hue-rotate(169deg) brightness(88%) contrast(88%);
   --sleek-button-subtle-hover-border-color: #a3a3a3;
   --sleek-table-border-color: #f5f5f4;
   --sleek-table-row-hover-border-color: #3598dc;
@@ -1535,12 +1517,7 @@ table:not(.tablebox table) tr > :last-child {
   display: block;
   width: 100%;
 }
-.btn .icon {
-  margin-top: -0.125rem;
-}
-.btn .icon + .text {
-  margin-left: 0.25rem;
-}
+.btn .icon + .text,
 .btn .text + .icon {
   margin-left: 0.25rem;
 }
@@ -1551,16 +1528,10 @@ table:not(.tablebox table) tr > :last-child {
   color: #0c0a09;
   transition: box-shadow 125ms ease-in;
 }
-.btn.-red .icon {
-  filter: var(--sleek-icon-default-filter) !important;
-}
 .btn.-red:hover, .btn.-red:focus {
   border-color: rgb(197.9620689655, 16.9379310345, 16.9379310345);
   color: #0c0a09;
   box-shadow: inset 0 0 0 0.125rem rgb(212.1022167488, 18.1477832512, 18.1477832512);
-}
-.btn.-red:hover .icon, .btn.-red:focus .icon {
-  filter: var(--sleek-icon-default-filter) !important;
 }
 .btn.-red:focus {
   outline: var(--sleek-link-hover-color) auto 0.25rem;
@@ -1571,9 +1542,6 @@ table:not(.tablebox table) tr > :last-child {
   background-color: rgb(226.242364532, 19.357635468, 19.357635468);
   color: white;
   box-shadow: inset 0 0 0 0.125rem rgb(197.9620689655, 16.9379310345, 16.9379310345);
-}
-.btn.-red:active .icon, .btn.-red.-active .icon {
-  filter: var(--sleek-icon-invert-filter) !important;
 }
 .btn.-red.-disabled, .btn.-red[disabled] {
   box-shadow: none;
@@ -1586,9 +1554,6 @@ table:not(.tablebox table) tr > :last-child {
   color: white;
   box-shadow: inset 0 0 0 0.125rem rgb(197.9620689655, 16.9379310345, 16.9379310345);
 }
-.-open > .btn.-red.-toggle .icon {
-  filter: var(--sleek-icon-invert-filter) !important;
-}
 
 .btn.-default {
   border: 1px solid var(--sleek-button-default-border-color);
@@ -1596,16 +1561,10 @@ table:not(.tablebox table) tr > :last-child {
   color: var(--sleek-button-default-color);
   transition: box-shadow 125ms ease-in;
 }
-.btn.-default .icon:not(.-custom) {
-  filter: var(--sleek-button-icon-default-filter) !important;
-}
 .btn.-default:hover, .btn.-default:focus {
   border-color: var(--sleek-button-default-hover-border-color);
   color: var(--sleek-button-default-hover-color);
   box-shadow: inset 0 0 0 0.125rem var(--sleek-button-default-hover-shadow-color);
-}
-.btn.-default:hover .icon:not(.-custom), .btn.-default:focus .icon:not(.-custom) {
-  filter: var(--sleek-button-icon-default-hover-filter) !important;
 }
 .btn.-default:focus {
   outline: var(--sleek-link-hover-color) auto 0.25rem;
@@ -1618,9 +1577,6 @@ table:not(.tablebox table) tr > :last-child {
   color: var(--sleek-button-default-active-color);
   box-shadow: inset 0 0 0 0.125rem var(--sleek-button-default-active-shadow-color);
 }
-.btn.-default:active .icon:not(.-custom), .btn.-default.-active .icon:not(.-custom) {
-  filter: var(--sleek-button-icon-default-active-filter) !important;
-}
 .btn.-default.-disabled, .btn.-default[disabled] {
   box-shadow: none;
   cursor: not-allowed;
@@ -1630,10 +1586,7 @@ table:not(.tablebox table) tr > :last-child {
   border-color: var(--sleek-button-default-active-border-color);
   background-color: var(--sleek-button-default-active-background-color);
   color: var(--sleek-button-default-active-color);
-  box-shadow: inset 0 0 0 0.125rem var(--sleek-button-icon-default-active-filter);
-}
-.-open > .btn.-default.-toggle .icon:not(.-custom) {
-  filter: var(--sleek-button-icon-default-active-filter) !important;
+  box-shadow: inset 0 0 0 0.125rem var(--sleek-button-default-active-shadow-color);
 }
 
 .btn.-blue {
@@ -1642,16 +1595,10 @@ table:not(.tablebox table) tr > :last-child {
   color: var(--sleek-button-blue-color);
   transition: box-shadow 125ms ease-in;
 }
-.btn.-blue .icon:not(.-custom) {
-  filter: var(--sleek-button-icon-blue-filter) !important;
-}
 .btn.-blue:hover, .btn.-blue:focus {
   border-color: var(--sleek-button-blue-hover-border-color);
   color: var(--sleek-button-blue-hover-color);
   box-shadow: inset 0 0 0 0.125rem var(--sleek-button-blue-hover-shadow-color);
-}
-.btn.-blue:hover .icon:not(.-custom), .btn.-blue:focus .icon:not(.-custom) {
-  filter: var(--sleek-button-icon-blue-hover-filter) !important;
 }
 .btn.-blue:focus {
   outline: var(--sleek-link-hover-color) auto 0.25rem;
@@ -1664,9 +1611,6 @@ table:not(.tablebox table) tr > :last-child {
   color: var(--sleek-button-blue-active-color);
   box-shadow: inset 0 0 0 0.125rem var(--sleek-button-blue-active-shadow-color);
 }
-.btn.-blue:active .icon:not(.-custom), .btn.-blue.-active .icon:not(.-custom) {
-  filter: var(--sleek-button-icon-blue-active-filter) !important;
-}
 .btn.-blue.-disabled, .btn.-blue[disabled] {
   box-shadow: none;
   cursor: not-allowed;
@@ -1676,10 +1620,7 @@ table:not(.tablebox table) tr > :last-child {
   border-color: var(--sleek-button-blue-active-border-color);
   background-color: var(--sleek-button-blue-active-background-color);
   color: var(--sleek-button-blue-active-color);
-  box-shadow: inset 0 0 0 0.125rem var(--sleek-button-icon-blue-active-filter);
-}
-.-open > .btn.-blue.-toggle .icon:not(.-custom) {
-  filter: var(--sleek-button-icon-blue-active-filter) !important;
+  box-shadow: inset 0 0 0 0.125rem var(--sleek-button-blue-active-shadow-color);
 }
 
 .btn.-simple {
@@ -1688,16 +1629,10 @@ table:not(.tablebox table) tr > :last-child {
   color: var(--sleek-button-simple-color);
   transition: box-shadow 125ms ease-in;
 }
-.btn.-simple .icon:not(.-custom) {
-  filter: var(--sleek-button-icon-simple-filter) !important;
-}
 .btn.-simple:hover, .btn.-simple:focus {
   border-color: var(--sleek-button-simple-hover-border-color);
   color: var(--sleek-button-simple-hover-color);
   box-shadow: inset 0 0 0 0.125rem var(--sleek-button-simple-hover-shadow-color);
-}
-.btn.-simple:hover .icon:not(.-custom), .btn.-simple:focus .icon:not(.-custom) {
-  filter: var(--sleek-button-icon-simple-hover-filter) !important;
 }
 .btn.-simple:focus {
   outline: var(--sleek-link-hover-color) auto 0.25rem;
@@ -1710,9 +1645,6 @@ table:not(.tablebox table) tr > :last-child {
   color: var(--sleek-button-simple-active-color);
   box-shadow: inset 0 0 0 0.125rem var(--sleek-button-simple-active-shadow-color);
 }
-.btn.-simple:active .icon:not(.-custom), .btn.-simple.-active .icon:not(.-custom) {
-  filter: var(--sleek-button-icon-simple-active-filter) !important;
-}
 .btn.-simple.-disabled, .btn.-simple[disabled] {
   box-shadow: none;
   cursor: not-allowed;
@@ -1722,10 +1654,7 @@ table:not(.tablebox table) tr > :last-child {
   border-color: var(--sleek-button-simple-active-border-color);
   background-color: var(--sleek-button-simple-active-background-color);
   color: var(--sleek-button-simple-active-color);
-  box-shadow: inset 0 0 0 0.125rem var(--sleek-button-icon-simple-active-filter);
-}
-.-open > .btn.-simple.-toggle .icon:not(.-custom) {
-  filter: var(--sleek-button-icon-simple-active-filter) !important;
+  box-shadow: inset 0 0 0 0.125rem var(--sleek-button-simple-active-shadow-color);
 }
 
 .btn.-subtle {
