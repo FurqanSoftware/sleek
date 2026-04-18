@@ -1,0 +1,5 @@
+// Sleek's dark theme as a standalone stylesheet.
+// Loaded by Page.astro with media="not all" so it's parsed-but-inactive on
+// first paint; the ThemeToggle script flips media to "all" when dark is on.
+
+@use "themes/dark";

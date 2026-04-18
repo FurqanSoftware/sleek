@@ -1,0 +1,46 @@
+---
+layout: ../../layouts/Page.astro
+title: Dropdown
+description: Accessible dropdown / select menus with keyboard navigation
+---
+
+import Demo from "../../components/Demo.astro";
+
+# Dropdown
+
+A custom dropdown with full keyboard navigation (arrow keys, Home/End, Enter to activate, type-to-jump). Sleek's vanilla JS auto-initializes on mount — this page's layout mounts `new Dropdown.Root(document.body)` once.
+
+## Basic menu
+
+<Demo>
+  <div class="dropdown">
+    <div class="btn -default dropdown__toggle">Select option</div>
+    <div class="dropdown__menu">
+      <a class="dropdown__item -link" role="option" tabindex="0" href="javascript:;">Option one</a>
+      <a class="dropdown__item -link" role="option" tabindex="0" href="javascript:;">Option two</a>
+      <a class="dropdown__item -link" role="option" tabindex="0" href="javascript:;">Option three</a>
+    </div>
+  </div>
+</Demo>
+
+## With divider
+
+<Demo>
+  <div class="dropdown">
+    <div class="btn -default dropdown__toggle">Actions</div>
+    <div class="dropdown__menu">
+      <a class="dropdown__item -link" role="option" tabindex="0" href="javascript:;">Edit</a>
+      <a class="dropdown__item -link" role="option" tabindex="0" href="javascript:;">Duplicate</a>
+      <div class="dropdown__divider"></div>
+      <a class="dropdown__item -link" role="option" tabindex="0" href="javascript:;">Delete</a>
+    </div>
+  </div>
+</Demo>
+
+## Keyboard
+
+- **`↓` / `↑`** — move focus to next/previous item
+- **Home / End** — first / last item
+- **Enter / Space** — activate focused item
+- **Any letter** — jump to the next item whose label starts with that letter (type within 500ms to extend)
+- **Esc** — close

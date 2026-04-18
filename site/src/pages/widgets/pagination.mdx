@@ -1,0 +1,23 @@
+---
+layout: ../../layouts/Page.astro
+title: Pagination
+description: Page navigation
+---
+
+import Demo from "../../components/Demo.astro";
+
+# Pagination
+
+Page navigation with active and extra (hidden on mobile) states.
+
+<Demo>
+  <nav class="pagination" aria-label="Pagination">
+    <a class="pagination__item" href="#" aria-label="Previous">«</a>
+    <a class="pagination__item" href="#" aria-current="page">1</a>
+    <a class="pagination__item" href="#">2</a>
+    <a class="pagination__item" href="#">3</a>
+    <a class="pagination__item -extra" href="#">4</a>
+    <a class="pagination__item -extra" href="#">5</a>
+    <a class="pagination__item" href="#" aria-label="Next">»</a>
+  </nav>
+</Demo>

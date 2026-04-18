@@ -1,0 +1,85 @@
+---
+layout: ../../layouts/Page.astro
+title: Form
+description: Form field styling with labels, hints, and validation
+---
+
+import Demo from "../../components/Demo.astro";
+
+# Form
+
+Sleek styles native form controls with a consistent look. Use `.form__group` to wrap a field+label+hint, `.form__label` for labels, and `.form__field` for inputs.
+
+## Basic
+
+<Demo>
+  <div class="form__group">
+    <label class="form__label" for="demo-email">Email</label>
+    <input class="form__field" id="demo-email" type="email" placeholder="name@example.com" />
+  </div>
+</Demo>
+
+## Required label
+
+<Demo>
+  <div class="form__group">
+    <label class="form__label -required" for="demo-name">Full name</label>
+    <input class="form__field" id="demo-name" type="text" />
+  </div>
+</Demo>
+
+## With hint
+
+<Demo>
+  <div class="form__group">
+    <label class="form__label" for="demo-handle">Handle</label>
+    <input class="form__field" id="demo-handle" type="text" />
+    <div class="form__hint">Between 3 and 20 characters.</div>
+  </div>
+</Demo>
+
+## Invalid state
+
+<Demo>
+  <div class="form__group">
+    <label class="form__label" for="demo-invalid">Username</label>
+    <input class="form__field" id="demo-invalid" type="text" value="taken" aria-invalid="true" />
+    <div class="form__hint -orange">That username is unavailable.</div>
+  </div>
+</Demo>
+
+## Readonly and disabled
+
+<Demo>
+  <div class="form__group">
+    <label class="form__label" for="demo-ro">Readonly</label>
+    <input class="form__field" id="demo-ro" type="text" value="Read-only value" readonly />
+  </div>
+  <div class="form__group">
+    <label class="form__label" for="demo-dis">Disabled</label>
+    <input class="form__field" id="demo-dis" type="text" value="Disabled value" disabled />
+  </div>
+</Demo>
+
+## Brace (addon + field)
+
+<Demo>
+  <div class="form__brace">
+    <span class="form__addon">https://</span>
+    <input class="form__field" type="text" value="example.com" />
+  </div>
+</Demo>
+
+## Fieldset
+
+<Demo>
+  <fieldset>
+    <div class="fieldset__head">
+      <div class="fieldset__title">Preferences</div>
+    </div>
+    <div class="form__group">
+      <label class="form__label" for="demo-pref">Display name</label>
+      <input class="form__field" id="demo-pref" type="text" />
+    </div>
+  </fieldset>
+</Demo>

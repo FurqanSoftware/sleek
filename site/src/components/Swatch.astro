@@ -1,0 +1,14 @@
+---
+interface Props {
+  name: string;
+  value: string;
+}
+
+const { name, value } = Astro.props;
+---
+
+<div class="swatch">
+  <div class="swatch__chip" style={`background-color: var(${value})`}></div>
+  <div class="swatch__label">{name}</div>
+  <div class="swatch__value">{value}</div>
+</div>

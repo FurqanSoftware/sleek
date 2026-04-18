@@ -1,0 +1,81 @@
+---
+layout: ../../layouts/Page.astro
+title: Panel
+description: Card-like containers with optional head, body, and foot
+---
+
+import Demo from "../../components/Demo.astro";
+
+# Panel
+
+Panels are container elements for grouping related content. They support optional head (with title + actions), body, and foot regions.
+
+## Basic
+
+<Demo>
+  <div class="panel">
+    <div class="panel__body">Just a body.</div>
+  </div>
+</Demo>
+
+## With head and actions
+
+<Demo>
+  <div class="panel">
+    <div class="panel__head">
+      <div class="panel__title">Recent activity</div>
+      <div class="panel__actions">
+        <button class="btn -simple">Refresh</button>
+      </div>
+    </div>
+    <div class="panel__body">
+      <p>Content goes here. The panel head uses flex layout — title grows, actions pinned right.</p>
+    </div>
+  </div>
+</Demo>
+
+## Socle head (with tabs or extra content)
+
+The `.-socle` modifier switches the head to a 2-column grid that keeps actions top-right while other children stack below.
+
+<Demo>
+  <div class="panel">
+    <div class="panel__head -socle">
+      <div class="panel__title">Project settings</div>
+      <div class="panel__actions">
+        <button class="btn -simple">Help</button>
+      </div>
+      <div class="flair">Additional content can sit here — tabs, flair, description, etc.</div>
+    </div>
+    <div class="panel__body">Body content.</div>
+  </div>
+</Demo>
+
+## With shaded foot
+
+<Demo>
+  <div class="panel">
+    <div class="panel__body">
+      <p>Confirmation dialog content.</p>
+    </div>
+    <div class="panel__foot -shade">
+      <button class="btn -blue">Save</button>
+      <button class="btn -default">Cancel</button>
+    </div>
+  </div>
+</Demo>
+
+## Linked panel
+
+Wrap a panel in an anchor with the `.panellink` class to turn the whole card into a navigation target.
+
+<Demo>
+  <a class="panellink" href="#">
+    <div class="panel">
+      <div class="panel__body">
+        <strong>A clickable panel.</strong>
+        <p>Hovering highlights the border.</p>
+      </div>
+    </div>
+  </a>
+</Demo>

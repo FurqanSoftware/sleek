@@ -1,0 +1,56 @@
+---
+import "../styles/site.scss";
+import darkCss from "../styles/dark.scss?url";
+import Sidebar from "../components/Sidebar.astro";
+import ThemeToggle from "../components/ThemeToggle.astro";
+
+interface Props {
+  title: string;
+  description?: string;
+}
+
+const { title, description } = Astro.props;
+const base = import.meta.env.BASE_URL;
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{title} — Sleek</title>
+    {description && <meta name="description" content={description} />}
+    <link id="sleek-dark-theme" rel="stylesheet" href={darkCss} media="not all" />
+    <script is:inline>
+      (function () {
+        var stored = localStorage.getItem("sleek-theme");
+        if (stored === "dark") {
+          document.documentElement.setAttribute("data-theme", "dark");
+          var link = document.getElementById("sleek-dark-theme");
+          if (link) link.media = "all";
+        }
+      })();
+    </script>
+  </head>
+  <body>
+    <aside class="site__sidebar">
+      <div class="site__brand">
+        <a href={base}>Sleek</a>
+        <ThemeToggle />
+      </div>
+      <Sidebar />
+    </aside>
+    <main class="site__main">
+      <article class="site__content">
+        <slot />
+      </article>
+    </main>
+    <script>
+      import Dropdown from "sleek/widgets/dropdown";
+      import Modal from "sleek/widgets/modal";
+
+      new Dropdown.Root(document.body);
+      new Modal.Root();
+    </script>
+  </body>
+</html>

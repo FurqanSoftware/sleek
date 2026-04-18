@@ -1,0 +1,39 @@
+---
+layout: ../../layouts/Page.astro
+title: Alert
+description: Notification boxes in multiple color variants
+---
+
+import Demo from "../../components/Demo.astro";
+
+# Alert
+
+Alerts are notification boxes for surfacing messages to the user. They come in six color variants (default, ebony, blue, orange, green, red) plus a subtle style.
+
+## Variants
+
+<Demo>
+  <div class="alert -default">Default — neutral message</div>
+  <div class="alert -ebony mt-1">Ebony — dark neutral</div>
+  <div class="alert -blue mt-1">Blue — informational</div>
+  <div class="alert -green mt-1">Green — success</div>
+  <div class="alert -orange mt-1">Orange — warning</div>
+  <div class="alert -red mt-1">Red — danger</div>
+  <div class="alert -subtle mt-1">Subtle — minimal emphasis</div>
+</Demo>
+
+## With icon and body
+
+<Demo>
+  <div class="alert -blue">
+    <div class="alert__body">
+      <span>Alerts support an inline layout via <code>.alert__body</code>.</span>
+    </div>
+  </div>
+</Demo>
+
+## Broadcast (full-width edge-to-edge)
+
+<Demo>
+  <div class="alert -blue -broadcast">A broadcast alert spans full width with no rounded corners.</div>
+</Demo>

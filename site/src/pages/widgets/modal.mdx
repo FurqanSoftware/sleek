@@ -1,0 +1,37 @@
+---
+layout: ../../layouts/Page.astro
+title: Modal
+description: Dialog / modal overlays with focus trap and escape handling
+---
+
+import Demo from "../../components/Demo.astro";
+
+# Modal
+
+Sleek's modal sets `role="dialog"`, `aria-modal="true"`, manages focus, and traps Tab within the dialog while open. The JS auto-initializes via the `[data-toggle="modal"]` and `[data-target]` attributes.
+
+<Demo>
+  <button class="btn -blue" data-toggle="modal" data-target="#demo-modal">
+    Open modal
+  </button>
+
+  <div class="modal" id="demo-modal">
+    <div class="modal__dialog -md">
+      <div class="modal__head">
+        <div class="modal__title">Confirm action</div>
+        <button type="button" class="modal__cross" data-dismiss="modal">×</button>
+      </div>
+      <div class="modal__body">
+        <p>Are you sure you want to proceed?</p>
+      </div>
+      <div class="modal__foot -shade">
+        <button class="btn -blue">Proceed</button>
+        <button class="btn -default" data-dismiss="modal">Cancel</button>
+      </div>
+    </div>
+  </div>
+</Demo>
+
+## Dialog sizes
+
+Supported modifiers on `.modal__dialog`: `-sm`, `-md`, `-lg`, `-xl`, `-xx`.

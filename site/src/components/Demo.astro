@@ -1,0 +1,26 @@
+---
+import prettier from "prettier";
+
+interface Props {
+  code?: string;
+}
+
+const { code } = Astro.props;
+const html = await Astro.slots.render("default");
+const raw = (code ?? html).trim();
+const formatted = await prettier.format(raw, {
+  parser: "html",
+  printWidth: 80,
+  htmlWhitespaceSensitivity: "ignore",
+});
+const source = formatted.trim();
+const escaped = source
+  .replace(/&/g, "&amp;")
+  .replace(/</g, "&lt;")
+  .replace(/>/g, "&gt;");
+---
+
+<section class="demo">
+  <div class="demo__preview" set:html={html}></div>
+  <pre class="demo__code"><code set:html={escaped} /></pre>
+</section>

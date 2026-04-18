@@ -1,0 +1,27 @@
+---
+layout: ../../layouts/Page.astro
+title: Switch
+description: Toggle switch with ARIA switch role
+---
+
+import Demo from "../../components/Demo.astro";
+
+# Switch
+
+A toggle switch styled on top of a native checkbox input. The checkbox carries `role="switch"` so assistive tech announces it as a toggle rather than a two-state checkbox.
+
+<Demo>
+  <div class="switch">
+    <input class="switch__input" type="checkbox" role="switch" id="demo-switch-1" />
+    <label class="switch__toggle" for="demo-switch-1"></label>
+  </div>
+</Demo>
+
+## Pre-checked
+
+<Demo>
+  <div class="switch">
+    <input class="switch__input" type="checkbox" role="switch" id="demo-switch-2" checked />
+    <label class="switch__toggle" for="demo-switch-2"></label>
+  </div>
+</Demo>

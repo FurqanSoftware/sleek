@@ -1,0 +1,46 @@
+---
+layout: ../../layouts/Page.astro
+title: Button
+description: Interactive buttons with color variants and modifiers
+---
+
+import Demo from "../../components/Demo.astro";
+
+# Button
+
+Buttons come in four color variants (default, blue, red, simple) plus a subtle style. Use the semantic `<button>` element; sleek styles both native buttons and anchor tags with the `.btn` class.
+
+## Variants
+
+<Demo>
+  <button class="btn -default">Default</button>
+  <button class="btn -blue">Blue</button>
+  <button class="btn -red">Red</button>
+  <button class="btn -simple">Simple</button>
+  <button class="btn -subtle">Subtle</button>
+</Demo>
+
+## Disabled
+
+Use the native `disabled` attribute; sleek styles it automatically.
+
+<Demo>
+  <button class="btn -blue" disabled>Disabled</button>
+  <button class="btn -default" disabled>Disabled</button>
+</Demo>
+
+## Block
+
+<Demo>
+  <button class="btn -blue -block">Full-width button</button>
+</Demo>
+
+## Button groups
+
+<Demo>
+  <div class="btngroup">
+    <button class="btn -default">One</button>
+    <button class="btn -default">Two</button>
+    <button class="btn -default">Three</button>
+  </div>
+</Demo>

@@ -1,0 +1,51 @@
+---
+layout: ../../layouts/Page.astro
+title: Typography
+description: Sleek's type scale and heading hierarchy
+---
+
+import Demo from "../../components/Demo.astro";
+
+# Typography
+
+Sleek's body text uses a sans-serif system stack at 0.875rem (14px) with a unitless line-height of 1.75. Headings use `em`-relative sizes to scale with context.
+
+## Headings
+
+<Demo>
+  <h1>h1 Heading at 1.85em</h1>
+  <h2>h2 Heading at 1.5em</h2>
+  <h3>h3 Heading at 1.35em</h3>
+  <h4>h4 Heading at 1.2em</h4>
+</Demo>
+
+## Body
+
+<Demo>
+  <div>
+    Body text uses the body font-size (0.875rem) and inherits a computed line-height of about 24.5px.
+    Links look like <a href="#">this link</a> and pick up <code>--sleek-link-color</code>. Inline <code>code</code>
+    uses a monospace font.
+  </div>
+</Demo>
+
+## Size utilities
+
+Sleek provides `.font-{size}` utility classes for explicit sizes. Sizes follow a rem scale from 1rem upward.
+
+<Demo>
+  <div class="font-sm">.font-sm — 0.8125rem</div>
+  <div class="font-1">.font-1 — 1rem</div>
+  <div class="font-1-2">.font-1-2 — 1.5rem</div>
+  <div class="font-2">.font-2 — 2rem</div>
+</Demo>
+
+## Weight utilities
+
+<Demo>
+  <div class="font-300">.font-300 — Light</div>
+  <div class="font-400">.font-400 — Regular</div>
+  <div class="font-500">.font-500 — Medium</div>
+  <div class="font-600">.font-600 — Semibold</div>
+  <div class="font-700">.font-700 — Bold</div>
+</Demo>

@@ -1,0 +1,84 @@
+// Showcase-specific: the <Demo> component's preview + source framing.
+
+.demo {
+    margin: 1.5rem 0;
+    border: 1px solid var(--sleek-surface-border-color);
+    border-radius: 0.25rem;
+    overflow: hidden;
+
+    &__preview {
+        padding: 1.5rem;
+        background-color: var(--sleek-surface-background-color);
+    }
+
+    &__code {
+        margin: 0;
+        padding: 1rem 1.25rem;
+        border-top: 1px solid var(--sleek-surface-border-color);
+        background-color: var(--sleek-surface-shade-background-color);
+        font-size: 0.8125rem;
+        line-height: 1.5;
+        overflow-x: auto;
+
+        code {
+            font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+                monospace;
+        }
+    }
+}
+
+.swatches {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(12rem, 1fr));
+    gap: 0.75rem;
+    margin: 1rem 0 2rem;
+}
+
+.swatch {
+    display: flex;
+    flex-direction: column;
+    padding: 0.75rem;
+    border: 1px solid var(--sleek-surface-border-color);
+    border-radius: 0.25rem;
+    background-color: var(--sleek-surface-background-color);
+
+    &__chip {
+        height: 3rem;
+        margin-bottom: 0.5rem;
+        border: 1px solid var(--sleek-surface-border-color);
+        border-radius: 0.125rem;
+    }
+
+    &__label {
+        font-weight: 500;
+        font-size: 0.875rem;
+    }
+
+    &__value {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+            monospace;
+        font-size: 0.75rem;
+        color: var(--sleek-text-muted-color);
+    }
+}
+
+.scale {
+    margin: 1rem 0 2rem;
+    border-collapse: collapse;
+    width: 100%;
+
+    th,
+    td {
+        padding: 0.5rem 0.75rem;
+        border-bottom: 1px solid var(--sleek-surface-border-color-subtle);
+        text-align: left;
+    }
+
+    th {
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        color: var(--sleek-text-muted-color);
+    }
+}

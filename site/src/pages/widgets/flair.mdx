@@ -1,0 +1,72 @@
+---
+layout: ../../layouts/Page.astro
+title: Flair
+description: Inline metadata groups for stats, counts, and row-hover actions
+---
+
+import Demo from "../../components/Demo.astro";
+
+# Flair
+
+A horizontal flex container for small metadata items — counts, stats, status indicators, inline actions. Items wrap onto the next line by default and separate with a small gap.
+
+## Basic
+
+<Demo>
+  <div class="flair">
+    <div class="flair__item">12 posts</div>
+    <div class="flair__item">3 comments</div>
+    <div class="flair__item">5 likes</div>
+  </div>
+</Demo>
+
+## Inline (no wrap)
+
+The `.-inline` modifier forces items onto a single line with no wrapping. Useful when the flair lives inside a constrained horizontal row (e.g., a table cell) and you'd rather truncate than wrap.
+
+<Demo>
+  <div class="flair -inline">
+    <div class="flair__item">Active</div>
+    <div class="flair__item">Verified</div>
+    <div class="flair__item">Member since 2022</div>
+  </div>
+</Demo>
+
+## Row-hover reveal
+
+An item marked `.-hover` is hidden by default and appears only when the enclosing `<tr>` is hovered — a compact way to expose per-row actions without visual noise.
+
+<Demo>
+  <table>
+    <thead>
+      <tr>
+        <th>Handle</th>
+        <th>Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>alice</td>
+        <td>
+          <div class="flair">
+            <div class="flair__item">Online</div>
+            <div class="flair__item -hover"><a href="#">Message</a></div>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td>bob</td>
+        <td>
+          <div class="flair">
+            <div class="flair__item">Away</div>
+            <div class="flair__item -hover"><a href="#">Message</a></div>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</Demo>
+
+## Empty state
+
+A flair with no items (or no visible children) collapses to `display: none` via `:empty` — no empty spacing when there's nothing to show.

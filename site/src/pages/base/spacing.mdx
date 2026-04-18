@@ -1,0 +1,45 @@
+---
+layout: ../../layouts/Page.astro
+title: Spacing
+description: Sleek's spacing and layout utilities
+---
+
+import Scale from "../../components/Scale.astro";
+
+# Spacing
+
+Sleek's spacing follows a rem-based scale. Utility classes in `_space.scss` provide direct margin and padding control.
+
+<Scale
+  rows={[
+    { token: "0", value: "0" },
+    { token: "0.25", value: "0.25rem / 4px" },
+    { token: "0.5", value: "0.5rem / 8px" },
+    { token: "0.75", value: "0.75rem / 12px" },
+    { token: "1", value: "1rem / 16px" },
+    { token: "1.25", value: "1.25rem / 20px" },
+    { token: "1.5", value: "1.5rem / 24px" },
+    { token: "2", value: "2rem / 32px" },
+    { token: "3", value: "3rem / 48px" },
+  ]}
+/>
+
+## Margin utilities
+
+Utility classes follow the pattern `.m{side}-{step}` where side is `t/r/b/l/x/y` or blank for all sides.
+
+```html
+<div class="mt-1">margin-top: 1rem</div>
+<div class="mb-2">margin-bottom: 2rem</div>
+<div class="mx-1">margin-left and margin-right: 1rem</div>
+<div class="m-0">margin: 0</div>
+```
+
+## Padding utilities
+
+Same pattern with `p` prefix: `.p-{step}`, `.px-{step}`, `.pt-{step}`, etc.
+
+```html
+<div class="p-1">padding: 1rem</div>
+<div class="px-2 py-1">padding: 1rem 2rem</div>
+```

@@ -1,0 +1,65 @@
+---
+const base = import.meta.env.BASE_URL.replace(/\/$/, "");
+const path = (p: string) => `${base}${p}`;
+const current = Astro.url.pathname.replace(/\/$/, "");
+const isCurrent = (href: string) => current === href.replace(/\/$/, "");
+
+const sections = [
+  {
+    title: "Getting started",
+    items: [{ href: path("/"), label: "Overview" }],
+  },
+  {
+    title: "Base",
+    items: [
+      { href: path("/base/typography/"), label: "Typography" },
+      { href: path("/base/color/"), label: "Color" },
+      { href: path("/base/spacing/"), label: "Spacing" },
+    ],
+  },
+  {
+    title: "Components",
+    items: [
+      { href: path("/components/alert/"), label: "Alert" },
+      { href: path("/components/button/"), label: "Button" },
+      { href: path("/components/form/"), label: "Form" },
+      { href: path("/components/label/"), label: "Label" },
+      { href: path("/components/panel/"), label: "Panel" },
+      { href: path("/components/progress/"), label: "Progress" },
+      { href: path("/components/table/"), label: "Table" },
+    ],
+  },
+  {
+    title: "Widgets",
+    items: [
+      { href: path("/widgets/dropdown/"), label: "Dropdown" },
+      { href: path("/widgets/flair/"), label: "Flair" },
+      { href: path("/widgets/modal/"), label: "Modal" },
+      { href: path("/widgets/pagination/"), label: "Pagination" },
+      { href: path("/widgets/switch/"), label: "Switch" },
+    ],
+  },
+];
+---
+
+<nav class="site__nav">
+  {
+    sections.map((section) => (
+      <>
+        <h4>{section.title}</h4>
+        <ul>
+          {section.items.map((item) => (
+            <li>
+              <a
+                href={item.href}
+                aria-current={isCurrent(item.href) ? "page" : undefined}
+              >
+                {item.label}
+              </a>
+            </li>
+          ))}
+        </ul>
+      </>
+    ))
+  }
+</nav>

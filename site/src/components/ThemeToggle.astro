@@ -1,0 +1,31 @@
+---
+// Toggles the dark theme by:
+//  1. Setting [data-theme="dark"] on <html> (for any attribute-scoped styles).
+//  2. Flipping the media attribute on #sleek-dark-theme between "all" and
+//     "not all" — the sleek/themes/dark stylesheet is loaded-but-inactive by
+//     default, so switching media is instant with no network delay.
+// Persisted to localStorage. The initial apply runs as an inline head script
+// in Page.astro to avoid a flash on first paint.
+---
+
+<button class="btn -simple theme-toggle" type="button" aria-label="Toggle theme">
+  Theme
+</button>
+
+<script>
+  const button = document.querySelector(".theme-toggle");
+  const link = document.getElementById("sleek-dark-theme") as HTMLLinkElement | null;
+
+  button?.addEventListener("click", () => {
+    const current = document.documentElement.getAttribute("data-theme");
+    if (current === "dark") {
+      document.documentElement.removeAttribute("data-theme");
+      if (link) link.media = "not all";
+      localStorage.removeItem("sleek-theme");
+    } else {
+      document.documentElement.setAttribute("data-theme", "dark");
+      if (link) link.media = "all";
+      localStorage.setItem("sleek-theme", "dark");
+    }
+  });
+</script>

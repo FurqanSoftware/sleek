@@ -2,6 +2,9 @@
   "name": "sleek",
   "version": "2.13.2",
   "description": "Toph's base stylesheets",
+  "workspaces": [
+    "site"
+  ],
   "scripts": {
     "build": "npm-run-all build:css build:js",
     "build:css": "sass --style expanded --source-map --embed-sources --no-error-css --pkg-importer node scss/:dist/css/",
@@ -9,8 +12,9 @@
     "lint": "npm-run-all lint:js lint:css",
     "lint:js": "eslint js/",
     "lint:css": "stylelint \"scss/**/*.scss\"",
-    "docs": "npm-run-all build && hugo server --source docs/",
-    "docs:build": "npm-run-all build && hugo --source docs/"
+    "site:dev": "npm run dev -w site",
+    "site:build": "npm run build -w site",
+    "site:preview": "npm run preview -w site"
   },
   "main": "dist/js/sleek.js",
   "module": "dist/js/sleek.esm.js",

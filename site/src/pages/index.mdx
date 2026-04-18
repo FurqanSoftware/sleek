@@ -1,0 +1,58 @@
+---
+layout: ../layouts/Page.astro
+title: Overview
+description: Sleek — the UI library powering Toph
+---
+
+import Demo from "../components/Demo.astro";
+
+# Sleek
+
+Sleek is the UI library powering [Toph](https://toph.co/). It provides SCSS stylesheets and lightweight JavaScript widgets that implement Toph's look and feel.
+
+This showcase covers sleek's full surface: base design tokens (typography, color, spacing), core components (panels, alerts, buttons, forms), and interactive widgets (dropdowns, modals, and more). Every entry shows a live rendered demo next to its copyable source.
+
+## Philosophy
+
+Sleek separates concerns across three layers:
+
+- **HTML → semantic elements + ARIA.** Accessibility is a prerequisite, not an afterthought.
+- **CSS → BEM classes for appearance, ARIA attributes for state.** Style variants via classes; state like open/invalid/pressed via `[aria-*]` attributes.
+- **JS behavior → ARIA roles.** Keyboard navigation and interactive behavior query by `[role="option"]`, `[role="menuitem"]`, etc., so accessible markup is a prerequisite for features to work.
+
+<Demo>
+  <div class="alert -blue">
+    This site is a live showcase of sleek, built with Astro.
+  </div>
+</Demo>
+
+## Using sleek
+
+Install from npm:
+
+```sh
+npm install sleek
+```
+
+Import the full stylesheet:
+
+```scss
+@use "sleek";
+@use "sleek/themes/light";
+```
+
+Or import individual widgets:
+
+```scss
+@use "sleek/widgets/dropdown";
+@use "sleek/widgets/modal";
+```
+
+For interactive widgets, mount the root handler once per page:
+
+```js
+import Dropdown from "sleek/widgets/dropdown";
+new Dropdown.Root(document.body);
+```
+
+See [FurqanSoftware/sleek](https://github.com/FurqanSoftware/sleek) for the repository and full docs.
