@@ -20,10 +20,8 @@
         flex-wrap: nowrap;
     }
 
-    .icon {
-        + .text {
-            margin-left: 0.5rem;
-        }
+    .icon + .text {
+        margin-left: 0.5rem;
     }
 
     &:empty {
