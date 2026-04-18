@@ -52,10 +52,12 @@ var dom = {
     el.removeEventListener(event, callback);
   },
   once: function once(el, event, callback) {
-    var _arguments = arguments,
-      _this = this;
+    var _this = this;
     var handler = function handler() {
-      callback.apply(_this, _arguments);
+      for (var _len = arguments.length, args = new Array(_len), _key = 0; _key < _len; _key++) {
+        args[_key] = arguments[_key];
+      }
+      callback.apply(_this, args);
       el.removeEventListener(event, handler);
     };
     el.addEventListener(event, handler);
@@ -64,20 +66,20 @@ var dom = {
     return el.classList.contains(className);
   },
   addClass: function addClass(el) {
-    for (var _len = arguments.length, className = new Array(_len > 1 ? _len - 1 : 0), _key = 1; _key < _len; _key++) {
-      className[_key - 1] = arguments[_key];
+    for (var _len2 = arguments.length, className = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
+      className[_key2 - 1] = arguments[_key2];
     }
     el.classList.add.apply(el.classList, className);
   },
   removeClass: function removeClass(el) {
-    for (var _len2 = arguments.length, className = new Array(_len2 > 1 ? _len2 - 1 : 0), _key2 = 1; _key2 < _len2; _key2++) {
-      className[_key2 - 1] = arguments[_key2];
+    for (var _len3 = arguments.length, className = new Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {
+      className[_key3 - 1] = arguments[_key3];
     }
     el.classList.remove.apply(el.classList, className);
   },
   toggleClass: function toggleClass(el) {
-    for (var _len3 = arguments.length, className = new Array(_len3 > 1 ? _len3 - 1 : 0), _key3 = 1; _key3 < _len3; _key3++) {
-      className[_key3 - 1] = arguments[_key3];
+    for (var _len4 = arguments.length, className = new Array(_len4 > 1 ? _len4 - 1 : 0), _key4 = 1; _key4 < _len4; _key4++) {
+      className[_key4 - 1] = arguments[_key4];
     }
     for (var _i2 = 0, _className = className; _i2 < _className.length; _i2++) {
       var c = _className[_i2];
@@ -130,7 +132,7 @@ var fn = {
   defer: function defer(func) {
     setTimeout(function () {
       func();
-    });
+    }, 1);
   },
   wrap: function wrap(func, other) {
     return function () {

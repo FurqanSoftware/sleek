@@ -13,6 +13,9 @@
 .flair.-inline {
   flex-wrap: nowrap;
 }
+.flair .icon {
+  color: var(--sleek-text-default-color);
+}
 .flair .icon + .text {
   margin-left: 0.5rem;
 }
