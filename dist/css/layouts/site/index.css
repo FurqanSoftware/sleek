@@ -1,6 +1,5 @@
 :root {
   --sleek-site-pmenu-item-hover-background-color: #f1f5f9;
-  --sleek-site-pmenu-icon-filter: none;
   --sleek-site-pmenu-item-label-background-color: rgba(220, 38, 38, 0.75);
   --sleek-site-pmenu-item-label-color: rgba(255, 255, 255, 0.9);
 }
@@ -53,15 +52,13 @@ body.-staging {
   text-decoration: none;
   transition: background-color 125ms ease-in;
 }
-.pmenu__item.-link > img,
-.pmenu__item.-link .dropdown__toggle img, .pmenu__item.-drop > a > img,
-.pmenu__item.-drop > a .dropdown__toggle img {
+.pmenu__item.-link > .icon,
+.pmenu__item.-link .dropdown__toggle .icon, .pmenu__item.-drop > a > .icon,
+.pmenu__item.-drop > a .dropdown__toggle .icon {
   display: block;
   opacity: 0.35;
+  color: var(--sleek-text-muted-color);
   transition: opacity 125ms ease-in;
-}
-.pmenu__item.-link .icon, .pmenu__item.-drop > a .icon {
-  filter: var(--sleek-site-pmenu-icon-filter);
 }
 .pmenu__item.-link:hover, .pmenu__item.-link:focus, .pmenu__item.-drop > a:hover, .pmenu__item.-drop > a:focus {
   text-decoration: none;
