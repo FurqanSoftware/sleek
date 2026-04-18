@@ -3,32 +3,36 @@
 @use "../../palette";
 
 .flair {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.25em 1rem;
+
+  &__item {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.25em 1rem;
+    align-items: center;
 
-    &__item {
-        display: flex;
-        align-items: center;
-
-        &.-hover {
-            display: none;
-        }
+    &.-hover {
+      display: none;
     }
+  }
 
-    &.-inline {
-        flex-wrap: nowrap;
-    }
+  &.-inline {
+    flex-wrap: nowrap;
+  }
 
-    .icon + .text {
-        margin-left: 0.5rem;
-    }
+  .icon {
+    color: var(--sleek-text-default-color);
 
-    &:empty {
-        display: none;
+    + .text {
+      margin-left: 0.5rem;
     }
+  }
+
+  &:empty {
+    display: none;
+  }
 }
 
 tr:hover .flair > .flair__item.-hover {
-    display: inline-block;
+  display: inline-block;
 }
