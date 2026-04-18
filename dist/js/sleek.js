@@ -839,6 +839,15 @@ class Dropdown {
             this.focusItemByIndex(items.length - 1);
             break;
           }
+        case "Enter":
+        case " ":
+          {
+            if (items.includes(document.activeElement)) {
+              event.preventDefault();
+              document.activeElement.click();
+            }
+            break;
+          }
         default:
           {
             if (event.key.length === 1 && !event.ctrlKey && !event.metaKey && !event.altKey && !this.isInputFocused()) {
