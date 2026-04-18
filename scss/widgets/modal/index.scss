@@ -68,6 +68,9 @@ $modal-widths: (
     }
 
     &__head {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
         padding: 1rem 1.25rem;
 
         &.-socle {
@@ -81,12 +84,22 @@ $modal-widths: (
         }
     }
 
+    &__title {
+        flex: 1;
+    }
+
     &__cross {
         display: block;
-        float: right;
+        flex-shrink: 0;
         width: 2rem;
         height: 2rem;
         margin-right: -0.375rem;
+        padding: 0;
+        border: 0;
+        background: transparent;
+        color: inherit;
+        font: inherit;
+        cursor: pointer;
         text-align: center;
     }
 
