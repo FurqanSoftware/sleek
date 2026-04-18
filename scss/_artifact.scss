@@ -3,8 +3,12 @@
 @use "./const";
 @use "./palette";
 
+// .artifact is a content container for rendered prose (Markdown, CMS output).
+// Bare element selectors scoped here are intentional — you can't BEM markup
+// you don't control.
+
 .artifact {
-    line-height: 2em;
+    line-height: 1.75;
 
     &,
     &__fragment {
@@ -21,20 +25,18 @@
         }
     }
 
-    h1 {
-        line-height: 1.85em;
+    :is(h1, h2, h3, h4) {
+        line-height: 1.25;
     }
 
-    h2 {
-        line-height: 1.5em;
+    ul,
+    ol {
+        padding-left: 1.5rem;
     }
 
-    h3 {
-        line-height: 1.35em;
-    }
-
-    h4 {
-        line-height: 1.2em;
+    pre {
+        max-width: 100%;
+        overflow-x: auto;
     }
 
     table {
