@@ -90,7 +90,6 @@ class Dropdown {
         }
         default: {
           if (
-            this.canSourceSelect() &&
             event.key.length === 1 &&
             !event.ctrlKey &&
             !event.metaKey &&
