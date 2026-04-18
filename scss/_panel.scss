@@ -60,18 +60,14 @@
     &__head {
         padding: 1rem 1.25rem;
 
-        &::after {
-            content: "";
-            display: block;
-            clear: both;
-        }
-
         &.-socle {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
             border-bottom: 1px solid var(--sleek-surface-border-color);
             box-shadow: 0 0.125rem 0.125rem var(--sleek-shadow-color-0);
 
             .tabsbox {
-                margin-top: 1rem;
                 margin-bottom: -1rem;
             }
         }
