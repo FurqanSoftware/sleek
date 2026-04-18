@@ -5,7 +5,6 @@
 
 :root {
     --sleek-site-pmenu-item-hover-background-color: #{palette.$slate-100};
-    --sleek-site-pmenu-icon-filter: none;
     --sleek-site-pmenu-item-label-background-color: #{rgba(
             palette.$red-600,
             0.75
@@ -75,15 +74,12 @@ body {
             text-decoration: none;
             transition: background-color const.$fast ease-in;
 
-            > img,
-            .dropdown__toggle img {
+            > .icon,
+            .dropdown__toggle .icon {
                 display: block;
                 opacity: 0.35;
+                color: var(--sleek-text-muted-color);
                 transition: opacity const.$fast ease-in;
-            }
-
-            .icon {
-                filter: var(--sleek-site-pmenu-icon-filter);
             }
 
             &:hover,
