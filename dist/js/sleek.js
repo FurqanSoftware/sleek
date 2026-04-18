@@ -841,7 +841,7 @@ class Dropdown {
           }
         default:
           {
-            if (this.canSourceSelect() && event.key.length === 1 && !event.ctrlKey && !event.metaKey && !event.altKey && !this.isInputFocused()) {
+            if (event.key.length === 1 && !event.ctrlKey && !event.metaKey && !event.altKey && !this.isInputFocused()) {
               this.focusItemByChar(event.key, items);
             }
             break;
