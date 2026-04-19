@@ -56,6 +56,17 @@
     --sleek-button-simple-active-border-color: #{palette.$neutral-200};
     --sleek-button-simple-active-color: #{rgba(white, 0.9)};
     --sleek-button-simple-active-shadow-color: #{palette.$neutral-800};
+    --sleek-button-red-background-color: #{palette.$red-500};
+    --sleek-button-red-border-color: #{palette.$red-400};
+    --sleek-button-red-color: #{rgba(white, 0.9)};
+    --sleek-button-red-hover-border-color: #{palette.$red-200};
+    --sleek-button-red-hover-color: #{rgba(white, 0.9)};
+    --sleek-button-red-hover-shadow-color: #{palette.$red-400};
+    --sleek-button-red-focus-shadow-color: #{palette.$red-400};
+    --sleek-button-red-active-background-color: #{palette.$red-500};
+    --sleek-button-red-active-border-color: #{palette.$red-50};
+    --sleek-button-red-active-color: #{rgba(white, 0.9)};
+    --sleek-button-red-active-shadow-color: #{palette.$red-400};
     --sleek-button-subtle-hover-border-color: #{palette.$neutral-600};
     --sleek-table-border-color: #{palette.$stone-900};
     --sleek-table-row-hover-border-color: #{palette.$blue};

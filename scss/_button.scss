@@ -1,199 +1,110 @@
 // Copyright 2026 Furqan Software Ltd. All Rights Reserved.
+//
+// Buttons read from private custom properties (--_btn-*). Each variant just
+// points those at the appropriate theme tokens. State rules (hover, focus,
+// active, disabled) are defined once on .btn and use ARIA attributes as
+// source-of-truth for pressed / expanded state.
 
-@use "sass:color";
-@use "sass:math";
 @use "./const";
-@use "./palette";
 
 .btn {
-    display: inline-block;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.25rem;
     padding: 0.25rem 0.5rem;
-    border: none;
+    border: 1px solid var(--_btn-border, transparent);
     border-radius: 0.25rem;
+    background-color: var(--_btn-bg, transparent);
+    color: var(--_btn-color, inherit);
     text-align: center;
     text-decoration: none;
-    background-color: transparent;
+    cursor: pointer;
+    transition: box-shadow const.$fast ease-in;
 
+    // Interactive states need to stack above neighbors so the focused or
+    // pressed border isn't hidden by an adjacent .btngroup sibling.
     &:hover,
-    &:focus,
+    &:focus-visible,
     &:active,
-    &.-active {
+    &[aria-pressed="true"],
+    &[aria-expanded="true"] {
         position: relative;
         z-index: 2;
         text-decoration: none;
     }
 
-    &.-disabled,
-    &[disabled] {
+    &:hover {
+        border-color: var(--_btn-border-hover, var(--_btn-border));
+        color: var(--_btn-color-hover, var(--_btn-color));
+        box-shadow: inset 0 0 0 0.125rem var(--_btn-shadow-hover);
+    }
+
+    &:focus-visible {
+        border-color: var(--_btn-border-hover, var(--_btn-border));
+        color: var(--_btn-color-hover, var(--_btn-color));
+        outline: var(--sleek-link-hover-color) auto 0.25rem;
+        outline-offset: 0.25rem;
+        box-shadow: inset 0 0 0 0.125rem
+            var(--_btn-shadow-focus, var(--_btn-shadow-hover));
+    }
+
+    // Pressed (physical click), toggled-on (aria-pressed), or controlling an
+    // open disclosure (aria-expanded) all share the same pressed visual.
+    &:active,
+    &[aria-pressed="true"],
+    &[aria-expanded="true"] {
+        border-color: var(--_btn-border-active, var(--_btn-border));
+        background-color: var(--_btn-bg-active, var(--_btn-bg));
+        color: var(--_btn-color-active, var(--_btn-color));
+        box-shadow: inset 0 0 0 0.125rem var(--_btn-shadow-active);
+    }
+
+    &[disabled],
+    &[aria-disabled="true"] {
         opacity: 0.65;
+        box-shadow: none;
+        cursor: not-allowed;
+        pointer-events: none;
     }
 
     &.-block {
-        display: block;
+        display: flex;
         width: 100%;
     }
+}
 
-    .icon + .text,
-    .text + .icon {
-        margin-left: 0.25rem;
+// Themed variants — each one is a flat mapping of private vars to theme
+// tokens. Adding a new variant: add the theme tokens in themes/*.scss and
+// include the variant name below.
+@each $name in "default", "blue", "red", "simple" {
+    .btn.-#{$name} {
+        --_btn-bg: var(--sleek-button-#{$name}-background-color);
+        --_btn-border: var(--sleek-button-#{$name}-border-color);
+        --_btn-color: var(--sleek-button-#{$name}-color);
+        --_btn-border-hover: var(--sleek-button-#{$name}-hover-border-color);
+        --_btn-color-hover: var(--sleek-button-#{$name}-hover-color);
+        --_btn-shadow-hover: var(--sleek-button-#{$name}-hover-shadow-color);
+        --_btn-shadow-focus: var(--sleek-button-#{$name}-focus-shadow-color);
+        --_btn-bg-active: var(--sleek-button-#{$name}-active-background-color);
+        --_btn-border-active: var(--sleek-button-#{$name}-active-border-color);
+        --_btn-color-active: var(--sleek-button-#{$name}-active-color);
+        --_btn-shadow-active: var(--sleek-button-#{$name}-active-shadow-color);
     }
 }
 
-@mixin button-variant($name, $bg, $edge: 20%, $hover: 10%, $active: 20%) {
-    $is-dark: color.channel($bg, "lightness", $space: hsl) < 50%;
-    $text-color: if(
-        sass($is-dark): white; else: palette.$dark,
-    );
-
-    .btn {
-        &.-#{$name} {
-            border: 1px solid color.scale($bg, $lightness: (-$edge));
-            background-color: $bg;
-            color: $text-color;
-            transition: box-shadow const.$fast ease-in;
-
-            &:hover,
-            &:focus {
-                $h-bg: color.scale($bg, $lightness: (-$hover));
-                $h-is-dark: color.channel($h-bg, "lightness", $space: hsl) < 50%;
-
-                border-color: color.scale($bg, $lightness: (-($edge + $hover)));
-                color: if(sass($h-is-dark): white; else: palette.$dark);
-                box-shadow: inset 0 0 0 0.125rem
-                    color.scale(
-                        $bg,
-                        $lightness: (-($edge + math.div($hover, 2)))
-                    );
-            }
-
-            &:focus {
-                outline: var(--sleek-link-hover-color) auto 0.25rem;
-                outline-offset: 0.25rem;
-            }
-
-            &:active,
-            &.-active {
-                $a-bg: color.scale($bg, $lightness: (-$active));
-                $a-is-dark: color.channel($a-bg, "lightness", $space: hsl) < 50%;
-
-                border-color: color.scale(
-                    $bg,
-                    $lightness: (-($edge + $active))
-                );
-                background-color: $a-bg;
-                color: if(sass($a-is-dark): white; else: palette.$dark);
-                box-shadow: inset 0 0 0 0.125rem
-                    color.scale(
-                        $bg,
-                        $lightness: (-($edge + math.div($active, 2)))
-                    );
-            }
-
-            &.-disabled,
-            &[disabled] {
-                box-shadow: none;
-                cursor: not-allowed;
-            }
-        }
-    }
-
-    .-open > .btn.-#{$name}.-toggle {
-        $a-bg: color.scale($bg, $lightness: (-$active));
-        $a-is-dark: color.channel($a-bg, "lightness", $space: hsl) < 50%;
-
-        border-color: color.scale($bg, $lightness: (-($edge + $active)));
-        background-color: $a-bg;
-        color: if(sass($a-is-dark): white; else: palette.$dark);
-        box-shadow: inset 0 0 0 0.125rem
-            color.scale($bg, $lightness: (-($edge + math.div($active, 2))));
-    }
-}
-
-@include button-variant("red", palette.$red);
-
-@each $x in "default", "blue", "simple" {
-    .btn {
-        &.-#{$x} {
-            border: 1px solid var(--sleek-button-#{$x}-border-color);
-            background-color: var(--sleek-button-#{$x}-background-color);
-            color: var(--sleek-button-#{$x}-color);
-            transition: box-shadow const.$fast ease-in;
-
-            &:hover,
-            &:focus {
-                border-color: var(--sleek-button-#{$x}-hover-border-color);
-                color: var(--sleek-button-#{$x}-hover-color);
-                box-shadow: inset
-                    0
-                    0
-                    0
-                    0.125rem
-                    var(--sleek-button-#{$x}-hover-shadow-color);
-            }
-
-            &:focus {
-                outline: var(--sleek-link-hover-color) auto 0.25rem;
-                outline-offset: 0.25rem;
-                box-shadow: inset
-                    0
-                    0
-                    0
-                    0.125rem
-                    var(--sleek-button-#{$x}-focus-shadow-color);
-            }
-
-            &:active,
-            &.-active {
-                border-color: var(--sleek-button-#{$x}-active-border-color);
-                background-color: var(
-                    --sleek-button-#{$x}-active-background-color
-                );
-                color: var(--sleek-button-#{$x}-active-color);
-                box-shadow: inset
-                    0
-                    0
-                    0
-                    0.125rem
-                    var(--sleek-button-#{$x}-active-shadow-color);
-            }
-
-            &.-disabled,
-            &[disabled] {
-                box-shadow: none;
-                cursor: not-allowed;
-            }
-        }
-    }
-
-    .-open > .btn.-#{$x}.-toggle {
-        border-color: var(--sleek-button-#{$x}-active-border-color);
-        background-color: var(--sleek-button-#{$x}-active-background-color);
-        color: var(--sleek-button-#{$x}-active-color);
-        box-shadow: inset
-            0
-            0
-            0
-            0.125rem
-            var(--sleek-button-#{$x}-active-shadow-color);
-    }
-}
-
+// Subtle: transparent at rest; border on hover, shaded background when pressed.
 .btn.-subtle {
-    border: 1px solid transparent;
-    background-color: transparent;
-    color: var(--sleek-text-default-color);
-
-    &:hover,
-    &:focus {
-        border-color: var(--sleek-button-subtle-hover-border-color);
-        color: var(--sleek-text-default-color);
-    }
-
-    .-open > &.-toggle {
-        border-color: color.scale(white, $lightness: -40%);
-        background-color: color.scale(white, $lightness: -20%);
-        color: var(--sleek-text-default-color);
-    }
+    --_btn-bg: transparent;
+    --_btn-border: transparent;
+    --_btn-color: var(--sleek-text-default-color);
+    --_btn-border-hover: var(--sleek-button-subtle-hover-border-color);
+    --_btn-color-hover: var(--sleek-text-default-color);
+    --_btn-shadow-hover: transparent;
+    --_btn-shadow-focus: var(--sleek-button-subtle-hover-border-color);
+    --_btn-bg-active: var(--sleek-surface-shade-background-color);
+    --_btn-border-active: var(--sleek-surface-border-color);
+    --_btn-color-active: var(--sleek-text-default-color);
+    --_btn-shadow-active: transparent;
 }
 
 .btngroup {
