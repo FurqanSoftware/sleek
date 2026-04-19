@@ -51,6 +51,17 @@
   --sleek-button-simple-active-border-color: #262626;
   --sleek-button-simple-active-color: rgba(12, 10, 9, 0.9);
   --sleek-button-simple-active-shadow-color: #e5e5e5;
+  --sleek-button-red-background-color: #ef4444;
+  --sleek-button-red-border-color: #dc2626;
+  --sleek-button-red-color: rgba(255, 255, 255, 0.9);
+  --sleek-button-red-hover-border-color: #991b1b;
+  --sleek-button-red-hover-color: rgba(255, 255, 255, 0.9);
+  --sleek-button-red-hover-shadow-color: #dc2626;
+  --sleek-button-red-focus-shadow-color: #dc2626;
+  --sleek-button-red-active-background-color: #dc2626;
+  --sleek-button-red-active-border-color: #450a0a;
+  --sleek-button-red-active-color: rgba(255, 255, 255, 0.9);
+  --sleek-button-red-active-shadow-color: #dc2626;
   --sleek-button-subtle-hover-border-color: #a3a3a3;
   --sleek-table-border-color: #f5f5f4;
   --sleek-table-row-hover-border-color: #3598dc;

@@ -177,6 +177,17 @@ optgroup {
   --sleek-button-simple-active-border-color: #262626;
   --sleek-button-simple-active-color: rgba(12, 10, 9, 0.9);
   --sleek-button-simple-active-shadow-color: #e5e5e5;
+  --sleek-button-red-background-color: #ef4444;
+  --sleek-button-red-border-color: #dc2626;
+  --sleek-button-red-color: rgba(255, 255, 255, 0.9);
+  --sleek-button-red-hover-border-color: #991b1b;
+  --sleek-button-red-hover-color: rgba(255, 255, 255, 0.9);
+  --sleek-button-red-hover-shadow-color: #dc2626;
+  --sleek-button-red-focus-shadow-color: #dc2626;
+  --sleek-button-red-active-background-color: #dc2626;
+  --sleek-button-red-active-border-color: #450a0a;
+  --sleek-button-red-active-color: rgba(255, 255, 255, 0.9);
+  --sleek-button-red-active-shadow-color: #dc2626;
   --sleek-button-subtle-hover-border-color: #a3a3a3;
   --sleek-table-border-color: #f5f5f4;
   --sleek-table-row-hover-border-color: #3598dc;
@@ -1751,179 +1762,121 @@ table:not(.tablebox table) tr > :last-child {
 }
 
 .btn {
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.25rem;
   padding: 0.25rem 0.5rem;
-  border: none;
+  border: 1px solid var(--_btn-border, transparent);
   border-radius: 0.25rem;
+  background-color: var(--_btn-bg, transparent);
+  color: var(--_btn-color, inherit);
   text-align: center;
   text-decoration: none;
-  background-color: transparent;
+  cursor: pointer;
+  transition: box-shadow 125ms ease-in;
 }
-.btn:hover, .btn:focus, .btn:active, .btn.-active {
+.btn:hover, .btn:focus-visible, .btn:active, .btn[aria-pressed=true], .btn[aria-expanded=true], .btn.-active {
   position: relative;
   z-index: 2;
   text-decoration: none;
 }
-.btn.-disabled, .btn[disabled] {
-  opacity: 0.65;
+.btn:hover {
+  border-color: var(--_btn-border-hover, var(--_btn-border));
+  color: var(--_btn-color-hover, var(--_btn-color));
+  box-shadow: inset 0 0 0 0.125rem var(--_btn-shadow-hover);
 }
-.btn.-block {
-  display: block;
-  width: 100%;
-}
-.btn .icon + .text,
-.btn .text + .icon {
-  margin-left: 0.25rem;
-}
-
-.btn.-red {
-  border: 1px solid rgb(226.242364532, 19.357635468, 19.357635468);
-  background-color: #ef4444;
-  color: #0c0a09;
-  transition: box-shadow 125ms ease-in;
-}
-.btn.-red:hover, .btn.-red:focus {
-  border-color: rgb(197.9620689655, 16.9379310345, 16.9379310345);
-  color: #0c0a09;
-  box-shadow: inset 0 0 0 0.125rem rgb(212.1022167488, 18.1477832512, 18.1477832512);
-}
-.btn.-red:focus {
+.btn:focus-visible {
+  border-color: var(--_btn-border-hover, var(--_btn-border));
+  color: var(--_btn-color-hover, var(--_btn-color));
   outline: var(--sleek-link-hover-color) auto 0.25rem;
   outline-offset: 0.25rem;
+  box-shadow: inset 0 0 0 0.125rem var(--_btn-shadow-focus, var(--_btn-shadow-hover));
 }
-.btn.-red:active, .btn.-red.-active {
-  border-color: rgb(169.681773399, 14.518226601, 14.518226601);
-  background-color: rgb(226.242364532, 19.357635468, 19.357635468);
-  color: white;
-  box-shadow: inset 0 0 0 0.125rem rgb(197.9620689655, 16.9379310345, 16.9379310345);
+.btn:active, .btn[aria-pressed=true], .btn[aria-expanded=true], .btn.-active {
+  border-color: var(--_btn-border-active, var(--_btn-border));
+  background-color: var(--_btn-bg-active, var(--_btn-bg));
+  color: var(--_btn-color-active, var(--_btn-color));
+  box-shadow: inset 0 0 0 0.125rem var(--_btn-shadow-active);
 }
-.btn.-red.-disabled, .btn.-red[disabled] {
+.btn[disabled], .btn[aria-disabled=true] {
+  opacity: 0.65;
   box-shadow: none;
   cursor: not-allowed;
+  pointer-events: none;
 }
-
-.-open > .btn.-red.-toggle {
-  border-color: rgb(169.681773399, 14.518226601, 14.518226601);
-  background-color: rgb(226.242364532, 19.357635468, 19.357635468);
-  color: white;
-  box-shadow: inset 0 0 0 0.125rem rgb(197.9620689655, 16.9379310345, 16.9379310345);
+.btn.-block {
+  display: flex;
+  width: 100%;
 }
 
 .btn.-default {
-  border: 1px solid var(--sleek-button-default-border-color);
-  background-color: var(--sleek-button-default-background-color);
-  color: var(--sleek-button-default-color);
-  transition: box-shadow 125ms ease-in;
-}
-.btn.-default:hover, .btn.-default:focus {
-  border-color: var(--sleek-button-default-hover-border-color);
-  color: var(--sleek-button-default-hover-color);
-  box-shadow: inset 0 0 0 0.125rem var(--sleek-button-default-hover-shadow-color);
-}
-.btn.-default:focus {
-  outline: var(--sleek-link-hover-color) auto 0.25rem;
-  outline-offset: 0.25rem;
-  box-shadow: inset 0 0 0 0.125rem var(--sleek-button-default-focus-shadow-color);
-}
-.btn.-default:active, .btn.-default.-active {
-  border-color: var(--sleek-button-default-active-border-color);
-  background-color: var(--sleek-button-default-active-background-color);
-  color: var(--sleek-button-default-active-color);
-  box-shadow: inset 0 0 0 0.125rem var(--sleek-button-default-active-shadow-color);
-}
-.btn.-default.-disabled, .btn.-default[disabled] {
-  box-shadow: none;
-  cursor: not-allowed;
-}
-
-.-open > .btn.-default.-toggle {
-  border-color: var(--sleek-button-default-active-border-color);
-  background-color: var(--sleek-button-default-active-background-color);
-  color: var(--sleek-button-default-active-color);
-  box-shadow: inset 0 0 0 0.125rem var(--sleek-button-default-active-shadow-color);
+  --_btn-bg: var(--sleek-button-default-background-color);
+  --_btn-border: var(--sleek-button-default-border-color);
+  --_btn-color: var(--sleek-button-default-color);
+  --_btn-border-hover: var(--sleek-button-default-hover-border-color);
+  --_btn-color-hover: var(--sleek-button-default-hover-color);
+  --_btn-shadow-hover: var(--sleek-button-default-hover-shadow-color);
+  --_btn-shadow-focus: var(--sleek-button-default-focus-shadow-color);
+  --_btn-bg-active: var(--sleek-button-default-active-background-color);
+  --_btn-border-active: var(--sleek-button-default-active-border-color);
+  --_btn-color-active: var(--sleek-button-default-active-color);
+  --_btn-shadow-active: var(--sleek-button-default-active-shadow-color);
 }
 
 .btn.-blue {
-  border: 1px solid var(--sleek-button-blue-border-color);
-  background-color: var(--sleek-button-blue-background-color);
-  color: var(--sleek-button-blue-color);
-  transition: box-shadow 125ms ease-in;
-}
-.btn.-blue:hover, .btn.-blue:focus {
-  border-color: var(--sleek-button-blue-hover-border-color);
-  color: var(--sleek-button-blue-hover-color);
-  box-shadow: inset 0 0 0 0.125rem var(--sleek-button-blue-hover-shadow-color);
-}
-.btn.-blue:focus {
-  outline: var(--sleek-link-hover-color) auto 0.25rem;
-  outline-offset: 0.25rem;
-  box-shadow: inset 0 0 0 0.125rem var(--sleek-button-blue-focus-shadow-color);
-}
-.btn.-blue:active, .btn.-blue.-active {
-  border-color: var(--sleek-button-blue-active-border-color);
-  background-color: var(--sleek-button-blue-active-background-color);
-  color: var(--sleek-button-blue-active-color);
-  box-shadow: inset 0 0 0 0.125rem var(--sleek-button-blue-active-shadow-color);
-}
-.btn.-blue.-disabled, .btn.-blue[disabled] {
-  box-shadow: none;
-  cursor: not-allowed;
+  --_btn-bg: var(--sleek-button-blue-background-color);
+  --_btn-border: var(--sleek-button-blue-border-color);
+  --_btn-color: var(--sleek-button-blue-color);
+  --_btn-border-hover: var(--sleek-button-blue-hover-border-color);
+  --_btn-color-hover: var(--sleek-button-blue-hover-color);
+  --_btn-shadow-hover: var(--sleek-button-blue-hover-shadow-color);
+  --_btn-shadow-focus: var(--sleek-button-blue-focus-shadow-color);
+  --_btn-bg-active: var(--sleek-button-blue-active-background-color);
+  --_btn-border-active: var(--sleek-button-blue-active-border-color);
+  --_btn-color-active: var(--sleek-button-blue-active-color);
+  --_btn-shadow-active: var(--sleek-button-blue-active-shadow-color);
 }
 
-.-open > .btn.-blue.-toggle {
-  border-color: var(--sleek-button-blue-active-border-color);
-  background-color: var(--sleek-button-blue-active-background-color);
-  color: var(--sleek-button-blue-active-color);
-  box-shadow: inset 0 0 0 0.125rem var(--sleek-button-blue-active-shadow-color);
+.btn.-red {
+  --_btn-bg: var(--sleek-button-red-background-color);
+  --_btn-border: var(--sleek-button-red-border-color);
+  --_btn-color: var(--sleek-button-red-color);
+  --_btn-border-hover: var(--sleek-button-red-hover-border-color);
+  --_btn-color-hover: var(--sleek-button-red-hover-color);
+  --_btn-shadow-hover: var(--sleek-button-red-hover-shadow-color);
+  --_btn-shadow-focus: var(--sleek-button-red-focus-shadow-color);
+  --_btn-bg-active: var(--sleek-button-red-active-background-color);
+  --_btn-border-active: var(--sleek-button-red-active-border-color);
+  --_btn-color-active: var(--sleek-button-red-active-color);
+  --_btn-shadow-active: var(--sleek-button-red-active-shadow-color);
 }
 
 .btn.-simple {
-  border: 1px solid var(--sleek-button-simple-border-color);
-  background-color: var(--sleek-button-simple-background-color);
-  color: var(--sleek-button-simple-color);
-  transition: box-shadow 125ms ease-in;
-}
-.btn.-simple:hover, .btn.-simple:focus {
-  border-color: var(--sleek-button-simple-hover-border-color);
-  color: var(--sleek-button-simple-hover-color);
-  box-shadow: inset 0 0 0 0.125rem var(--sleek-button-simple-hover-shadow-color);
-}
-.btn.-simple:focus {
-  outline: var(--sleek-link-hover-color) auto 0.25rem;
-  outline-offset: 0.25rem;
-  box-shadow: inset 0 0 0 0.125rem var(--sleek-button-simple-focus-shadow-color);
-}
-.btn.-simple:active, .btn.-simple.-active {
-  border-color: var(--sleek-button-simple-active-border-color);
-  background-color: var(--sleek-button-simple-active-background-color);
-  color: var(--sleek-button-simple-active-color);
-  box-shadow: inset 0 0 0 0.125rem var(--sleek-button-simple-active-shadow-color);
-}
-.btn.-simple.-disabled, .btn.-simple[disabled] {
-  box-shadow: none;
-  cursor: not-allowed;
-}
-
-.-open > .btn.-simple.-toggle {
-  border-color: var(--sleek-button-simple-active-border-color);
-  background-color: var(--sleek-button-simple-active-background-color);
-  color: var(--sleek-button-simple-active-color);
-  box-shadow: inset 0 0 0 0.125rem var(--sleek-button-simple-active-shadow-color);
+  --_btn-bg: var(--sleek-button-simple-background-color);
+  --_btn-border: var(--sleek-button-simple-border-color);
+  --_btn-color: var(--sleek-button-simple-color);
+  --_btn-border-hover: var(--sleek-button-simple-hover-border-color);
+  --_btn-color-hover: var(--sleek-button-simple-hover-color);
+  --_btn-shadow-hover: var(--sleek-button-simple-hover-shadow-color);
+  --_btn-shadow-focus: var(--sleek-button-simple-focus-shadow-color);
+  --_btn-bg-active: var(--sleek-button-simple-active-background-color);
+  --_btn-border-active: var(--sleek-button-simple-active-border-color);
+  --_btn-color-active: var(--sleek-button-simple-active-color);
+  --_btn-shadow-active: var(--sleek-button-simple-active-shadow-color);
 }
 
 .btn.-subtle {
-  border: 1px solid transparent;
-  background-color: transparent;
-  color: var(--sleek-text-default-color);
-}
-.btn.-subtle:hover, .btn.-subtle:focus {
-  border-color: var(--sleek-button-subtle-hover-border-color);
-  color: var(--sleek-text-default-color);
-}
-.-open > .btn.-subtle.-toggle {
-  border-color: #999999;
-  background-color: #cccccc;
-  color: var(--sleek-text-default-color);
+  --_btn-bg: transparent;
+  --_btn-border: transparent;
+  --_btn-color: var(--sleek-text-default-color);
+  --_btn-border-hover: var(--sleek-button-subtle-hover-border-color);
+  --_btn-color-hover: var(--sleek-text-default-color);
+  --_btn-shadow-hover: transparent;
+  --_btn-shadow-focus: var(--sleek-button-subtle-hover-border-color);
+  --_btn-bg-active: var(--sleek-surface-shade-background-color);
+  --_btn-border-active: var(--sleek-surface-border-color);
+  --_btn-color-active: var(--sleek-text-default-color);
+  --_btn-shadow-active: transparent;
 }
 
 .btngroup {
@@ -2149,6 +2102,7 @@ table:not(.tablebox table) tr > :last-child {
   }
 }
 .dashlet {
+  position: relative;
   margin-bottom: 0.5rem;
   border: 1px solid var(--sleek-surface-border-color);
   border-radius: 0.25rem;
@@ -2158,91 +2112,84 @@ table:not(.tablebox table) tr > :last-child {
   box-shadow: 0 0.0625rem 0.125rem var(--sleek-shadow-color-1);
 }
 .dashlet.-active, .dashlet.-active:hover {
-  border-color: #3598dc;
-}
-.dashlet.-xs {
-  margin-bottom: 0.25rem;
+  border-color: var(--sleek-surface-highlight-border-color);
 }
 .dashlet.-subtle {
   border: none;
   box-shadow: none;
 }
-.dashlet__body {
+.dashlet__mark {
   position: absolute;
-  right: 1rem;
+  top: 0;
+  left: -2rem;
+  width: 4.25rem;
+  height: 4.25rem;
+  padding: 0.5rem 0 0 1rem;
+  font-size: 6.25rem;
+  line-height: 1;
+  opacity: 0.0625;
+  pointer-events: none;
+  transition: opacity 125ms ease-in;
+}
+.dashlet__body {
   padding: 1.25rem 1rem;
-  line-height: 1em;
+  line-height: 1;
   text-align: right;
-}
-.dashlet.-sm .dashlet__body {
-  right: auto;
-  left: 1rem;
-  padding: 1rem;
-  text-align: left;
-}
-.dashlet.-xs .dashlet__body {
-  position: static;
-  padding: 0.5rem;
-  text-align: left;
-}
-.dashlet.-xs.-subtle .dashlet__body {
-  padding: 0.5rem 0;
 }
 .dashlet__stat {
   margin-bottom: 0.5rem;
   font-size: 1.5rem;
-  line-height: 1em;
-}
-.dashlet.-sm .dashlet__stat {
-  margin-bottom: 0.5rem;
-  font-size: 1.5rem;
-}
-.dashlet.-xs .dashlet__stat {
-  float: right;
-  font-size: inherit;
-  line-height: inherit;
-  color: var(--sleek-text-muted-color);
-}
-.dashlet__mark {
-  display: block;
-  float: left;
-  width: 4.25rem;
-  height: 4.25rem;
-  margin: 0 0 1rem -2rem;
-  padding: 0.5rem 0 0 1rem;
-  font-size: 6.25rem;
-  line-height: 1em;
-  opacity: 0.0625;
-  transition: opacity 125ms ease-in;
-}
-.dashlet.-sm .dashlet__mark {
-  float: right;
-  margin-bottom: 0;
-  padding-top: 0;
-  font-size: 5rem;
-}
-.dashlet.-xs .dashlet__mark {
-  float: right;
-  width: 2rem;
-  height: 1.875rem;
-  margin: 0 0.5rem 0 -2rem;
-  padding: 0;
-  font-size: 3rem;
-  opacity: 0.0325;
+  line-height: 1;
 }
 .dashlet__foot {
-  position: relative;
-  display: block;
-  clear: both;
   padding: 0.25rem 0.5rem;
   border-top: 1px solid var(--sleek-surface-border-color);
   text-align: center;
   background-color: var(--sleek-surface-shade-background-color);
 }
 .dashlet .progress {
-  position: relative;
-  clear: both;
   height: 0.5rem;
+}
+.dashlet.-flip .dashlet__mark {
+  left: auto;
+  right: -2rem;
+  padding: 0.5rem 1rem 0 0;
+  font-size: 5rem;
+}
+.dashlet.-flip .dashlet__body {
+  text-align: left;
+}
+.dashlet.-inline {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.25rem;
+}
+.dashlet.-inline .dashlet__mark {
+  position: static;
+  order: 2;
+  width: 2rem;
+  height: 1.875rem;
+  margin-right: 0.5rem;
+  padding: 0;
+  font-size: 3rem;
+  opacity: 0.0325;
+}
+.dashlet.-inline .dashlet__body {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  text-align: left;
+}
+.dashlet.-inline .dashlet__stat {
+  margin-bottom: 0;
+  margin-left: auto;
+  font-size: inherit;
+  line-height: inherit;
+  color: var(--sleek-text-muted-color);
+}
+.dashlet.-inline.-subtle .dashlet__body {
+  padding: 0.5rem 0;
 }
 a.dashlet {
   display: block;
