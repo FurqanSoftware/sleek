@@ -1,118 +1,77 @@
 // Copyright 2026 Furqan Software Ltd. All Rights Reserved.
+//
+// 12-column responsive grid built on CSS Grid.
+//
+// Usage:
+//   <div class="row">
+//     <div class="col-12 col-md-6">...</div>    <!-- 12 cols on mobile, 6 on md+ -->
+//     <div class="col-12 col-md-6">...</div>
+//   </div>
+//
+// Class naming:
+//   .col-N               — span N of 12 at all widths (mobile-first base)
+//   .col-<bp>-N          — span N at breakpoint <bp> and up (sm, md, lg, xl, xx)
+//   .col-[<bp>-]offset-N — start the item at column N+1 (pushes N columns right)
+//   .col                 — auto-distribute: takes a single track; a row of
+//                          bare .col items splits width evenly (up to 12).
+//
+// Offsets are absolute positions, not relative pushes. In a row of sibling
+// columns, `.col-offset-3` means "start at column 4," regardless of what
+// preceded you. This differs from Bootstrap's flex-based offsets (which add
+// margin-left); the visual result is the same for typical single-row
+// layouts but multi-offset arrangements behave differently.
+//
+// Gap is exposed as `--sleek-grid-gap` so consumers can override per-row.
 
-@use "sass:math";
+@use "sass:map";
+@use "./responsive";
 
 $columns: 12;
 
+:root {
+    --sleek-grid-gap: 0.5rem;
+}
+
 .row {
-    margin-right: -0.25rem;
-    margin-left: -0.25rem;
+    display: grid;
+    grid-template-columns: repeat($columns, 1fr);
+    gap: var(--sleek-grid-gap);
 }
 
-.col-xs-,
-.col-sm-,
-.col-md-,
-.col-lg- {
-    &1,
-    &2,
-    &3,
-    &4,
-    &5,
-    &6,
-    &7,
-    &8,
-    &9,
-    &10,
-    &11,
-    &12 {
-        position: relative;
-        min-height: 1px;
-        padding-right: 0.25rem;
-        padding-left: 0.25rem;
-    }
+// Auto-distribute column: takes one track. A row of 12-or-fewer bare .col
+// items splits width evenly.
+.col {
+    grid-column-end: span 1;
+    min-width: 0;
 }
 
-.col-xs- {
-    &1,
-    &2,
-    &3,
-    &4,
-    &5,
-    &6,
-    &7,
-    &8,
-    &9,
-    &10,
-    &11,
-    &12 {
-        float: left;
-    }
-}
-
-@for $i from 1 through $columns {
-    .col-xs-#{$i} {
-        width: math.percentage(math.div($i, $columns));
-    }
-}
-
-@media (width >= 768px) {
-    .col-sm- {
-        &1,
-        &2,
-        &3,
-        &4,
-        &5,
-        &6,
-        &7,
-        &8,
-        &9,
-        &10,
-        &11,
-        &12 {
-            float: left;
+@mixin column-rules($prefix) {
+    @for $i from 1 through $columns {
+        .#{$prefix}-#{$i} {
+            grid-column-end: span $i;
+            // Prevents intrinsic content from pushing the column wider than
+            // its track and breaking neighboring columns' layout.
+            min-width: 0;
         }
+    }
+
+    .#{$prefix}-offset-0 {
+        grid-column-start: auto;
     }
 
     @for $i from 1 through $columns {
-        .col-sm-#{$i} {
-            width: math.percentage(math.div($i, $columns));
-        }
-    }
-
-    @for $i from 0 through $columns {
-        .col-sm-offset-#{$i} {
-            margin-left: math.percentage(math.div($i, $columns));
+        .#{$prefix}-offset-#{$i} {
+            grid-column-start: #{$i + 1};
         }
     }
 }
 
-@media (width >= 992px) {
-    .col-md- {
-        &1,
-        &2,
-        &3,
-        &4,
-        &5,
-        &6,
-        &7,
-        &8,
-        &9,
-        &10,
-        &11,
-        &12 {
-            float: left;
-        }
-    }
+// Base tier (no breakpoint suffix): applies at all widths.
+@include column-rules("col");
 
-    @for $i from 1 through $columns {
-        .col-md-#{$i} {
-            width: math.percentage(math.div($i, $columns));
-        }
-    }
-
-    @for $i from 0 through $columns {
-        .col-md-offset-#{$i} {
-            margin-left: math.percentage(math.div($i, $columns));
-        }
+// Breakpoint-gated rules. Breakpoints sourced from _responsive.scss.
+@each $name in "sm", "md", "lg", "xl", "xx" {
+    @media (min-width: #{map.get(responsive.$breakpoints, $name)}px) {
+        @include column-rules("col-#{$name}");
     }
 }
