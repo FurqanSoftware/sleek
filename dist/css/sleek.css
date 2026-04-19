@@ -269,19 +269,6 @@ optgroup {
     max-width: 1320px;
   }
 }
-.container::before,
-.container::after,
-.row::before,
-.row::after {
-  display: table;
-  content: " ";
-}
-
-.container::after,
-.row::after {
-  clear: both;
-}
-
 :root {
   --sleek-grid-gap: 0.5rem;
 }
