@@ -2,10 +2,12 @@
 
 Sleek is the UI library powering [Toph](https://toph.co/) and related products. It provides stylesheets (SCSS) and interactive JavaScript widgets that implement Toph's look and feel.
 
+Live showcase: [furqansoftware.github.io/sleek](https://furqansoftware.github.io/sleek/) (built from `site/`).
+
 ## Overview
 
 - **SCSS components** — base utilities, content components, layout modules, and widget styles
-- **JavaScript widgets** — interactive components (Dropdown, Modal, sticky table headers)
+- **JavaScript widgets** — interactive components (Dropdown, Modal)
 - **Theme support** — light and dark themes with CSS custom properties
 - **Modular** — import only what you need, per component
 
@@ -57,29 +59,28 @@ import * as Sleek from 'sleek';
 
 | Widget | Description |
 |---|---|
-| `dropdown` | Select dropdown with search, multi-select, and HTTP backend support |
-| `modal` | Dialog with animations, backdrop, and keyboard support |
-| `theadfly` | Sticky table headers that follow the scroll position |
+| `dropdown` | Select dropdown with search, multi-select, HTTP backend support, keyboard navigation |
+| `modal` | Dialog with animations, backdrop, focus trap, and keyboard support |
 | `bellmenu` | Notification bell menu |
 | `breadcrumb` | Breadcrumb navigation |
 | `faq` | FAQ accordion |
-| `flair` | Badge and flair components |
-| `handle` | Drag handle indicator |
-| `highlight` | Text highlighting |
-| `icon` | Icon styling |
-| `occlude` | Show/hide utility |
-| `pagination` | Pagination navigation |
+| `flair` | Inline metadata groups (stats, counts, row-hover actions) |
+| `handle` | User handles / display names |
+| `highlight` | Content highlight blocks |
+| `icon` | Icon container (mask-image + `currentColor` for inheritable tinting) |
+| `occlude` | Visibility/occlusion utility |
+| `pagination` | Page navigation |
 | `pills` | Pill and tag components |
 | `strips` | Strip and banner components |
-| `switch` | Toggle switch |
+| `switch` | Toggle switch (ARIA `role="switch"`) |
 | `tabs` | Tab navigation |
-| `animate` | Animation utilities |
+| `animate` | Animation utilities (wraps `animate.css` plus custom keyframes used by Dropdown/Modal) |
 
 ### Layouts
 
 | Layout | Description |
 |---|---|
-| `site` | Main site layout with navbar |
+| `site` | Main site layout with primary navigation |
 | `arena` | Arena layout |
 | `kiosk` | Kiosk layout |
 | `splash` | Splash page layout |
@@ -93,36 +94,31 @@ import * as Sleek from 'sleek';
 
 ## Development
 
-Install dependencies:
+Install dependencies (at repo root — uses npm workspaces to cover both sleek and `site/`):
 
 ```sh
 npm install
 ```
 
-Build CSS and JavaScript:
+Build sleek's CSS and JS:
 
 ```sh
-npm run build
+npm run build              # both
+npm run build:css          # CSS only
+npm run build:js           # JS only
 ```
 
-Build only CSS or only JavaScript:
+Work on the showcase site (Astro):
 
 ```sh
-npm run build:css
-npm run build:js
+npm run site:dev           # dev server with live reload
+npm run site:build         # static build to site/dist/
+npm run site:preview       # preview the built site
 ```
 
-To run the demo locally:
-
-```sh
-npx serve
-```
-
-Then navigate to [http://localhost:3000/demo](http://localhost:3000/demo).
+The site consumes sleek's SCSS and JS directly from the sibling directories — edits to `scss/` or `js/` trigger live reload in `site:dev`.
 
 ## Output
-
-The compiled files are written to `dist/`:
 
 ```
 dist/
@@ -133,6 +129,8 @@ dist/
 │   └── widgets/           # Widget stylesheets
 └── js/
     └── sleek.js           # Bundled JavaScript (ESM)
+
+site/dist/                 # Static showcase site, deployed to GitHub Pages
 ```
 
 ## Stack
@@ -140,4 +138,5 @@ dist/
 - **SCSS** — stylesheets with modular imports
 - **Rollup + Babel** — JavaScript bundling and transpilation
 - **Autoprefixer** — CSS vendor prefix automation
+- **Astro + MDX** — the showcase site in `site/`
 - **Cypress** — end-to-end tests
