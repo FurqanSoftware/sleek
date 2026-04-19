@@ -1,12 +1,15 @@
 // Copyright 2026 Furqan Software Ltd. All Rights Reserved.
 
 @use "./const";
-@use "./palette";
 
 .dashlet {
+    // Establishes positioning context for the absolutely-positioned
+    // .dashlet__mark (decorative icon that hangs off the edge).
+    position: relative;
     margin-bottom: 0.5rem;
     border: 1px solid var(--sleek-surface-border-color);
     border-radius: 0.25rem;
+    // Clips the .dashlet__mark where it overflows the dashlet boundary.
     overflow: hidden;
     background-color: var(--sleek-surface-background-color);
     color: var(--sleek-text-default-color);
@@ -14,11 +17,7 @@
 
     &.-active,
     &.-active:hover {
-        border-color: palette.$blue;
-    }
-
-    &.-xs {
-        margin-bottom: 0.25rem;
+        border-color: var(--sleek-surface-highlight-border-color);
     }
 
     &.-subtle {
@@ -26,84 +25,35 @@
         box-shadow: none;
     }
 
-    &__body {
+    // Decorative watermark icon. Hangs off the left edge by default; clipped
+    // by the parent's overflow: hidden. Doesn't participate in document flow.
+    &__mark {
         position: absolute;
-        right: 1rem;
+        top: 0;
+        left: -2rem;
+        width: 4.25rem;
+        height: 4.25rem;
+        padding: 0.5rem 0 0 1rem;
+        font-size: 6.25rem;
+        line-height: 1;
+        opacity: 0.0625;
+        pointer-events: none;
+        transition: opacity const.$fast ease-in;
+    }
+
+    &__body {
         padding: 1.25rem 1rem;
-        line-height: 1em;
+        line-height: 1;
         text-align: right;
-    }
-
-    // Contextual body styles based on dashlet modifiers
-    &.-sm &__body {
-        right: auto;
-        left: 1rem;
-        padding: 1rem;
-        text-align: left;
-    }
-
-    &.-xs &__body {
-        position: static;
-        padding: 0.5rem;
-        text-align: left;
-    }
-
-    &.-xs.-subtle &__body {
-        padding: 0.5rem 0;
     }
 
     &__stat {
         margin-bottom: 0.5rem;
         font-size: 1.5rem;
-        line-height: 1em;
-    }
-
-    &.-sm &__stat {
-        margin-bottom: 0.5rem;
-        font-size: 1.5rem;
-    }
-
-    &.-xs &__stat {
-        float: right;
-        font-size: inherit;
-        line-height: inherit;
-        color: var(--sleek-text-muted-color);
-    }
-
-    &__mark {
-        display: block;
-        float: left;
-        width: 4.25rem;
-        height: 4.25rem;
-        margin: 0 0 1rem -2rem;
-        padding: 0.5rem 0 0 1rem;
-        font-size: 6.25rem;
-        line-height: 1em;
-        opacity: 0.0625;
-        transition: opacity const.$fast ease-in;
-    }
-
-    &.-sm &__mark {
-        float: right;
-        margin-bottom: 0;
-        padding-top: 0;
-        font-size: 5rem;
-    }
-
-    &.-xs &__mark {
-        float: right;
-        width: 2rem;
-        height: 1.875rem;
-        margin: 0 0.5rem 0 -2rem;
-        padding: 0;
-        font-size: 3rem;
-        opacity: 0.0325;
+        line-height: 1;
     }
 
     &__foot {
-        position: relative;
-        display: block;
-        clear: both;
         padding: 0.25rem 0.5rem;
         border-top: 1px solid var(--sleek-surface-border-color);
         text-align: center;
@@ -111,12 +61,60 @@
     }
 
     .progress {
-        position: relative;
-        clear: both;
         height: 0.5rem;
     }
 
-    // TARGET: a.dashlet
+    // Flip: watermark hangs off the right edge, body text aligns left.
+    &.-flip &__mark {
+        left: auto;
+        right: -2rem;
+        padding: 0.5rem 1rem 0 0;
+        font-size: 5rem;
+    }
+
+    &.-flip &__body {
+        text-align: left;
+    }
+
+    // Inline: compact horizontal layout — label on the left, stat pushed to
+    // the right, mark as a small inline icon at the end.
+    &.-inline {
+        display: flex;
+        align-items: center;
+        margin-bottom: 0.25rem;
+    }
+
+    &.-inline &__mark {
+        position: static;
+        order: 2;
+        width: 2rem;
+        height: 1.875rem;
+        margin-right: 0.5rem;
+        padding: 0;
+        font-size: 3rem;
+        opacity: 0.0325;
+    }
+
+    &.-inline &__body {
+        flex: 1;
+        display: flex;
+        align-items: center;
+        padding: 0.5rem;
+        text-align: left;
+    }
+
+    &.-inline &__stat {
+        margin-bottom: 0;
+        margin-left: auto;
+        font-size: inherit;
+        line-height: inherit;
+        color: var(--sleek-text-muted-color);
+    }
+
+    &.-inline.-subtle &__body {
+        padding: 0.5rem 0;
+    }
+
     @at-root a#{&} {
         display: block;
         text-decoration: none;
@@ -129,8 +127,9 @@
             color: var(--sleek-text-default-color);
             border-color: var(--sleek-surface-highlight-border-color);
 
+            // 0.0938 ≈ 6/64 — 50% brighter than the default 0.0625.
             .dashlet__mark {
-                opacity: 0.0938; // 0.09375
+                opacity: 0.0938;
             }
         }
     }
