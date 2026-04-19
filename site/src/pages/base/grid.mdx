@@ -1,0 +1,95 @@
+---
+layout: ../../layouts/Page.astro
+title: Grid
+description: 12-column responsive grid built on CSS Grid
+---
+
+import Demo from "../../components/Demo.astro";
+
+# Grid
+
+A 12-column responsive grid. Wrap columns in a `.row` and use mobile-first classes (`.col-N`) plus breakpoint overrides (`.col-md-N`, etc.) to control layout per screen size.
+
+## Basic
+
+<Demo>
+  <div class="row">
+    <div class="col-6">
+      <div class="panel"><div class="panel__body">col-6</div></div>
+    </div>
+    <div class="col-6">
+      <div class="panel"><div class="panel__body">col-6</div></div>
+    </div>
+  </div>
+</Demo>
+
+## Mobile-first with breakpoint overrides
+
+At narrow widths each item takes the full row. From the medium breakpoint up, they split into 3 columns.
+
+<Demo>
+  <div class="row">
+    <div class="col-12 col-md-4">
+      <div class="panel"><div class="panel__body">col-12 col-md-4</div></div>
+    </div>
+    <div class="col-12 col-md-4">
+      <div class="panel"><div class="panel__body">col-12 col-md-4</div></div>
+    </div>
+    <div class="col-12 col-md-4">
+      <div class="panel"><div class="panel__body">col-12 col-md-4</div></div>
+    </div>
+  </div>
+</Demo>
+
+## Auto-distribute
+
+Bare `.col` (no number) takes a single track. A row of bare `.col` items splits the available width evenly — no math required.
+
+<Demo>
+  <div class="row">
+    <div class="col"><div class="panel"><div class="panel__body">col</div></div></div>
+    <div class="col"><div class="panel"><div class="panel__body">col</div></div></div>
+    <div class="col"><div class="panel"><div class="panel__body">col</div></div></div>
+    <div class="col"><div class="panel"><div class="panel__body">col</div></div></div>
+  </div>
+</Demo>
+
+## Offsets
+
+`.col-offset-N` pushes a column to start at column N+1. Useful for centering or leaving leading space.
+
+<Demo>
+  <div class="row">
+    <div class="col-6 col-offset-3">
+      <div class="panel"><div class="panel__body">col-6 offset-3</div></div>
+    </div>
+  </div>
+</Demo>
+
+## Breakpoints
+
+Sleek's grid breakpoints:
+
+| Prefix | Min width |
+|---|---|
+| (base) `.col-N` | all widths |
+| `.col-sm-N` | 576px |
+| `.col-md-N` | 768px |
+| `.col-lg-N` | 992px |
+| `.col-xl-N` | 1200px |
+| `.col-xx-N` | 1400px |
+
+## Gap
+
+The gap between columns is controlled by `--sleek-grid-gap` (default `0.5rem`). Override on a specific row for tighter or looser layouts:
+
+```html
+<div class="row" style="--sleek-grid-gap: 1.5rem;">
+  <div class="col-6">...</div>
+  <div class="col-6">...</div>
+</div>
+```
+
+## Notes on offsets
+
+Grid offsets are **absolute positions**, not **relative margin pushes**. `.col-offset-3` means "start at column 4," irrespective of what preceded the item in the row. For typical single-row layouts this is indistinguishable from Bootstrap's flex-based offsets. In unusual multi-offset arrangements, explicit placement may skip columns that auto-flow wouldn't.
