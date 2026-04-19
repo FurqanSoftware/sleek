@@ -1775,7 +1775,7 @@ table:not(.tablebox table) tr > :last-child {
   cursor: pointer;
   transition: box-shadow 125ms ease-in;
 }
-.btn:hover, .btn:focus-visible, .btn:active, .btn[aria-pressed=true], .btn[aria-expanded=true], .btn.-active {
+.btn:hover, .btn:focus-visible, .btn:active, .btn[aria-pressed=true], .btn[aria-expanded=true] {
   position: relative;
   z-index: 2;
   text-decoration: none;
@@ -1792,7 +1792,7 @@ table:not(.tablebox table) tr > :last-child {
   outline-offset: 0.25rem;
   box-shadow: inset 0 0 0 0.125rem var(--_btn-shadow-focus, var(--_btn-shadow-hover));
 }
-.btn:active, .btn[aria-pressed=true], .btn[aria-expanded=true], .btn.-active {
+.btn:active, .btn[aria-pressed=true], .btn[aria-expanded=true] {
   border-color: var(--_btn-border-active, var(--_btn-border));
   background-color: var(--_btn-bg-active, var(--_btn-bg));
   color: var(--_btn-color-active, var(--_btn-color));
